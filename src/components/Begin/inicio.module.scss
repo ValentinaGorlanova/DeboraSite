@@ -1,0 +1,274 @@
+.inicial {
+    position: static;
+    //box-sizing: border-box;
+    background: #f4f7f7;
+    padding-bottom: 765px;
+    .left {
+        position: absolute;
+        width: 488px;
+        //height: 88px;
+        left: 112px;
+        margin-top: 203px;
+        .text {
+            font-family: "Playfair Display";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 44px;
+            color: #d78950;
+            span {
+                position: static;
+                width: 488px;
+                height: 160px;
+                left: 0px;
+                top: 104px;
+                font-family: "Barlow";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 32px;
+                line-height: 40px;
+                color: #a61a3e;
+                flex: none;
+                order: 1;
+                align-self: stretch;
+                flex-grow: 0;
+                margin: 16px 0px;
+            }
+        }
+        Button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 24px;
+            position: static;
+            width: 212px;
+            height: 62px;
+            left: 0px;
+            top: 0px;
+            border: none;
+            /* Primaria/01 */
+            background: #e7975d;
+            border-radius: 8px;
+            p {
+                position: static;
+                width: 164px;
+                height: 22px;
+                left: 24px;
+                top: 20px;
+                /* Button/Button Large - Barlow */
+                font-family: "Barlow";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 22px;
+                /* identical to box height */
+                display: flex;
+                align-items: center;
+                color: #f7f7f7;
+                flex: none;
+                order: 0;
+                flex-grow: 0;
+                margin: 0px 10px;
+            }
+        }
+    }
+    .img1 {
+        position: absolute;
+        height: 86px;
+        width: 56px;
+        left: 634px;
+        margin-top: 234px;
+        //margin-right: 150px;
+        //top: 234px;
+        border-radius: 0px;
+    }
+    .img2 {
+        position: absolute;
+        height: 525px;
+        width: 516px;
+        left: 844px;
+        top: 80px;
+        border-radius: 0px;
+    }
+}
+
+.inicialtext {
+    .banner {
+        position: relative;
+        height: 502px;
+        width: 1350px;
+        left: 0px;
+        top: 1px;
+        border-radius: 0px;
+        padding: 60px, 112px, 58px, 112px;
+    }
+    .textBanner {
+        position: absolute;
+        height: 40px;
+        width: 1216px;
+        left: 82px;
+        top: 786px;
+        font-family: "Playfair" Display;
+        font-size: 32px;
+        font-weight: 500 medium;
+        line-height: 40px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #ffffff;
+    }
+    .ansiedade {
+        position: absolute;
+        height: 40px;
+        width: 16px;
+        left: 82px;
+        top: 836px;
+        color: #ffffff;
+        font-weight: 500;
+        font-family: "Barlow";
+        font-style: Medium;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .text_anxiety {
+        position: absolute;
+        width: 280px;
+        height: 100px;
+        top: 880px;
+        left: 82px;
+        //top: 936px;
+        color: #ffffff;
+        font-weight: 100;
+        font-family: "Barlow";
+        font-style: Medium;
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 104%;
+    }
+    .depression {
+        position: absolute;
+        height: 40px;
+        width: 16px;
+        left: 402px;
+        top: 856px;
+        color: #ffffff;
+        font-weight: 500;
+        font-family: "Barlow";
+        font-style: Medium;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .depressionText {
+        position: absolute;
+        width: 280px;
+        height: 100px;
+        top: 890px;
+        left: 402px;
+        //top: 936px;
+        color: #ffffff;
+        font-weight: 100;
+        font-family: "Barlow";
+        font-style: Medium;
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 104%;
+    }
+    .Luto {
+        position: absolute;
+        height: 40px;
+        width: -5px;
+        left: 712px;
+        top: 840px;
+        color: #ffffff;
+        font-weight: 500;
+        font-family: "Barlow";
+        font-style: normal;
+        font-size: 20px;
+        //line-height: 28px;
+    }
+    .LutoText {
+        position: absolute;
+        width: 280px;
+        height: 100px;
+        top: 900px;
+        left: 712px;
+        //top: 936px;
+        color: #ffffff;
+        font-weight: 100;
+        font-family: "Barlow";
+        font-style: Medium;
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 104%;
+    }
+    .abuso {
+        position: absolute;
+        height: 40px;
+        width: -5px;
+        left: 1022px;
+        top: 850px;
+        color: #ffffff;
+        font-weight: 500;
+        font-family: "Barlow";
+        font-style: normal;
+        font-size: 20px;
+        //line-height: 28px;
+    }
+    .abusoText {
+        position: absolute;
+        width: 280px;
+        height: 100px;
+        top: 896px;
+        left: 1022px;
+        //top: 936px;
+        color: #ffffff;
+        font-weight: 100;
+        font-family: "Barlow";
+        font-style: Medium;
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 104%;
+    }
+}
+
+.leftImg {
+    position: relative;
+    height: 583px;
+    width: 488px;
+    left: 112px;
+    top: -38px;
+    border-radius: 0px;
+}
+
+.textLeft {
+    .final {
+        position: absolute;
+        font-family: "Playfair" Display;
+        font-style: Medium;
+        font-size: 32px;
+        line-height: 40px;
+        height: 80px;
+        width: 592px;
+        left: 690px;
+        margin-top: -550px;
+    }
+    .head {
+        position: absolute;
+        height: 24.68752098083496px;
+        width: 20.87845802307129px;
+        left: 690px;
+        margin-top: -450px;
+        border-radius: 0px;
+    }
+    .paragraph1 {
+        position: absolute;
+        height: 20px;
+        width: 540px;
+        left: 722px;
+        margin-top: -448px;
+        border-radius: nullpx;
+    }
+    /*.textArea {
+      
+    }*/
+}
