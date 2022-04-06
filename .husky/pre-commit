@@ -3,3 +3,4 @@
 
 echo "[HUSKY] pre-commit"
 yarn lint-staged
+npm test

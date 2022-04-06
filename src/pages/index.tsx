@@ -1,10 +1,15 @@
-import { Header, SEO } from "@/components";
+
+
+import { Begin } from "@/components/Begin/Begin";
+import { Header } from "../components/Header/Header";
+
 
 export default function Home() {
   return (
     <>
-      <SEO title="Teste" />
+
       <Header />
+      <Begin/>
     </>
-  );
+  )
 }

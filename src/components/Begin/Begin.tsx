@@ -15,7 +15,7 @@ export function Begin() {
           <button><a href="" ><p>Agende sua consulta</p></a> </button>
         </div>
         <div className={styles.img2}>
-          <img src="/landing1.png" alt="" />
+
         </div>
         <div className={styles.img1}>
           <img src="/landing2.png" alt="" />
@@ -57,15 +57,31 @@ export function Begin() {
         <img src="/head.svg" alt="" className={styles.head} />
         <p className={styles.paragraph1}> Se você sente as emoções com muita intensidade (raiva, ansiedade)</p>
         <img src="/head.svg" alt="" className={styles.head2} />
-        <img src="/head.svg" alt="" className={styles.head2} />
+        <p className={styles.p2}> Se você passou por uma situação traumática (violência física, sexual e psicológica, acidente, doença, divórcio, luto)</p>
         <img src="/head.svg" alt="" className={styles.head3} />
+        <p className={styles.p3}>
+          Se você apresenta sintomas de doenças não diagnosticadas (alergias, enxaquecas, taquicardia, sudorese)
+        </p>
         <img src="/head.svg" alt="" className={styles.head4} />
+        <p className={styles.p4}>
+          Se você precisa de válvulas de escape com frequência (medicações controladas, álcool/drogas, sexo, consumismo)
+        </p>
+        <img src="/head.svg" alt="" className={styles.head5} />
+        <p className={styles.p5}>
+          Se você tem uma ideia fixa ou uma vontade que não passa (uso indiscriminado de internet, lavar as mãos com frequência, desejo de vingança
+        </p>
         <img src="/head.svg" alt="" className={styles.head6} />
-        <img src="/head.svg" alt="" className={styles.head} />
+        <p className={styles.p6}>
+          Se você se sente constantemente desanimado ou sem energia, se as coisas que antes te interessavam perderam a graça.
+        </p>
+        <img src="/head.svg" alt="" className={styles.head7} />
+        <p className={styles.p7}>
+        Se você tem problemas nos seus relacionamentos pessoais, profissionais, sexuais (não consegue expor seus sentimentos, desconfiança, ciúme excessivo, isolamento
+        </p>
       </div>
       <div className={styles.textArea}>
-        
-        
+
+
       </div>
 
     </>
