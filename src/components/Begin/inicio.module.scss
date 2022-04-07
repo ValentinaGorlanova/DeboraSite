@@ -1,12 +1,12 @@
 .inicial {
     position: static;
     //box-sizing: border-box;
-    background: #f4f7f7;
     padding-bottom: 765px;
     .left {
         position: absolute;
         width: 488px;
         //height: 88px;
+        padding: auto;
         left: 112px;
         margin-top: 203px;
         .text {
@@ -77,8 +77,8 @@
         position: absolute;
         height: 86px;
         width: 56px;
-        left: 634px;
-        margin-top: 234px;
+        left: 694px;
+        margin-top: 138px;
         border-radius: 0px;
     }
     /*.img2 {
@@ -361,7 +361,7 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -155px;
+        margin-top: -170px;
         //styleName: Body/Body - Barlow;
         font-family: Barlow;
         font-size: 16px;
@@ -374,8 +374,8 @@
         position: relative;
         height: 24.68752098083496px;
         width: 20.87845802307129px;
-        left: 630px;
-        top: -120px;
+        left: 635px;
+        top: -130px;
         border-radius: 0px;
     }
     .p7 {
@@ -383,7 +383,7 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -85px;
+        margin-top: -95px;
         //styleName: Body/Body - Barlow;
         font-family: Barlow;
         font-size: 16px;
@@ -400,7 +400,17 @@
         top: -60px;
         border-radius: 0px;
     }
-    /*.textArea {
-      
-    }*/
+}
+
+.contagem {
+    position: absolute;
+    height: 240px;
+    width: 1116px;
+    background-color: #BF743C;
+    margin-left: 112px;
+    margin-right: 112px;
+    margin-top: 69px;
+    border-radius: 0px;
+    margin-bottom: 100px;
+    padding: 84px, 58px, 84px, 58px;
 }

@@ -14,9 +14,7 @@ export function Begin() {
           </h1>
           <button><a href="" ><p>Agende sua consulta</p></a> </button>
         </div>
-        <div className={styles.img2}>
 
-        </div>
         <div className={styles.img1}>
           <img src="/landing2.png" alt="" />
         </div>
@@ -76,13 +74,10 @@ export function Begin() {
         </p>
         <img src="/head.svg" alt="" className={styles.head7} />
         <p className={styles.p7}>
-        Se você tem problemas nos seus relacionamentos pessoais, profissionais, sexuais (não consegue expor seus sentimentos, desconfiança, ciúme excessivo, isolamento
+          Se você tem problemas nos seus relacionamentos pessoais, profissionais, sexuais (não consegue expor seus sentimentos, desconfiança, ciúme excessivo, isolamento
         </p>
       </div>
-      <div className={styles.textArea}>
-
-
-      </div>
+      <img src="/contagem.png"   className={styles.contagem} /**src="/banner-foto.png"alt=""*/ /> 
 
     </>
   )
