@@ -18,7 +18,7 @@ export function Header() {
             <li> <a className={styles.navLinks}>Blog</a> </li>
 
           </ul>
-          <button> <a href="" className={styles.navBtn}><span>Entrar en contato</span></a>  </button>
+          <button> <a href="" className={styles.navBtn}><span>Agende sua consulta</span></a>  </button>
         </div>
       </div>
     </>
