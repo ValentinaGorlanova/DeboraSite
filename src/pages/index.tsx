@@ -1,8 +1,9 @@
 
 
-import { Begin } from "@/components/Begin/Begin";
-import { Sobre } from "@/components/Sobre/sobre";
+import { Begin } from "../components/Begin/Begin";
+import { Sobre } from "../components/Sobre/Sobre";
 import { Header } from "../components/Header/Header";
+import { Especialidade } from "../components/Especialidade/Especialidade";
 
 
 export default function Home() {
@@ -10,8 +11,9 @@ export default function Home() {
     <>
 
       <Header />
-      <Begin/>
-      <Sobre/>
+      <Begin />
+      <Sobre />
+      <Especialidade />
     </>
   )
 }
