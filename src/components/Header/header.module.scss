@@ -47,10 +47,17 @@
             align-items: center;
             padding: 12px 24px;
             position: absolute;
-            width: 160px;
-            height: 41px;
+            /*width: 160px;
+            /height: 41px;
             left: 1080px;
             top: 18px;
+            height: 41px;*/
+            height: 41px;
+            width: 176px;
+            left: 1060px;
+            top: 18px;
+            border-radius: 8px;
+            padding: 12px, 24px, 12px, 24px;
             /* Primaria/01 */
             background: #e7975d;
             border: none;
