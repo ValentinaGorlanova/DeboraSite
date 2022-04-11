@@ -77,7 +77,7 @@ export function Begin() {
           Se você tem problemas nos seus relacionamentos pessoais, profissionais, sexuais (não consegue expor seus sentimentos, desconfiança, ciúme excessivo, isolamento
         </p>
       </div>
-      <img src="/contagem.png"   className={styles.contagem} /**src="/banner-foto.png"alt=""*/ /> 
+      <img src="/contagem.png" className={styles.contagem} /**src="/banner-foto.png"alt=""*/ />
 
     </>
   )

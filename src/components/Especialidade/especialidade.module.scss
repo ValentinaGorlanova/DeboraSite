@@ -1,0 +1,89 @@
+.left {
+    position: absolute;
+    height: 502px;
+    width: 580px;
+    left: 0px;
+    margin-top: 450px;
+    border-radius: 0px;
+    padding: 60px, 112px, 58px, 112px;
+    .title {
+        position: absolute;
+        height: 40px;
+        width: 488px;
+        left: 780px;
+        top: 60px;
+        font-family: "Playfair" Display;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 40px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #f7f7f7;
+    }
+    .content {
+        position: relative;
+        height: 502.25px;
+        width: 700px;
+        left: 0px;
+        top: -506px;
+        border-radius: 0px;
+    }
+    .des {
+        position: absolute;
+        height: 300.25px;
+        width: 500px;
+        //left: 800px;
+        opacity: 80%;
+        top: 120px;
+        border-radius: 0px;
+        font-family: "Barlow";
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 38px;
+        letter-spacing: 0em;
+        left: 810px;
+        //margin-top: 20px;
+        //padding-top: 60px;
+        text-align: left;
+        color: #f7f7f7;
+        span {
+            position: absolute;
+            margin-top: 25px;
+            //color: blue;
+            left: 5px;
+        }
+    }
+    .des1 {
+        position: absolute;
+        top: 335px;
+        color: #f7f7f7;
+        height: 300.25px;
+        width: 500px;
+        //left: 800px;
+        opacity: 80%;
+        font-family: "Barlow";
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 38px;
+        letter-spacing: 0em;
+        left: 810px;
+    }
+    .vector {
+        position: absolute;
+        height: 21.49306297302246px;
+        width: 25.590543746948242px;
+        left: 773.26220703125px;
+        top: 128.281494140625px;
+        line-height: 38px;
+        border-radius: 0px;
+    }
+    .vector2 {
+        position: absolute;
+        height: 21.49306297302246px;
+        width: 25.590543746948242px;
+        left: 773.26220703125px;
+        top: 343.281494140625px;
+        line-height: 38px;
+        border-radius: 0px;
+    }
+}
