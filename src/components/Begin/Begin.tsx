@@ -15,6 +15,10 @@ export function Begin() {
           <button><a href="" ><p>Agende sua consulta</p></a> </button>
         </div>
 
+
+        <div className={styles.img2}>
+          <img src="/landing1.png" alt="" />
+        </div>
         <div className={styles.img1}>
           <img src="/landing2.png" alt="" />
         </div>
