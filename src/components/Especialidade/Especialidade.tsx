@@ -34,6 +34,16 @@ export function Especialidade() {
                         <img src="/vector1.svg" alt="" />
 
                     </div>
+                    <h3 className={styles.text}>
+                        Abordagens utilizadas
+                    </h3>
+
+                    <h5 className={styles.text1}>
+                        A Terapia Cognitivo Comportamental ou TCC é uma abordagem da psicoterapia baseada na combinação de conceitos do Behaviorismo radical com teorias cognitivas. A TCC entende a forma como o ser humano interpreta os acontecimentos como aquilo que nos afeta, e não os acontecimentos em si. <br /><br />
+                        Essa abordagem é bastante específica, clara e direta. É utilizada para tratar diversos transtornos mentais de forma eficiente. Seu objetivo principal é identificar padrões de comportamento, pensamento, crenças e hábitos que estão na origem dos problemas,  indicando, a partir disso, técnicas para alterar essas percepções de forma positiva. A TCC se destina tanto ao tratamento dos diferentes transtornos psicológicos e emocionais como a depressão, ansiedade, transtornos psicossomáticos, transtornos alimentares, fobias, traumas, dependência química, além das questões que envolvem nossa vida como um todo.
+                    </h5>
+
+                    <img src="/img.png" alt="" className={styles.abordagemImg} />
                 </div>
             </div>
         </>

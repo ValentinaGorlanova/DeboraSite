@@ -14,11 +14,16 @@ export function Header() {
           <ul className={styles.nav_elements}>
             <li><a href="#sobremim" className={styles.navLinks}>Sobre mim</a> </li>
             <li><a href="#especialidade" className={styles.navLinks}>  Especialidades</a> </li>
-            <li> <a href="#contato" className={styles.navLinks}>Contato</a> </li>
+            <li> <a href="#contato" className={styles.navLinks}>Instagram</a> </li>
             <li> <a className={styles.navLinks}>Blog</a> </li>
 
           </ul>
           <button> <a href="" className={styles.navBtn}><span>Agende sua consulta</span></a>  </button>
+        </div>
+        <div className={styles.togglebtn}>
+          <div className={styles.bar0}></div>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
         </div>
       </div>
     </>
