@@ -1,0 +1,67 @@
+.insta {
+    .instagram {
+        position: absolute;
+        height: 40px;
+        width: 592px;
+        left: 102px;
+        margin-top: 1820px;
+        border-radius: nullpx;
+        font-family: "Playfair" Display;
+        font-style: Medium;
+        font-size: 32px;
+        line-height: 40px;
+        line-height: 94%;
+        vertical-align: Top;
+    }
+    .text {
+        position: absolute;
+        margin-top: 1870px;
+        height: 56px;
+        width: 592px;
+        left: 102px;
+        //top: 56px;
+        //border-radius: nullpx;
+        font-family: "Barlow";
+        opacity: 70%;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0em;
+        text-align: left;
+        font-size: 20px;
+        line-height: 147%;
+    }
+    .carousel {
+        position: absolute;
+        margin-top: 1850px;
+        height: 100%;
+        width: 100%;
+        //background-color: black;
+        /*    img {
+            width: 320px;
+            height: 260px;
+        } */
+    }
+    .btn {
+        position: absolute;
+        margin-top: 2350px;
+        background-color: #e7975d;
+        border: none;
+        margin-left: 612px;
+        width: 176px;
+        height: 43px;
+        border-radius: 8px;
+        span {
+            position: absolute;
+            margin-top: 13px;
+            margin-left: 58px;
+            //styleName: Button/Button - Barlow;
+            font-family: "Barlow";
+            font-size: 16px;
+            font-weight: 400 bold;
+            color: white;
+            line-height: 100%;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+    }
+}

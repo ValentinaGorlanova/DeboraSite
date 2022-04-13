@@ -1,5 +1,6 @@
 .header {
     position: absolute;
+    margin: auto;
     padding: auto;
     width: 1366px;
     height: 80px;
@@ -101,6 +102,9 @@
         }
     }
     @media screen and (max-width: 400px) {
+        .header {
+            margin: auto;
+        }
         .left {
             display: none;
             .nav_elements {
