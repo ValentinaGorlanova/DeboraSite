@@ -78,6 +78,11 @@ export function Consulta() {
                 <div className={styles.traco}> _____________ </div>
 
             </div>
+            <div className={styles.btn}>  <span>Enviar Solicitação</span>  </div>
+            <h3 className={styles.title}>Depoimentos</h3>
+            <h3 className={styles.titleText}>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</h3>
+            <h3 className={styles.lorem}>lorem ipsum</h3>
+
         </>
     )
 }

@@ -14,8 +14,8 @@ export function Header() {
           <ul className={styles.nav_elements}>
             <li><a href="#sobremim" className={styles.navLinks}>Sobre mim</a> </li>
             <li><a href="#especialidade" className={styles.navLinks}>  Especialidades</a> </li>
-            <li> <a href="#insta" className={styles.navLinks}>Instagram</a> </li>
-            <li> <a className={styles.navLinks}>Blog</a> </li>
+            <li> <a href="#contact" className={styles.navLinks}>Contato</a> </li>
+            <li> <a href="#instagram"className={styles.navLinks}>Instagram</a> </li>
 
           </ul>
           <button> <a href="" className={styles.navBtn}><span>Agende sua consulta</span></a>  </button>

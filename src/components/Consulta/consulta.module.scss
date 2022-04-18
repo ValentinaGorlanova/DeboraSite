@@ -174,7 +174,7 @@
         }
         .presencial {
             position: absolute;
-            top: 445px;
+            top: 465px;
             left: 185px;
             //styleName: Body/Body - Barlow;
             font-family: "Barlow";
@@ -401,4 +401,77 @@
         color: #000000;
         top: 410px;
     }
+}
+
+.btn {
+    position: absolute;
+    top: 5850px;
+    background-color: #e7975d;
+    border: none;
+    left: 632px;
+    width: 180px;
+    height: 43px;
+    border-radius: 8px;
+    span {
+        position: absolute;
+        top: 13px;
+        margin-left: 31.5px;
+        //styleName: Button/Button - Barlow;
+        font-family: "Barlow";
+        font-size: 16px;
+        font-weight: 400 bold;
+        color: white;
+        line-height: 100%;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+}
+
+.title {
+    position: absolute;
+    height: 40px;
+    width: 592px;
+    left: 428px;
+    top: 5915px;
+    border-radius: nullpx;
+    //styleName: Headings/H4 - Playfair Display;
+    font-family: "Playfair" Display;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.titleText {
+    position: absolute;
+    height: 80px;
+    width: 1008px;
+    left: 216px;
+    top: 5993px;
+    opacity: 70%;
+    font-family: "Playfair" Display;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(99, 39, 0, 1);
+}
+
+.lorem {
+    position: absolute;
+    height: 80px;
+    width: 1008px;
+    left: 216px;
+    top: 6113px;
+    font-family: "Barlow";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: center;
+    line-height: 117%;
+    color: black;
+    opacity: 70%;
 }
