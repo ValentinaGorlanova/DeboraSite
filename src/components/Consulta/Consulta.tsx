@@ -27,7 +27,11 @@ export function Consulta() {
                     <input type="text" className={styles.horario1} />
                     <h3 className={styles.messagem}>Messagem</h3>
                     <input type="text" className={styles.messagemBox} />
-
+                    <h4 className={styles.type} >Sua consulta sera:</h4>
+                    <input type="radio" id="presencial" name="Check" value="presencial" className={styles.radio1} />
+                    <label htmlFor="presencial"  className={styles.presencial}>presencial</label>
+                    <input type="radio"  id="online" name="onlineCheck" value="online" className={styles.radio2} />
+                    <label htmlFor="online"  className={styles.online}>Online</label>
 
                 </form>
                 <h3 className={styles.motivo}>
@@ -46,7 +50,33 @@ export function Consulta() {
                     <h3 className={styles.sinto3}>
                         Sindrome do Pânico
                     </h3>
+                    <input type="checkbox" className={styles.sinto4Box} />
+                    <h3 className={styles.sinto4}>
+                        Alcoolismo
+                    </h3>
+                    <input type="checkbox" className={styles.sinto5Box} />
+                    <h3 className={styles.sinto5}>
+                        Dependência Química
+                    </h3>
+                    <input type="checkbox" className={styles.sinto6Box} />
+                    <h3 className={styles.sinto6}>
+                        Fobia Social
+                    </h3>
+                    <input type="checkbox" className={styles.sinto7Box} />
+                    <h3 className={styles.sinto7}>
+                    Autoconhecimento
+                    </h3>
+                    <input type="checkbox" className={styles.sinto8Box} />
+                    <h3 className={styles.sinto8}>
+                    TDAH e Transtornos de Aprendizagem
+                    </h3> <input type="checkbox" className={styles.sinto9Box} />
+                    <h3 className={styles.sinto9}>
+                    Outros:
+                    </h3> 
+                    
                 </div>
+                <div className={styles.traco}> _____________ </div>
+
             </div>
         </>
     )

@@ -152,6 +152,55 @@
             top: 355px;
             border: none;
         }
+        .type {
+            position: absolute;
+            height: 29px;
+            width: 144px;
+            left: 0px;
+            top: 440px;
+            border-radius: nullpx;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 26px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .radio1 {
+            position: absolute;
+            left: 160px;
+            top: 470px;
+        }
+        .presencial {
+            position: absolute;
+            top: 445px;
+            left: 185px;
+            //styleName: Body/Body - Barlow;
+            font-family: "Barlow";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .radio2 {
+            position: absolute;
+            left: 270px;
+            top: 470px;
+        }
+        .online {
+            position: absolute;
+            top: 467px;
+            left: 295px;
+            //styleName: Body/Body - Barlow;
+            font-family: "Barlow";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
     }
     .motivo {
         position: absolute;
@@ -183,12 +232,12 @@
         }
         .sinto1Box {
             position: absolute;
-            top: 123px;
+            top: 125px;
             left: 750px;
         }
         .sinto2 {
             position: absolute;
-            top: 140px;
+            top: 135px;
             left: 780px;
             //styleName: Body/Body Large - Barlow;
             font-family: "Barlow";
@@ -200,12 +249,12 @@
         }
         .sinto2Box {
             position: absolute;
-            top: 165px;
+            top: 160px;
             left: 750px;
         }
         .sinto3 {
             position: absolute;
-            top: 180px;
+            top: 175px;
             left: 780px;
             //styleName: Body/Body Large - Barlow;
             font-family: "Barlow";
@@ -220,8 +269,136 @@
         }
         .sinto3Box {
             position: absolute;
-            top: 205px;
+            top: 200px;
             left: 750px;
         }
+        .sinto4 {
+            position: absolute;
+            top: 210px;
+            left: 780px;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .sinto4Box {
+            position: absolute;
+            top: 233px;
+            left: 750px;
+        }
+        .sinto5 {
+            position: absolute;
+            top: 245px;
+            left: 780px;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .sinto5Box {
+            position: absolute;
+            top: 268px;
+            left: 750px;
+        }
+        .sinto6 {
+            position: absolute;
+            top: 280px;
+            left: 780px;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .sinto6Box {
+            position: absolute;
+            top: 305px;
+            left: 750px;
+        }
+        .sinto7 {
+            position: absolute;
+            top: 320px;
+            left: 780px;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .sinto7Box {
+            position: absolute;
+            top: 345px;
+            left: 750px;
+        }
+        .sinto8 {
+            position: absolute;
+            top: 360px;
+            left: 780px;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .sinto8Box {
+            position: absolute;
+            top: 385px;
+            left: 750px;
+        }
+        .sinto9 {
+            position: absolute;
+            top: 390px;
+            left: 780px;
+            //styleName: Body/Body Large - Barlow;
+            font-family: "Barlow";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        .sinto9Box {
+            position: absolute;
+            top: 415px;
+            left: 750px;
+        }
+    }
+    .traco {
+        position: absolute;
+        height: 400px;
+        width: 224px;
+        left: 850px;
+        color: #000000;
+        top: 410px;
     }
 }
