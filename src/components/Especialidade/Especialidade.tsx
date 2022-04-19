@@ -9,7 +9,7 @@ export function Especialidade() {
                 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
                 <div className={styles.left}>
                     <img src="/Banner1.png" alt="" />
-                    <img src="/especialidade.png" alt="" className={styles.content} />
+                    <img src="/overlay.png" alt="" className={styles.content} />
                     <div className={styles.title}>
                         Especialidades atendidas
                     </div>
