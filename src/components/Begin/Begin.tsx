@@ -24,7 +24,7 @@ export function Begin() {
         </div>
 
       </div>
-      <div className={styles.inicialtext}>
+      <div className={styles.inicialText}>
         <img src="/Banner.png" alt="" className={styles.banner} />
         <h1 className={styles.textBanner}>
           Principais queixas e seus sintomas
