@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './header.module.scss'
 
 export function Header() {
@@ -14,7 +13,7 @@ export function Header() {
           <ul className={styles.nav_elements}>
             <li><a href="#sobremim" className={styles.navLinks}>Sobre mim</a> </li>
             <li><a href="#especialidade" className={styles.navLinks}>  Especialidades</a> </li>
-            <li> <a href="#contact" className={styles.navLinks}>Contato</a> </li>
+            <li> <a href="#contato" className={styles.navLinks}>Contato</a> </li>
             <li> <a href="#instagram"className={styles.navLinks}>Instagram</a> </li>
 
           </ul>

@@ -1,0 +1,110 @@
+.title {
+    position: absolute;
+    //top: 500px;
+    height: 43px;
+    width: 592px;
+    left: 112px;
+    top: 6200px;
+    border-radius: nullpx;
+    font-family: "Playfair" Display;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    line-height: 100%;
+    vertical-align: top;
+}
+
+.icon {
+    position: absolute;
+    margin-top: 3620px;
+    left: 112px;
+    .wha {
+        position: absolute;
+        margin-top: 38px;
+        left: -1px;
+    }
+    .mail {
+        position: absolute;
+        margin-top: 77px;
+        left: -1px;
+    }
+    .address {
+        position: absolute;
+        margin-top: 112px;
+        left: -4px;
+    }
+}
+
+.text {
+    position: absolute;
+    margin-top: 3593px;
+    left: 142px;
+    .text1 {
+        font-family: "Barlow";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+        line-height: 112%;
+        opacity: 70%;
+        vertical-align: top;
+    }
+    .text2 {
+        position: absolute;
+        margin-top: -6px;
+        font-family: "Barlow";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+        line-height: 112%;
+        opacity: 70%;
+        vertical-align: top;
+    }
+    .text3 {
+        position: absolute;
+        margin-top: 30px;
+        font-family: "Barlow";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+        line-height: 112%;
+        opacity: 70%;
+        vertical-align: top;
+    }
+    .text4 {
+        position: absolute;
+        margin-top: 63px;
+        font-family: "Barlow";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+        line-height: 112%;
+        opacity: 70%;
+        vertical-align: top;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+.map {
+    position: relative;
+    height: 537px;
+    width: 1156px;
+    left: -25px;
+    margin-top: 125px;
+    border-radius: 0px;
+}

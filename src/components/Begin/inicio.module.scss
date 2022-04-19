@@ -111,9 +111,9 @@
         width: 1216px;
         left: 82px;
         top: 786px;
-        font-family: "Playfair" Display;
+        font-family: "Playfair Display";
         font-size: 32px;
-        font-weight: 500 medium;
+        font-weight: 400;
         line-height: 40px;
         letter-spacing: 0em;
         text-align: left;
@@ -179,20 +179,35 @@
         position: absolute;
         height: 40px;
         width: -5px;
-        left: 712px;
-        top: 840px;
+        left: 682px;
+        top: 850px;
         color: #ffffff;
         font-weight: 500;
         font-family: "Barlow";
         font-style: normal;
         font-size: 20px;
-        //line-height: 28px;
+        /*  //line-height: 28px;
+        .luto1 {
+            position: absolute;
+            height: 40px;
+            width: -5px;
+            left: 52px;
+            margin-top: -15px;
+            color: #ffffff;
+            font-weight: 300;
+            font-family: "Barlow";
+            font-style: normal;
+            font-size: 15px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        } */
     }
     .LutoText {
         position: absolute;
         width: 280px;
         height: 100px;
-        top: 900px;
+        top: 890px;
         left: 712px;
         //top: 936px;
         color: #ffffff;
@@ -200,7 +215,7 @@
         font-family: "Barlow";
         font-style: Medium;
         font-size: 16px;
-        line-height: 20px;
+        //line-height: 20px;
         line-height: 104%;
     }
     .abuso {

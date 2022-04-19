@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from "./consulta.module.scss"
 
 export function Consulta() {
