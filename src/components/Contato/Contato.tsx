@@ -28,6 +28,7 @@ export function Contato() {
             deborabarrospsi@outlook.com
           </h5>
           <h5 className={styles.text4}>
+            {/* this should  use google map api to show her address on map  */}
             R. Aureliano Guimarães, 172/150 - Conjunto 819 - 8 andar - Vila Andrade <br />
             São Paulo - SP
           </h5>

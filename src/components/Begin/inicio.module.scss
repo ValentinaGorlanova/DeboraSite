@@ -73,7 +73,7 @@
             }
         }
     }
-    //need to ajust this images to fit the screen, there is margin that is affecting the size of the page need to resolve it 
+    //need to ajust this images to fit the screen, there is margin that is affecting the size of the page need to resolve it
     .img1 {
         position: absolute;
         height: 86px;
@@ -140,12 +140,12 @@
         left: 82px;
         //top: 936px;
         color: #ffffff;
-        font-weight: 100;
+        font-weight: 400;
         font-family: "Barlow";
-        font-style: Medium;
+        //font-style: regular;
         font-size: 16px;
-        line-height: 20px;
-        line-height: 104%;
+        //line-height: 20px;
+        line-height: 144%;
     }
     .depression {
         position: absolute;
@@ -173,35 +173,34 @@
         font-style: Medium;
         font-size: 16px;
         line-height: 20px;
-        line-height: 104%;
+        line-height: 144%;
     }
     .Luto {
         position: absolute;
         height: 40px;
         width: -5px;
-        left: 682px;
+        left: 702px;
         top: 850px;
         color: #ffffff;
         font-weight: 500;
         font-family: "Barlow";
         font-style: normal;
         font-size: 20px;
-        /*  //line-height: 28px;
-        .luto1 {
-            position: absolute;
+        .lutoSpan {
+            position: relative;
             height: 40px;
             width: -5px;
-            left: 52px;
-            margin-top: -15px;
-            color: #ffffff;
-            font-weight: 300;
+            left: 43px;
+            margin-top: -18px;
+            color: #ffff;
+            font-weight: 400;
             font-family: "Barlow";
             font-style: normal;
-            font-size: 15px;
+            font-size: 14px;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
-        } */
+        }
     }
     .LutoText {
         position: absolute;
@@ -216,7 +215,7 @@
         font-style: Medium;
         font-size: 16px;
         //line-height: 20px;
-        line-height: 104%;
+        line-height: 144%;
     }
     .abuso {
         position: absolute;
@@ -243,8 +242,8 @@
         font-family: "Barlow";
         font-style: Medium;
         font-size: 16px;
-        line-height: 20px;
-        line-height: 104%;
+        //line-height: 20px;
+        line-height: 144%;
     }
 }
 
@@ -260,14 +259,15 @@
 .textLeft {
     .final {
         position: absolute;
-        font-family: "Playfair" Display;
+        font-family: "Playfair Display";
         font-style: Medium;
-        font-size: 32px;
+        font-size: 31px;
+        font-weight: 500;
         line-height: 40px;
         height: 80px;
         width: 592px;
-        left: 690px;
-        margin-top: -550px;
+        left: 675px;
+        margin-top: -560px;
     }
     .head {
         position: absolute;
@@ -283,11 +283,12 @@
         width: 540px;
         left: 722px;
         margin-top: -448px;
-        font-family: Barlow;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
         letter-spacing: 0em;
+        opacity: 70%;
         text-align: left;
     }
     .p2 {
@@ -295,8 +296,9 @@
         height: 20px;
         width: 540px;
         left: 722px;
+        opacity: 70%;
         margin-top: -410px;
-        font-family: Barlow;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
@@ -316,8 +318,9 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -345px;
-        font-family: Barlow;
+        margin-top: -348.5px;
+        opacity: 70%;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
@@ -337,8 +340,9 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -308px;
-        font-family: Barlow;
+        margin-top: -312px;
+        opacity: 70%;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
@@ -349,8 +353,8 @@
         position: relative;
         height: 24.68752098083496px;
         width: 20.87845802307129px;
-        left: 677px;
-        top: -270px;
+        left: 680px;
+        top: -272px;
         border-radius: 0px;
     }
     .p5 {
@@ -358,9 +362,9 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -240px;
-        //styleName: Body/Body - Barlow;
-        font-family: Barlow;
+        margin-top: -245px;
+        opacity: 70%;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
@@ -371,8 +375,8 @@
         position: relative;
         height: 24.68752098083496px;
         width: 20.87845802307129px;
-        left: 657px;
-        top: -200px;
+        left: 659.5px;
+        top: -205.5px;
         border-radius: 0px;
     }
     .p6 {
@@ -380,9 +384,9 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -170px;
-        //styleName: Body/Body - Barlow;
-        font-family: Barlow;
+        margin-top: -176px;
+        opacity: 70%;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
@@ -393,8 +397,8 @@
         position: relative;
         height: 24.68752098083496px;
         width: 20.87845802307129px;
-        left: 635px;
-        top: -130px;
+        left: 638.5px;
+        top: -133px;
         border-radius: 0px;
     }
     .p7 {
@@ -402,9 +406,9 @@
         height: 20px;
         width: 540px;
         left: 722px;
-        margin-top: -95px;
-        //styleName: Body/Body - Barlow;
-        font-family: Barlow;
+        margin-top: -108px;
+        opacity: 70%;
+        font-family: "Barlow";
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
@@ -415,8 +419,8 @@
         position: relative;
         height: 24.68752098083496px;
         width: 20.87845802307129px;
-        left: 610px;
-        top: -60px;
+        left: 617.5px;
+        top: -65px;
         border-radius: 0px;
     }
 }
@@ -432,4 +436,43 @@
     border-radius: 0px;
     margin-bottom: 100px;
     padding: 84px, 58px, 84px, 58px;
+}
+
+.experience {
+    position: absolute;
+    font-family: "Playfair Display";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 148px;
+    left: 168px;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ffff;
+}
+
+.paciente {
+    position: absolute;
+    font-family: "Playfair Display";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 148px;
+    left: 558px;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ffff;
+}
+
+.horas {
+    position: absolute;
+    font-family: "Playfair Display";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 148px;
+    left: 938px;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ffff;
 }

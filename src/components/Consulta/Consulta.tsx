@@ -3,8 +3,7 @@ import styles from "./consulta.module.scss"
 export function Consulta() {
     return (
         <>
-            <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Playfair+Display&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
-            <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Epilogue:ital,wght@0,300;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&family=Mukta:wght@300;400;500&family=Playfair+Display:wght@400;500&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet"/>            <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
             <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Epilogue:ital,wght@0,300;0,500;0,600;0,700;1,400&family=Mukta:wght@300;400;500&family=Playfair+Display&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet"></link>
             <div className={styles.consulta}>
                 <h1 className={styles.text}>
@@ -27,6 +26,7 @@ export function Consulta() {
                     <h3 className={styles.messagem}>Messagem</h3>
                     <input type="text" className={styles.messagemBox} />
                     <h4 className={styles.type} >Sua consulta sera:</h4>
+                    {/* the radio butto */}
                     <input type="radio" id="presencial" name="Check" value="presencial" className={styles.radio1} />
                     <label htmlFor="presencial"  className={styles.presencial}>presencial</label>
                     <input type="radio"  id="online" name="onlineCheck" value="online" className={styles.radio2} />
@@ -74,7 +74,7 @@ export function Consulta() {
                     </h3> 
                     
                 </div>
-                <div className={styles.traco}> _____________ </div>
+                <div className={styles.traco}>  </div>
 
             </div>
             <div className={styles.btn}>  <span>Enviar Solicitação</span>  </div>

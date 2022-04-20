@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './instagram.module.scss'
 import Carousel from 'react-multi-carousel';
+import Link from 'next/link';
 import 'react-multi-carousel/lib/styles.css';
 
 export function Instagram() {
@@ -32,6 +33,7 @@ export function Instagram() {
         <h1 className={styles.instagram}>Instagram</h1>
         <h3 className={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.    </h3>
+          {/* this carousel does not have the arrows to move around instead the use uses his moves to move the carousel */}
         <Carousel responsive={responsive} infinite={true} className={styles.carousel} autoPlaySpeed={5000}>
           <div >
             <img src="/insta1.png" alt="" />
@@ -48,7 +50,8 @@ export function Instagram() {
             <img src="/insta1.png" alt="" />
           </div>
         </Carousel>
-        <div className={styles.btn}>  <span>Ver mais</span>  </div>
+        {/* add the link to her instagram */}
+        <div className={styles.btn}>  <span>Ir para Instagram</span>  </div>
       </div>
     </>
   )

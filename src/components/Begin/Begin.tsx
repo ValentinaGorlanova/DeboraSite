@@ -6,7 +6,7 @@ export function Begin() {
     <>
 
       <Header />
-      <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Playfair+Display&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Epilogue:ital,wght@0,300;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&family=Mukta:wght@300;400;500&family=Playfair+Display:wght@400;500&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Playfair+Display&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />      <div className={styles.inicial}>
         <div className={styles.left} >
           <h1 className={styles.text}>
@@ -42,7 +42,7 @@ export function Begin() {
           Os sentimentos abruptos de desamparo ou desesperança, baixo autoestima, perda de interesse pelas coisas, fadiga, irritabilidade, falta de concentração, maior foco no negativo do que no positivo (pessimismo generalizado), dificuldades com o sono e dificuldade no controle das emoções são os sinais mais comuns de depressão. Em casos graves, observa-se mutilações, autoagressões e tentativas de suicídio.
         </h4>
         <h3 className={styles.Luto}>
-          Luto (Principalmente devido  a <br />COVID-19)
+          Luto <h3 className={styles.lutoSpan}>(Principalmente devido  a COVID-19)</h3>
         </h3>
         <h4 className={styles.LutoText}>
           Alguns fatores podem influenciar a forma como cada pessoa irá vivenciar o seu luto, fatores que podem facilitar ou dificultar este processo, como a qualidade e o tipo de relação com o ente querido, a presença ou ausência de suporte social, as próprias características de personalidade do enlutado e, ainda, as circunstâncias que rodearam a perda, isto é, a forma como a morte ocorreu. O luto não elaborado (tratado) pode levar a depressão ou outros transtornos psicológicos.
@@ -81,8 +81,19 @@ export function Begin() {
           Se você tem problemas nos seus relacionamentos pessoais, profissionais, sexuais (não consegue expor seus sentimentos, desconfiança, ciúme excessivo, isolamento
         </p>
       </div>
-      <img src="/contagem.png" className={styles.contagem} /**src="/banner-foto.png"alt=""*/ />
-
+      <img src="/contagem1.png" className={styles.contagem} /**src="/banner-foto.png"alt=""*/ />
+      <h3 className={styles.experience}>
+        + de 15 anos <br />
+        de experiência
+      </h3>
+      <h3 className={styles.paciente}>
+        +300 pacientes <br />
+        atendidos
+      </h3>
+      <h3 className={styles.horas}>
+        +12.000 horas <br />
+        em consulta
+      </h3>
     </>
   )
 }
