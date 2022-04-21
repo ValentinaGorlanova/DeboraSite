@@ -8,7 +8,6 @@ import { Consulta } from "../components/Consulta/Consulta";
 import { Contato } from "../components/Contato/Contato";
 import { Footer } from "../components/Footer/Footer";
 
-
 export default function Home() {
   return (
     <>
@@ -19,6 +18,8 @@ export default function Home() {
       <Instagram/>
       <Consulta/>
       <Contato/>
+      <img src="/whatsapp.svg" alt=""  className="wha" />
+      
       <Footer/>
     </>
   )

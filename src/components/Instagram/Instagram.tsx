@@ -32,8 +32,9 @@ export function Instagram() {
       <div className={styles.insta} id="instagram">
         <h1 className={styles.instagram}>Instagram</h1>
         <h3 className={styles.text}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.    </h3>
-          {/* this carousel does not have the arrows to move around instead the use uses his moves to move the carousel */}
+        Aqui você pode saber um pouco mais sobre mim.
+        </h3>
+        {/* this carousel does not have the arrows to move around instead the use uses his moves to move the carousel */}
         <Carousel responsive={responsive} infinite={true} className={styles.carousel} autoPlaySpeed={5000}>
           <div >
             <img src="/insta1.png" alt="" />

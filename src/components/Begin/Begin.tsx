@@ -7,7 +7,8 @@ export function Begin() {
 
       <Header />
       <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Epilogue:ital,wght@0,300;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&family=Mukta:wght@300;400;500&family=Playfair+Display:wght@400;500&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Playfair+Display&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />      <div className={styles.inicial}>
+      <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Playfair+Display&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet" />
+      <div className={styles.inicial}>
         <div className={styles.left} >
           <h1 className={styles.text}>
             A terapia começa antes mesmo do terapeuta. <span>Quando a pessoa percebe que há algo que precisa ser mudado e busca auxílio para isso, já é parte do processo.</span>
@@ -84,16 +85,24 @@ export function Begin() {
       <img src="/contagem1.png" className={styles.contagem} /**src="/banner-foto.png"alt=""*/ />
       <h3 className={styles.experience}>
         + de 15 anos <br />
+        <div className={styles.efeito1}>
         de experiência
+        </div>
       </h3>
       <h3 className={styles.paciente}>
         +300 pacientes <br />
+        <div className={styles.efeito2}>
         atendidos
+        </div>
       </h3>
       <h3 className={styles.horas}>
         +12.000 horas <br />
-        em consulta
+        <div className={styles.efeito3}>
+          em consulta
+        </div>
       </h3>
+       <img src="/whatsapp.svg" alt="" className={styles.wha} /> 
+
     </>
   )
 }

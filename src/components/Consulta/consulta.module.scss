@@ -4,7 +4,7 @@
     left: 112px;
     .text {
         //styleName: Headings/H4 - Playfair Display;
-        font-family: "Playfair" Display;
+        font-family: "Playfair Display";
         font-size: 32px;
         font-weight: 500;
         line-height: 40px;
@@ -402,6 +402,9 @@
         top: 440px;
         opacity: 60%;
     }
+    .wha {
+        position: fixed;
+    }
 }
 
 .btn {
@@ -436,7 +439,7 @@
     top: 5915px;
     border-radius: nullpx;
     //styleName: Headings/H4 - Playfair Display;
-    font-family: "Playfair" Display;
+    font-family: "Playfair Display";
     font-size: 32px;
     font-weight: 500;
     line-height: 40px;
@@ -451,7 +454,7 @@
     left: 216px;
     top: 5993px;
     opacity: 70%;
-    font-family: "Playfair" Display;
+    font-family: "Playfair Display";
     font-size: 32px;
     font-weight: 500;
     line-height: 40px;
@@ -465,7 +468,7 @@
     height: 80px;
     width: 1008px;
     left: 216px;
-    top: 6113px;
+    top: 6153px;
     font-family: "Barlow";
     font-size: 20px;
     font-weight: 400;

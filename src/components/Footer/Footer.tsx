@@ -11,7 +11,7 @@ export function Footer() {
           <img src="/logo1.png" alt="" className={styles.logo} />
         </Link>
         <h5 className={styles.copy}>
-          Copyright © 2022 Dr.Deborah Barros - Todos os Direitos Reservados
+          Copyright © 2022 Dra.Deborah Barros - Todos os Direitos Reservados
         </h5>
 
         <h5 className={styles.credit}>

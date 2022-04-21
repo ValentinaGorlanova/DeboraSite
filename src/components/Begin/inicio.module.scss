@@ -179,7 +179,7 @@
         position: absolute;
         height: 40px;
         width: -5px;
-        left: 702px;
+        left: 712px;
         top: 850px;
         color: #ffffff;
         font-weight: 500;
@@ -449,6 +449,16 @@
     letter-spacing: 0em;
     text-align: center;
     color: #ffff;
+    .efeito1 {
+        position: absolute;
+        font-family: "Playfair Display";
+        font-size: 20px;
+        left: 28px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #ffff;
+    }
 }
 
 .paciente {
@@ -462,6 +472,16 @@
     letter-spacing: 0em;
     text-align: center;
     color: #ffff;
+    .efeito2 {
+        position: absolute;
+        font-family: "Playfair Display";
+        font-size: 20px;
+        left: 78px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #ffff;
+    }
 }
 
 .horas {
@@ -475,4 +495,21 @@
     letter-spacing: 0em;
     text-align: center;
     color: #ffff;
+    .efeito3 {
+        position: absolute;
+        font-family: "Playfair Display";
+        font-size: 20px;
+        left: 58px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #ffff;
+    }
+}
+
+.wha {
+    position: fixed;
+    top: 85px;
+    left: 1230px;
+    z-index: 1;
 }
