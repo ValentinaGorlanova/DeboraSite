@@ -8,8 +8,9 @@
         left: 102px;
         margin-top: 1820px;
         border-radius: nullpx;
-        font-family: "Playfair" Display;
+        font-family: "Playfair Display";
         font-style: Medium;
+        font-weight: 500;
         font-size: 32px;
         line-height: 40px;
         line-height: 94%;
@@ -35,6 +36,7 @@
     .carousel {
         position: absolute;
         margin-top: 1850px;
+        margin-left: -52px;
         height: 100%;
         width: 100%;
         //background-color: black;
@@ -55,7 +57,7 @@
         span {
             position: absolute;
             margin-top: 13px;
-            margin-left: 58px;
+            margin-left: 33px;
             //styleName: Button/Button - Barlow;
             font-family: "Barlow";
             font-size: 16px;
@@ -65,5 +67,8 @@
             letter-spacing: 0em;
             text-align: left;
         }
+    }
+    .wha {
+        position: fixed;
     }
 }

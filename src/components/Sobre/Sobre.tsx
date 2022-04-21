@@ -12,7 +12,9 @@ export function Sobre() {
         Paulista, mãe da Carol, da gata Chantilly e futura esposa do Gustavo.<br /><br />
         Apaixonada pela carreira que escolhi, acredito que todos estamos em constante evolução pessoal e que o melhor caminho para essa evolução é o autoconhecimento.
       </h3>
-      <img src="/image1.png" alt="" className={styles.foto} width="500" height="650" />
+      <img src="/sobremim.png" alt="" className={styles.foto} width="500" height="650" />
+      {/* <img src="/carousel2.png" alt="" className={styles.foto} width="500" height="650" />
+      <img src="/carousel3.png" alt="" className={styles.foto} width="500" height="650" /> */}
 
     </>
   )

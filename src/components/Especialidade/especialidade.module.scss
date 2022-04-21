@@ -12,7 +12,7 @@
         width: 488px;
         left: 780px;
         top: 60px;
-        font-family: "Playfair" Display;
+        font-family: "Playfair Display";
         font-size: 32px;
         font-weight: 500;
         line-height: 40px;
@@ -32,8 +32,9 @@
         position: absolute;
         height: 300.25px;
         width: 500px;
+        //left: 300px;
         //left: 800px;
-        opacity: 80%;
+        opacity: 70%;
         top: 120px;
         border-radius: 0px;
         font-family: "Barlow";
@@ -41,7 +42,7 @@
         font-weight: 500;
         line-height: 38px;
         letter-spacing: 0em;
-        left: 810px;
+        left: 820px;
         //margin-top: 20px;
         //padding-top: 60px;
         text-align: left;
@@ -50,7 +51,7 @@
             position: absolute;
             margin-top: 25px;
             //color: blue;
-            left: 5px;
+            left: 2px;
         }
     }
     .des1 {
@@ -68,12 +69,48 @@
         letter-spacing: 0em;
         left: 810px;
     }
-    .vector {
+    .vec1 {
         position: absolute;
         height: 21.49306297302246px;
         width: 25.590543746948242px;
         left: 773.26220703125px;
         top: 128.281494140625px;
+        line-height: 38px;
+        border-radius: 0px;
+    }
+    .vec2 {
+        position: absolute;
+        height: 21.49306297302246px;
+        width: 25.590543746948242px;
+        left: 773.26220703125px;
+        top: 205.281494140625px;
+        line-height: 38px;
+        border-radius: 0px;
+    }
+    .vec3 {
+        position: absolute;
+        height: 21.49306297302246px;
+        width: 25.590543746948242px;
+        left: 773.26220703125px;
+        top: 168.281494140625px;
+        line-height: 38px;
+        border-radius: 0px;
+    }
+    .vec4 {
+        position: absolute;
+        height: 21.49306297302246px;
+        width: 25.590543746948242px;
+        left: 773.26220703125px;
+        top: 245.281494140625px;
+        line-height: 38px;
+        border-radius: 0px;
+    }
+    .vec5 {
+        position: absolute;
+        height: 21.49306297302246px;
+        width: 25.590543746948242px;
+        left: 773.26220703125px;
+        top: 295.281494140625px;
         line-height: 38px;
         border-radius: 0px;
     }
@@ -94,14 +131,14 @@
         margin-top: -382px;
         border-radius: nullpx;
         //styleName: Headings/H4 - Playfair Display;
-        font-family: Playfair Display;
+        font-family: "Playfair Display";
         font-size: 32px;
         font-weight: 500;
         line-height: 40px;
         letter-spacing: 0em;
         text-align: left;
-        font-family: "Playfair ";
-        font-size: Medium;
+        font-family: "Playfair Display";
+        font-weight: 500;
         font-size: 32px;
         line-height: 40px;
         line-height: 94%;

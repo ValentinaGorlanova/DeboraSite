@@ -16,19 +16,19 @@ export function Especialidade() {
                     <div className={styles.des}>
                         Psicoterapia Individual Adolescentes <br />Psicoterapia Individual Adultos
                         <br />Psicoterapia de Casal <br /> Avaliação Psicológica para Cirurgias <br />
-                        Atendimento a funcionários de empresas <span> privadas on site</span> <br />
+                        Atendimento a funcionários de empresas <span> privadas no site</span> <br />
 
                     </div>
                     <div className={styles.des1}>
                         Atendimento Presencial <br />Atendimento Online
                     </div>
-                    <div className={styles.vector}>
-                        <img src="/vector1.svg" alt="" />
-                        <img src="/vector1.svg" alt="" />
-                        <img src="/vector1.svg" alt="" />
-                        <img src="/vector1.svg" alt="" />
-                        <img src="/vector1.svg" alt="" />
-                    </div>
+                   
+                        <img src="/vector1.svg" alt="" className={styles.vec1}/>
+                        <img src="/vector1.svg" alt="" className={styles.vec2}/>
+                        <img src="/vector1.svg" alt="" className={styles.vec3}/>
+                        <img src="/vector1.svg" alt="" className={styles.vec4}/>
+                        <img src="/vector1.svg" alt="" className={styles.vec5} />
+                    
                     <div className={styles.vector2}>
                         <img src="/vector1.svg" alt="" />
                         <img src="/vector1.svg" alt="" />
