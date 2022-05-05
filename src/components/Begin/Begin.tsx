@@ -1,4 +1,5 @@
 import styles from "./inicio.module.scss";
+
 export function Begin() {
   return (
     <>

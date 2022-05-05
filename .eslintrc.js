@@ -14,6 +14,8 @@ module.exports = {
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "eslint:recommended",
+    "plugin:react/recommended",
   ],
 
   parser: "@typescript-eslint/parser",
@@ -61,28 +63,46 @@ module.exports = {
       "warn",
       {
         // example configuration
-        newlinesBetween: "always", // new line between groups
+        newlinesBetween: "ignore", // new line between groups
         groups: ["/^react/", "module", "/^@/", ["parent", "sibling", "index"]],
         alphabetize: { order: "asc", ignoreCase: true },
       },
     ],
     quotes: [2, "double", { avoidEscape: true }],
+    //
     "prettier/prettier": [
       "error",
       {
         endOfLine: "auto",
+        useTabs: false,
       },
     ],
     "react/jsx-filename-extension": ["warn", { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
     "import/prefer-default-export": "off",
     "jsx-quotes": ["error", "prefer-double"],
     "react/require-default-props": "off",
-
     "react/self-closing-comp": "off",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/button-has-type": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "import/newline-after-import": ["off", { count: 2 }],
     "jsx-a11y/alt-text": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "import/order": [
+      "error",
+      {
+        pathGroups: [
+          {
+            pattern: "react",
+            group: "builtin",
+            position: "before",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["react"],
+      },
+    ],
+  },
+  globals: {
+    React: "writable",
   },
 };
