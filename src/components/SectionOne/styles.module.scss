@@ -40,22 +40,19 @@
 }
 
 .container {
-  //   border: 1px solid red;
   max-width: 1440px;
   width: 100%;
-  min-height: 734px; // verificar
+  min-height: 734px;
   margin: 0 auto;
   display: flex;
 }
 
 .left {
-  border: 1px solid green;
   max-width: 736px;
   width: 100%;
   @include center;
 
   .left_content {
-    border: 1px solid red;
     max-width: 472px;
     height: 322px;
     display: flex;
@@ -77,7 +74,6 @@
 }
 
 .rigth {
-  border: 1px solid blue;
   max-width: 704px;
   width: 100%;
   position: relative;
@@ -107,6 +103,100 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    min-height: 465px;
+  }
+
+  .left {
+    .left_content {
+      max-width: 373px;
+      min-height: 188px;
+
+      h1 {
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
+
+      span {
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
+
+      .button {
+        width: 175px;
+        height: 51px;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+      }
+    }
+  }
+
+  .rigth {
+    .containerImg1 {
+      width: 312px;
+      height: 317px;
+    }
+
+    .containerImg2 {
+      width: 331px;
+      height: 336px;
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .container {
+    flex-direction: column-reverse;
+    width: 90%;
+  }
+
+  .rigth {
+    width: 90%;
+    margin: 0 auto;
+    width: 239px;
+    height: 270px;
+
+    .containerImg1 {
+      width: 185px;
+      height: 188px;
+    }
+
+    .containerImg2 {
+      width: 196px;
+      height: 200px;
+    }
+  }
+
+  .left {
+    margin-top: 20px;
+
+    .left_content {
+      height: 230px;
+
+      h1 {
+        font-size: 2rem;
+        line-height: 2.8rem;
+        text-align: center;
+      }
+
+      span {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        text-align: center;
+      }
+
+      .button {
+        margin: 0 auto;
+        width: 157px;
+        height: 45px;
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+      }
     }
   }
 }

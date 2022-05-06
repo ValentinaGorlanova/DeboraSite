@@ -14,10 +14,10 @@ export function SectionOne() {
 
       <div className={styles.rigth}>
         <div className={styles.containerImg1}>
-          <img src="/sectionOne/img1.svg" alt="imagem 1" />
+          <img src="/sectionOne/img1.png" alt="imagem 1" />
         </div>
         <div className={styles.containerImg2}>
-          <img src="/sectionOne/img2.svg" alt="imagem 1" />
+          <img src="/sectionOne/img2.png" alt="imagem 1" />
         </div>
       </div>
     </section>
