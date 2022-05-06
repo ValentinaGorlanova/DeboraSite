@@ -1,0 +1,28 @@
+.button {
+  display: block;
+  min-width: 176px;
+  height: 43px;
+  background: #e7975d;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+@media screen and (max-width: 500) {
+  .button {
+    min-width: 157px;
+    height: 43px;
+  }
+}
