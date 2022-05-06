@@ -16,6 +16,7 @@ module.exports = {
     "plugin:import/typescript",
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
   ],
 
   parser: "@typescript-eslint/parser",
@@ -26,7 +27,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "eslint-plugin-import-helpers", "unused-imports"],
+  plugins: ["react", "@typescript-eslint", "eslint-plugin-import-helpers", "unused-imports", "jsx-a11y"],
 
   settings: {
     "import/resolver": {
@@ -59,15 +60,24 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
-    "import-helpers/order-imports": [
-      "warn",
-      {
-        // example configuration
-        newlinesBetween: "ignore", // new line between groups
-        groups: ["/^react/", "module", "/^@/", ["parent", "sibling", "index"]],
-        alphabetize: { order: "asc", ignoreCase: true },
-      },
-    ],
+    "no-unused-vars": "off",
+    "import-helpers/order-imports": "off",
+    // "jsx-a11y/no-static-element-interactions": [
+    //   "error",
+    //   {
+    //     handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
+    //   },
+    // ],
+
+    // "import-helpers/order-imports": [
+    //   "warn",
+    //   {
+    //     // example configuration
+    //     newlinesBetween: "ignore", // new line between groups
+    //     groups: ["/^react/", "module", "/^@/", ["parent", "sibling", "index"]],
+    //     alphabetize: { order: "asc", ignoreCase: true },
+    //   },
+    // ],
     quotes: [2, "double", { avoidEscape: true }],
     //
     "prettier/prettier": [
@@ -88,6 +98,8 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "import/order": [
       "error",
       {
