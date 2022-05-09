@@ -1,0 +1,136 @@
+@mixin style_font_h1 {
+  font-family: "Playfair Display", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  color: #ffffff;
+
+  @media screen and(max-width:500px) {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+}
+
+@mixin style_font_h2 {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+
+  span {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 400;
+  }
+}
+
+@mixin style_font_p {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+
+  @media screen and(max-width:500px) {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  min-height: 502px;
+  margin: -70px auto;
+  background-image: url("/Banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 56px 112px;
+
+  h1 {
+    @include style_font_h1;
+  }
+
+  h2 {
+    @include style_font_h2;
+  }
+
+  p {
+    @include style_font_p;
+  }
+
+  ul {
+    display: flex;
+    margin-top: 24px;
+    list-style: none;
+
+    li {
+      & + li {
+        margin-left: 32px;
+      }
+    }
+
+    p {
+      margin-top: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    min-height: 730px;
+    padding: 56px 60px;
+    margin: -7px auto;
+    position: relative;
+
+    ul {
+      flex-wrap: wrap;
+      gap: 32px;
+      width: 100%;
+      height: 100%;
+
+      li {
+        max-width: 369px;
+        width: 100%;
+        min-height: 192px;
+
+        & + li {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    padding: 56px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 56px 10px;
+
+    ul {
+      margin: 25px auto;
+
+      li {
+        max-width: 345px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .container {
+    padding: 56px 20px;
+    margin: 50px auto;
+
+    background-image: url("/BannerSymptomsMobile.png");
+  }
+}
