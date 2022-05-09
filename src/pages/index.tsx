@@ -1,4 +1,4 @@
-import { Header, Banner, Symptoms, WhenToLook } from "../components";
+import { Header, Banner, Symptoms, WhenToLook, SectionCount } from "../components";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Banner />
       <Symptoms />
       <WhenToLook />
+      <SectionCount />
       {/* <Sobre /> */}
       {/* <Especialidade /> */}
       {/* <Instagram /> */}

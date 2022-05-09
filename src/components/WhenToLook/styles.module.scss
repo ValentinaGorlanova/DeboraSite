@@ -30,7 +30,7 @@
 .container {
   max-width: 1216px;
   min-height: 614px;
-  margin: 43px auto;
+  margin: 43px auto 0;
   display: flex;
   justify-content: space-between;
 
@@ -46,7 +46,6 @@
   .rigth {
     margin-top: 70px;
     padding: 0 32px;
-
     width: 100%;
     min-height: 544px;
     margin-bottom: 72px;
@@ -88,7 +87,9 @@
     }
 
     .rigth {
+      min-height: 410px;
       margin-top: 42px;
+      // margin-bottom: 40px;
     }
   }
 }
@@ -110,6 +111,7 @@
 
     .rigth {
       padding: 0 25px;
+      margin-bottom: 40px;
     }
   }
 }
