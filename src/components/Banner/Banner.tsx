@@ -1,7 +1,7 @@
 import { Button } from "../Button";
 import styles from "./styles.module.scss";
 
-export function SectionOne() {
+export function Banner() {
   return (
     <section className={styles.container}>
       <div className={styles.left}>

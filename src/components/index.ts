@@ -1,3 +1,4 @@
-export * from "./Header/Header";
-export * from "./SectionOne/SectionOne";
 export * from "./SEO";
+export * from "./Header/Header";
+export * from "./Banner/Banner";
+export * from "./Symptoms/Symptoms";

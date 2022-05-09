@@ -1,10 +1,11 @@
-import { Header, SectionOne } from "../components";
+import { Header, Banner, Symptoms } from "../components";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <SectionOne />
+      <Banner />
+      <Symptoms />
       {/* <Sobre /> */}
       {/* <Especialidade /> */}
       {/* <Instagram /> */}
