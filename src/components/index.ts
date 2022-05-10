@@ -4,4 +4,4 @@ export * from "./Banner/Banner";
 export * from "./Symptoms/Symptoms";
 export * from "./WhenToLook";
 export * from "./SectionCount";
-// export * from "./Sobre/Sobre";
+export * from "./AboutMe";
