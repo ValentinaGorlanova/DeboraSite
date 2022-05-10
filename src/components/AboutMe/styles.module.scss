@@ -79,6 +79,7 @@
     max-width: 502px;
     width: 100%;
     max-height: 526px;
+    transition: all 1s ease;
 
     img {
       width: 100%;
@@ -86,6 +87,36 @@
       object-fit: cover;
     }
   }
+
+  //   .fadeIn {
+  //     @extend .rigth;
+  //     transition-duration: 1s ease;
+  //     animation: fadeIn 1s ease infinite;
+  //   }
+
+  //   .fadeOut {
+  //     @extend .rigth;
+  //     transition-duration: 1s ease;
+  //     animation: fadeOut 1s ease infinite;
+  //   }
+
+  //   @keyframes fadeIn {
+  //     0% {
+  //       opacity: 0;
+  //     }
+  //     100% {
+  //       opacity: 1;
+  //     }
+  //   }
+
+  //   @keyframes fadeOut {
+  //     0% {
+  //       opacity: 1;
+  //     }
+  //     100% {
+  //       opacity: 0;
+  //     }
+  //   }
 }
 
 @media screen and (max-width: 1024px) {
