@@ -137,6 +137,10 @@
 }
 
 @media screen and (max-width: 960px) {
+  .container {
+    min-height: unset;
+  }
+
   .content {
     .left {
       min-height: 380px;
