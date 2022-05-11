@@ -6,3 +6,4 @@ export * from "./WhenToLook";
 export * from "./SectionCount";
 export * from "./AboutMe";
 export * from "./Epecialties";
+export * from "./ApproachesUsed";
