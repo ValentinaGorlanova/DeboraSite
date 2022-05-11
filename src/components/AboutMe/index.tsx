@@ -5,36 +5,29 @@ export function AboutMe() {
   const [imagesIndex, setImagesIndex] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const DataImages = ["/carousel1.png", "/carousel2.png", "/carousel3.png", "/carousel4.png"];
-  // const [fadeProp, setFadeProp] = useState({
-  //   fade: "fadeIn",
-  // });
+  const [fadeProp, setFadeProp] = useState({
+    fade: `${styles.fadeIn}`,
+  });
 
   useEffect(() => {
-    if (imagesIndex <= DataImages.length - 1) {
-      setTimeout(() => {
-        // if (ref && ref.current) {
-        //   ref.current.classList.add("fadeIn");
-        // ref.current.classList.add(".fadeIn");
-        // }
-
-        // if (fadeProp.fade === "fadeIn") {
-        //   setFadeProp({
-        //     fade: "fadeOut",
-        //   });
-        // } else {
-        //   setFadeProp({
-        //     fade: "fadeIn",
-        //   });
-        // }
+    const timer = setInterval(() => {
+      if (fadeProp.fade === `${styles.fadeIn}`) {
+        setFadeProp({
+          fade: `${styles.fadeOut}`,
+        });
+      } else {
         setImagesIndex(imagesIndex + 1);
-      }, 5000);
-    }
+        setFadeProp({
+          fade: `${styles.fadeIn}`,
+        });
+      }
+    }, 2500);
 
-    // ref.current.style.opacity = 0;
     if (imagesIndex === DataImages.length) {
       setImagesIndex(0);
     }
-  }, [imagesIndex, DataImages.length]);
+    return () => clearInterval(timer);
+  }, [imagesIndex, DataImages.length, fadeProp]);
 
   return (
     <div className={styles.container}>
@@ -54,7 +47,7 @@ export function AboutMe() {
           </div>
         </div>
 
-        <div className={styles.rigth} ref={ref}>
+        <div className={`${styles.rigth} ${fadeProp.fade} `} ref={ref}>
           <img src={DataImages[imagesIndex]} alt="Foto Debora" />
         </div>
       </div>
