@@ -1,0 +1,163 @@
+@mixin style_font_h1 {
+  font-family: "Playfair Display", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  color: #000000;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@mixin style_font_description {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  opacity: 0.7;
+
+  @media (max-width: 500px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@mixin style_button {
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  padding: 12px 24px;
+  width: 176px;
+  height: 43px;
+  background: #e7975d;
+  border-radius: 8px;
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  @media (max-width: 600px) {
+    width: 155px;
+    height: 41px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin: 0 auto;
+  //   border: 1px solid red;
+  max-width: 1440px;
+  width: 100%;
+  //   min-height: 713px;
+  @include center;
+  overflow: hidden;
+
+  .button {
+    @include style_button;
+    align-self: center;
+  }
+}
+
+.content {
+  //   border: 1px solid red;
+  max-width: 1216px;
+  width: 100%;
+  min-height: 513px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    @include style_font_h1;
+  }
+
+  p {
+    @include style_font_description;
+  }
+
+  .carousel {
+    // border: 1px solid green;
+    width: 100%;
+    max-height: 310px;
+
+    div {
+      display: flex;
+      max-width: 384px;
+      width: 100%;
+      max-height: 310px;
+      gap: 32px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .content {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    min-height: unset;
+  }
+  .content {
+    .carousel {
+      div {
+        max-width: 358px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    margin-top: 50px;
+
+    .button {
+      margin-top: 32px;
+    }
+  }
+  .content {
+    max-width: 340px;
+    min-height: unset;
+    justify-content: flex-start;
+
+    p {
+      margin-top: 18px;
+    }
+
+    .carousel {
+      margin-top: 25px;
+
+      div {
+        gap: 16px;
+      }
+
+      div {
+        max-width: 156px;
+        max-height: 163px;
+      }
+    }
+  }
+}
