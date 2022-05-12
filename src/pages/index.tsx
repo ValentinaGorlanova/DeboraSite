@@ -1,4 +1,4 @@
-import { Header, Banner, Symptoms, WhenToLook, SectionCount, AboutMe, Epecialties, ApproachesUsed, Instagram } from "../components";
+import { Header, Banner, Symptoms, WhenToLook, SectionCount, AboutMe, Epecialties, ApproachesUsed, Instagram, ConsultationForm } from "../components";
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
       <Epecialties />
       <ApproachesUsed />
       <Instagram />
+      <ConsultationForm />
       {/* <Consulta /> */}
       {/* <Contato /> */}
       {/* <img src="/whatsapp.svg" alt="" className="wha" /> */}

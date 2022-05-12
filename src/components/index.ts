@@ -8,3 +8,4 @@ export * from "./AboutMe";
 export * from "./Epecialties";
 export * from "./ApproachesUsed";
 export * from "./Instagram";
+export * from "./ConsultationForm";
