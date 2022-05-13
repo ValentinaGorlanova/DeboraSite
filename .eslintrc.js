@@ -48,7 +48,7 @@ module.exports = {
         tsx: "never",
       },
     ],
-    "import/no-unresolved": [2, { caseSensitive: false }],
+    // "import/no-unresolved": [2, { caseSensitive: false }],
     "@typescript-eslint/no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
@@ -100,7 +100,7 @@ module.exports = {
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "import/no-unresolved": "false",
+    "import/no-unresolved": "off",
     "import/order": [
       "error",
       {
