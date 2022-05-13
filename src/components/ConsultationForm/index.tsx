@@ -45,12 +45,13 @@ export function ConsultationForm() {
           <div className={styles.consult}>
             <p>Sua consulta será:</p>
             <div>
-              <label>
-                <input name="option" type="radio" value="presencial" />
+              <input id="presencial" name="option" type="radio" value="presencial" />
+              <label htmlFor="presencial" className={`${styles.label} ${styles.labelRadio}`}>
                 Presencial
               </label>
-              <label>
-                <input name="option" type="radio" checked value="online" />
+
+              <input id="online" name="option" type="radio" checked value="online" />
+              <label htmlFor="online" className={`${styles.label} ${styles.labelRadio}`}>
                 Online
               </label>
             </div>
@@ -63,57 +64,77 @@ export function ConsultationForm() {
 
         <div>
           <div className={styles.box1}>
-            <label htmlFor="ansiedade">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="ansiedade" />
-              Ansiedade
-            </label>
+              <label htmlFor="ansiedade" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Ansiedade
+              </label>
+            </div>
 
-            <label htmlFor="depressao">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="depressao" />
-              Depressão
-            </label>
+              <label htmlFor="depressao" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Depressão
+              </label>
+            </div>
 
-            <label htmlFor="panico">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="panico" />
-              Sindrome do Pânico
-            </label>
+              <label htmlFor="panico" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Sindrome do Pânico
+              </label>
+            </div>
 
-            <label htmlFor="alcoolismo">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="alcoolismo" />
-              Alcoolismo
-            </label>
+              <label htmlFor="alcoolismo" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Alcoolismo
+              </label>
+            </div>
 
-            <label htmlFor="dependencia_quimica">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="dependencia_quimica" />
-              Dependência Química
-            </label>
+              <label htmlFor="dependencia_quimica" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Dependência Química
+              </label>
+            </div>
           </div>
 
           <div className={styles.box2}>
-            <label htmlFor="fobia_social">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="fobia_social" />
-              Fobia Social
-            </label>
+              <label htmlFor="fobia_social" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Fobia Social
+              </label>
+            </div>
 
-            <label htmlFor="dificuldades_sexuais">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="dificuldades_sexuais" />
-              Dificuldades Sexuais
-            </label>
+              <label htmlFor="dificuldades_sexuais" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Dificuldades Sexuais
+              </label>
+            </div>
 
-            <label htmlFor="autoconhecimento">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="autoconhecimento" />
-              Autoconhecimento
-            </label>
+              <label htmlFor="autoconhecimento" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Autoconhecimento
+              </label>
+            </div>
 
-            <label htmlFor="tdah">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="tdah" />
-              TDAH e Transtornos de Aprendizagem
-            </label>
+              <label htmlFor="tdah" className={`${styles.label} ${styles.labelCheckbox}`}>
+                TDAH e Transtornos de Aprendizagem
+              </label>
+            </div>
 
-            <label htmlFor="outros">
+            <div className={styles.boxLabelInput}>
               <input type="checkbox" id="outros" />
-              Outros:
-            </label>
+              <label htmlFor="outros" className={`${styles.label} ${styles.labelCheckbox}`}>
+                Outros:
+              </label>
+            </div>
           </div>
         </div>
       </form>
