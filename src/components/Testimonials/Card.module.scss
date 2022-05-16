@@ -1,0 +1,60 @@
+@mixin style_font_testimonial {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #632700;
+  opacity: 0.7;
+
+  @media (max-width: 500px) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@mixin style_font_name {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  color: #000000;
+  opacity: 0.7;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.container {
+  width: 384px;
+  min-height: 246px;
+  border: 2px solid #632700;
+  border-radius: 12px;
+  padding: 30px 12px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: none;
+
+  .testimonial {
+    @include style_font_testimonial;
+  }
+
+  .name {
+    padding-top: 20px;
+    @include style_font_name;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+}

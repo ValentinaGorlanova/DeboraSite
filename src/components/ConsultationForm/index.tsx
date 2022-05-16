@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 
 export function ConsultationForm() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="consult">
       <div className={styles.left}>
         <h1>Vamos agendar uma consulta?</h1>
 

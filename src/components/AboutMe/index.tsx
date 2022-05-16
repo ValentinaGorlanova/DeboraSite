@@ -21,7 +21,7 @@ export function AboutMe() {
           fade: `${styles.fadeIn}`,
         });
       }
-    }, 2500);
+    }, 1500);
 
     if (imagesIndex === DataImages.length) {
       setImagesIndex(0);
@@ -30,7 +30,7 @@ export function AboutMe() {
   }, [imagesIndex, DataImages.length, fadeProp]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="aboutme">
       <div className={styles.content}>
         <div className={styles.left}>
           <h1>Sobre mim</h1>

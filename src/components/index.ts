@@ -9,3 +9,6 @@ export * from "./Epecialties";
 export * from "./ApproachesUsed";
 export * from "./Instagram";
 export * from "./ConsultationForm";
+export * from "./Testimonials";
+export * from "./Contact";
+export * from "./Footer";
