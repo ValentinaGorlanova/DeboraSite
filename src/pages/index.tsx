@@ -26,7 +26,6 @@ export default function Home() {
       <Instagram />
       <ConsultationForm />
       <Testimonials />
-      {/* <Consulta /> */}
       {/* <Contato /> */}
       {/* <img src="/whatsapp.svg" alt="" className="wha" /> */}
 
