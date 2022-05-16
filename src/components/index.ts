@@ -10,3 +10,4 @@ export * from "./ApproachesUsed";
 export * from "./Instagram";
 export * from "./ConsultationForm";
 export * from "./Testimonials";
+export * from "./Contact";

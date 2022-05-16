@@ -10,6 +10,7 @@ import {
   Instagram,
   ConsultationForm,
   Testimonials,
+  Contact,
 } from "../components";
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
       <Instagram />
       <ConsultationForm />
       <Testimonials />
-      {/* <Contato /> */}
+      <Contact />
       {/* <img src="/whatsapp.svg" alt="" className="wha" /> */}
 
       {/* <Footer />  */}
