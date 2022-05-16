@@ -107,7 +107,7 @@
 }
 
 .container {
-  margin: 80px auto;
+  margin: 80px auto 0;
   max-width: 1216px;
   width: 100%;
   min-height: 651px;
@@ -454,7 +454,7 @@
 
 @media screen and (max-width: 500px) {
   .container {
-    margin: 74px auto;
+    margin: 74px auto 30px;
 
     button {
       margin: 32px auto;
