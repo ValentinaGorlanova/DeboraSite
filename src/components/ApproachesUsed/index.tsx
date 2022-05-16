@@ -6,11 +6,8 @@ export function ApproachesUsed() {
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.containerImages}>
-            <div className={styles.imgRight}>
-              <img src="/imgBook1.png" alt="Imagem Livro" />
-            </div>
-            <div className={styles.imgLeft}>
-              <img src="/imgBook2.png" alt="Imagem Livro e óculos" />
+            <div className={styles.img}>
+              <img src="/imgBook2.png" alt="Imagem Livro" />
             </div>
           </div>
           <h1>Abordagens utilizadas</h1>
