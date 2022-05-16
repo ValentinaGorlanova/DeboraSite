@@ -10,7 +10,7 @@ type SEOProps = {
 
 export function SEO({ title, description, image, shouldExcludeTitleSuffix = false, shouldIndexPage = true }: SEOProps) {
   function makePageTitle(pageTitle: string, excludeTitleSuffix: boolean) {
-    const suffix = excludeTitleSuffix ? "" : " | CAP Financeira";
+    const suffix = excludeTitleSuffix ? "" : " | Débora Barros";
 
     return pageTitle + suffix;
   }
