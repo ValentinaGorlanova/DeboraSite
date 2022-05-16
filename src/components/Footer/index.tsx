@@ -1,4 +1,5 @@
 // import Link from "next/link";
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export function Footer() {
@@ -11,7 +12,9 @@ export function Footer() {
         </div>
         <div className={styles.right}>
           <p>Desenvolvido por:</p>
-          <img src="/logoGet.png" alt="Logo GetHasch" />
+          <Link href="https://gethash.com.br/">
+            <img src="/logoGet.png" alt="Logo GetHasch" />
+          </Link>
         </div>
       </div>
     </div>
