@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 
 export function Epecialties() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="especialties">
       <div className={styles.left}>
         <img src="overlay.png" alt="Escrevendo" />
       </div>

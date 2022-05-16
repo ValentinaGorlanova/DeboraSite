@@ -3,11 +3,11 @@ import styles from "./styles.module.scss";
 
 export function Contact() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="contact">
       <div className={styles.content}>
         <h1>Contato</h1>
         <ul>
-          <Link href="#">
+          <Link href="https://www.instagram.com/debora_barrospsico/">
             <li>
               <img src="/insta.svg" alt="ícone instagram" /> <span>@debora_barrospsico</span>
             </li>

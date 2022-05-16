@@ -16,26 +16,26 @@ export function Header() {
         <div className={styles.left}>
           <ul className={styles.nav_elements}>
             <li>
-              <a href="#sobremim" className={styles.navLinks}>
+              <a href="#aboutme" className={styles.navLinks}>
                 Sobre mim
               </a>
             </li>
             <li>
-              <a href="#especialidade" className={styles.navLinks}>
+              <a href="#especialties" className={styles.navLinks}>
                 Especialidades
               </a>{" "}
             </li>
             <li>
-              <a href="#contato" className={styles.navLinks}>
+              <a href="#contact" className={styles.navLinks}>
                 Contato
               </a>{" "}
             </li>
             <li>
-              <a href="#instagram" className={styles.navLinks}>
+              <a href="https://www.instagram.com/debora_barrospsico/" className={styles.navLinks} target="_blank" rel="noreferrer">
                 Instagram
               </a>{" "}
             </li>
-            <Link href="#">
+            <Link href="#consult">
               <li>
                 <Button title="Agende sua consulta" />
               </li>

@@ -60,6 +60,7 @@
 
       li {
         @include style_font_header;
+        cursor: pointer;
 
         & + li {
           margin-left: 2.4rem;
