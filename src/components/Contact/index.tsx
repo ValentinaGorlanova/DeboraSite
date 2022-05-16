@@ -7,17 +7,17 @@ export function Contact() {
       <div className={styles.content}>
         <h1>Contato</h1>
         <ul>
-          <Link href="https://www.instagram.com/debora_barrospsico/">
+          <a href="https://www.instagram.com/debora_barrospsico/" target="_blank" rel="noreferrer">
             <li>
               <img src="/insta.svg" alt="ícone instagram" /> <span>@debora_barrospsico</span>
             </li>
-          </Link>
-          <Link href="#">
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5511960390431" target="_blank" rel="noreferrer">
             <li>
               <img src="/wha.svg" alt="ícone whatsapp" /> <span>(11) 96039 - 0431</span>
             </li>
-          </Link>
-          <Link href="#">
+          </a>
+          <Link href="##">
             <li>
               <img src="/mail.svg" alt="ícone e-mail" /> <span>deborabarrospsi@outlook.com</span>
             </li>

@@ -7,7 +7,7 @@ export function Header() {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className={styles.header}>
+    <div className={styles.header} id="header">
       <div className={styles.content}>
         <div className={styles.logo}>
           <img src="/logo_header.svg" alt="" className={styles.image} />
@@ -56,37 +56,36 @@ export function Header() {
             <div className={styles.overlay} onClick={() => setOpenMenu(!openMenu)} />
             <div className={styles.containerMenuMobile}>
               <ul>
-                <Link href="#">
+                <Link href="#header">
                   <li>
                     <img src="/header/iconHome.svg" alt="Icone Home" />
                     <p>Inicio</p>
                   </li>
                 </Link>
 
-                <Link href="#">
+                <Link href="#aboutme">
                   <li>
                     <img src="/header/iconAbout.svg" alt="Icone About" />
                     <p>Sobre mim</p>
                   </li>
                 </Link>
 
-                <Link href="#">
+                <Link href="#especialties">
                   <li>
                     <img src="/header/iconEspec.svg" alt="Icone Especialidades" />
                     <p>Especialidades</p>
                   </li>
                 </Link>
 
-                <Link href="#">
+                <a href="https://www.instagram.com/debora_barrospsico/" target="_blank" rel="noreferrer">
                   <li>
                     <img src="/header/iconInstagram.svg" alt="Icone Instagram" />
                     <p>Instagram</p>
                   </li>
-                </Link>
+                </a>
 
-                <Link href="#">
+                <Link href="#consult">
                   <li>
-                    {" "}
                     <img src="/header/iconAgenda.svg" alt="Icone Agendar consulta" />
                     <p>Agende sua consulta</p>
                   </li>

@@ -43,6 +43,12 @@
     align-items: center;
     gap: 32px;
   }
+
+  .right {
+    img {
+      cursor: pointer;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
