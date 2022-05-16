@@ -21,7 +21,7 @@ export function AboutMe() {
           fade: `${styles.fadeIn}`,
         });
       }
-    }, 2500);
+    }, 1500);
 
     if (imagesIndex === DataImages.length) {
       setImagesIndex(0);
