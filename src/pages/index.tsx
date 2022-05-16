@@ -11,6 +11,7 @@ import {
   ConsultationForm,
   Testimonials,
   Contact,
+  Footer,
 } from "../components";
 
 export default function Home() {
@@ -28,9 +29,7 @@ export default function Home() {
       <ConsultationForm />
       <Testimonials />
       <Contact />
-      {/* <img src="/whatsapp.svg" alt="" className="wha" /> */}
-
-      {/* <Footer />  */}
+      <Footer />
     </>
   );
 }

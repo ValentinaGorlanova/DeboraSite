@@ -44,7 +44,7 @@
 }
 
 .container {
-  margin: 0 auto;
+  margin: 0 auto 100px;
   max-width: 1440px;
   width: 100%;
   min-height: 786px;
@@ -111,6 +111,7 @@
 @media screen and (max-width: 500px) {
   .container {
     min-height: 355px;
+    margin: 0 auto 45px;
   }
   .content {
     .spanLocal {
