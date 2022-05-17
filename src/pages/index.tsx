@@ -1,4 +1,5 @@
 import {
+  SEO,
   Header,
   Banner,
   Symptoms,
@@ -17,6 +18,7 @@ import {
 export default function Home() {
   return (
     <>
+      <SEO title="Home" />
       <Header />
       <Banner />
       <Symptoms />

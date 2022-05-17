@@ -74,10 +74,13 @@
     margin-top: 20px;
 
     li {
-      display: flex;
-      align-items: center;
-      gap: 14px;
       cursor: pointer;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
 
       & + li {
         margin-top: 12px;
@@ -112,7 +115,7 @@
 @media screen and (max-width: 500px) {
   .container {
     min-height: 355px;
-    margin: 0 auto 45px;
+    margin: 50px auto 45px;
   }
   .content {
     .spanLocal {
