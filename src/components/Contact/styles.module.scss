@@ -74,10 +74,13 @@
     margin-top: 20px;
 
     li {
-      display: flex;
-      align-items: center;
-      gap: 14px;
       cursor: pointer;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
 
       & + li {
         margin-top: 12px;
