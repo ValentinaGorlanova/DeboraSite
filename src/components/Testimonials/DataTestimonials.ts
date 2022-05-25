@@ -20,8 +20,8 @@ export const DataTestimonials = [
   {
     id: 4,
     testimonial:
-      "“Tenho muita gratidão pela Psicóloga Débora, eu estava no fundo do poço, de repente vi uma mão brilhante me puxando daquele buraco. Agradeço a Dra. Débora por toda essa mudança, hoje me sinto uma pessoa normal. A palavra que deixo aqui é OBRIGADO!”",
-    name: "V.C",
+      "“Sofri por vários anos, sem saber que era ansiedade que me causava vários problemas físicos e emocionais.Graças ao diagnóstico e sessões de psicoterapia coma Dra. Débora, hoje sou outra pessoa.”",
+    name: "Z.B",
   },
   {
     id: 5,
