@@ -114,7 +114,7 @@ export function ConsultationForm() {
         id: notificationToast,
       });
     }
-    // reset();
+    reset();
     resetField("ansiedade");
     resetField("depressao");
     resetField("panico");
