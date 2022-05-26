@@ -1,8 +1,11 @@
+/* eslint-disable no-param-reassign */
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { EmailTemplate } from "./EmailTemplate";
+import emailjs from "emailjs-com";
+
+import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
 import { FormProps } from "./formTypes";
 import { maskPhone } from "@/utils/Masks";
@@ -12,6 +15,7 @@ export function ConsultationForm() {
     .object({
       name: yup.string().required("Nome completo é obrigatório!"),
       phone: yup.string().required("Telefone é obrigatório!"),
+      date: yup.string().required("A data não pode ser nula!"),
     })
     .required();
 
@@ -20,6 +24,8 @@ export function ConsultationForm() {
     handleSubmit,
     watch,
     setValue,
+    reset,
+    resetField,
     formState: { errors },
   } = useForm<FormProps>({
     resolver: yupResolver(schema),
@@ -31,29 +37,94 @@ export function ConsultationForm() {
     setValue("phone", maskPhone(phoneValue));
   }, [phoneValue, setValue]);
 
-  function onSubmit(userData: FormProps) {
-    const emailTemplateReplaced = EmailTemplate.replace("{name}", userData.name)
-      .replace("{option}", userData.option === "online" ? "Online" : "Presencial")
-      .replace("{name}", userData.name)
-      .replace("{email}", userData.email)
-      .replace("{phone}", String(userData.phone))
-      .replace("{age}", String(userData.age))
-      .replace("{message}", userData.message)
-      .replace("{date}", userData.date)
-      .replace("{hour}", String(userData.hour))
-      .replace("{option}", userData.option === "online" ? "Online" : "Presencial")
-      .replace("{ansiedade}", userData.ansiedade ? "Ansiedade, " : "")
-      .replace("{depressao}", userData.depressao ? "Depressão, " : "")
-      .replace("{panico}", userData.panico ? "Síndrome do pânico, " : "")
-      .replace("{alcoolismo}", userData.alcoolismo ? "Alcoolismo, " : "")
-      .replace("{dependencia_quimica}", userData.dependencia_quimica ? "Dependência química, " : "")
-      .replace("{fobia_social}", userData.fobia_social ? "Fobia Social, " : "")
-      .replace("{dificuldades_sexuais}", userData.dificuldades_sexuais ? "Dificuldades Sociais, " : "")
-      .replace("{autoconhecimento}", userData.autoconhecimento ? "Autoconhecimento, " : "")
-      .replace("{tdah}", userData.tdah ? "TDAH, " : "")
-      .replace("{outros}", userData.outros ? "Outros. " : "");
+  async function onSubmit(userData: FormProps) {
+    const notificationToast = toast.loading("Enviando sua mensagem", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+    // const emailTemplateReplaced = EmailTemplate.replace("{name}", userData.name)
+    //   .replace("{option}", userData.option === "online" ? "Online" : "Presencial")
+    //   .replace("{name}", userData.name)
+    //   .replace("{email}", userData.email)
+    //   .replace("{phone}", String(userData.phone))
+    //   .replace("{age}", String(userData.age))
+    //   .replace("{message}", userData.message)
+    //   .replace("{date}", userData.date)
+    //   .replace("{hour}", String(userData.hour))
+    //   .replace("{option}", userData.option === "online" ? "Online" : "Presencial")
+    //   .replace("{ansiedade}", userData.ansiedade ? "Ansiedade, " : "")
+    //   .replace("{depressao}", userData.depressao ? "Depressão, " : "")
+    //   .replace("{panico}", userData.panico ? "Síndrome do pânico, " : "")
+    //   .replace("{alcoolismo}", userData.alcoolismo ? "Alcoolismo, " : "")
+    //   .replace("{dependencia_quimica}", userData.dependencia_quimica ? "Dependência química, " : "")
+    //   .replace("{fobia_social}", userData.fobia_social ? "Fobia Social, " : "")
+    //   .replace("{dificuldades_sexuais}", userData.dificuldades_sexuais ? "Dificuldades Sociais, " : "")
+    //   .replace("{autoconhecimento}", userData.autoconhecimento ? "Autoconhecimento, " : "")
+    //   .replace("{tdah}", userData.tdah ? "TDAH, " : "")
+    //   .replace("{outros}", userData.outros ? "Outros. " : "");
 
-    console.log("Dados: ", emailTemplateReplaced);
+    // console.log("Dados: ", emailTemplateReplaced);
+
+    const emailValues = {
+      option: userData.option === "online" ? "Online" : "Presencial",
+      name: userData.name,
+      email: userData.email,
+      phone: userData.phone,
+      age: userData.age,
+      message: userData.message,
+      date: userData.date,
+      hour: userData.hour,
+      ansiedade: userData.ansiedade ? "Ansiedade, " : "",
+      depressao: userData.depressao ? "Depressão, " : "",
+      panico: userData.panico ? "Síndrome do pânico, " : "",
+      alcoolismo: userData.alcoolismo ? "Alcoolismo, " : "",
+      dependencia_quimica: userData.dependencia_quimica ? "Dependência química, " : "",
+      fobia_social: userData.fobia_social ? "Fobia Social, " : "",
+      dificuldades_sexuais: userData.dificuldades_sexuais ? "Dificuldades Sociais, " : "",
+      autoconhecimento: userData.autoconhecimento ? "Autoconhecimento, " : "",
+      tdah: userData.tdah ? "TDAH, " : "",
+      outros: userData.outros ? "Outros. " : "",
+    };
+    const dateObj = new Date();
+    const month = dateObj.getUTCMonth() + 1; // months from 1-12
+    const day = dateObj.getUTCDate();
+    const year = dateObj.getUTCFullYear();
+
+    // eslint-disable-next-line no-useless-concat
+    const newdate = `${year}-` + `0${month}-${day}`;
+
+    if (userData.date === "" || userData.date < newdate) {
+      toast.error("Ops 🙁 você não pode agendar uma data anterior a data atual", {
+        id: notificationToast,
+      });
+
+      return;
+    }
+    try {
+      await emailjs.send("service_jfye2qg", "template_y3qwtjg", emailValues, "PE9lOhNzjdGovGIiH");
+      toast.success("Email enviado com sucesso", {
+        id: notificationToast,
+      });
+    } catch (e) {
+      console.log(e);
+      toast.error("Ops 🙁 por algum motivo não conseguimos enviar sua mensagem, por favor tente novamente mais tarde", {
+        id: notificationToast,
+      });
+    }
+    // reset();
+    resetField("ansiedade");
+    resetField("depressao");
+    resetField("panico");
+    resetField("alcoolismo");
+    resetField("dependencia_quimica");
+    resetField("fobia_social");
+    resetField("dificuldades_sexuais");
+    resetField("autoconhecimento");
+    resetField("tdah");
+    resetField("outros");
   }
 
   return (
@@ -87,6 +158,7 @@ export function ConsultationForm() {
           <label className={styles.date}>
             Data da consulta:
             <input type="date" {...register("date")} />
+            {errors.date && <span className={styles.spanError}>{errors.date?.message}</span>}
           </label>
 
           <label className={styles.consult_hour}>
