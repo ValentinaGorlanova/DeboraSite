@@ -104,7 +104,7 @@ export function ConsultationForm() {
       return;
     }
     try {
-      await emailjs.send("service_jfye2qg", "template_y3qwtjg", emailValues, "PE9lOhNzjdGovGIiH");
+      await emailjs.send("service_x0vcdha", "template_y3qwtjg", emailValues, "PE9lOhNzjdGovGIiH");
       toast.success("Email enviado com sucesso", {
         id: notificationToast,
       });
