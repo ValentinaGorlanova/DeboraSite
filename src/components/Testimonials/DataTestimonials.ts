@@ -20,7 +20,7 @@ export const DataTestimonials = [
   {
     id: 4,
     testimonial:
-      "“Sofri por vários anos, sem saber que era ansiedade que me causava vários problemas físicos e emocionais.Graças ao diagnóstico e sessões de psicoterapia coma Dra. Débora, hoje sou outra pessoa.”",
+      "“Sofri por vários anos, sem saber que era ansiedade que me causava vários problemas físicos e emocionais.Graças ao diagnóstico e sessões de psicoterapia com a Dra. Débora, hoje sou outra pessoa.”",
     name: "Z.B",
   },
   {
