@@ -18,7 +18,7 @@ export function Contact() {
           </li>
           <li>
             <a href="##">
-              <img src="/mail.svg" alt="ícone e-mail" /> <span>deborabarrospsi@outlook.com</span>
+              <img src="/mail.svg" alt="ícone e-mail" /> <span>contato@deborabarrospsicologa.com.br</span>
             </a>
           </li>
           <li>
