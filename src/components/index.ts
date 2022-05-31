@@ -15,3 +15,4 @@ export * from "./Footer";
 
 // Pages
 export * from "./Pages/Login";
+export * from "./Pages/Login/ModalSendEmail";
