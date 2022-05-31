@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import emailjs from "emailjs-com";
-
 import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
 import { FormProps } from "./formTypes";
