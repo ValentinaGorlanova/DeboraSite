@@ -12,3 +12,6 @@ export * from "./ConsultationForm";
 export * from "./Testimonials";
 export * from "./Contact";
 export * from "./Footer";
+
+// Pages
+export * from "./Pages/Login";
