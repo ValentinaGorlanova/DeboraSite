@@ -72,7 +72,7 @@ export function ResetPassword() {
           <label>
             Digite sua nova senha
             <input
-              className={errors.password ? `${styles.inputError}` : ""}
+              className={errors.password && !textPassword ? `${styles.inputError}` : ""}
               type={showPass ? "text" : "password"}
               {...register("password")}
               placeholder="Digite sua senha"
@@ -89,7 +89,7 @@ export function ResetPassword() {
           <label>
             Confirme sua nova senha
             <input
-              className={errors.passwordConfirm ? `${styles.inputError}` : ""}
+              className={errors.passwordConfirm && !textPasswordConfirmation ? `${styles.inputError}` : ""}
               type={showPassConfirm ? "text" : "password"}
               {...register("passwordConfirm")}
               placeholder="Confirme sua nova senha"
