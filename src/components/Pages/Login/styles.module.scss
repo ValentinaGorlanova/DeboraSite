@@ -288,8 +288,13 @@
 @media screen and (max-width: 1024px) {
   .modalLogin {
     max-width: 503px;
-    // min-height: 681px;
     padding: 50px 64px;
+  }
+
+  .imagesLeft {
+    .img1 {
+      display: none;
+    }
   }
 }
 

@@ -90,7 +90,7 @@ export function Login() {
             </button>
           </label>
 
-          <Link href="/login/enviar-email">
+          <Link href="/login/send-email">
             <a className={styles.linkRecover} onClick={() => setIsOpen(!isOpen)}>
               Esqueceu sua senha?
             </a>
