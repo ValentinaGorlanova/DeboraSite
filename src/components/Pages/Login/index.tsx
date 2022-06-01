@@ -75,7 +75,7 @@ export function Login() {
           <label>
             Digite sua senha
             <input
-              className={errors.password ? `${styles.inputError}` : ""}
+              className={errors.password && !textPassword ? `${styles.inputError}` : ""}
               type={showPass ? "text" : "password"}
               {...register("password")}
               placeholder="Digite sua senha"
