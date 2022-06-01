@@ -17,4 +17,5 @@ export * from "./Footer";
 export * from "./Pages/Login";
 export * from "./Pages/Login/SendEmail";
 export * from "./Pages/Login/ResetPassword";
-export * from "./Pages/Login/Success";
+export * from "./Pages/Login/SuccessSendEmail";
+export * from "./Pages/Login/SuccessResetPassword";

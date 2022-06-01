@@ -3,6 +3,7 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineExclamationCircle } from "react
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useRouter } from "next/router";
 import styles from "./styles.module.scss";
 
 interface FormProps {
@@ -15,6 +16,7 @@ export function ResetPassword() {
   const [showPassConfirm, setShowPassConfirm] = useState(false);
   const [textPassword, setTextPassword] = useState("");
   const [textPasswordConfirmation, setTextPasswordConfirmation] = useState("");
+  const router = useRouter();
   const schema = yup
     .object({
       password: yup.string().required("Digite sua nova senha").min(6, "A senha deve conter pelo menos 6 digitos"),
@@ -53,6 +55,7 @@ export function ResetPassword() {
 
   function onSubmit(data: FormProps) {
     console.log("User: ", data);
+    router.push("/login/reset-success");
   }
 
   return (
