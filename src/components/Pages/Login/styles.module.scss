@@ -148,6 +148,7 @@
 
         & ~ .iconEye {
           .iconErrorSVG {
+            display: block;
             color: #d10438;
           }
 
@@ -165,8 +166,10 @@
         right: 14px;
       }
 
-      // label password
-      &:nth-child(3) {
+      // nth-child(3) label password index.tsx
+      // nth-child(2) label password ResetPassword.tsx
+      &:nth-child(3),
+      &:nth-child(2) {
         position: relative;
 
         input {
@@ -192,6 +195,10 @@
           }
         }
       }
+
+      // .resetPassword {
+      //   @extend :nth-child(3);
+      // }
 
       .spanError {
         @include label;

@@ -13,7 +13,8 @@ export * from "./Testimonials";
 export * from "./Contact";
 export * from "./Footer";
 
-// Pages
+// Pages Login
 export * from "./Pages/Login";
 export * from "./Pages/Login/SendEmail";
+export * from "./Pages/Login/ResetPassword";
 export * from "./Pages/Login/Success";

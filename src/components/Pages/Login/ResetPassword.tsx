@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import Link from "next/link";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineExclamationCircle } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,21 +6,26 @@ import * as yup from "yup";
 import styles from "./styles.module.scss";
 
 interface FormProps {
-  email: string;
   password: string;
+  passwordConfirm: string;
 }
 
-export function Login() {
+export function ResetPassword() {
   const [showPass, setShowPass] = useState(false);
+  const [showPassConfirm, setShowPassConfirm] = useState(false);
   const [textPassword, setTextPassword] = useState("");
-  const [textEmail, setTextEmail] = useState("");
-
+  const [textPasswordConfirmation, setTextPasswordConfirmation] = useState("");
   const schema = yup
     .object({
-      email: yup.string().required("E-mail não pode ser vazio").email("Digite um e-mail válido"),
-      password: yup.string().required("Digite sua senha"),
+      password: yup.string().required("Digite sua nova senha").min(6, "A senha deve conter pelo menos 6 digitos"),
+      passwordConfirm: yup
+        .string()
+        .required("Confirme sua nova senha")
+        .oneOf([yup.ref("password")], "As senhas devem ser iguais"),
     })
     .required();
+
+  // .oneOf(["password"], "As senhas devem ser iguais")
 
   const {
     register,
@@ -41,6 +45,12 @@ export function Login() {
     }
   }, [textPassword, showPass]);
 
+  const showPasswordConfirmation = useCallback(() => {
+    if (textPasswordConfirmation) {
+      setShowPassConfirm(!showPassConfirm);
+    }
+  }, [textPasswordConfirmation, showPassConfirm]);
+
   function onSubmit(data: FormProps) {
     console.log("User: ", data);
   }
@@ -57,23 +67,10 @@ export function Login() {
 
       <div className={styles.modalLogin}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h1>Faça seu login</h1>
+          <h1>Definir nova senha</h1>
 
           <label>
-            Digite seu email
-            <input
-              type="text"
-              className={errors.email && !textEmail ? `${styles.inputError}` : ""}
-              placeholder="Digite seu email"
-              {...register("email")}
-              onChange={(e) => setTextEmail(e.target.value)}
-            />
-            {errors?.email && !textEmail ? <AiOutlineExclamationCircle className={styles.iconErrorEmailSVG} /> : ""}
-            {errors.email && <span className={styles.spanError}>{errors.email?.message}</span>}
-          </label>
-
-          <label>
-            Digite sua senha
+            Digite sua nova senha
             <input
               className={errors.password ? `${styles.inputError}` : ""}
               type={showPass ? "text" : "password"}
@@ -89,24 +86,26 @@ export function Login() {
             </button>
           </label>
 
-          <Link href="/login/send-email">
-            <a className={styles.linkRecover}>Esqueceu sua senha?</a>
-          </Link>
+          <label>
+            Confirme sua nova senha
+            <input
+              className={errors.passwordConfirm ? `${styles.inputError}` : ""}
+              type={showPassConfirm ? "text" : "password"}
+              {...register("passwordConfirm")}
+              placeholder="Confirme sua nova senha"
+              value={textPasswordConfirmation}
+              onChange={(e) => setTextPasswordConfirmation(e.target.value)}
+            />
+            {errors?.passwordConfirm ? <span className={styles.spanError}>{errors.passwordConfirm?.message}</span> : ""}
+            <button type="button" className={styles.iconEye} onClick={showPasswordConfirmation}>
+              {errors?.passwordConfirm && !textPasswordConfirmation ? <AiOutlineExclamationCircle className={styles.iconErrorSVG} /> : ""}
+              {showPassConfirm ? <AiFillEyeInvisible className={styles.iconEyeSVG} /> : <AiFillEye className={styles.iconEyeSVG} />}
+            </button>
+          </label>
 
           <button type="submit" className={styles.buttonLogin} onClick={() => onSubmit}>
-            Entrar
+            Enviar nova senha
           </button>
-
-          <p>Ou entre com</p>
-
-          <div className={styles.loginAlternative}>
-            <a href="#">
-              <img src="/google.svg" alt="ícone do Google" /> Google
-            </a>
-            <a href="#">
-              <img src="/facebook.svg" alt="ícone do Facebook" /> Facebook
-            </a>
-          </div>
         </form>
       </div>
     </div>
