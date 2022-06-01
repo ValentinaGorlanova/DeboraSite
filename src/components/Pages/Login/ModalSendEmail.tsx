@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
@@ -48,6 +49,7 @@ export function ModalSendEmail() {
           <label>
             Digite seu email
             <input type="text" className={errors.email ? `${styles.inputError}` : ""} placeholder="Digite seu email" {...register("email")} />
+            {errors?.email && <AiOutlineExclamationCircle className={styles.iconErrorEmailSVG} />}
             {errors.email && <span className={styles.spanError}>{errors.email?.message}</span>}
           </label>
 

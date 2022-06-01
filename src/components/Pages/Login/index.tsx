@@ -5,17 +5,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
-// import styles from "./ModalLogin.module.scss";
 
 interface FormProps {
   email: string;
   password: string;
-  // openModal: boolean;
 }
 
 export function Login() {
   const [showPass, setShowPass] = useState(false);
-  const [text, setText] = useState("");
+  const [textPassword, setTextPassword] = useState("");
+  const [textEmail, setTextEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const schema = yup
@@ -38,10 +37,10 @@ export function Login() {
   });
 
   const showPassword = useCallback(() => {
-    if (text) {
+    if (textPassword) {
       setShowPass(!showPass);
     }
-  }, [text, showPass]);
+  }, [textPassword, showPass]);
 
   function onSubmit(data: FormProps) {
     console.log("User: ", data);
@@ -63,7 +62,14 @@ export function Login() {
 
           <label>
             Digite seu email
-            <input type="text" className={errors.email ? `${styles.inputError}` : ""} placeholder="Digite seu email" {...register("email")} />
+            <input
+              type="text"
+              className={errors.email && !textEmail ? `${styles.inputError}` : ""}
+              placeholder="Digite seu email"
+              {...register("email")}
+              onChange={(e) => setTextEmail(e.target.value)}
+            />
+            {errors?.email && !textEmail ? <AiOutlineExclamationCircle className={styles.iconErrorEmailSVG} /> : ""}
             {errors.email && <span className={styles.spanError}>{errors.email?.message}</span>}
           </label>
 
@@ -74,12 +80,12 @@ export function Login() {
               type={showPass ? "text" : "password"}
               {...register("password")}
               placeholder="Digite sua senha"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
+              value={textPassword}
+              onChange={(e) => setTextPassword(e.target.value)}
             />
-            {errors.password && !text ? <span className={styles.spanError}>{errors.password?.message}</span> : ""}
+            {errors?.password ? <span className={styles.spanError}>{errors.password?.message}</span> : ""}
             <button type="button" className={styles.iconEye} onClick={showPassword}>
-              {errors?.password && !text ? <AiOutlineExclamationCircle className={styles.iconErrorSVG} /> : ""}
+              {errors?.password && !textPassword ? <AiOutlineExclamationCircle className={styles.iconErrorSVG} /> : ""}
               {showPass ? <AiFillEyeInvisible className={styles.iconEyeSVG} /> : <AiFillEye className={styles.iconEyeSVG} />}
             </button>
           </label>
