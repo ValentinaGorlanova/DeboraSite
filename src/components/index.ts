@@ -19,3 +19,6 @@ export * from "./Pages/Login/SendEmail";
 export * from "./Pages/Login/ResetPassword";
 export * from "./Pages/Login/SuccessSendEmail";
 export * from "./Pages/Login/SuccessResetPassword";
+
+// Pages Dashboard
+export * from "./Pages/Dashboard";
