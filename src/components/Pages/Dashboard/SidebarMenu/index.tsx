@@ -85,20 +85,6 @@ export function SidebarMenu() {
       logo.current.style.display = "block";
       logoExpand.current.style.display = "none";
     }
-
-    // com botão
-    // if (sidebarRef.current && open && size) {
-    //   console.log("e igual a 80");
-    //   sidebarRef.current.style.width = "224px";
-    //   logo.current.style.display = "none";
-    //   logoExpand.current.style.display = "block";
-    // } else if (sidebarRef.current && !open && !size) {
-    //   sidebarRef.current.style.width = "80px";
-    //   logo.current.style.display = "block";
-    //   logoExpand.current.style.display = "none";
-    // }
-
-    // console.log("clicou");
   }, [open, menuClicked, size]);
 
   const showtest = useCallback(
