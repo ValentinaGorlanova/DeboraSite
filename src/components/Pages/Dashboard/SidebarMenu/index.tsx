@@ -61,8 +61,8 @@ export function SidebarMenu() {
   ];
 
   const sidebarRef = useRef<HTMLDivElement | null>(null);
-  const logoExpand = useRef<HTMLDivElement | null>(null);
-  const logo = useRef<HTMLDivElement | null>(null);
+  const logoExpand = useRef<any>(null);
+  const logo = useRef<any>(null);
 
   // console.log("aaaa: ", sidebarRef.current?.style.width);
 
@@ -79,13 +79,14 @@ export function SidebarMenu() {
       console.log("e igual a 80");
       sidebarRef.current.style.width = "224px";
       sidebarRef.current.style.overflow = "unset";
-      logo.current.style.display = "none";
-      logoExpand.current.style.display = "block";
+
+      logo.current!.style.display = "none";
+      logoExpand.current!.style.display = "block";
     } else if (sidebarRef.current && !open && !size) {
       sidebarRef.current.style.width = "80px";
       sidebarRef.current.style.overflow = "hidden";
-      logo.current.style.display = "block";
-      logoExpand.current.style.display = "none";
+      logo.current!.style.display = "block";
+      logoExpand.current!.style.display = "none";
     }
   }, [open, menuClicked, size]);
 
