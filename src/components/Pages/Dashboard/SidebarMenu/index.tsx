@@ -66,7 +66,7 @@ export function SidebarMenu() {
 
   // console.log("aaaa: ", sidebarRef.current?.style.width);
 
-  const size = sidebarRef.current?.style.width === "80px" ? true : false;
+  const size = sidebarRef.current?.style.width === "80px";
 
   const handleClick = useCallback(() => {
     setOpen((state) => !state);
