@@ -3,43 +3,43 @@ import { useCallback, useRef, useState } from "react";
 import { Calendar, Close, Configs, Finances, Historic, Home, MenuMobile, Messages, Profile, User } from "./IconsMenuSvg";
 import styles from "./SidebarMenu.module.scss";
 
+export const menu = [
+  {
+    icon: <Home />,
+    name: "Inicio",
+  },
+  {
+    icon: <User />,
+    name: "Cadastro",
+    link: "https://www.google.com.br",
+  },
+  {
+    icon: <Historic />,
+    name: "Histórico",
+  },
+  {
+    icon: <Finances />,
+    name: "Financeiro",
+  },
+  {
+    icon: <Messages />,
+    name: "Mensagens",
+  },
+  {
+    icon: <Configs />,
+    name: "Configurações",
+  },
+  {
+    icon: <Close />,
+    name: "Sair",
+  },
+];
+
 export function SidebarMenu() {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [open, setOpen] = useState(false);
   const [menuClicked, setMenuClicked] = useState(false);
   const [openMenuDropDown, setOpenMenuDropDown] = useState(false);
-
-  const menu = [
-    {
-      icon: <Home />,
-      name: "Inicio",
-    },
-    {
-      icon: <User />,
-      name: "Cadastro",
-      link: "https://www.google.com.br",
-    },
-    {
-      icon: <Historic />,
-      name: "Histórico",
-    },
-    {
-      icon: <Finances />,
-      name: "Financeiro",
-    },
-    {
-      icon: <Messages />,
-      name: "Mensagens",
-    },
-    {
-      icon: <Configs />,
-      name: "Configurações",
-    },
-    {
-      icon: <Close />,
-      name: "Sair",
-    },
-  ];
 
   const menuMobile = [
     {
@@ -71,17 +71,19 @@ export function SidebarMenu() {
   const handleClick = useCallback(() => {
     setOpen((state) => !state);
 
-    if (sidebarRef.current?.id !== "side") {
-      return;
-    }
+    // if (sidebarRef.current?.id !== "side") {
+    //   return;
+    // }
 
-    if (sidebarRef.current && open && size && !menuClicked) {
+    if (sidebarRef.current && open && size) {
       console.log("e igual a 80");
       sidebarRef.current.style.width = "224px";
+      sidebarRef.current.style.overflow = "unset";
       logo.current.style.display = "none";
       logoExpand.current.style.display = "block";
-    } else if (sidebarRef.current && !open && !size && !menuClicked) {
+    } else if (sidebarRef.current && !open && !size) {
       sidebarRef.current.style.width = "80px";
+      sidebarRef.current.style.overflow = "hidden";
       logo.current.style.display = "block";
       logoExpand.current.style.display = "none";
     }
@@ -100,9 +102,9 @@ export function SidebarMenu() {
 
   return (
     <>
-      <div id="side" className={styles.sidebarmenu} onClick={handleClick} ref={sidebarRef}>
-        <img ref={logo} className={styles.logo} src="/logoMobile.png" alt="logo" />
-        <img ref={logoExpand} className={styles.logoExpand} src="/logoDashboard.png" alt="logo" />
+      <div className={styles.sidebarmenu} ref={sidebarRef}>
+        <img ref={logo} className={styles.logo} src="/logoMobile.png" alt="logo" onClick={handleClick} />
+        <img ref={logoExpand} className={styles.logoExpand} src="/logoDashboard.png" alt="logo" onClick={handleClick} />
 
         {/* <button onClick={handleClick}>{open ? "Abrir" : "Fechar"}</button> */}
 
@@ -130,7 +132,7 @@ export function SidebarMenu() {
 
               {/* Menu Dropdown - Submenu */}
               {openMenuDropDown && (
-                <div className={styles.test}>
+                <div className={styles.subMenuDropDown}>
                   {menu.map((t) => (
                     <a href={t.link} key={t.name}>
                       <li onClick={() => showtest(index)}>

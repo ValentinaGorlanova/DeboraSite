@@ -66,9 +66,10 @@
       &:last-child {
         // border: 1px solid blue;
         // display: block;
-        flex: auto;
-        display: flex;
-        align-items: flex-end;
+        // flex: auto;
+        // display: flex;
+        // align-items: flex-end;
+        margin-top: auto;
 
         &::before {
           bottom: 5px;
@@ -118,7 +119,7 @@
   }
 
   span {
-    border: 1px solid red;
+    // border: 1px solid red;
     // display: block;
     height: 30px;
     flex: 1;
@@ -132,7 +133,7 @@
 
 @media (max-width: 500px) {
   .sidebarmenu {
-    border: 1px solid red;
+    // border: 1px solid red;
     width: 100%;
     display: none;
 
@@ -221,8 +222,9 @@
         }
       }
 
-      .test {
+      .subMenuDropDown {
         position: absolute;
+        z-index: 1;
         top: -340px;
         left: 1px;
         width: 221px;
@@ -266,5 +268,11 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 501px) and (max-width: 1023px) {
+  .sidebarmenu {
+    display: none;
   }
 }
