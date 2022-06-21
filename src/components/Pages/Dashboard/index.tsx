@@ -1,4 +1,4 @@
-import { Calendar } from "./Calendar/Calendar";
+import { CalendarSection } from "./Calendar/CalendarSection";
 import { Content } from "./Content";
 import { SidebarMenu } from "./SidebarMenu";
 import styles from "./styles.module.scss";
@@ -8,7 +8,7 @@ export function Dashboard() {
     <div className={styles.dashboard}>
       <SidebarMenu />
       <Content />
-      <Calendar />
+      <CalendarSection />
     </div>
   );
 }
