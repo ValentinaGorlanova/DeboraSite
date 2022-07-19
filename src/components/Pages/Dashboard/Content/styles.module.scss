@@ -1,0 +1,409 @@
+.container {
+  grid-area: content;
+  // border: 1px solid red;
+  padding: 24px 24px;
+
+  display: flex;
+  flex-direction: column;
+  // height: 100vh;
+
+  // width: 929px;
+  width: 100%;
+}
+
+.InputSearch {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  flex-direction: row-reverse;
+  width: 457px;
+  height: 48px;
+  left: 396px;
+  top: 32px;
+  background: #f0f0f0;
+  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  border-radius: 48px;
+
+  .buttonSearch {
+    width: 50px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > input {
+    flex: 1;
+    padding-right: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.22px;
+    color: #b5b5b5;
+    height: 100%;
+
+    &:focus {
+      background: #f7f7f7;
+      border-top-right-radius: 48px;
+      border-bottom-right-radius: 48px;
+    }
+
+    &:focus + .buttonSearch {
+      background: #f7f7f7;
+      border-top-left-radius: 48px;
+      border-bottom-left-radius: 48px;
+    }
+  }
+}
+
+.bannerDashboard {
+  margin-top: 58px;
+  height: 173px;
+  background: #cde0fd;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+
+  padding: 0 50px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 294px;
+    // border: 1px solid red;
+
+    h1 {
+      font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.4px;
+      color: #1e1e1e;
+    }
+
+    p {
+      margin-top: 8px;
+      font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      color: #1e1e1e;
+      opacity: 0.7;
+    }
+  }
+  img {
+    transform: translateY(-9px);
+  }
+}
+
+.CardsWrapper {
+  margin-top: 24px;
+  // border: 1px solid blue;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .card {
+    // border: 1px solid red;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 32px 32px 24px;
+    // gap: 22px;
+    width: 299px;
+    height: 204px;
+    background: #f7f7f7;
+    box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+    border-radius: 8px;
+
+    .title {
+      margin: 0 auto;
+      font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: 0.4px;
+      color: #1e1e1e;
+    }
+
+    .description {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 80px;
+        line-height: 98px;
+        letter-spacing: 0.4px;
+        color: #1e1e1e;
+      }
+    }
+  }
+}
+
+.solicitations {
+  // border: 1px solid red;
+  margin-top: 48px;
+
+  .title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #1e1e1e;
+  }
+
+  .description {
+    margin-top: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #1e1e1e;
+    opacity: 0.7;
+  }
+
+  .contentWrapper {
+    // border: 1px solid blue;
+    margin-top: 24px;
+
+    .contentHeader {
+      // display: flex;
+      display: grid;
+      grid-template-columns: 3fr 3fr 3fr 1fr;
+      p {
+        font-family: "Barlow", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #1e1e1e;
+        opacity: 0.8;
+
+        // & + p {
+        //   margin-left: 215px;
+        // }
+      }
+    }
+
+    .contentSolicitations {
+      margin-top: 20px;
+      min-height: 90px;
+      padding: 32px 24px;
+      background: #f7f7f7;
+      box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+      border-radius: 12px;
+
+      ul {
+        list-style: none;
+        // display: flex;
+        // gap: 91px;
+
+        display: grid;
+        grid-template-columns: 3fr 3fr 3fr 1fr;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          svg {
+            font-size: 24px;
+            color: #3a4d65;
+          }
+
+          .name {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 40%;
+            display: inline-block;
+            overflow: hidden;
+          }
+
+          span {
+            font-family: "Barlow", sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 26px;
+            color: #1e1e1e;
+            opacity: 0.7;
+          }
+
+          // &:first-child {
+          //   border: 1px solid red;
+          // }
+
+          &:last-child {
+            text-decoration: underline;
+            margin-left: auto;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .CardsWrapper {
+    .card {
+      flex: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .solicitations {
+    .contentWrapper {
+      .contentHeader {
+        grid-template-columns: 1.4fr 1fr;
+
+        p {
+          &:nth-child(1) {
+            // border: 1px solid red;
+            // text-align: center;
+          }
+
+          &:nth-child(2) {
+            // border: 1px solid red;
+            // text-align: center;
+          }
+
+          &:nth-child(3) {
+            // border: 1px solid red;
+            display: none;
+          }
+        }
+      }
+
+      .contentSolicitations {
+        padding: 16px 20px;
+        min-height: 76px;
+
+        ul {
+          grid-template-columns: 3fr 2fr;
+
+          li {
+            display: flex;
+            align-items: center;
+
+            span {
+              font-size: 14px;
+              line-height: 26px;
+            }
+
+            svg {
+              font-size: 20px;
+            }
+
+            &:nth-child(2) {
+              text-align: right;
+              justify-content: flex-end;
+            }
+
+            &:nth-child(3) {
+              // border: 1px solid red;
+              // display: none;
+              visibility: hidden;
+            }
+            &:nth-child(4) {
+              // border: 1px solid red;
+              display: block;
+              width: 100%;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+    order: 1;
+  }
+
+  .InputSearch {
+    width: 95%;
+  }
+
+  .bannerDashboard {
+    padding: 0 20px;
+    gap: 0;
+
+    > div {
+      h1 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+
+    img {
+      transform: translateY(0);
+      align-self: flex-end;
+      width: 141px;
+    }
+  }
+
+  .CardsWrapper {
+    .card {
+      width: 100%;
+      height: 204px;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .solicitations {
+    .contentWrapper {
+      .contentSolicitations {
+        padding: 16px 10px;
+      }
+    }
+  }
+}
+@media (max-width: 327px) {
+  .CardsWrapper {
+    .card {
+      flex-wrap: initial;
+    }
+  }
+}
