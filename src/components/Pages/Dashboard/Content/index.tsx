@@ -3,6 +3,7 @@ import { RiUser3Fill, RiPhoneFill } from "react-icons/ri";
 import { IconConsultationDashboard, IconFinancesDashboard, IconPromptuaryDashboard } from "../SidebarMenu/IconsMenuSvg";
 
 import styles from "./styles.module.scss";
+import NewRequestModal from "@/components/NewRequestModal";
 
 export function Content() {
   const CardData = [
@@ -94,23 +95,25 @@ export function Content() {
           </div>
           {solicitationsData.map((item) => (
             <div className={styles.contentSolicitations} key={item.id}>
-              <ul>
-                <li>
-                  <RiUser3Fill /> <span className={styles.name}>{item.name}</span>
-                </li>
-                <li>
-                  <AiFillClockCircle /> <span>{item.createdAt} horas atrás</span>
-                </li>
-                <li>
-                  <RiPhoneFill />
-                  <span> {item.phone}</span>
-                </li>
-                <li>
-                  <span>
-                    <a href={item.link}>Saiba mais</a>
-                  </span>
-                </li>
-              </ul>
+              <NewRequestModal>
+                <ul>
+                  <li>
+                    <RiUser3Fill /> <span className={styles.name}>{item.name}</span>
+                  </li>
+                  <li>
+                    <AiFillClockCircle /> <span>{item.createdAt} horas atrás</span>
+                  </li>
+                  <li>
+                    <RiPhoneFill />
+                    <span> {item.phone}</span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href={item.link}>Saiba mais</a>
+                    </span>
+                  </li>
+                </ul>
+              </NewRequestModal>
             </div>
           ))}
         </div>

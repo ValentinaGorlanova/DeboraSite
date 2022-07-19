@@ -21,3 +21,17 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+// input[type="checkbox"] {
+//   display: none;
+
+//   &:checked + label:before {
+//     content: "";
+//     background-image: url("/iconChecked.svg");
+//     background-repeat: no-repeat;
+//     border: 1px solid #d78950;
+//     background-size: 15px 11px;
+//     background-position: 2px 2px;
+//     border-radius: 4px;
+//   }
+// }
