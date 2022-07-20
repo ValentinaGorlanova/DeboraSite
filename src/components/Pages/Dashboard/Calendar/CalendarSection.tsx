@@ -5,9 +5,9 @@ import { AiFillClockCircle } from "react-icons/ai";
 import { FaBell } from "react-icons/fa";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
 import { RiCloseFill } from "react-icons/ri";
-import { Calendar } from "react-widgets/cjs";
+// import { Calendar } from "react-widgets/cjs";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import "react-widgets/styles.css";
+// import "react-widgets/styles.css";
 import { menu } from "../SidebarMenu";
 import styles from "./Calendar.module.scss";
 // import "react-calendar/dist/Calendar.css";
@@ -46,7 +46,7 @@ export function CalendarSection() {
         <h1>Veja seu calendário</h1> <a href="#">Ir para agenda</a>
       </div>
       <div className={styles.calendarContainer}>
-        <Calendar className={styles.calendar} value={date} onChange={setDate} />
+        {/* <Calendar className={styles.calendar} value={date} onChange={setDate} /> */}
         {/* {date.toDateString()} */}
         {/* <Calendar /> */}
       </div>
