@@ -22,3 +22,6 @@ export * from "./Pages/Login/SuccessResetPassword";
 
 // Pages Dashboard
 export * from "./Pages/Dashboard";
+
+// Pages Calendar
+export * from "./Pages/CalendarContent";
