@@ -122,32 +122,7 @@ export function SidebarMenu() {
       </div>
 
       {/* Menu Mobile */}
-      <div className={styles.sidebarmenuMobile}>
-        <ul>
-          {menuMobile.map((item, index) => (
-            <a key={item.name} href="#" onClick={() => setActiveIndex(index)}>
-              <li className={activeIndex === index ? styles.active : ""} onClick={() => showtest(index)}>
-                <span>{item.icon}</span>
-                {item.name}
-              </li>
 
-              {/* Menu Dropdown - Submenu */}
-              {openMenuDropDown && (
-                <div className={styles.subMenuDropDown}>
-                  {menu.map((t) => (
-                    <a href={t.link} key={t.name}>
-                      <li onClick={() => showtest(index)}>
-                        <span>{t.icon}</span>
-                        {t.name}
-                      </li>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </a>
-          ))}
-        </ul>
-      </div>
       {openMenuDropDown && <div className={styles.overlaySubmenuMobile} onClick={() => setOpenMenuDropDown(false)}></div>}
     </>
   );

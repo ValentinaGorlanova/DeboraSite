@@ -321,7 +321,7 @@ function NewRequestModal({ children }: DialogProps) {
       ) : (
         <DialogContent>
           <DialogTitle>Solicitacao aceita</DialogTitle>
-          <Flex position="center">
+          <Flex position="center" css={{ marginBottom: "20px" }}>
             <UseAnimations animation={radioButton} size={46} autoplay />
           </Flex>
           <DialogClose asChild onClick={() => setStep(1)}>
@@ -330,9 +330,11 @@ function NewRequestModal({ children }: DialogProps) {
             </IconButton>
           </DialogClose>
           <ButtonsContainer>
-            <ButtonsModal type="button" variant="filled">
-              Ir para agenda
-            </ButtonsModal>
+            <a href="/admin/calendar">
+              <ButtonsModal type="button" variant="filled">
+                Ir para agenda
+              </ButtonsModal>
+            </a>
           </ButtonsContainer>
         </DialogContent>
       )}

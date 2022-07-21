@@ -32,7 +32,6 @@ export function CalendarSection() {
           <FaBell size={22} />
           <div className={styles.count}>2</div>
         </div>
-
         <div className={styles.avatar}>
           <img src="/profile_calendar.png" alt="" />
         </div>

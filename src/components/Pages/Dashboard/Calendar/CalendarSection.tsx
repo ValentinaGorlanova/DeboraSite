@@ -8,6 +8,7 @@ import { RiCloseFill } from "react-icons/ri";
 // import { Calendar } from "react-widgets/cjs";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 // import "react-widgets/styles.css";
+
 import { menu } from "../SidebarMenu";
 import styles from "./Calendar.module.scss";
 // import "react-calendar/dist/Calendar.css";
@@ -25,7 +26,9 @@ export function CalendarSection() {
 
     console.log("menu: ", menu);
   }
-
+  function onChange(dates: any) {
+    setDate(dates);
+  }
   return (
     <div className={styles.calendarSection}>
       {/* Profile */}
@@ -43,13 +46,9 @@ export function CalendarSection() {
       </div>
       {/* Calendar component */}
       <div className={styles.showCalendar}>
-        <h1>Veja seu calendário</h1> <a href="#">Ir para agenda</a>
+        <h1>Veja seu calendário</h1> <a href="/admin/calendar">Ir para agenda</a>
       </div>
-      <div className={styles.calendarContainer}>
-        {/* <Calendar className={styles.calendar} value={date} onChange={setDate} /> */}
-        {/* {date.toDateString()} */}
-        {/* <Calendar /> */}
-      </div>
+      <div className={styles.calendarContainer}>{/* <Calendar className={styles.calendar} value={date} onChange={setDate} /> */}</div>
       {/* Next consultations */}
       <div className={styles.containerNextConsultations}>
         <h1>Próximas consultas</h1>
