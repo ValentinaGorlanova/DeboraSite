@@ -9,6 +9,8 @@ import { ArrowRightIcon } from "@/components/Icons/ArrowRightIcon";
 import { PencilIcon } from "@/components/Icons/PencilIcon";
 import { NoteIcon } from "@/components/Icons/NoteIcon";
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
+import EditAppointmentModal from "@/components/EditAppointmentModal";
+import AnnotationModal from "@/components/AnnotationModal";
 
 // const EventCalendar = require("react-event-calendar");
 
@@ -197,8 +199,16 @@ export function Content() {
               <div>
                 <p>Notas</p>
                 <div style={{ display: "flex" }}>
-                  <NoteIcon />
-                  <PencilIcon />
+                  <AnnotationModal>
+                    <div>
+                      <NoteIcon />
+                    </div>
+                  </AnnotationModal>
+                  <EditAppointmentModal>
+                    <div>
+                      <PencilIcon />
+                    </div>
+                  </EditAppointmentModal>
                 </div>
               </div>
             </div>
@@ -223,8 +233,16 @@ export function Content() {
               <div>
                 <p>Notas</p>
                 <div style={{ display: "flex" }}>
-                  <NoteIcon />
-                  <PencilIcon />
+                  <AnnotationModal>
+                    <div>
+                      <NoteIcon />
+                    </div>
+                  </AnnotationModal>
+                  <EditAppointmentModal>
+                    <div>
+                      <PencilIcon />
+                    </div>
+                  </EditAppointmentModal>
                 </div>
               </div>
             </div>
