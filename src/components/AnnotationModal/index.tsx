@@ -305,7 +305,7 @@ const MissingContent = styled("div", {
 
 export default function AnnotationModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
-  const [isAddingContent, setIsAddingContent] = useState(true);
+  const [isAddingContent, setIsAddingContent] = useState(false);
   const fileTypes = ["JPG", "PNG", "GIF"];
   const [file, setFile] = useState(null);
   const handleChange = (files: any) => {

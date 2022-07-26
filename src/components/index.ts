@@ -25,3 +25,6 @@ export * from "./Pages/Dashboard";
 
 // Pages Calendar
 export * from "./Pages/CalendarContent";
+
+// Pages Profile
+export * from "./Pages/ProfileContent";

@@ -7,6 +7,7 @@ export const menu = [
   {
     icon: <Home />,
     name: "Inicio",
+    link: "/admin/dashboard",
   },
   {
     icon: <User />,
@@ -16,22 +17,27 @@ export const menu = [
   {
     icon: <Historic />,
     name: "Histórico",
+    link: "https://www.google.com.br",
   },
   {
     icon: <Finances />,
     name: "Financeiro",
+    link: "https://www.google.com.br",
   },
   {
     icon: <Messages />,
     name: "Mensagens",
+    link: "https://www.google.com.br",
   },
   {
     icon: <Configs />,
     name: "Configurações",
+    link: "https://www.google.com.br",
   },
   {
     icon: <Close />,
     name: "Sair",
+    link: "https://www.google.com.br",
   },
 ];
 
@@ -112,7 +118,7 @@ export function SidebarMenu() {
         <ul onClick={() => setMenuClicked((state) => !state)}>
           {menu.map((item, index) => (
             <li key={item.name} className={activeIndex === index ? styles.active : ""}>
-              <a href="#" onClick={() => setActiveIndex(index)}>
+              <a href={item.link} onClick={() => setActiveIndex(index)}>
                 {item.icon}
                 {item.name}
               </a>

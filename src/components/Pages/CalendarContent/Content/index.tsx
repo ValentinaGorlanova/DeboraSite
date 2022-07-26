@@ -11,7 +11,7 @@ import { NoteIcon } from "@/components/Icons/NoteIcon";
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
 import EditAppointmentModal from "@/components/EditAppointmentModal";
 import AnnotationModal from "@/components/AnnotationModal";
-
+// The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
 
 export function Content() {

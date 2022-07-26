@@ -5,6 +5,8 @@ import { AiFillClockCircle } from "react-icons/ai";
 import { FaBell } from "react-icons/fa";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
 import { RiCloseFill } from "react-icons/ri";
+import { DropdownNotifications } from "../../DropdownMenu";
+
 // import { Calendar } from "react-widgets/cjs";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 // import "react-widgets/styles.css";
@@ -33,11 +35,12 @@ export function CalendarSection() {
     <div className={styles.calendarSection}>
       {/* Profile */}
       <div className={styles.profile}>
-        <div className={styles.iconBell}>
-          <FaBell size={22} />
-          <div className={styles.count}>2</div>
-        </div>
-
+        <DropdownNotifications>
+          <div className={styles.iconBell}>
+            <FaBell size={22} />
+            <div className={styles.count}>2</div>
+          </div>
+        </DropdownNotifications>
         <div className={styles.avatar}>
           <img src="/profile_calendar.png" alt="" />
         </div>
