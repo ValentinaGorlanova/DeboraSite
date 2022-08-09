@@ -36,9 +36,49 @@ a {
 //   }
 // }
 
-.testando {
+label.testando {
   border: 1px dashed #273a51;
   width: 100%;
-  min-height: 164px;
+  min-height: 180px;
   height: 100%;
+  max-width: none;
+
+  border-radius: 0;
+
+  & span {
+    font-family: 'Barlow';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #B5B5B5;
+    text-decoration: none;
+
+    &.file-types {
+      display: none;
+    }
+  }
+
+  span span:first-child::before {
+    content: "Upload";
+    width: 76px;
+    height: 33px;
+    padding: 8px 16px;
+    border: 2px solid #E7975D;
+    border-radius: 8px;
+
+    margin-right: 10px;
+
+    font-size: 14px;
+    line-height: 17px;
+    color: #E7975D;
+  }
+
+  & svg {
+    display: none;
+  }
+
+  div.sc-dkzDqf {
+    width: 100%;
+  }
 }

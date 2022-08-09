@@ -2,43 +2,111 @@
   width: 100%;
   min-height: 100vh;
 
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+
+
+.contentArea {
   display: flex;
-
-  // display: grid;
-
-  //   minmax(80px, 224px)
-  // grid-template-columns: minmax(80fr, 224px) 929px 367px;
-
-  // grid-template-columns: auto 1fr max(367px);
-  // grid-template-areas: "sidebar content calendar";
+  flex-direction: column;
 }
 
-@media (max-width: 1023px) {
-  // .dashboard {
-  //   grid-template-columns: 1fr;
-  //   grid-template-areas:
-  //     "calendar"
-  //     "content";
-  // }
+.header {
+  width: 100%;
+  height: 110px;
 
-  .dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backButtom {
+  font-size: 30px;
+  width: 35px;
+  height: 35px;
+
+  margin-right: 22px;
+
+  border: none;
+  background: none;
+}
+
+
+@media (min-width: 426px) {
+  .header {
+    height: auto;
     flex-direction: column-reverse;
-    justify-content: flex-end;
+  }
+
+  .flex {
+    padding-left: 15px;
+    justify-content: flex-start;
+  }
+
+  .backButtom {
+    margin-right: 10%;
   }
 }
 
-@media (max-width: 500px) {
-  // .dashboard {
-  //   grid-template-columns: 1fr;
-  //   grid-template-rows: 1fr 84px;
-  //   grid-template-areas:
-  //     "content"
-  //     "calendar"
-  //     "sidebar";
-  // }
 
-  .dashboard {
-    flex-direction: column-reverse;
-    justify-content: space-between;
+@media (min-width: 769px) {
+  .backButtom {
+    display: none;
+  }
+
+  .flex {
+    justify-content: center;
+  }
+
+  .header {
+    flex-direction: row;
   }
 }
+
+
+@media (min-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 83px auto;
+  }
+}
+
+// @media (max-width: 1023px) {
+//   // .dashboard {
+//   //   grid-template-columns: 1fr;
+//   //   grid-template-areas:
+//   //     "calendar"
+//   //     "content";
+//   // }
+
+//   .dashboard {
+//     flex-direction: column-reverse;
+//     justify-content: flex-end;
+//   }
+// }
+
+// @media (max-width: 500px) {
+//   // .dashboard {
+//   //   grid-template-columns: 1fr;
+//   //   grid-template-rows: 1fr 84px;
+//   //   grid-template-areas:
+//   //     "content"
+//   //     "calendar"
+//   //     "sidebar";
+//   // }
+
+//   .dashboard {
+//     flex-direction: column-reverse;
+//     justify-content: space-between;
+//   }
+// }

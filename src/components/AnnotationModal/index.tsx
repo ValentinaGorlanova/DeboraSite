@@ -40,6 +40,16 @@ const StyledContent = styled(DialogPrimitive.Content, {
   maxWidth: "858px",
   height: "auto",
   padding: 25,
+
+  "@media (max-width: 768px)" : {
+    maxWidth: "680px"
+  },
+
+  "@media (max-width: 500px)" : {
+    width: "90%",
+    maxWidth: "375px",
+  },
+
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
   },
@@ -162,6 +172,22 @@ const Main = styled("main", {
   marginBottom: "20px",
   gap: "10px",
 
+  variants: {
+    variant: {
+      grid : {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gridTemplateRows: "1fr auto",
+
+        "@media (max-width: 768px)" : {
+          gridTemplateColumns: "100%",
+          gridTemplateRows: "1fr 1fr auto",
+        }
+      }
+    },
+  },
+
+
   table: {
     width: "100%",
 
@@ -257,6 +283,19 @@ const AsideContent = styled("div", {
         maxHeight: "120px",
         minHeight: "200px",
         overflowY: "hidden",
+
+        "@media (max-width: 768px)" : {
+          flexDirection: "row",
+          maxWidth: "none",
+          minHeight: "100px",
+          justifyContent: "space-between"
+        },
+
+        "@media (max-width: 500px)" : {
+          flexDirection: "column",
+          minHeight: "200px",
+          justifyContent: "flex-start"
+        }
       },
     },
   },
@@ -272,7 +311,6 @@ const AsideContent = styled("div", {
 
   input: {
     padding: "14px 0px 14px 16px",
-
     width: "278px",
     height: "52px",
     border: "1px solid #632700",
@@ -303,6 +341,66 @@ const MissingContent = styled("div", {
   },
 });
 
+
+const FileUploadedInfo = styled("div", {
+  height: "57px",
+  background: "#F0F0F0",
+  borderBottom: "3px solid #273A57",
+  display: "flex",
+  alignItems: "center",
+
+  h3 : {
+    fontFamily: "Barlow",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "14px",
+    color: "#000"
+  }
+})
+
+const AsideInputs = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "10px",
+  maxWidth: "278px",
+
+  "@media (max-width: 500px)" : {
+    width: "100%",
+    maxWidth: "none",
+
+    input : {
+      width: "100%",
+    }
+  },
+
+  variants : {
+    variant : {
+      ApplyMarginTop : { 
+        marginTop: "10px",
+
+        "@media (max-width: 768px)" : {
+          marginTop: 0,
+        },
+      }
+    }
+  }
+})
+
+
+const ButtonDeleteFile = styled("button", {
+  width: "120px",
+  height: "30px",
+  float: "right",
+  textDecoration: "underline",
+  color: "#D10438",
+  fontWeight: "600",
+  fontSize: "14px",
+  marginTop: "16px",
+  border: "none",
+  background: "none",
+  cursor: "pointer",
+})
+
 export default function AnnotationModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
   const [isAddingContent, setIsAddingContent] = useState(false);
@@ -318,7 +416,7 @@ export default function AnnotationModal({ children }: DialogProps) {
         {children}
       </DialogTrigger>
 
-      {isAddingContent === false ? (
+      {isAddingContent === true ? (
         <DialogContent>
           <DialogTitle>Anotacao da sessao 01/05/22</DialogTitle>
           <SelectsWrapper>
@@ -333,6 +431,7 @@ export default function AnnotationModal({ children }: DialogProps) {
               <option value="audi">Desenhos</option>
               <option value="audi">Imprimir agenda</option>
             </select>
+
             <select name="options" id="options">
               <option value="" disabled selected>
                 Gerar PDFs
@@ -362,6 +461,7 @@ export default function AnnotationModal({ children }: DialogProps) {
             </AsideButtons>
             <AsideContent>
               {step === 5 && (
+                <>
                 <MissingContent>
                   <UploadImage />
                   <div>
@@ -369,8 +469,8 @@ export default function AnnotationModal({ children }: DialogProps) {
                     <p>Adicinone arquivos no botao acima</p>
                   </div>
                 </MissingContent>
-              )}
-              <table cellSpacing="0">
+
+                <table cellSpacing="0">
                 <tr>
                   <th>Titulo</th>
                   <th>Tipo</th>
@@ -418,7 +518,10 @@ export default function AnnotationModal({ children }: DialogProps) {
                     </div>
                   </td>
                 </tr>
-              </table>
+                </table>
+                </>
+              )}
+              
             </AsideContent>
           </Main>
 
@@ -439,16 +542,17 @@ export default function AnnotationModal({ children }: DialogProps) {
         <DialogContent>
           <DialogTitle>Dados do documento</DialogTitle>
 
-          <Main>
+          <Main variant="grid">
             <AsideContent variant="noBorder">
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "278px" }}>
+              <AsideInputs>
                 <span>Tipo de documento</span>
                 <input type="text" value="Encaminhamento" />
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px", maxWidth: "278px" }}>
+              </AsideInputs>
+
+              <AsideInputs variant="ApplyMarginTop">
                 <span>Titulo para o documento</span>
                 <input type="text" placeholder="Titulo para o documento" />
-              </div>
+              </AsideInputs>
             </AsideContent>
 
             <AsideContent variant="dashed">
@@ -462,6 +566,18 @@ export default function AnnotationModal({ children }: DialogProps) {
                 maxSize="1"
               />
             </AsideContent>
+            
+            <div></div>
+
+            <div>
+              <FileUploadedInfo>
+                <h3>Nomedoarquivo.pdf (tamanho)</h3>
+              </FileUploadedInfo>
+
+              <ButtonDeleteFile>
+                Excluir arquivo
+              </ButtonDeleteFile>
+            </div>
           </Main>
 
           <DialogClose asChild>

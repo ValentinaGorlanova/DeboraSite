@@ -10,6 +10,9 @@ import { menu } from "../SidebarMenu";
 import styles from "./Calendar.module.scss";
 // import "react-calendar/dist/Calendar.css";
 
+
+import { HiOutlineMenuAlt2 } from "react-icons/hi"
+
 export function CalendarSection() {
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState(new Date());
@@ -26,6 +29,10 @@ export function CalendarSection() {
 
   return (
     <div className={styles.calendarSection}>
+      <button className={ styles.buttonMenu }>
+        <HiOutlineMenuAlt2 />
+      </button>
+
       {/* Profile */}
       <div className={styles.profile}>
         <div className={styles.iconBell}>

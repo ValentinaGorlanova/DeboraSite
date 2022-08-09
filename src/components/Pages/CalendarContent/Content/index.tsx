@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 // must go before plugins
 
 import styles from "./styles.module.scss";
 import { ArrowLeftIcon } from "@/components/Icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "@/components/Icons/ArrowRightIcon";
-import { PencilIcon } from "@/components/Icons/PencilIcon";
-import { NoteIcon } from "@/components/Icons/NoteIcon";
+
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
-import EditAppointmentModal from "@/components/EditAppointmentModal";
-import AnnotationModal from "@/components/AnnotationModal";
+import { BsFillCalendar2Fill } from "react-icons/bs"
+
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
+
+import SectionCard from './component/SectionCard'
 
 export function Content() {
   const [currentTab, setCurrentTab] = useState(1);
@@ -36,13 +36,7 @@ export function Content() {
   return (
     <div className={styles.container}>
       {/* Input Seach */}
-      <div className={styles.InputSearch}>
-        <input type="text" placeholder="Pesquise por pacientes" />
-        <button className={styles.buttonSearch}>
-          <AiOutlineSearch size={20} />
-        </button>
-      </div>
-
+      
       <div className={styles.MobileSelects}>
         <select name="options" id="options">
           <option value="">Opcoes e ferramentas</option>
@@ -120,7 +114,7 @@ export function Content() {
                 <span>07h00</span>
                 <div className={styles.dailyWrapper}>
                   <div className={styles.dailyCard}>
-                    <p>Gabriel Silva</p>
+                    <p>Gabriel Silvas</p>
                     <p>09h00 - 09h40</p>
                   </div>
                   <div className={styles.dailyCard}>
@@ -166,86 +160,24 @@ export function Content() {
           <div className={`${styles.SubmenuButtons} ${styles.buttonsMobile}`}>
             <div className={styles.buttons}>
               <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
+                <CalendarIcon />
                 Sessoes por dia
               </button>
               <button className={currentTab === 1 ? styles.outline : styles.filled} onClick={() => setCurrentTab(2)}>
+                <BsFillCalendar2Fill />
                 Agenda geral
               </button>
             </div>
           </div>
+          
           <div className={styles.SectionsContainer}>
             <div className={styles.SectionDate}>
               <CalendarIcon />
               <span>Sessoes do dia 01/05/2022</span>
             </div>
-            <div className={styles.Sections}>
-              <div>
-                <p>Paciente</p>
-                <span>Gabriel Silva</span>
-              </div>
-              <div>
-                <p>Profissional</p>
-                <span>Debora Barros</span>
-              </div>
-              <div>
-                <p>Data</p>
-                <span>01/05/22</span>
-              </div>
-              <div>
-                <p>Horario</p>
-                <span>9h00 - 9h40</span>
-              </div>
-
-              <div>
-                <p>Notas</p>
-                <div style={{ display: "flex" }}>
-                  <AnnotationModal>
-                    <div>
-                      <NoteIcon />
-                    </div>
-                  </AnnotationModal>
-                  <EditAppointmentModal>
-                    <div>
-                      <PencilIcon />
-                    </div>
-                  </EditAppointmentModal>
-                </div>
-              </div>
-            </div>
-            <div className={styles.Sections}>
-              <div>
-                <p>Paciente</p>
-                <span>Gabriel Silva</span>
-              </div>
-              <div>
-                <p>Profissional</p>
-                <span>Debora Barros</span>
-              </div>
-              <div>
-                <p>Data</p>
-                <span>01/05/22</span>
-              </div>
-              <div>
-                <p>Horario</p>
-                <span>9h00 - 9h40</span>
-              </div>
-
-              <div>
-                <p>Notas</p>
-                <div style={{ display: "flex" }}>
-                  <AnnotationModal>
-                    <div>
-                      <NoteIcon />
-                    </div>
-                  </AnnotationModal>
-                  <EditAppointmentModal>
-                    <div>
-                      <PencilIcon />
-                    </div>
-                  </EditAppointmentModal>
-                </div>
-              </div>
-            </div>
+            
+            <SectionCard />
+            
           </div>
           {/* <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /> */}
         </div>
@@ -262,6 +194,7 @@ export function Content() {
                 <ArrowRightIcon />
               </button>
             </div>
+
             <div className={styles.DayOfWeeksContainer}>
               {selectDayOfWeek === "week" ? (
                 <>
