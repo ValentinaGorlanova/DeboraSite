@@ -110,6 +110,7 @@ export function Content() {
               <p>qua</p> <span>01</span>
             </div>
             <div className={styles.Days}>
+
               <div className={styles.Day}>
                 <span>07h00</span>
                 <div className={styles.dailyWrapper}>
@@ -127,20 +128,26 @@ export function Content() {
                   </div>
                 </div>
               </div>
+
               <div className={styles.Day}>
                 <span>08h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>09h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>10h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>11h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>12h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
             </div>
           </div>
@@ -226,12 +233,14 @@ export function Content() {
                 </div>
               )}
             </div>
+
             <div className={styles.Days}>
               <div className={styles.Day}>
                 <span>07h00</span>
+
                 <div className={styles.dailyWrapper}>
                   <div className={styles.dailyCard}>
-                    <p>Gabriel Silva</p>
+                    <p>Gabriel Silvas</p>
                     <p>09h00 - 09h40</p>
                   </div>
                   <div className={styles.dailyCard}>
@@ -244,20 +253,31 @@ export function Content() {
                   </div>
                 </div>
               </div>
+
               <div className={styles.Day}>
                 <span>08h00</span>
+                <div className={styles.dailyWrapper}>
+                  <div className={styles.dailyCard}>
+                    <p>Gabriel Silvas</p>
+                    <p>09h00 - 09h40</p>
+                  </div>
+                </div>
               </div>
               <div className={styles.Day}>
                 <span>09h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>10h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>11h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
               <div className={styles.Day}>
                 <span>12h00</span>
+                <div className={styles.dailyWrapper}></div>
               </div>
             </div>
           </div>
