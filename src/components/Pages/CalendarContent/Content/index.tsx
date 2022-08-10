@@ -13,6 +13,7 @@ import { BsFillCalendar2Fill } from "react-icons/bs"
 // const EventCalendar = require("react-event-calendar");
 
 import SectionCard from './component/SectionCard'
+import CardImage from "./component/CardImage";
 
 export function Content() {
   const [currentTab, setCurrentTab] = useState(1);
@@ -113,6 +114,7 @@ export function Content() {
 
               <div className={styles.Day}>
                 <span>07h00</span>
+
                 <div className={styles.dailyWrapper}>
                   <div className={styles.dailyCard}>
                     <p>Gabriel Silvas</p>
@@ -129,23 +131,23 @@ export function Content() {
                 </div>
               </div>
 
-              <div className={styles.Day}>
+              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
                 <span>08h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
                 <span>09h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
                 <span>10h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
                 <span>11h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
                 <span>12h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
@@ -184,7 +186,7 @@ export function Content() {
             </div>
             
             <SectionCard />
-            
+            <CardImage />
           </div>
           {/* <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /> */}
         </div>
@@ -263,19 +265,19 @@ export function Content() {
                   </div>
                 </div>
               </div>
-              <div className={styles.Day}>
+              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
                 <span>09h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
                 <span>10h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
                 <span>11h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={styles.Day}>
+              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
                 <span>12h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>

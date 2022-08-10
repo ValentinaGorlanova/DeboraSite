@@ -81,6 +81,12 @@
   }
 }
 
+@media (max-width: 425px) {
+  .dashboard { 
+    padding-bottom: 84px;
+  }
+}
+
 // @media (max-width: 1023px) {
 //   // .dashboard {
 //   //   grid-template-columns: 1fr;

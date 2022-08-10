@@ -259,13 +259,12 @@
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
   display: flex;
-  align-items: center;
+  // align-items: center;
+  gap: 10px;
   position: relative;
   text-align: center;
   color: #7588a2;
-  margin-bottom: 78px;
 }
 
 // .Day::after {
@@ -381,14 +380,18 @@
   left: 55px;
   gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.emptyLine {
+  margin-bottom: 55px;
 }
 
 
 .dailyCard {
   width: 143px;
-  height: 100%;
+  height: min-content;
   max-height: 67px;
-  min-height: 67px;
   background: #cde0fd;
   border-left: 3px solid #5ed104;
   border-radius: 2px;
@@ -403,7 +406,7 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
-  display: flex;
+  gap: 24px;
   align-items: center;
   text-align: center;
 
@@ -475,6 +478,17 @@
         }
       }
     }
+  }
+}
+
+
+@media (max-width: 425px) {
+  .dailyCard p:nth-child(2) {
+    display: none;
+  }
+
+  .SectionDate span {
+    font-size: 18px;
   }
 }
 
