@@ -33,7 +33,7 @@ const StyledContent = styled(DialogPrimitive.Content, {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "100%",
+  width: "90%",
   maxWidth: "696px",
 
   padding: 25,
@@ -99,7 +99,7 @@ interface DialogProps {
 const LabelData = styled("span", {
   fontFamily: "Barlow",
   fontStyle: "normal",
-  fontWeight: "500",
+  fontWeight: "400",
   fontSize: "18px",
   lineHeight: "26px",
   color: "#1E1E1E",
@@ -173,6 +173,11 @@ const SubTitle = styled("p", {
   lineHeight: "26px",
   color: "#1E1E1E",
   marginBottom: "16px",
+
+  "@media (max-width: 425px)": {
+    fontSize: "18px",
+    fontWeight: "400",
+  },
 });
 
 const Flex = styled("div", {
@@ -233,6 +238,7 @@ const InputsWrapper = styled("div", {
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
+  flexWrap: "wrap",
   gap: "20px",
 
   div: {
@@ -323,6 +329,17 @@ const StatusLabel = styled("span", {
   },
 });
 
+const RadioContainer = styled("div", {
+  width: "100%",
+
+  "@media (max-width: 520px)": {
+    display: "flex",
+    flexDirection: "column",
+    fontSize: "16px",
+    gap: "10px",
+  },
+});
+
 function EditAppointmentModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
   return (
@@ -357,14 +374,14 @@ function EditAppointmentModal({ children }: DialogProps) {
               <LabelData>Data e Horario</LabelData>
               <InputsWrapper>
                 <DateInput type="date" id="start" name="date" />
-                <div>
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <HourInput type="time" id="start" name="start" />
                   <div />
                   <HourInput type="time" id="end" name="end" />
                 </div>
               </InputsWrapper>
             </DataWrapper>
-            <div style={{ display: "flex", gap: "15px", marginBottom: "10px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "15px", marginBottom: "10px" }}>
               <Subtitle>Essa consulta será:</Subtitle>
               <form>
                 <input type="radio" id="Presencial" name="Presencial" value="Presencial" />
@@ -373,10 +390,18 @@ function EditAppointmentModal({ children }: DialogProps) {
                 <RadioLabel>Online</RadioLabel>
               </form>
             </div>
-            <input type="radio" id="Online" name="Online" value="Online" />
-            <RadioLabel>Atualizar somente essa consulta</RadioLabel>
-            <input type="radio" id="Online" name="Online" value="Online" />
-            <RadioLabel>Atualizar todas as recorrencias</RadioLabel>
+
+            <RadioContainer>
+              <RadioLabel>
+                <input type="radio" id="Online" name="Online" value="Online" />
+                Atualizar somente essa consulta
+              </RadioLabel>
+
+              <RadioLabel>
+                <input type="radio" id="Online" name="Online" value="Online" />
+                Atualizar todas as recorrencias
+              </RadioLabel>
+            </RadioContainer>
 
             <div>
               <StatusLabel>Status de consulta:</StatusLabel>

@@ -11,8 +11,6 @@
   width: 100%;
 }
 
-
-
 @media (max-width: 1024px) {
 }
 
@@ -337,7 +335,6 @@
   gap: 16px;
 }
 
-
 .SectionsContainer {
   width: 100%;
   display: flex;
@@ -386,7 +383,6 @@
 .emptyLine {
   margin-bottom: 55px;
 }
-
 
 .dailyCard {
   width: 143px;
@@ -443,6 +439,10 @@
     justify-content: center;
   }
 
+  .ProfissionalSelect {
+    display: none;
+  }
+
   .SectionDate {
     width: 100%;
 
@@ -453,7 +453,8 @@
     }
   }
 
-  .buttonsDesktop {
+  .buttonsDesktop,
+  .hidden {
     display: none;
   }
 
@@ -461,10 +462,19 @@
     display: flex;
   }
 
+  .showProfissinal {
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .ProfissionalSelect {
+      display: block;
+    }
+  }
+
   .buttonsMobile {
     display: flex;
 
-    .buttons { 
+    .buttons {
       width: 100%;
 
       button {
@@ -480,7 +490,6 @@
     }
   }
 }
-
 
 @media (max-width: 425px) {
   .dailyCard p:nth-child(2) {
@@ -518,5 +527,40 @@
     color: #273a51;
 
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .MobileSelects select.mobHidden {
+    display: none;
+  }
+  .ProfissionalSelect {
+    width: 100%;
+
+    select {
+      width: 100%;
+    }
+  }
+
+  .buttons {
+    width: 100%;
+
+    button {
+      width: 100%;
+      padding: 15px 5px;
+      font-size: 14px;
+    }
+  }
+
+  .hidden {
+    display: block;
+    width: 100% !important;
+    max-width: none;
+  }
+
+  .SubmenuButtons {
+    align-items: unset;
+    flex-direction: column;
+    gap: 43px;
   }
 }

@@ -36,16 +36,16 @@ const StyledContent = styled(DialogPrimitive.Content, {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "100%",
+  width: "90%",
   maxWidth: "858px",
   height: "auto",
   padding: 25,
 
-  "@media (max-width: 768px)" : {
-    maxWidth: "680px"
+  "@media (max-width: 768px)": {
+    maxWidth: "680px",
   },
 
-  "@media (max-width: 500px)" : {
+  "@media (max-width: 500px)": {
     width: "90%",
     maxWidth: "375px",
   },
@@ -174,19 +174,18 @@ const Main = styled("main", {
 
   variants: {
     variant: {
-      grid : {
+      grid: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gridTemplateRows: "1fr auto",
 
-        "@media (max-width: 768px)" : {
+        "@media (max-width: 768px)": {
           gridTemplateColumns: "100%",
           gridTemplateRows: "1fr 1fr auto",
-        }
-      }
+        },
+      },
     },
   },
-
 
   table: {
     width: "100%",
@@ -283,19 +282,20 @@ const AsideContent = styled("div", {
         maxHeight: "120px",
         minHeight: "200px",
         overflowY: "hidden",
+        gap: "10px",
 
-        "@media (max-width: 768px)" : {
+        "@media (max-width: 768px)": {
           flexDirection: "row",
           maxWidth: "none",
           minHeight: "100px",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         },
 
-        "@media (max-width: 500px)" : {
+        "@media (max-width: 500px)": {
           flexDirection: "column",
           minHeight: "200px",
-          justifyContent: "flex-start"
-        }
+          justifyContent: "flex-start",
+        },
       },
     },
   },
@@ -311,7 +311,7 @@ const AsideContent = styled("div", {
 
   input: {
     padding: "14px 0px 14px 16px",
-    width: "278px",
+    width: "100%",
     height: "52px",
     border: "1px solid #632700",
     borderRadius: "8px",
@@ -341,7 +341,6 @@ const MissingContent = styled("div", {
   },
 });
 
-
 const FileUploadedInfo = styled("div", {
   height: "57px",
   background: "#F0F0F0",
@@ -349,43 +348,43 @@ const FileUploadedInfo = styled("div", {
   display: "flex",
   alignItems: "center",
 
-  h3 : {
+  h3: {
     fontFamily: "Barlow",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: "14px",
-    color: "#000"
-  }
-})
+    color: "#000",
+  },
+});
 
 const AsideInputs = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "10px",
   maxWidth: "278px",
+  width: "100%",
 
-  "@media (max-width: 500px)" : {
+  "@media (max-width: 500px)": {
     width: "100%",
     maxWidth: "none",
 
-    input : {
+    input: {
       width: "100%",
-    }
+    },
   },
 
-  variants : {
-    variant : {
-      ApplyMarginTop : { 
+  variants: {
+    variant: {
+      ApplyMarginTop: {
         marginTop: "10px",
 
-        "@media (max-width: 768px)" : {
+        "@media (max-width: 768px)": {
           marginTop: 0,
         },
-      }
-    }
-  }
-})
-
+      },
+    },
+  },
+});
 
 const ButtonDeleteFile = styled("button", {
   width: "120px",
@@ -399,7 +398,7 @@ const ButtonDeleteFile = styled("button", {
   border: "none",
   background: "none",
   cursor: "pointer",
-})
+});
 
 export default function AnnotationModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
@@ -462,66 +461,65 @@ export default function AnnotationModal({ children }: DialogProps) {
             <AsideContent>
               {step === 5 && (
                 <>
-                <MissingContent>
-                  <UploadImage />
-                  <div>
-                    <p>Voce ainda nao anexou nenhum arquivo para esse paciente</p>
-                    <p>Adicinone arquivos no botao acima</p>
-                  </div>
-                </MissingContent>
+                  <MissingContent>
+                    <UploadImage />
+                    <div>
+                      <p>Voce ainda nao anexou nenhum arquivo para esse paciente</p>
+                      <p>Adicinone arquivos no botao acima</p>
+                    </div>
+                  </MissingContent>
 
-                <table cellSpacing="0">
-                <tr>
-                  <th>Titulo</th>
-                  <th>Tipo</th>
-                  <th>Opções</th>
-                </tr>
-                <tr>
-                  <td>Nome do arquivo</td>
-                  <td>Encaminhamento</td>
-                  <td>
-                    <div>
-                      <button>
-                        <CgSoftwareDownload size={24} color="#273A51" />
-                      </button>
-                      <button>
-                        <BsFillTrashFill size={20} color="#D10438" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Nome do arquivo</td>
-                  <td>Receitas</td>
-                  <td>
-                    <div>
-                      <button>
-                        <CgSoftwareDownload size={24} color="#273A51" />
-                      </button>
-                      <button>
-                        <BsFillTrashFill size={20} color="#D10438" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Nome do arquivo</td>
-                  <td>Arquivos gerais</td>
-                  <td>
-                    <div>
-                      <button>
-                        <CgSoftwareDownload size={24} color="#273A51" />
-                      </button>
-                      <button>
-                        <BsFillTrashFill size={20} color="#D10438" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                </table>
+                  <table cellSpacing="0">
+                    <tr>
+                      <th>Titulo</th>
+                      <th>Tipo</th>
+                      <th>Opções</th>
+                    </tr>
+                    <tr>
+                      <td>Nome do arquivo</td>
+                      <td>Encaminhamento</td>
+                      <td>
+                        <div>
+                          <button>
+                            <CgSoftwareDownload size={24} color="#273A51" />
+                          </button>
+                          <button>
+                            <BsFillTrashFill size={20} color="#D10438" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Nome do arquivo</td>
+                      <td>Receitas</td>
+                      <td>
+                        <div>
+                          <button>
+                            <CgSoftwareDownload size={24} color="#273A51" />
+                          </button>
+                          <button>
+                            <BsFillTrashFill size={20} color="#D10438" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Nome do arquivo</td>
+                      <td>Arquivos gerais</td>
+                      <td>
+                        <div>
+                          <button>
+                            <CgSoftwareDownload size={24} color="#273A51" />
+                          </button>
+                          <button>
+                            <BsFillTrashFill size={20} color="#D10438" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
                 </>
               )}
-              
             </AsideContent>
           </Main>
 
@@ -566,7 +564,7 @@ export default function AnnotationModal({ children }: DialogProps) {
                 maxSize="1"
               />
             </AsideContent>
-            
+
             <div></div>
 
             <div>
@@ -574,9 +572,7 @@ export default function AnnotationModal({ children }: DialogProps) {
                 <h3>Nomedoarquivo.pdf (tamanho)</h3>
               </FileUploadedInfo>
 
-              <ButtonDeleteFile>
-                Excluir arquivo
-              </ButtonDeleteFile>
+              <ButtonDeleteFile>Excluir arquivo</ButtonDeleteFile>
             </div>
           </Main>
 

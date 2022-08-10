@@ -2,18 +2,17 @@
 import { useState } from "react";
 // must go before plugins
 
+import { BsFillCalendar2Fill } from "react-icons/bs";
 import styles from "./styles.module.scss";
+import SectionCard from "./component/SectionCard";
+import CardImage from "./component/CardImage";
 import { ArrowLeftIcon } from "@/components/Icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "@/components/Icons/ArrowRightIcon";
 
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
-import { BsFillCalendar2Fill } from "react-icons/bs"
 
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
-
-import SectionCard from './component/SectionCard'
-import CardImage from "./component/CardImage";
 
 export function Content() {
   const [currentTab, setCurrentTab] = useState(1);
@@ -37,9 +36,16 @@ export function Content() {
   return (
     <div className={styles.container}>
       {/* Input Seach */}
-      
-      <div className={styles.MobileSelects}>
-        <select name="options" id="options">
+
+      <div className={`${styles.MobileSelects} ${currentTab === 2 ? styles.showProfissinal : ""}`}>
+        <div className={styles.ProfissionalSelect}>
+          <p>Escolha um profissional</p>
+          <select name="options" id="options">
+            <option value="">Debora Barros</option>
+          </select>
+        </div>
+
+        <select name="options" id="options" className={currentTab === 2 ? styles.mobHidden : ""}>
           <option value="">Opcoes e ferramentas</option>
           <option value="">Opcoes e ferramentas</option>
           <option value="">Opcoes e ferramentas</option>
@@ -56,7 +62,7 @@ export function Content() {
         </div>
       )}
 
-      <div className={`${styles.SubmenuButtons} ${styles.buttonsDesktop}`}>
+      <div className={`${styles.SubmenuButtons} ${currentTab === 1 ? styles.buttonsDesktop : ""}`}>
         <div className={styles.buttons}>
           <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
             Sessões por dia
@@ -69,7 +75,7 @@ export function Content() {
         {currentTab === 1 ? (
           <select name="options" id="options">
             <option value="" disabled selected>
-              Opcoes e ferramentas
+              Opcões e ferramentas
             </option>
             <option value="saab">Teste</option>
             <option value="mercedes">Teste</option>
@@ -77,14 +83,15 @@ export function Content() {
           </select>
         ) : (
           <div className={styles.asideSelects}>
-            <select name="options" id="options">
+            <select name="options" id="options" className={currentTab === 2 ? styles.hidden : ""}>
               <option value="" disabled selected>
-                Opçoes e ferramentas
+                Opções e ferramentas
               </option>
               <option value="saab">Teste</option>
               <option value="mercedes">Teste</option>
               <option value="audi">Teste</option>
             </select>
+
             <select name="options" id="options" onChange={(e) => setSelectDayOfWeek(e.target.value)}>
               <option value="week" selected>
                 Semana
@@ -95,6 +102,7 @@ export function Content() {
           </div>
         )}
       </div>
+
       {currentTab === 1 ? (
         <div className={styles.Content}>
           <div className={styles.calendarContainer}>
@@ -111,7 +119,6 @@ export function Content() {
               <p>qua</p> <span>01</span>
             </div>
             <div className={styles.Days}>
-
               <div className={styles.Day}>
                 <span>07h00</span>
 
@@ -131,23 +138,23 @@ export function Content() {
                 </div>
               </div>
 
-              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>08h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>09h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>10h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>11h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={ `${ styles.Day} ${ styles.emptyLine }` }>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>12h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
@@ -178,13 +185,14 @@ export function Content() {
               </button>
             </div>
           </div>
-          
+
           <div className={styles.SectionsContainer}>
             <div className={styles.SectionDate}>
               <CalendarIcon />
               <span>Sessoes do dia 01/05/2022</span>
             </div>
-            
+
+            <SectionCard />
             <SectionCard />
             <CardImage />
           </div>
@@ -265,19 +273,19 @@ export function Content() {
                   </div>
                 </div>
               </div>
-              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>09h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>10h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>11h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
-              <div className={`${ styles.Day} ${ styles.emptyLine }`}>
+              <div className={`${styles.Day} ${styles.emptyLine}`}>
                 <span>12h00</span>
                 <div className={styles.dailyWrapper}></div>
               </div>
