@@ -113,6 +113,27 @@
 //   margin-left: 11px;
 // }
 
+.buttonsConfig {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .button {
+    padding: 12px;
+    max-width: 250px;
+    min-height: 52px;
+    background: #273a51;
+    border: 1px solid #273a51;
+    border-radius: 12px;
+    cursor: pointer;
+
+    font-family: "Barlow";
+    font-style: normal;
+    font-size: 20px;
+    color: #f7f7f7;
+  }
+}
+
 .DaySections {
   width: 100%;
   max-width: 640px;

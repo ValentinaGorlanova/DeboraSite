@@ -8,6 +8,7 @@ import SectionCard from "./component/SectionCard";
 import CardImage from "./component/CardImage";
 
 import CalendarComponent from "./component/Calendar";
+import ConfigModal from "./component/ConfigModal";
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
 
 // The import order DOES MATTER here. If you change it, you'll get an error!
@@ -57,11 +58,17 @@ export function Content() {
       </div>
       {/* aaaaaaaaaaaaa */}
       {currentTab === 2 && (
-        <div className={styles.ProfissionalSelect}>
-          <p>Escolha um profissional</p>
-          <select name="options" id="options">
-            <option value="">Debora Barros</option>
-          </select>
+        <div className={styles.buttonsConfig}>
+          <div className={styles.ProfissionalSelect}>
+            <p>Escolha um profissional</p>
+            <select name="options" id="options">
+              <option value="">Debora Barros</option>
+            </select>
+          </div>
+
+          <ConfigModal>
+            <button className={styles.button}>Configurar Agenda</button>
+          </ConfigModal>
         </div>
       )}
 
