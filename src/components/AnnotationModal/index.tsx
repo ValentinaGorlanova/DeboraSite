@@ -4,7 +4,7 @@ import { styled, keyframes } from "@stitches/react";
 import { violet, blackA } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { FileUploader } from "react-drag-drop-files";
+// import { FileUploader } from "react-drag-drop-files";
 import { BsFillTrashFill } from "react-icons/bs";
 import { CgSoftwareDownload } from "react-icons/cg";
 import { UploadImage } from "../Images/UploadImage";
@@ -554,7 +554,7 @@ export default function AnnotationModal({ children }: DialogProps) {
             </AsideContent>
 
             <AsideContent variant="dashed">
-              <FileUploader
+              {/* <FileUploader
                 handleChange={handleChange}
                 name="file"
                 types={fileTypes}
@@ -562,7 +562,7 @@ export default function AnnotationModal({ children }: DialogProps) {
                 label="Arraste e solte arquivos aqui"
                 classes="testando"
                 maxSize="1"
-              />
+              /> */}
             </AsideContent>
 
             <div></div>
