@@ -6,9 +6,8 @@ import { BsFillCalendar2Fill } from "react-icons/bs";
 import styles from "./styles.module.scss";
 import SectionCard from "./component/SectionCard";
 import CardImage from "./component/CardImage";
-import { ArrowLeftIcon } from "@/components/Icons/ArrowLeftIcon";
-import { ArrowRightIcon } from "@/components/Icons/ArrowRightIcon";
 
+import CalendarComponent from "./component/Calendar";
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
 
 // The import order DOES MATTER here. If you change it, you'll get an error!
@@ -17,6 +16,9 @@ import { CalendarIcon } from "@/components/Icons/CalendarIcon";
 export function Content() {
   const [currentTab, setCurrentTab] = useState(1);
   const [selectDayOfWeek, setSelectDayOfWeek] = useState("week");
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+
   const events = [
     {
       start: "2015-07-20",
@@ -33,6 +35,7 @@ export function Content() {
       data: "you can add what ever random data you may want to use later",
     },
   ];
+
   return (
     <div className={styles.container}>
       {/* Input Seach */}
@@ -105,74 +108,7 @@ export function Content() {
 
       {currentTab === 1 ? (
         <div className={styles.Content}>
-          <div className={styles.calendarContainer}>
-            <div className={styles.calendarContainerHeader}>
-              <button>
-                <ArrowLeftIcon />
-              </button>
-              <span>Maio 2022</span>
-              <button>
-                <ArrowRightIcon />
-              </button>
-            </div>
-            <div className={styles.calendarContainerDayOfWeek}>
-              <p>qua</p> <span>01</span>
-            </div>
-            <div className={styles.Days}>
-              <div className={styles.Day}>
-                <span>07h00</span>
-
-                <div className={styles.dailyWrapper}>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silvas</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silva</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silva</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>08h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>09h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>10h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>11h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>12h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-            </div>
-          </div>
-          {/* <div className={styles.DaySections}>
-          <div className={styles.DaySectionsTitle}>
-            <CalendarIcon />
-            <span>Sessoes do dia 01/05/2022</span>
-          </div>
-          <div className={styles.MissingSections}>
-            <img src="/daySection.svg" alt="" />
-            <div className={styles.MissingSectionsText}>
-              <p>Voce ainda nao tem nenhuma consulta agendada para esse dia!</p>
-              <p>Adicione consultas no calendario ao lado.</p>
-            </div>
-          </div> 
-        </div> */}
+          <CalendarComponent selectDayOfWeek="day" date={currentDate} setDate={setCurrentDate} />
           <div className={`${styles.SubmenuButtons} ${styles.buttonsMobile}`}>
             <div className={styles.buttons}>
               <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
@@ -200,97 +136,7 @@ export function Content() {
         </div>
       ) : (
         <div className={styles.Content}>
-          <div className={styles.calendarContainer}>
-            <div className={styles.calendarContainerHeader}>
-              <button>
-                <ArrowLeftIcon />
-              </button>
-              <span>Maio 2022</span>
-
-              <button>
-                <ArrowRightIcon />
-              </button>
-            </div>
-
-            <div className={styles.DayOfWeeksContainer}>
-              {selectDayOfWeek === "week" ? (
-                <>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-                    <p>dom</p> <span>28</span>
-                  </div>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-                    <p>seg</p> <span>29</span>
-                  </div>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-                    <p>ter</p> <span>30</span>
-                  </div>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} ${styles.calendarDayActive}`}>
-                    <p>quar</p> <span>01</span>
-                  </div>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-                    <p>qui</p> <span>02</span>
-                  </div>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-                    <p>sex</p> <span>03</span>
-                  </div>
-                  <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-                    <p>sab</p> <span>04</span>
-                  </div>
-                </>
-              ) : (
-                <div className={styles.calendarContainerDayOfWeek}>
-                  <p>qua</p> <span>01</span>
-                </div>
-              )}
-            </div>
-
-            <div className={styles.Days}>
-              <div className={styles.Day}>
-                <span>07h00</span>
-
-                <div className={styles.dailyWrapper}>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silvas</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silva</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silva</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.Day}>
-                <span>08h00</span>
-                <div className={styles.dailyWrapper}>
-                  <div className={styles.dailyCard}>
-                    <p>Gabriel Silvas</p>
-                    <p>09h00 - 09h40</p>
-                  </div>
-                </div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>09h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>10h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>11h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-              <div className={`${styles.Day} ${styles.emptyLine}`}>
-                <span>12h00</span>
-                <div className={styles.dailyWrapper}></div>
-              </div>
-            </div>
-          </div>
+          <CalendarComponent selectDayOfWeek={selectDayOfWeek} date={currentDate} setDate={setCurrentDate} />
         </div>
       )}
 
