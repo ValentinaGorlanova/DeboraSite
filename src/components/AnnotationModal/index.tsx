@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
-import { ReactNode, useState } from "react";
+import { ChangeEvent, ReactNode, useState } from "react";
 import { styled, keyframes } from "@stitches/react";
 import { violet, blackA } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 // import { FileUploader } from "react-drag-drop-files";
-import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillTrashFill, BsArrowLeft } from "react-icons/bs";
 import { CgSoftwareDownload } from "react-icons/cg";
 import { UploadImage } from "../Images/UploadImage";
+
+import CheckButton from "../CheckButton";
 
 const overlayShow = keyframes({
   "0%": { opacity: 0 },
@@ -22,6 +24,7 @@ const contentShow = keyframes({
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
   backgroundColor: blackA.blackA9,
   position: "fixed",
+  zIndex: 200,
   inset: 0,
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
@@ -40,14 +43,27 @@ const StyledContent = styled(DialogPrimitive.Content, {
   maxWidth: "858px",
   height: "auto",
   padding: 25,
+  zIndex: 201,
+  overflowY: "auto",
+  maxHeight: "90vh",
+
+  "&::-webkit-scrollbar": {
+    width: "10px",
+  },
+
+  "&::-webkit-scrollbar-thumb": {
+    background: "#d8d8d8",
+    borderRadius: "10px",
+
+    transition: "background 400ms",
+
+    "&:hover": {
+      background: "#e7975d",
+    },
+  },
 
   "@media (max-width: 768px)": {
     maxWidth: "680px",
-  },
-
-  "@media (max-width: 500px)": {
-    width: "90%",
-    maxWidth: "375px",
   },
 
   "@media (prefers-reduced-motion: no-preference)": {
@@ -148,6 +164,12 @@ const ButtonsModal = styled("button", {
         lineHeight: "28px",
         color: "#F7F7F7",
         borderRadius: "0",
+
+        "@media (max-width: 670px)": {
+          width: "139px",
+          height: "50px",
+          fontSize: "14px",
+        },
       },
       aside: {
         background: "transparent",
@@ -159,6 +181,12 @@ const ButtonsModal = styled("button", {
         fontSize: "24px",
         lineHeight: "28px",
         color: "#1E1E1E",
+
+        "@media (max-width: 670px)": {
+          width: "139px",
+          height: "50px",
+          fontSize: "14px",
+        },
       },
     },
   },
@@ -174,6 +202,19 @@ const Main = styled("main", {
 
   variants: {
     variant: {
+      column: {
+        "@media (max-width: 670px)": {
+          flexDirection: "column",
+        },
+      },
+
+      defaultColumn: {
+        width: "90%",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        gap: "32px",
+      },
+
       grid: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
@@ -230,6 +271,12 @@ const AsideButtons = styled("div", {
   display: "flex",
   flexDirection: "column",
   borderRight: "1px solid #C9C9C9",
+
+  "@media (max-width: 670px)": {
+    width: "100%",
+    overflowX: "auto",
+    flexDirection: "row",
+  },
 });
 
 const SelectsWrapper = styled("div", {
@@ -252,6 +299,16 @@ const SelectsWrapper = styled("div", {
     lineHeight: "28px",
 
     color: "#273A51",
+  },
+
+  "@media (max-width: 670px)": {
+    select: {
+      width: "100%",
+    },
+  },
+
+  "@media (max-width: 425px)": {
+    flexDirection: "column",
   },
 });
 const AsideContent = styled("div", {
@@ -339,6 +396,16 @@ const MissingContent = styled("div", {
     fontSize: "18px",
     lineHeight: "26px",
   },
+
+  "@media (max-width: 510px)": {
+    p: {
+      fontSize: "14px",
+    },
+
+    "p:nth-child(2)": {
+      fontSize: "12px",
+    },
+  },
 });
 
 const FileUploadedInfo = styled("div", {
@@ -386,6 +453,21 @@ const AsideInputs = styled("div", {
   },
 });
 
+const BackButton = styled("button", {
+  width: "30px",
+  height: "30px",
+  background: "none",
+  border: "none",
+
+  position: "absolute",
+  left: "10px",
+  top: "10px",
+
+  fontSize: "20px",
+
+  color: "rgb(231, 151, 93)",
+});
+
 const ButtonDeleteFile = styled("button", {
   width: "120px",
   height: "30px",
@@ -400,14 +482,62 @@ const ButtonDeleteFile = styled("button", {
   cursor: "pointer",
 });
 
+const LineForm = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  width: "100%",
+  gap: "32px",
+
+  p: {
+    fontSize: "24px",
+    fontFamily: "Barlow",
+    fontStyle: "normal",
+    fontWeight: 400,
+
+    "@media (max-width: 768px)": {
+      fontSize: "20px",
+    },
+
+    "@media (max-width: 425px)": {
+      fontSize: "14px",
+    },
+  },
+});
+
+const TitleSection = styled("p", {
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+  fontSize: "24px",
+  fontWeight: 500,
+
+  "@media (max-width: 768px)": {
+    fontSize: "20px",
+  },
+
+  "@media (max-width: 425px)": {
+    fontSize: "14px",
+  },
+});
+
 export default function AnnotationModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
-  const [isAddingContent, setIsAddingContent] = useState(false);
+  const [isAddingContent, setIsAddingContent] = useState(1);
   const fileTypes = ["JPG", "PNG", "GIF"];
   const [file, setFile] = useState(null);
+  const [typeFileSelected, setTypeFileSelected] = useState<string>("");
+
   const handleChange = (files: any) => {
     setFile(file);
   };
+  function handleSelect(select: ChangeEvent) {
+    const element = select.target as HTMLSelectElement;
+    setTypeFileSelected(element.value);
+    setIsAddingContent(2);
+  }
+  function handleBackButton() {
+    setTypeFileSelected("");
+    setIsAddingContent(1);
+  }
 
   return (
     <Dialog>
@@ -415,23 +545,25 @@ export default function AnnotationModal({ children }: DialogProps) {
         {children}
       </DialogTrigger>
 
-      {isAddingContent === true ? (
+      {isAddingContent === 1 && (
         <DialogContent>
           <DialogTitle>Anotacao da sessao 01/05/22</DialogTitle>
           <SelectsWrapper>
-            <select name="options" id="options">
-              <option value="" disabled selected>
-                Adicionar novo arquivo
-              </option>
-              <option value="saab">Encaminhamentos</option>
-              <option value="mercedes">Receitas</option>
-              <option value="audi">Arquivos gerais</option>
-              <option value="audi">Testes</option>
-              <option value="audi">Desenhos</option>
-              <option value="audi">Imprimir agenda</option>
-            </select>
+            {step === 5 && (
+              <select name="options" id="options" onChange={(sel) => handleSelect(sel)}>
+                <option value="" disabled selected>
+                  Adicionar novo arquivo
+                </option>
+                <option value="Encaminhamentos">Encaminhamentos</option>
+                <option value="Receitas">Receitas</option>
+                <option value="Arquivos gerais">Arquivos gerais</option>
+                <option value="Testes">Testes</option>
+                <option value="Desenhos">Desenhos</option>
+                <option value="Imprimir agenda">Imprimir agenda</option>
+              </select>
+            )}
 
-            <select name="options" id="options">
+            <select name="options" id="options" onChange={() => setIsAddingContent(3)}>
               <option value="" disabled selected>
                 Gerar PDFs
               </option>
@@ -440,23 +572,33 @@ export default function AnnotationModal({ children }: DialogProps) {
               <option value="audi">Historico de sessões</option>
             </select>
           </SelectsWrapper>
-          <Main>
+          <Main variant="column">
             <AsideButtons>
-              <ButtonsModal variant={step === 1 ? "asideActive" : "aside"} onClick={() => setStep(1)}>
-                Antes da sessao
-              </ButtonsModal>
-              <ButtonsModal variant={step === 2 ? "asideActive" : "aside"} onClick={() => setStep(2)}>
-                Resumo da sessao
-              </ButtonsModal>
-              <ButtonsModal variant={step === 3 ? "asideActive" : "aside"} onClick={() => setStep(3)}>
-                Observação
-              </ButtonsModal>
-              <ButtonsModal variant={step === 4 ? "asideActive" : "aside"} onClick={() => setStep(4)}>
-                Evolução
-              </ButtonsModal>
-              <ButtonsModal variant={step === 5 ? "asideActive" : "aside"} onClick={() => setStep(5)}>
-                Anexar arquivos
-              </ButtonsModal>
+              <div>
+                <ButtonsModal variant={step === 1 ? "asideActive" : "aside"} onClick={() => setStep(1)}>
+                  Antes da sessao
+                </ButtonsModal>
+              </div>
+              <div>
+                <ButtonsModal variant={step === 2 ? "asideActive" : "aside"} onClick={() => setStep(2)}>
+                  Resumo da sessao
+                </ButtonsModal>
+              </div>
+              <div>
+                <ButtonsModal variant={step === 3 ? "asideActive" : "aside"} onClick={() => setStep(3)}>
+                  Observação
+                </ButtonsModal>
+              </div>
+              <div>
+                <ButtonsModal variant={step === 4 ? "asideActive" : "aside"} onClick={() => setStep(4)}>
+                  Evolução
+                </ButtonsModal>
+              </div>
+              <div>
+                <ButtonsModal variant={step === 5 ? "asideActive" : "aside"} onClick={() => setStep(5)}>
+                  Anexar arquivos
+                </ButtonsModal>
+              </div>
             </AsideButtons>
             <AsideContent>
               {step === 5 && (
@@ -469,55 +611,132 @@ export default function AnnotationModal({ children }: DialogProps) {
                     </div>
                   </MissingContent>
 
-                  <table cellSpacing="0">
-                    <tr>
-                      <th>Titulo</th>
-                      <th>Tipo</th>
-                      <th>Opções</th>
-                    </tr>
-                    <tr>
-                      <td>Nome do arquivo</td>
-                      <td>Encaminhamento</td>
-                      <td>
-                        <div>
-                          <button>
-                            <CgSoftwareDownload size={24} color="#273A51" />
-                          </button>
-                          <button>
-                            <BsFillTrashFill size={20} color="#D10438" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Nome do arquivo</td>
-                      <td>Receitas</td>
-                      <td>
-                        <div>
-                          <button>
-                            <CgSoftwareDownload size={24} color="#273A51" />
-                          </button>
-                          <button>
-                            <BsFillTrashFill size={20} color="#D10438" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Nome do arquivo</td>
-                      <td>Arquivos gerais</td>
-                      <td>
-                        <div>
-                          <button>
-                            <CgSoftwareDownload size={24} color="#273A51" />
-                          </button>
-                          <button>
-                            <BsFillTrashFill size={20} color="#D10438" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
+                  <div style={{ overflowX: "auto", minWidth: "550px" }}>
+                    <table cellSpacing="0">
+                      <tr>
+                        <th>Titulo</th>
+                        <th>Tipo</th>
+                        <th>Opções</th>
+                      </tr>
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Encaminhamento</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Receitas</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Arquivos gerais</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Arquivos gerais</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Arquivos gerais</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Arquivos gerais</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Arquivos gerais</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Nome do arquivo</td>
+                        <td>Arquivos gerais</td>
+                        <td>
+                          <div>
+                            <button>
+                              <CgSoftwareDownload size={24} color="#273A51" />
+                            </button>
+                            <button>
+                              <BsFillTrashFill size={20} color="#D10438" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </>
               )}
             </AsideContent>
@@ -536,15 +755,20 @@ export default function AnnotationModal({ children }: DialogProps) {
             </ButtonsContainer>
           </DialogClose>
         </DialogContent>
-      ) : (
+      )}
+      {isAddingContent === 2 && (
         <DialogContent>
+          <BackButton onClick={() => handleBackButton()}>
+            <BsArrowLeft />
+          </BackButton>
+
           <DialogTitle>Dados do documento</DialogTitle>
 
           <Main variant="grid">
             <AsideContent variant="noBorder">
               <AsideInputs>
                 <span>Tipo de documento</span>
-                <input type="text" value="Encaminhamento" />
+                <input type="text" value={typeFileSelected} />
               </AsideInputs>
 
               <AsideInputs variant="ApplyMarginTop">
@@ -584,7 +808,54 @@ export default function AnnotationModal({ children }: DialogProps) {
           <DialogClose asChild>
             <ButtonsContainer>
               <ButtonsModal type="button" variant="filled" onClick={() => setStep(2)}>
-                Salvar alteracoes
+                Salvar alterações
+              </ButtonsModal>
+            </ButtonsContainer>
+          </DialogClose>
+        </DialogContent>
+      )}
+
+      {isAddingContent === 3 && (
+        <DialogContent>
+          <BackButton onClick={() => handleBackButton()}>
+            <BsArrowLeft />
+          </BackButton>
+
+          <DialogClose asChild>
+            <IconButton aria-label="Close">
+              <Cross2Icon />
+            </IconButton>
+          </DialogClose>
+
+          <DialogTitle>Configurar documento</DialogTitle>
+
+          <Main variant="defaultColumn">
+            <TitleSection>O que você quer que apareça no relatório:</TitleSection>
+            <LineForm>
+              <CheckButton checked onChange={() => "empty"} />
+              <p>Anotações de antes da sessão</p>
+            </LineForm>
+
+            <LineForm>
+              <CheckButton checked onChange={() => "empty"} />
+              <p>Resumo da sessão</p>
+            </LineForm>
+
+            <LineForm>
+              <CheckButton checked onChange={() => "empty"} />
+              <p>Observação</p>
+            </LineForm>
+
+            <LineForm>
+              <CheckButton checked onChange={() => "empty"} />
+              <p>Evolução</p>
+            </LineForm>
+          </Main>
+
+          <DialogClose asChild>
+            <ButtonsContainer>
+              <ButtonsModal type="button" variant="filled">
+                Gerar PDFs
               </ButtonsModal>
             </ButtonsContainer>
           </DialogClose>

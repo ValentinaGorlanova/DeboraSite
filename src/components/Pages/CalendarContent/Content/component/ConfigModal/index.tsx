@@ -1,6 +1,6 @@
 import { ReactElement, useState } from "react";
 import { GrClose } from "react-icons/gr";
-import CheckButton from "../CheckButton";
+import CheckButton from "../../../../../CheckButton";
 import styles from "./styles.module.scss";
 
 interface ModalConfigProp {
