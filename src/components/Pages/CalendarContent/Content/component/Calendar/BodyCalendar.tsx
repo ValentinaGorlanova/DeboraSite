@@ -5,10 +5,15 @@ import { getDaysOfMonth } from "@/utils/Calendar";
 interface BodyCalenderProps {
   optionSelect: string;
   date: Date;
+  onShowModal?: () => void;
 }
 
-export default function RenderBodyOfCalendar({ optionSelect, date }: BodyCalenderProps) {
+export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }: BodyCalenderProps) {
   const daysOfMonth = getDaysOfMonth(date);
+
+  function handleShowModal() {
+    if (onShowModal) onShowModal();
+  }
 
   if (optionSelect !== "month")
     return (
@@ -64,7 +69,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date }: BodyCalende
     <div className={styles.monthContainer}>
       {daysOfMonth.map((day) => {
         return (
-          <div className={`${styles.monthDay} ${day.grayColor ? styles.green : ""}`} key={day.key}>
+          <div className={`${styles.monthDay} ${day.grayColor ? styles.green : ""}`} key={day.key} onClick={() => handleShowModal()}>
             <span className={styles.numberDay}>{day.dayNumber}</span>
           </div>
         );
