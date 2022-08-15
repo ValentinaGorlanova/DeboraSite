@@ -8,8 +8,8 @@ import { RiUser3Fill } from "react-icons/ri";
 import { IoMdMail } from "react-icons/io";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiFillClockCircle } from "react-icons/ai";
-import UseAnimations from "react-useanimations";
-import radioButton from "react-useanimations/lib/radioButton";
+// import UseAnimations from "react-useanimations";
+// import radioButton from "react-useanimations/lib/radioButton";
 
 const overlayShow = keyframes({
   "0%": { opacity: 0 },
@@ -322,7 +322,7 @@ function NewRequestModal({ children }: DialogProps) {
         <DialogContent>
           <DialogTitle>Solicitacao aceita</DialogTitle>
           <Flex position="center" css={{ marginBottom: "20px" }}>
-            <UseAnimations animation={radioButton} size={46} autoplay />
+            {/* <UseAnimations animation={radioButton} size={46} autoplay /> */}
           </Flex>
           <DialogClose asChild onClick={() => setStep(1)}>
             <IconButton aria-label="Close">

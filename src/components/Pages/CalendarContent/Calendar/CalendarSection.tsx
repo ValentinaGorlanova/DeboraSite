@@ -6,6 +6,7 @@ import { FiChevronDown } from "react-icons/fi";
 // import { Calendar } from "react-widgets/cjs";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 // import "react-widgets/styles.css";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { menu } from "../SidebarMenu";
 import styles from "./Calendar.module.scss";
 // import "react-calendar/dist/Calendar.css";
@@ -26,6 +27,10 @@ export function CalendarSection() {
 
   return (
     <div className={styles.calendarSection}>
+      <button className={styles.buttonMenu}>
+        <HiOutlineMenuAlt2 />
+      </button>
+
       {/* Profile */}
       <div className={styles.profile}>
         <div className={styles.iconBell}>

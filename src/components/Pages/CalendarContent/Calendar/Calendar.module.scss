@@ -1,13 +1,18 @@
 .calendarSection {
   // border: 1px solid blue;
-  max-width: 200px;
   width: 100%;
-  //   width: 100%;
   padding: 24px 24px 24px 14px;
+  display: none;
 }
 
+
 .buttonMenu {
-  display: none;
+  width: 35px;
+  height: 35px;
+  background: none;
+  border: none;
+
+  font-size: 30px;
 }
 
 .profile {
@@ -265,158 +270,175 @@
   }
 }
 
-@media (max-width: 1023px) {
-  .buttonMenu {
+
+@media (min-width: 426px) {
+  .calendarSection {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    border: none;
-    background: none;
-  }
-
-  .calendarSection {
-    max-width: unset;
-    width: 100%;
-    height: 87px;
-
-    display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
-
-    position: relative;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    // background: rgba(0, 0, 0, 0.5);
-  }
-
-  .menuTablet {
-    position: absolute;
-    width: 240px;
-    min-height: 383px;
-    left: 0px;
-    top: 0px;
-    background: #f7f7f7;
-    box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
-    padding: 13px 32px 35px 35px;
-    animation: showMenu 0.4s ease-in-out;
-
-    @keyframes showMenu {
-      0% {
-        left: -240px;
-      }
-      100% {
-        left: 0;
-      }
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .buttonClose {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background: none;
-      }
-    }
-
-    ul {
-      //   margin-top: 28px;
-      //   border: 1px solid red;
-      //   height: 100%;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-
-      a {
-        &:first-child {
-          display: none;
-        }
-
-        & + a {
-          margin-top: 16px;
-        }
-      }
-
-      li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        font-family: "Barlow", sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 28px;
-        letter-spacing: 0.4px;
-        color: #1e1e1e;
-
-        // position: relative;
-
-        span {
-          width: 32px;
-          height: 32px;
-          // border: 1px solid red;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          transition: all 0.1s;
-
-          svg {
-            width: 25px;
-            height: 24px;
-
-            path {
-              fill: #e7975d;
-              opacity: 0.5;
-            }
-          }
-        }
-
-        &.active {
-          span {
-            background: #e7975d;
-            box-shadow: 2px 2px 4px #efeeee, 4px 4px 32px rgba(239, 238, 238, 0.6);
-            border-radius: 12px;
-
-            svg {
-              path {
-                fill: #f7f7f7;
-                opacity: 1;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .calendarContainer,
-  .containerNextConsultations,
-  .nextConsultations {
-    display: none;
   }
 }
 
-@media (max-width: 500px) {
+@media (min-width: 769px) {
+  .buttonMenu {
+    display: none;
+  }
+
   .calendarSection {
-    display: none;
+    max-width: 200px;
   }
 }
+
+// @media (max-width: 1023px) {
+//   .buttonMenu {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 32px;
+//     height: 32px;
+//     cursor: pointer;
+//     border: none;
+//     background: none;
+//   }
+
+//   .calendarSection {
+//     height: 87px;
+
+//     display: flex;
+//     flex-direction: row-reverse;
+//     justify-content: space-between;
+
+//     position: relative;
+//   }
+
+//   .overlay {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100vh;
+//     // background: rgba(0, 0, 0, 0.5);
+//   }
+
+//   .menuTablet {
+//     position: absolute;
+//     width: 240px;
+//     min-height: 383px;
+//     left: 0px;
+//     top: 0px;
+//     background: #f7f7f7;
+//     box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+//     padding: 13px 32px 35px 35px;
+//     animation: showMenu 0.4s ease-in-out;
+
+//     @keyframes showMenu {
+//       0% {
+//         left: -240px;
+//       }
+//       100% {
+//         left: 0;
+//       }
+//     }
+
+//     .header {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+
+//       .buttonClose {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         border: none;
+//         background: none;
+//       }
+//     }
+
+//     ul {
+//       //   margin-top: 28px;
+//       //   border: 1px solid red;
+//       //   height: 100%;
+//       list-style: none;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: flex-start;
+
+//       a {
+//         &:first-child {
+//           display: none;
+//         }
+
+//         & + a {
+//           margin-top: 16px;
+//         }
+//       }
+
+//       li {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         gap: 8px;
+//         font-family: "Barlow", sans-serif;
+//         font-style: normal;
+//         font-weight: 500;
+//         font-size: 20px;
+//         line-height: 28px;
+//         letter-spacing: 0.4px;
+//         color: #1e1e1e;
+
+//         // position: relative;
+
+//         span {
+//           width: 32px;
+//           height: 32px;
+//           // border: 1px solid red;
+
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+
+//           transition: all 0.1s;
+
+//           svg {
+//             width: 25px;
+//             height: 24px;
+
+//             path {
+//               fill: #e7975d;
+//               opacity: 0.5;
+//             }
+//           }
+//         }
+
+//         &.active {
+//           span {
+//             background: #e7975d;
+//             box-shadow: 2px 2px 4px #efeeee, 4px 4px 32px rgba(239, 238, 238, 0.6);
+//             border-radius: 12px;
+
+//             svg {
+//               path {
+//                 fill: #f7f7f7;
+//                 opacity: 1;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .calendarContainer,
+//   .containerNextConsultations,
+//   .nextConsultations {
+//     display: none;
+//   }
+// }
+
+// @media (max-width: 500px) {
+//   .calendarSection {
+//     display: none;
+//   }
+// }

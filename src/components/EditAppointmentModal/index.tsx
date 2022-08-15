@@ -1,78 +1,11 @@
 /* eslint-disable react/prop-types */
 import { ReactNode, useState } from "react";
-import { styled, keyframes } from "@stitches/react";
-import { violet, blackA } from "@radix-ui/colors";
+import { styled } from "@stitches/react";
+import { violet } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 
-const overlayShow = keyframes({
-  "0%": { opacity: 0 },
-  "100%": { opacity: 1 },
-});
-
-const contentShow = keyframes({
-  "0%": { opacity: 0, transform: "translate(-50%, -48%) scale(.96)" },
-  "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
-});
-
-const StyledOverlay = styled(DialogPrimitive.Overlay, {
-  backgroundColor: blackA.blackA9,
-  position: "fixed",
-  inset: 0,
-  "@media (prefers-reduced-motion: no-preference)": {
-    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
-  },
-});
-
-const StyledContent = styled(DialogPrimitive.Content, {
-  backgroundColor: "#F7F7F7",
-  borderRadius: 6,
-  boxShadow: "hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px",
-  position: "fixed",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "100%",
-  maxWidth: "696px",
-
-  padding: 25,
-  "@media (prefers-reduced-motion: no-preference)": {
-    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
-  },
-  "&:focus": { outline: "none" },
-});
-
-function Content({ children, ...props }: any) {
-  return (
-    <DialogPrimitive.Portal>
-      <StyledOverlay />
-      <StyledContent {...props}>{children}</StyledContent>
-    </DialogPrimitive.Portal>
-  );
-}
-
-const StyledTitle = styled(DialogPrimitive.Title, {
-  margin: 0,
-  display: "flex",
-  alignItems: "center",
-  width: "100%",
-  justifyContent: "center",
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "24px",
-  lineHeight: "28px",
-  color: "#1E1E1E",
-  marginBottom: "32px",
-});
-
-// Exports
-export const Dialog = DialogPrimitive.Root;
-export const DialogTrigger = DialogPrimitive.Trigger;
-export const DialogContent = Content;
-export const DialogTitle = StyledTitle;
-export const DialogClose = DialogPrimitive.Close;
+import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
 
 const IconButton = styled("button", {
   all: "unset",
@@ -99,7 +32,7 @@ interface DialogProps {
 const LabelData = styled("span", {
   fontFamily: "Barlow",
   fontStyle: "normal",
-  fontWeight: "500",
+  fontWeight: "400",
   fontSize: "18px",
   lineHeight: "26px",
   color: "#1E1E1E",
@@ -173,6 +106,11 @@ const SubTitle = styled("p", {
   lineHeight: "26px",
   color: "#1E1E1E",
   marginBottom: "16px",
+
+  "@media (max-width: 425px)": {
+    fontSize: "18px",
+    fontWeight: "400",
+  },
 });
 
 const Flex = styled("div", {
@@ -206,6 +144,7 @@ const ButtonsModal = styled("button", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  marginTop: "20px",
 
   fontFamily: "Barlow",
   fontStyle: "normal",
@@ -233,6 +172,7 @@ const InputsWrapper = styled("div", {
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
+  flexWrap: "wrap",
   gap: "20px",
 
   div: {
@@ -323,6 +263,17 @@ const StatusLabel = styled("span", {
   },
 });
 
+const RadioContainer = styled("div", {
+  width: "100%",
+
+  "@media (max-width: 520px)": {
+    display: "flex",
+    flexDirection: "column",
+    fontSize: "16px",
+    gap: "10px",
+  },
+});
+
 function EditAppointmentModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
   return (
@@ -357,14 +308,14 @@ function EditAppointmentModal({ children }: DialogProps) {
               <LabelData>Data e Horario</LabelData>
               <InputsWrapper>
                 <DateInput type="date" id="start" name="date" />
-                <div>
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <HourInput type="time" id="start" name="start" />
                   <div />
                   <HourInput type="time" id="end" name="end" />
                 </div>
               </InputsWrapper>
             </DataWrapper>
-            <div style={{ display: "flex", gap: "15px", marginBottom: "10px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "15px", marginBottom: "10px" }}>
               <Subtitle>Essa consulta será:</Subtitle>
               <form>
                 <input type="radio" id="Presencial" name="Presencial" value="Presencial" />
@@ -373,10 +324,18 @@ function EditAppointmentModal({ children }: DialogProps) {
                 <RadioLabel>Online</RadioLabel>
               </form>
             </div>
-            <input type="radio" id="Online" name="Online" value="Online" />
-            <RadioLabel>Atualizar somente essa consulta</RadioLabel>
-            <input type="radio" id="Online" name="Online" value="Online" />
-            <RadioLabel>Atualizar todas as recorrencias</RadioLabel>
+
+            <RadioContainer>
+              <RadioLabel>
+                <input type="radio" id="Online" name="Online" value="Online" />
+                Atualizar somente essa consulta
+              </RadioLabel>
+
+              <RadioLabel>
+                <input type="radio" id="Online" name="Online" value="Online" />
+                Atualizar todas as recorrencias
+              </RadioLabel>
+            </RadioContainer>
 
             <div>
               <StatusLabel>Status de consulta:</StatusLabel>
