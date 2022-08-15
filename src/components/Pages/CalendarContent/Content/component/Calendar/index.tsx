@@ -21,7 +21,7 @@ export default function Calendar({ selectDayOfWeek, date, setDate }: CalendarPro
 
     if (selectDayOfWeek === "day") newDate.setDate(date.getDate() + value);
     if (selectDayOfWeek === "month") newDate.setMonth(date.getMonth() + value);
-    if (selectDayOfWeek === "week") newDate.setDate(date.getDate() + (value === 1 ? 7 : -7));
+    if (selectDayOfWeek === "week") newDate.setDate(date.getDate() + value);
 
     setDate(newDate);
   }
