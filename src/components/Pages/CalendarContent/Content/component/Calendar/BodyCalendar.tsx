@@ -1,3 +1,5 @@
+import { useState } from "react";
+import SmallModal from "../SmallModal";
 import styles from "./styles.module.scss";
 
 import { object, DayCard, ObjectType } from "./mocks";
@@ -16,8 +18,11 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
   const hourCalendarWeek = ["07h00", "08h00", "09h00", "10h00", "11h00", "12h00", "13h00", "14h00", "15h00", "16h00", "17h00"];
   const scheduleDay = schedule[date.getDate()];
 
-  function handleShowModal() {
-    if (onShowModal) onShowModal();
+  const [showSmallModall, setShowSmallModall] = useState(false);
+
+  function handleShowModal(value: boolean) {
+    if (!value) setShowSmallModall(!showSmallModall);
+    if (onShowModal && value) onShowModal();
   }
 
   function filterByFirstNotChecked(daysCards: Array<DayCard>) {
@@ -54,23 +59,33 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
     );
 
   return (
-    <div className={styles.monthContainer}>
-      {daysOfMonth.map((day) => {
-        return (
-          <div className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`} key={day.key} onClick={() => handleShowModal()}>
-            <span className={styles.numberDay}>{day.dayNumber}</span>
+    <>
+      <SmallModal show={showSmallModall} onClose={() => handleShowModal(false)} />
+      <div className={styles.monthContainer}>
+        {daysOfMonth.map((day) => {
+          return (
+            <div className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`} key={day.key} onClick={() => handleShowModal(true)}>
+              <span className={styles.numberDay}>{day.dayNumber}</span>
 
-            {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (
-              <div className={styles.dailyCard}>
-                <p>{filterByFirstNotChecked(schedule[day.dayNumber])?.name}</p>
-                <p>
-                  {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
-                </p>
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
+              {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (
+                <div
+                  className={styles.dailyCard}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    console.log(e.clientX, e.clientY);
+                    handleShowModal(false);
+                  }}
+                >
+                  <p>{filterByFirstNotChecked(schedule[day.dayNumber])?.name}</p>
+                  <p>
+                    {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
+                  </p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }

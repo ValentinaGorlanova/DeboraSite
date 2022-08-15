@@ -257,6 +257,12 @@
   cursor: pointer;
 }
 
+@media (max-width: 403px) {
+  .fieldsContainer input[type="time"] {
+    margin-top: 12px;
+  }
+}
+
 @media (min-width: 631px) {
   .fieldsContainer {
     align-items: center;
