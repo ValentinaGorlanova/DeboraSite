@@ -22,11 +22,15 @@
 
 .modal {
   width: 90%;
-  max-height: 90vh;
+  height: 250px;
 
   padding: 16px;
+  padding-bottom: 0;
+
+  border-radius: 8px;
 
   position: relative;
+  min-width: 225px;
   max-width: 225px;
 
   font-family: "Barlow";
@@ -59,7 +63,7 @@
     width: 12px;
     height: 12px;
     background: #5ed104;
-    border-radius: 6px;
+    border-radius: 3px;
   }
 
   h2 {
@@ -77,5 +81,73 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.bodyModal {
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 0;
+  font-family: "Barlow";
+
+  p {
+    margin-left: 5px;
+    line-height: 14px;
+  }
+}
+
+.align {
+  justify-content: space-between;
+  p {
+    flex: 1;
+  }
+}
+
+.orange {
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #fff;
+  background: #bf743c;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  padding: 8px 0;
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid #d4d4d4;
+
+  button {
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.penButton {
+  color: #cde0fd;
+}
+
+.trashButton {
+  color: #d10438;
+}
+
+@media (min-width: 500px) {
+  .bgModal {
+    position: absolute;
+    width: min-content;
+    height: min-content;
   }
 }

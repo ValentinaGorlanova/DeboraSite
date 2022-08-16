@@ -204,12 +204,6 @@
     text-transform: uppercase;
     color: #1e1e1e;
   }
-
-  @media (max-width: 425px) {
-    span {
-      font-size: 10px;
-    }
-  }
 }
 
 .calendarDayActive {
@@ -266,15 +260,38 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
+  .monthContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .monthDay {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &.grayColor .numberDay {
+      background: #d4d4d4;
+    }
+  }
+
   .numberDay {
-    font-size: 10px;
-  }
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 600;
 
-  .dailyCard {
-    font-size: 8px;
-  }
+    border-radius: 8px;
+    margin-bottom: 0;
 
+    color: #f7f7f7;
+    background: #bf743c;
+  }
+}
+
+@media (max-width: 425px) {
   .dailyCard p:nth-child(2) {
     display: none;
   }

@@ -24,6 +24,8 @@ export const object: ObjectType = {
       { name: "Gabriel Silva1", hour: "09h00", hourEnd: "09h40", ckecked: false },
     ],
     18: [{ name: "Gabriel Silva", hour: "09h00", hourEnd: "09h40", ckecked: false }],
+    20: [{ name: "Gabriel Silva", hour: "09h00", hourEnd: "09h40", ckecked: false }],
+    30: [{ name: "Gabriel Silva", hour: "09h00", hourEnd: "09h40", ckecked: false }],
   },
   8: {},
   9: {},
