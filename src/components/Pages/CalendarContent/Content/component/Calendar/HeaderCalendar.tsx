@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-import { getWeek } from "@/utils/Calendar";
+import { getWeek, getMonthList } from "@/utils/Calendar";
 
 interface WeekMonthProp {
   selectOption: string;
@@ -9,19 +9,18 @@ interface WeekMonthProp {
 
 export default function RenderDayWeekOrMonth({ selectOption, date }: WeekMonthProp) {
   const numberWeek = getWeek(date);
-  const weekDayNames = ["dom", "seg", "ter", "quar", "qui", "sex", "sab"];
+  const weekDayNames = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+
+  const month = getMonthList(date);
 
   if (selectOption === "week")
     return (
       <>
         {numberWeek.map((number, i) => (
-          <div className={`${styles.calendarSmallContainerDayOfWeek} `} key={number}>
+          <div className={`${styles.calendarSmallContainerDayOfWeek} ${date.getDate() === number ? styles.calendarDayActive : null}`} key={number}>
             <p>{weekDayNames[i]}</p> <span>{number}</span>
           </div>
         ))}
-        {/* <div className={`${styles.calendarSmallContainerDayOfWeek} ${styles.calendarDayActive}`}>
-          <p>quar</p> <span>01</span>
-        </div> */}
       </>
     );
 
@@ -34,27 +33,14 @@ export default function RenderDayWeekOrMonth({ selectOption, date }: WeekMonthPr
 
   return (
     <>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-        <p>dom</p>
-      </div>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-        <p>seg</p>
-      </div>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-        <p>ter</p>
-      </div>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} ${styles.calendarDayActive}`}>
-        <p>quar</p> <span>01</span>
-      </div>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-        <p>qui</p>
-      </div>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-        <p>sex</p>
-      </div>
-      <div className={`${styles.calendarSmallContainerDayOfWeek} `}>
-        <p>sab</p>
-      </div>
+      {month.map((monthName) => (
+        <div className={`${styles.calendarSmallContainerDayOfWeek} ${monthName.activate ? styles.calendarDayActive : null}`} key={monthName.name}>
+          <p>{monthName.name}</p>
+        </div>
+      ))}
+      {/* <div className={`${styles.calendarSmallContainerDayOfWeek} ${styles.calendarDayActive}`}>
+        <p>qua</p> <span>01</span>
+      </div> */}
     </>
   );
 }

@@ -70,3 +70,27 @@ export function getWeek(date: Date): Array<number> {
 
   return result;
 }
+
+export function getMonthList(date: Date) {
+  const nameMonth = [
+    { name: "jan.", activate: false },
+    { name: "fev.", activate: false },
+    { name: "mar.", activate: false },
+    { name: "abr.", activate: false },
+    { name: "mai.", activate: false },
+    { name: "jun.", activate: false },
+    { name: "jul.", activate: false },
+    { name: "ago.", activate: false },
+    { name: "set.", activate: false },
+    { name: "out.", activate: false },
+    { name: "nov.", activate: false },
+    { name: "dez.", activate: false },
+  ];
+
+  const month = date.toLocaleDateString("pt-BR", { month: "short" });
+  const indexMonth = nameMonth.findIndex((find) => find.name === month);
+  const result = indexMonth <= 5 ? nameMonth.slice(0, 6) : nameMonth.slice(6, 12);
+
+  result[indexMonth % 6].activate = true;
+  return result;
+}

@@ -46,6 +46,14 @@
   align-items: center;
 }
 
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .modal {
   max-width: 858px;
   width: 90%;
@@ -58,10 +66,6 @@
 
   padding: 40px;
   border-radius: 12px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 
   font-family: "Barlow";
   font-style: normal;
@@ -215,10 +219,62 @@
   }
 }
 
+.newPatient {
+  select {
+    max-width: none;
+    width: 100%;
+  }
+
+  .phoneNumber {
+    width: 150px;
+  }
+
+  .age,
+  .price {
+    width: 80px;
+  }
+
+  .fill {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.backButton {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  color: #e7975d;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+@media (max-width: 403px) {
+  .fieldsContainer input[type="time"] {
+    margin-top: 12px;
+  }
+}
+
 @media (min-width: 631px) {
   .fieldsContainer {
     align-items: center;
     flex-direction: row;
+
+    p {
+      width: 50%;
+
+      &.aux {
+        width: auto;
+      }
+    }
   }
 
   .fieldsContainer .aux {
