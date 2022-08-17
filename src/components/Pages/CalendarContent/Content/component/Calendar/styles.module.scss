@@ -103,6 +103,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
+  position: relative;
 
   pointer-events: all;
 
@@ -121,9 +122,6 @@
   /* Secundaria/900 */
 
   color: #273a51;
-  p {
-    opacity: 0.6;
-  }
 }
 
 .monthContainer {
@@ -291,18 +289,12 @@
   }
 }
 
-@media (max-width: 425px) {
-  .dailyCard p:nth-child(2) {
-    display: none;
-  }
-}
-
 @media (max-width: 768px) {
   .monthDay {
     padding: 5px;
   }
 
-  .monthContainer .dailyCard p:nth-child(2) {
+  .monthContainer .dailyCard .hidden {
     display: none;
   }
 
