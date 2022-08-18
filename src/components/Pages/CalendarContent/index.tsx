@@ -5,27 +5,30 @@ import { SidebarMenu } from "./SidebarMenu";
 import styles from "./styles.module.scss";
 
 import InputSearch from "./Content/component/InputSearch";
+import { ConfigContextProvider } from "@/lib/configContext";
 
 export function CalendarContent() {
   return (
-    <div className={styles.dashboard}>
-      <SidebarMenu />
+    <ConfigContextProvider>
+      <div className={styles.dashboard}>
+        <SidebarMenu />
 
-      <main className={styles.contentArea}>
-        <header className={styles.header}>
-          <div className={styles.flex}>
-            <button className={styles.backButtom}>
-              <BsArrowLeftShort />
-            </button>
+        <main className={styles.contentArea}>
+          <header className={styles.header}>
+            <div className={styles.flex}>
+              <button className={styles.backButtom}>
+                <BsArrowLeftShort />
+              </button>
 
-            <InputSearch />
-          </div>
+              <InputSearch />
+            </div>
 
-          <CalendarSection />
-        </header>
+            <CalendarSection />
+          </header>
 
-        <Content />
-      </main>
-    </div>
+          <Content />
+        </main>
+      </div>
+    </ConfigContextProvider>
   );
 }

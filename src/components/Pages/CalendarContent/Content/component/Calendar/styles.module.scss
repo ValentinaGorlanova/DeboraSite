@@ -86,7 +86,6 @@
   border-top: 2px solid #cde0fd;
   top: 20px;
   left: 55px;
-  gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
@@ -104,6 +103,7 @@
   justify-content: space-between;
   padding: 8px 0;
   position: relative;
+  margin: 5px;
 
   pointer-events: all;
 
@@ -290,6 +290,10 @@
 }
 
 @media (max-width: 768px) {
+  .calendarSmallContainerDayOfWeek span {
+    font-size: 16px;
+  }
+
   .monthDay {
     padding: 5px;
   }

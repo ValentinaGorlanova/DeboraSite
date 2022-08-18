@@ -38,9 +38,6 @@ export default function RenderDayWeekOrMonth({ selectOption, date }: WeekMonthPr
           <p>{monthName.name}</p>
         </div>
       ))}
-      {/* <div className={`${styles.calendarSmallContainerDayOfWeek} ${styles.calendarDayActive}`}>
-        <p>qua</p> <span>01</span>
-      </div> */}
     </>
   );
 }

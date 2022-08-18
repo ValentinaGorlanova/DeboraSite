@@ -6,7 +6,7 @@ interface DayType {
 
 const numberMaxDayOfMonth = [
   31, // JANEIRO
-  28, // FEVEREIRO
+  29, // FEVEREIRO
   31, // MARÇO
   30, // ABRIL
   31, // MAIO
@@ -92,5 +92,25 @@ export function getMonthList(date: Date) {
   const result = indexMonth <= 5 ? nameMonth.slice(0, 6) : nameMonth.slice(6, 12);
 
   result[indexMonth % 6].activate = true;
+  return result;
+}
+
+export function getHourOfDay(start: string, end: string, interval: string) {
+  const timeStartSplit = start.split(":");
+  const timeEndSplit = end.split(":");
+
+  const startTime = new Date(0, 0, 0, Number(timeStartSplit[0]), Number(timeStartSplit[1]));
+  const endTime = new Date(0, 0, 0, Number(timeEndSplit[0]), Number(timeEndSplit[1]));
+
+  const timeInterval = Number(interval);
+  const result = [];
+
+  while (startTime <= endTime) {
+    const timeStringSplit = startTime.toLocaleTimeString("pt-BR").split(":");
+    result.push(`${timeStringSplit[0]}:${timeStringSplit[1]}`);
+
+    startTime.setMinutes(startTime.getMinutes() + timeInterval);
+  }
+
   return result;
 }

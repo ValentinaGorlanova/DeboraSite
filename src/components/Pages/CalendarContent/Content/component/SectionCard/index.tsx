@@ -6,7 +6,11 @@ import { NoteIcon } from "@/components/Icons/NoteIcon";
 import EditAppointmentModal from "@/components/EditAppointmentModal";
 import AnnotationModal from "@/components/AnnotationModal";
 
-export default function SectionCard() {
+interface SectionCardProps {
+  showStatus: boolean;
+}
+
+export default function SectionCard({ showStatus }: SectionCardProps) {
   return (
     <div className={styles.Sections}>
       <div className={styles.gridArea1}>
@@ -29,6 +33,11 @@ export default function SectionCard() {
         <span>
           <HiClock className={styles.iconClock} /> 9h00 - 9h40
         </span>
+      </div>
+
+      <div className={`${styles.statusContainer} ${showStatus ? "" : styles.hiddenStatus}`}>
+        <p>Status</p>
+        <span className={styles.status}></span>
       </div>
 
       <div className={styles.gridArea4}>

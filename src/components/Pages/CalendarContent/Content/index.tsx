@@ -9,7 +9,10 @@ import CardImage from "./component/CardImage";
 
 import CalendarComponent from "./component/Calendar";
 import ConfigModal from "./component/ConfigModal";
+import { object, ObjectType } from "./mocks";
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
+
+import { useConfigContext } from "@/lib/configContext";
 
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
@@ -19,6 +22,10 @@ export function Content() {
   const [selectDayOfWeek, setSelectDayOfWeek] = useState("week");
 
   const [currentDate, setCurrentDate] = useState(new Date());
+  const { showQueryStatus } = useConfigContext();
+
+  const schedule = object[currentDate.getMonth() as keyof ObjectType];
+  const scheduleDay = schedule[currentDate.getDate()];
 
   const events = [
     {
@@ -75,9 +82,11 @@ export function Content() {
       <div className={`${styles.SubmenuButtons} ${currentTab === 1 ? styles.buttonsDesktop : ""}`}>
         <div className={styles.buttons}>
           <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
-            Sessões por dia
+            <CalendarIcon />
+            Sessoes por dia
           </button>
           <button className={currentTab === 1 ? styles.outline : styles.filled} onClick={() => setCurrentTab(2)}>
+            <BsFillCalendar2Fill />
             Agenda geral
           </button>
         </div>
@@ -132,12 +141,10 @@ export function Content() {
           <div className={styles.SectionsContainer}>
             <div className={styles.SectionDate}>
               <CalendarIcon />
-              <span>Sessoes do dia 01/05/2022</span>
+              <span>Sessoes do dia {currentDate.toLocaleDateString("pt-BR")}</span>
             </div>
 
-            <SectionCard />
-            <SectionCard />
-            <CardImage />
+            {scheduleDay ? scheduleDay.map((query) => <SectionCard showStatus={showQueryStatus} key={query.name} />) : <CardImage />}
           </div>
           {/* <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /> */}
         </div>

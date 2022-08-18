@@ -1,9 +1,10 @@
 import { MouseEvent, useState } from "react";
 import SmallModal from "../SmallModal";
+import { object, DayCard, ObjectType } from "../../mocks";
 import styles from "./styles.module.scss";
 
-import { object, DayCard, ObjectType } from "./mocks";
-import { getDaysOfMonth } from "@/utils/Calendar";
+import { getDaysOfMonth, getHourOfDay } from "@/utils/Calendar";
+import { useConfigContext } from "@/lib/configContext";
 
 interface BodyCalenderProps {
   optionSelect: string;
@@ -15,7 +16,9 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
   const daysOfMonth = getDaysOfMonth(date);
   const schedule = object[date.getMonth() as keyof ObjectType];
 
-  const hourCalendarWeek = ["07h00", "08h00", "09h00", "10h00", "11h00", "12h00", "13h00", "14h00", "15h00", "16h00", "17h00"];
+  const { time } = useConfigContext();
+
+  const hourCalendarWeek = getHourOfDay(time.start, time.end, time.interval);
   const scheduleDay = schedule[date.getDate()];
 
   const [showSmallModall, setShowSmallModall] = useState(-1);
@@ -47,7 +50,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
                   {scheduleDay &&
                     scheduleDay.map(
                       (day: DayCard) =>
-                        day.hour === hour && (
+                        day.hour.replace("h", ":") === hour && (
                           <div className={styles.dailyCard} key={day.name}>
                             <p>{day.name}</p>
                             <p>
