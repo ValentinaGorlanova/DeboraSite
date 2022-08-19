@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 import styles from "./styles.module.scss";
 
-function LockedItem() {
-  const [typeLock, setTypeLock] = useState("date");
+interface LockedItemPropType {
+  onDelete: () => void;
+}
 
-  function handleSelect(select: any) {
+function LockedItem({ onDelete }: LockedItemPropType) {
+  const [lockType, setLockType] = useState("date");
+
+  function handleSelect(select: ChangeEvent<HTMLSelectElement>) {
     const element = select.target as HTMLSelectElement;
-    setTypeLock(element.value);
+    setLockType(element.value);
   }
 
   return (
@@ -18,11 +22,17 @@ function LockedItem() {
             Por data
           </option>
           <option value="time">Domingo</option>
+          <option value="time">Segunda-feira</option>
+          <option value="time">Terça-feira</option>
+          <option value="time">Quarta-feira</option>
+          <option value="time">Quinta-feira</option>
+          <option value="time">Sexta-feira</option>
+          <option value="time">Sábado</option>
         </select>
       </div>
 
       <div className={styles.lockedFields}>
-        {typeLock !== "date" ? (
+        {lockType !== "date" ? (
           <>
             <input type="time" />
             <p>Até</p>
@@ -38,7 +48,7 @@ function LockedItem() {
       </div>
 
       <div className={styles.bottomButton}>
-        <button>
+        <button onClick={onDelete}>
           <BsFillTrashFill />
         </button>
       </div>
@@ -47,20 +57,42 @@ function LockedItem() {
 }
 
 export default function LockTime() {
+  const [lockList, setLockList] = useState([0, 1]);
+
+  function handleAddNewLock() {
+    const newLock = lockList.length !== 0 ? lockList[lockList.length - 1] + 1 : 0;
+    setLockList([...lockList, newLock]);
+  }
+
+  function handleDeleteLock(index: number) {
+    const array = lockList;
+    array.splice(index, 1);
+
+    setLockList([...array]);
+  }
+
   return (
     <>
-      <h2>Bloquear horarios</h2>
+      <h2>Bloquear horários</h2>
 
       <div className={styles.section}>
-        <button className={styles.newLockTime}>Adicionar novo bloqueio</button>
+        <button className={styles.newLockTime} onClick={handleAddNewLock}>
+          Adicionar novo bloqueio
+        </button>
       </div>
 
       <div className={styles.lockedArea}>
-        <p className={styles.titleLocked}>Horarios bloqueados</p>
+        <p className={styles.titleLocked}>Horários bloqueados</p>
 
         <div>
-          <LockedItem />
-          <LockedItem />
+          {lockList.length !== 0 ? (
+            lockList.map((lock, i) => <LockedItem key={lock} onDelete={() => handleDeleteLock(i)} />)
+          ) : (
+            <div className={styles.message}>
+              <h3>Nenhum bloqueio disponível</h3>
+              <p>Adione bloqueios no botão acima.</p>
+            </div>
+          )}
         </div>
       </div>
 

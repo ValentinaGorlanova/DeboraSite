@@ -114,3 +114,13 @@ export function getHourOfDay(start: string, end: string, interval: string) {
 
   return result;
 }
+
+export function calcTimeSection(hourInit: string, interval: string): string {
+  const splitHour = hourInit.split(":");
+
+  const hour = Number(splitHour[0]);
+  const minutes = Number(splitHour[1]) + Number(interval);
+
+  const date = new Date(0, 0, 0, hour, minutes).toLocaleTimeString("pt-BR").split(":");
+  return `${date[0]}:${date[1]}`;
+}

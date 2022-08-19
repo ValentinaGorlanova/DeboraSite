@@ -172,15 +172,43 @@
 
 .row {
   display: flex;
+}
 
-  .label {
-    font-size: 14px;
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 16px;
     color: #1e1e1e;
-    margin-right: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
+
+  input {
+    max-width: 115px;
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 12px;
+
+    border: 1px solid #273a51;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: #273a51;
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.label {
+  font-size: 16px;
+  color: #1e1e1e;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .select {

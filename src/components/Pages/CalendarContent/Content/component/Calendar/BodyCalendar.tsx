@@ -9,7 +9,7 @@ import { useConfigContext } from "@/lib/configContext";
 interface BodyCalenderProps {
   optionSelect: string;
   date: Date;
-  onShowModal?: () => void;
+  onShowModal: (date: Date) => void;
 }
 
 export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }: BodyCalenderProps) {
@@ -23,14 +23,13 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
 
   const [showSmallModall, setShowSmallModall] = useState(-1);
 
-  function handleShowModal(value: boolean, indexModal: number) {
-    if (!value) setShowSmallModall(indexModal);
-    if (onShowModal && value) onShowModal();
+  function handleShowModal(dayNumber: number) {
+    onShowModal(new Date(date.getFullYear(), date.getMonth(), dayNumber));
   }
 
   function handleShowSmallModal(e: MouseEvent<HTMLDivElement>, index: number) {
     e.stopPropagation();
-    handleShowModal(false, index);
+    setShowSmallModall(index);
   }
 
   function filterByFirstNotChecked(daysCards: Array<DayCard>) {
@@ -70,7 +69,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
     <div className={styles.monthContainer}>
       {daysOfMonth.map((day) => {
         return (
-          <div className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`} key={day.key} onClick={() => handleShowModal(true, -1)}>
+          <div className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`} key={day.key} onClick={() => handleShowModal(day.dayNumber)}>
             <span className={styles.numberDay}>{day.dayNumber}</span>
 
             {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (
@@ -79,7 +78,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
                 <p className={styles.hidden}>
                   {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
                 </p>
-                {showSmallModall === day.dayNumber && <SmallModal onClose={() => handleShowModal(false, -1)} />}
+                {showSmallModall === day.dayNumber && <SmallModal onClose={() => setShowSmallModall(-1)} />}
               </div>
             )}
           </div>

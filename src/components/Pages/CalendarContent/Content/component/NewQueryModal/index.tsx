@@ -8,10 +8,11 @@ import styles from "./styles.module.scss";
 
 interface ModalProp {
   show: boolean;
+  date: Date;
   onClose: () => void;
 }
 
-export default function NewQueryModal({ show, onClose }: ModalProp) {
+export default function NewQueryModal({ show, date, onClose }: ModalProp) {
   const [showNewPatient, setShowNewPatient] = useState(false);
 
   function handleChangeForm() {
@@ -26,7 +27,11 @@ export default function NewQueryModal({ show, onClose }: ModalProp) {
         </button>
 
         <form action="#" className={styles.form}>
-          {showNewPatient ? <NewPatientForm onBack={() => handleChangeForm()} /> : <NewQueryForm onShowNewPacient={() => handleChangeForm()} />}
+          {showNewPatient ? (
+            <NewPatientForm onBack={() => handleChangeForm()} />
+          ) : (
+            <NewQueryForm date={date} onShowNewPacient={() => handleChangeForm()} />
+          )}
         </form>
       </div>
     </div>
