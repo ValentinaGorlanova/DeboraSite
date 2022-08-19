@@ -459,7 +459,7 @@ export default function AnnotationModal({ children }: DialogProps) {
       <DialogContent>
         {isAddingContent === 1 && (
           <>
-            <DialogTitle>Anotacao da sessao 01/05/22</DialogTitle>
+            <DialogTitle>Anotações da sessão</DialogTitle>
             <SelectsWrapper>
               {step === 5 && (
                 <select name="options" id="options" onChange={(sel) => handleSelect(sel)}>
@@ -479,21 +479,21 @@ export default function AnnotationModal({ children }: DialogProps) {
                 <option value="" disabled selected>
                   Gerar PDFs
                 </option>
-                <option value="saab">PDF do prontuario</option>
-                <option value="mercedes">PDF da sessao</option>
-                <option value="audi">Historico de sessões</option>
+                <option value="saab">PDF do prontuário</option>
+                <option value="mercedes">PDF da sessão</option>
+                <option value="audi">Histórico de sessões</option>
               </select>
             </SelectsWrapper>
             <Main variant="column">
               <AsideButtons>
                 <div>
                   <ButtonsModal variant={step === 1 ? "asideActive" : "aside"} onClick={() => setStep(1)}>
-                    Antes da sessao
+                    Antes da sessão
                   </ButtonsModal>
                 </div>
                 <div>
                   <ButtonsModal variant={step === 2 ? "asideActive" : "aside"} onClick={() => setStep(2)}>
-                    Resumo da sessao
+                    Resumo da sessão
                   </ButtonsModal>
                 </div>
                 <div>
@@ -518,8 +518,8 @@ export default function AnnotationModal({ children }: DialogProps) {
                     <MissingContent>
                       <UploadImage />
                       <div>
-                        <p>Voce ainda nao anexou nenhum arquivo para esse paciente</p>
-                        <p>Adicinone arquivos no botao acima</p>
+                        <p>Você ainda não anexou nenhum arquivo para esse paciente.</p>
+                        <p>Adicinone arquivos no botão acima</p>
                       </div>
                     </MissingContent>
 
@@ -662,7 +662,7 @@ export default function AnnotationModal({ children }: DialogProps) {
             <DialogClose asChild>
               <ButtonsContainer>
                 <ButtonsModal type="button" variant="filled" onClick={() => setStep(2)}>
-                  Salvar alteracoes
+                  Salvar alteracões
                 </ButtonsModal>
               </ButtonsContainer>
             </DialogClose>

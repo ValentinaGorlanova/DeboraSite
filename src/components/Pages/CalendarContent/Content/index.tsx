@@ -57,10 +57,10 @@ export function Content() {
         </div>
 
         <select name="options" id="options" className={currentTab === 2 ? styles.mobHidden : ""}>
-          <option value="">Opcoes e ferramentas</option>
-          <option value="">Opcoes e ferramentas</option>
-          <option value="">Opcoes e ferramentas</option>
-          <option value="">Opcoes e ferramentas</option>
+          <option value="">Opções e ferramentas</option>
+          <option value="">Opções e ferramentas</option>
+          <option value="">Opções e ferramentas</option>
+          <option value="">Opções e ferramentas</option>
         </select>
       </div>
       {/* aaaaaaaaaaaaa */}
@@ -83,7 +83,7 @@ export function Content() {
         <div className={styles.buttons}>
           <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
             <CalendarIcon />
-            Sessoes por dia
+            Sessões por dia
           </button>
           <button className={currentTab === 1 ? styles.outline : styles.filled} onClick={() => setCurrentTab(2)}>
             <BsFillCalendar2Fill />
@@ -94,7 +94,7 @@ export function Content() {
         {currentTab === 1 ? (
           <select name="options" id="options">
             <option value="" disabled selected>
-              Opcões e ferramentas
+              Opções e ferramentas
             </option>
             <option value="saab">Teste</option>
             <option value="mercedes">Teste</option>
@@ -129,7 +129,7 @@ export function Content() {
             <div className={styles.buttons}>
               <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
                 <CalendarIcon />
-                Sessoes por dia
+                Sessões por dia
               </button>
               <button className={currentTab === 1 ? styles.outline : styles.filled} onClick={() => setCurrentTab(2)}>
                 <BsFillCalendar2Fill />
@@ -141,7 +141,7 @@ export function Content() {
           <div className={styles.SectionsContainer}>
             <div className={styles.SectionDate}>
               <CalendarIcon />
-              <span>Sessoes do dia {currentDate.toLocaleDateString("pt-BR")}</span>
+              <span>Sessões do dia {currentDate.toLocaleDateString("pt-BR")}</span>
             </div>
 
             {scheduleDay ? scheduleDay.map((query) => <SectionCard showStatus={showQueryStatus} key={query.name} />) : <CardImage />}

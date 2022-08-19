@@ -29,7 +29,7 @@ export default function SectionCard({ showStatus }: SectionCardProps) {
       </div>
 
       <div className={styles.gridArea3}>
-        <p className={styles.hiddenOnMobile}>Horario</p>
+        <p className={styles.hiddenOnMobile}>Horário</p>
         <span>
           <HiClock className={styles.iconClock} /> 9h00 - 9h40
         </span>
