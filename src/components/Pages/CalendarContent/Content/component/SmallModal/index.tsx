@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { MouseEvent, useEffect, useRef } from "react";
 import { GrFormClose } from "react-icons/gr";
 import { BsCalendarFill, BsFillTrashFill } from "react-icons/bs";
 import { MdAccessTime } from "react-icons/md";
@@ -10,36 +10,46 @@ import styles from "./styles.module.scss";
 import { useWindowDimension } from "@/hooks/useWindow";
 
 interface SmallModalProp {
-  show: boolean;
-  pos: { x: number; y: number };
   onClose: () => void;
 }
 
-export default function SmallModal({ show, onClose, pos }: SmallModalProp) {
+export default function SmallModal({ onClose }: SmallModalProp) {
   const modalRef = useRef<HTMLDivElement>(null);
-  const windowDimensions = useWindowDimension();
+  const windowDimenssion = useWindowDimension();
 
   useEffect(() => {
-    const element = modalRef.current;
+    if (!modalRef.current || window.innerWidth < 501) return;
 
-    if (element && windowDimensions.width > 500) {
-      const y = pos.y + 250 > window.innerHeight ? pos.y - 260 : pos.y;
-      const x = pos.x + 225 > window.innerWidth ? pos.x - 250 : pos.x;
+    const divParent = modalRef.current.offsetParent as HTMLDivElement;
+    const x = divParent.offsetLeft + divParent.clientWidth + 240;
 
-      element.style.top = `${y}px`;
-      element.style.left = `${x}px`;
+    modalRef.current.style.left = x > window.innerWidth ? "-235px" : `${divParent.clientWidth}px`;
+  }, []);
+
+  useEffect(() => {
+    if (!modalRef.current) return;
+
+    if (windowDimenssion.width !== 0 && windowDimenssion.width < 501) {
+      modalRef.current.style.left = "0px";
+      return;
     }
 
-    if (element && windowDimensions.width <= 500) {
-      element.style.top = "0px";
-      element.style.left = "0px";
-    }
-  }, [pos, windowDimensions]);
+    const divParent = modalRef.current.offsetParent as HTMLDivElement;
+    if (!divParent) return;
+
+    const x = divParent.offsetLeft + divParent.clientWidth + 240;
+    modalRef.current.style.left = x > window.innerWidth ? "-235px" : `${divParent.clientWidth}px`;
+  }, [windowDimenssion.width]);
+
+  function handleCloseModal(e: MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
+    onClose();
+  }
 
   return (
-    <div className={`${styles.bgModal} ${show ? styles.show : ""}`} ref={modalRef}>
+    <div className={styles.bgModal} ref={modalRef}>
       <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={onClose}>
+        <button className={styles.closeButton} onClick={handleCloseModal}>
           <GrFormClose />
         </button>
 

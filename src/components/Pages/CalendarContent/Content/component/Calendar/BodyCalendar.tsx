@@ -1,9 +1,10 @@
 import { MouseEvent, useState } from "react";
 import SmallModal from "../SmallModal";
+import { object, DayCard, ObjectType } from "../../mocks";
 import styles from "./styles.module.scss";
 
-import { object, DayCard, ObjectType } from "./mocks";
-import { getDaysOfMonth } from "@/utils/Calendar";
+import { getDaysOfMonth, getHourOfDay } from "@/utils/Calendar";
+import { useConfigContext } from "@/lib/configContext";
 
 interface BodyCalenderProps {
   optionSelect: string;
@@ -11,34 +12,25 @@ interface BodyCalenderProps {
   onShowModal?: () => void;
 }
 
-type PosArgs = { x: number; y: number };
-
 export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }: BodyCalenderProps) {
   const daysOfMonth = getDaysOfMonth(date);
   const schedule = object[date.getMonth() as keyof ObjectType];
 
-  const hourCalendarWeek = ["07h00", "08h00", "09h00", "10h00", "11h00", "12h00", "13h00", "14h00", "15h00", "16h00", "17h00"];
+  const { time } = useConfigContext();
+
+  const hourCalendarWeek = getHourOfDay(time.start, time.end, time.interval);
   const scheduleDay = schedule[date.getDate()];
 
-  const [showSmallModall, setShowSmallModall] = useState({
-    show: false,
-    pos: { x: 0, y: 0 },
-  });
+  const [showSmallModall, setShowSmallModall] = useState(-1);
 
-  function handleShowModal(value: boolean, smallModal: boolean, pos: PosArgs) {
-    if (!value)
-      setShowSmallModall({
-        show: smallModal,
-        pos,
-      });
+  function handleShowModal(value: boolean, indexModal: number) {
+    if (!value) setShowSmallModall(indexModal);
     if (onShowModal && value) onShowModal();
   }
 
-  function handleShowSmallModal(e: MouseEvent<HTMLDivElement>) {
+  function handleShowSmallModal(e: MouseEvent<HTMLDivElement>, index: number) {
     e.stopPropagation();
-    const divElement = e.target as HTMLDivElement;
-
-    handleShowModal(false, true, { x: divElement.offsetLeft, y: divElement.offsetTop });
+    handleShowModal(false, index);
   }
 
   function filterByFirstNotChecked(daysCards: Array<DayCard>) {
@@ -58,7 +50,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
                   {scheduleDay &&
                     scheduleDay.map(
                       (day: DayCard) =>
-                        day.hour === hour && (
+                        day.hour.replace("h", ":") === hour && (
                           <div className={styles.dailyCard} key={day.name}>
                             <p>{day.name}</p>
                             <p>
@@ -75,30 +67,24 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
     );
 
   return (
-    <>
-      <SmallModal show={showSmallModall.show} pos={showSmallModall.pos} onClose={() => handleShowModal(false, false, { x: 0, y: 0 })} />
-      <div className={styles.monthContainer}>
-        {daysOfMonth.map((day) => {
-          return (
-            <div
-              className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`}
-              key={day.key}
-              onClick={() => handleShowModal(true, false, { x: 0, y: 0 })}
-            >
-              <span className={styles.numberDay}>{day.dayNumber}</span>
+    <div className={styles.monthContainer}>
+      {daysOfMonth.map((day) => {
+        return (
+          <div className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`} key={day.key} onClick={() => handleShowModal(true, -1)}>
+            <span className={styles.numberDay}>{day.dayNumber}</span>
 
-              {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (
-                <div className={styles.dailyCard} onClick={handleShowSmallModal}>
-                  <p>{filterByFirstNotChecked(schedule[day.dayNumber])?.name}</p>
-                  <p>
-                    {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
-                  </p>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </>
+            {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (
+              <div className={styles.dailyCard} onClick={(e) => handleShowSmallModal(e, day.dayNumber)}>
+                <p>{filterByFirstNotChecked(schedule[day.dayNumber])?.name}</p>
+                <p className={styles.hidden}>
+                  {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
+                </p>
+                {showSmallModall === day.dayNumber && <SmallModal onClose={() => handleShowModal(false, -1)} />}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 }

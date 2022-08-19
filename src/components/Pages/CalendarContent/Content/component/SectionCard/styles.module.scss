@@ -1,100 +1,119 @@
 .Sections {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  margin-top: 12px;
+  background: #f7f7f7;
+  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  border-radius: 12px;
+  max-width: 640px;
+  height: 120px;
+
+  p {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(12px, 1.1vw, 18px);
+    line-height: 24px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 24px;
-    margin-top: 12px;
-    background: #f7f7f7;
-    box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
-    border-radius: 12px;
-    gap: 30px;
-    max-width: 640px;
-    height: 120px;
+    text-align: center;
 
-    p {
-        font-family: "Barlow";
-        font-style: normal;
-        font-weight: 700;
-        font-size: clamp(12px, 1.1vw, 18px);
-        line-height: 24px;
-        display: flex;
-        align-items: center;
-        text-align: center;
+    color: #000000;
+  }
 
-        color: #000000;
-    }
+  span {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(12px, 1.1vw, 18px);
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 
-    span {
-        font-family: "Barlow";
-        font-style: normal;
-        font-weight: 400;
-        font-size: clamp(12px, 1.1vw, 18px);
-        line-height: 24px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-
-        color: #000000;
-    }
-
+    color: #000000;
+  }
 }
 
 .iconClock {
-    font-size: 18px;
-    transform: rotateZ(90deg);
-    color: #273A51;
-    margin-right: 8px;
+  font-size: 18px;
+  transform: rotateZ(90deg);
+  color: #273a51;
+  margin-right: 8px;
+}
+
+.statusContainer {
+  grid-area: status;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.hiddenStatus {
+    display: none;
+  }
+}
+
+.status {
+  display: block;
+  content: "";
+
+  width: 30px;
+  height: 24px;
+  border-radius: 8px;
+  background: #e7975d;
 }
 
 .row {
-    width: 100%;
-    display: flex;
-    gap: 48px;
+  width: 100%;
+  display: flex;
+  gap: 48px;
 }
 
 .gridArea1 {
-    grid-area: paciente;
+  grid-area: paciente;
 }
 
 .gridArea2 {
-    grid-area: profissinal;
+  grid-area: profissinal;
 }
 
 .gridArea3 {
-    grid-area: horario;
+  grid-area: horario;
 }
 
 .gridArea4 {
-    grid-area: icons;
+  grid-area: icons;
 }
 
 @media (max-width: 513px) {
-    .Sections {
-        gap: 8px;
+  .Sections {
+    gap: 8px;
 
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
-        grid-template-rows: 50% 50%;
-        grid-template-areas: "paciente profissinal profissinal"
-                             "horario horario icons";
-    }
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+      "paciente profissinal status"
+      "horario horario icons";
+  }
 
-    .hiddenOnMobile {
-        display: none;
-    }
+  .hiddenOnMobile {
+    display: none;
+  }
 }
 
 @media (min-width: 513px) {
-    .iconClock {
-        display: none;
-    }
+  .iconClock {
+    display: none;
+  }
 }
 
-
 @media (max-width: 768px) {
-    .Sections {
-        max-width: none;
-        justify-content: space-between;
-    }
+  .Sections {
+    max-width: none;
+    justify-content: space-between;
+  }
 }
