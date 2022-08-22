@@ -1,24 +1,47 @@
 import styles from "./styles.module.scss";
 
-import { getWeek, getMonthList } from "@/utils/Calendar";
+import { getWeek, getMonthList, WeekDayType } from "@/utils/Calendar";
 
 interface WeekMonthProp {
   selectOption: string;
   date: Date;
+  changeMonth: (monthNumber: number) => void;
+  changeWeek: (weekDay: number, monthNumber: number) => void;
 }
 
-export default function RenderDayWeekOrMonth({ selectOption, date }: WeekMonthProp) {
+export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, changeWeek }: WeekMonthProp) {
   const numberWeek = getWeek(date);
   const weekDayNames = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
 
   const month = getMonthList(date);
 
+  function handleChangeMonth(monthNumber: number) {
+    changeMonth(monthNumber);
+  }
+
+  function handleChangeWeek(weekDay: WeekDayType) {
+    let monthNumber = date.getMonth();
+
+    if (weekDay.grayColor) {
+      if (weekDay.nextMonth) monthNumber += 1;
+      else if (weekDay.oldMonth) monthNumber -= 1;
+    }
+
+    changeWeek(weekDay.number, monthNumber);
+  }
+
   if (selectOption === "week")
     return (
       <>
-        {numberWeek.map((number, i) => (
-          <div className={`${styles.calendarSmallContainerDayOfWeek} ${date.getDate() === number ? styles.calendarDayActive : null}`} key={number}>
-            <p>{weekDayNames[i]}</p> <span>{number}</span>
+        {numberWeek.map((weekDay, i) => (
+          <div
+            className={`${styles.calendarSmallContainerDayOfWeek} ${weekDay.grayColor ? styles.weekGrayColor : ""} ${
+              date.getDate() === weekDay.number ? styles.calendarDayActive : null
+            }`}
+            key={weekDay.number}
+            onClick={() => handleChangeWeek(weekDay)}
+          >
+            <p>{weekDayNames[i]}</p> <span>{weekDay.number}</span>
           </div>
         ))}
       </>
@@ -34,7 +57,11 @@ export default function RenderDayWeekOrMonth({ selectOption, date }: WeekMonthPr
   return (
     <>
       {month.map((monthName) => (
-        <div className={`${styles.calendarSmallContainerDayOfWeek} ${monthName.activate ? styles.calendarDayActive : null}`} key={monthName.name}>
+        <div
+          className={`${styles.calendarSmallContainerDayOfWeek} ${monthName.activate ? styles.calendarDayActive : null}`}
+          key={monthName.name}
+          onClick={() => handleChangeMonth(monthName.number)}
+        >
           <p>{monthName.name}</p>
         </div>
       ))}

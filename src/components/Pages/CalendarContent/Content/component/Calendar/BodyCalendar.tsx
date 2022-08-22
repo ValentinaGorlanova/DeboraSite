@@ -23,6 +23,9 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
 
   const [showSmallModall, setShowSmallModall] = useState(-1);
 
+  const currentDay = new Date().getDate();
+  const currentMonth = new Date().getMonth();
+
   function handleShowModal(dayNumber: number) {
     onShowModal(new Date(date.getFullYear(), date.getMonth(), dayNumber));
   }
@@ -42,7 +45,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
         {hourCalendarWeek &&
           hourCalendarWeek.map((hour) => {
             return (
-              <div className={styles.Day} key={hour}>
+              <div className={styles.Day} key={hour} onClick={() => handleShowModal(date.getDate())}>
                 <span>{hour}</span>
 
                 <div className={styles.dailyWrapper}>
@@ -69,7 +72,13 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
     <div className={styles.monthContainer}>
       {daysOfMonth.map((day) => {
         return (
-          <div className={`${styles.monthDay} ${day.grayColor ? styles.grayColor : ""}`} key={day.key} onClick={() => handleShowModal(day.dayNumber)}>
+          <div
+            className={`${styles.monthDay} ${day.dayNumber === currentDay && date.getMonth() === currentMonth ? styles.currentCalendarDay : ""} ${
+              day.grayColor ? styles.grayColor : ""
+            }`}
+            key={day.key}
+            onClick={() => handleShowModal(day.dayNumber)}
+          >
             <span className={styles.numberDay}>{day.dayNumber}</span>
 
             {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (

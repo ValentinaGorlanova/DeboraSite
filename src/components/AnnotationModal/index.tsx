@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { ChangeEvent, ReactNode, useState } from "react";
+import { ChangeEvent, ReactNode, useState, useCallback } from "react";
 import { styled } from "@stitches/react";
 import { violet } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { BsFillTrashFill, BsArrowLeft } from "react-icons/bs";
 import { CgSoftwareDownload } from "react-icons/cg";
+import { useDropzone } from "react-dropzone";
 import { UploadImage } from "../Images/UploadImage";
 
 import CheckButton from "../CheckButton";
@@ -233,13 +234,17 @@ const AsideContent = styled("div", {
   variants: {
     variant: {
       dashed: {
-        // border: "1px dashed #273A51",
+        border: "1px dashed #273A51",
         width: "100%",
         // minHeight: "164px",
-        border: "none",
         maxHeight: "120px",
         minHeight: "200px",
         overflowY: "hidden",
+        padding: "16px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "16px",
       },
       noBorder: {
         border: "none",
@@ -427,18 +432,54 @@ const TitleSection = styled("p", {
   },
 });
 
+const Upload = styled("div", {
+  width: "76px",
+  height: "33px",
+  border: "2px solid #e7975d",
+  fontSize: "14px",
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+  fontWeight: 600,
+  borderRadius: "8px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "#e7975d",
+});
+
+const SubTitliUpload = styled("p", {
+  fontSize: "14px",
+  fontWeight: 600,
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+  color: "#b5b5b5",
+});
+
+interface FileUploadType {
+  name: string;
+  size: number;
+  type: string;
+}
+
 export default function AnnotationModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
   const [isAddingContent, setIsAddingContent] = useState(1);
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<FileUploadType | null>(null);
   const [typeFileSelected, setTypeFileSelected] = useState<string>("");
 
-  // const { getRootProps, getInputProps } = useDropzone({
-  //   accept: Accept<>,
-  //   onDrop: (acceptedFile) => {
-  //     setFile(acceptedFile[0]);
-  //   },
-  // });
+  const onDrop = useCallback((acceptFiles) => {
+    setFile({
+      name: acceptFiles[0].name,
+      size: acceptFiles[0].size,
+      type: acceptFiles[0].type,
+    });
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
+  function handleDeleteFile() {
+    setFile(null);
+  }
 
   function handleSelect(select: ChangeEvent) {
     const element = select.target as HTMLSelectElement;
@@ -525,128 +566,132 @@ export default function AnnotationModal({ children }: DialogProps) {
 
                     <div style={{ overflowX: "auto", minWidth: "550px" }}>
                       <table cellSpacing="0">
-                        <tr>
-                          <th>Titulo</th>
-                          <th>Tipo</th>
-                          <th>Opções</th>
-                        </tr>
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Encaminhamento</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Receitas</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Arquivos gerais</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                        <thead>
+                          <tr>
+                            <th>Titulo</th>
+                            <th>Tipo</th>
+                            <th>Opções</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Encaminhamento</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Receitas</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Arquivos gerais</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
 
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Arquivos gerais</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Arquivos gerais</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
 
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Arquivos gerais</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Arquivos gerais</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
 
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Arquivos gerais</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Arquivos gerais</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
 
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Arquivos gerais</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Arquivos gerais</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
 
-                        <tr>
-                          <td>Nome do arquivo</td>
-                          <td>Arquivos gerais</td>
-                          <td>
-                            <div>
-                              <button>
-                                <CgSoftwareDownload size={24} color="#273A51" />
-                              </button>
-                              <button>
-                                <BsFillTrashFill size={20} color="#D10438" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                          <tr>
+                            <td>Nome do arquivo</td>
+                            <td>Arquivos gerais</td>
+                            <td>
+                              <div>
+                                <button>
+                                  <CgSoftwareDownload size={24} color="#273A51" />
+                                </button>
+                                <button>
+                                  <BsFillTrashFill size={20} color="#D10438" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   </>
@@ -689,16 +734,25 @@ export default function AnnotationModal({ children }: DialogProps) {
                 </AsideInputs>
               </AsideContent>
 
-              <AsideContent variant="dashed"></AsideContent>
+              <AsideContent variant="dashed" {...getRootProps()}>
+                <input {...getInputProps()} />
+                <Upload>Upload</Upload>
+                <SubTitliUpload>{isDragActive ? "Solte o arquivo para fazer o upload" : "Arraste e solte o arquivo aqui"}</SubTitliUpload>
+              </AsideContent>
 
               <div></div>
 
               <div>
-                <FileUploadedInfo>
-                  <h3>{file} (tamanho)</h3>
-                </FileUploadedInfo>
-
-                <ButtonDeleteFile>Excluir arquivo</ButtonDeleteFile>
+                {file && (
+                  <>
+                    <FileUploadedInfo>
+                      <h3>
+                        {file.name} ({file.size})
+                      </h3>
+                    </FileUploadedInfo>
+                    <ButtonDeleteFile onClick={() => handleDeleteFile()}>Excluir arquivo</ButtonDeleteFile>
+                  </>
+                )}
               </div>
             </Main>
 

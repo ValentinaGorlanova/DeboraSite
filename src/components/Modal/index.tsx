@@ -15,7 +15,7 @@ const contentShow = keyframes({
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
   backgroundColor: blackA.blackA9,
   position: "fixed",
-  zIndex: 200,
+  zIndex: 100,
   inset: 0,
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
@@ -31,10 +31,10 @@ const StyledContent = styled(DialogPrimitive.Content, {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "90%",
-  maxWidth: "696px",
+  maxWidth: "900px",
   zIndex: 201,
   overflowY: "auto",
-  maxHeight: "90vh",
+  maxHeight: "75vh",
 
   "&::-webkit-scrollbar": {
     width: "10px",

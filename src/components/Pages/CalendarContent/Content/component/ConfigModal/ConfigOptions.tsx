@@ -91,11 +91,11 @@ export default function ConfigOptions({ onClickButton }: ConfigProps) {
 
         <div className={styles.align}>
           <select name="time-section" onChange={handleChangeSectionTime}>
-            <option value="30">50 min</option>
+            <option value="30">30 min</option>
             <option value="50" selected>
               50 min
             </option>
-            <option value="60">50 min</option>
+            <option value="60">60 min</option>
           </select>
         </div>
       </div>

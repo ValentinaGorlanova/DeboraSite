@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillTrashFill, BsArrowLeft } from "react-icons/bs";
 import styles from "./styles.module.scss";
 
 interface LockedItemPropType {
@@ -56,7 +56,11 @@ function LockedItem({ onDelete }: LockedItemPropType) {
   );
 }
 
-export default function LockTime() {
+interface LockTimeProps {
+  onClickButton: () => void;
+}
+
+export default function LockTime({ onClickButton }: LockTimeProps) {
   const [lockList, setLockList] = useState([0, 1]);
 
   function handleAddNewLock() {
@@ -74,6 +78,12 @@ export default function LockTime() {
   return (
     <>
       <h2>Bloquear horários</h2>
+
+      <div>
+        <button className={styles.backButton} onClick={onClickButton}>
+          <BsArrowLeft />
+        </button>
+      </div>
 
       <div className={styles.section}>
         <button className={styles.newLockTime} onClick={handleAddNewLock}>

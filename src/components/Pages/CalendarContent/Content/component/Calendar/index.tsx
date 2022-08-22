@@ -32,6 +32,16 @@ export default function Calendar({ selectDayOfWeek, date, setDate }: CalendarPro
     setDateSelect(dateSelected);
   }
 
+  function handleChangeMonthWithClick(monthNumber: number) {
+    const newDate = new Date(date.getFullYear(), monthNumber, date.getDate());
+    setDate(newDate);
+  }
+
+  function handleChangeWeekWithClick(weekDayNumber: number, monthNumber: number) {
+    const newDate = new Date(date.getFullYear(), monthNumber, weekDayNumber);
+    setDate(newDate);
+  }
+
   return (
     <>
       <NewQueryModal show={showModal} date={dateSelect} onClose={() => setShowModal(!showModal)} />
@@ -48,7 +58,12 @@ export default function Calendar({ selectDayOfWeek, date, setDate }: CalendarPro
         </div>
 
         <div className={`${styles.DayOfWeeksContainer} ${selectDayOfWeek === "month" ? styles.bold : ""}`}>
-          <RenderHeaderCalendar selectOption={selectDayOfWeek} date={date} />
+          <RenderHeaderCalendar
+            selectOption={selectDayOfWeek}
+            date={date}
+            changeWeek={(weekDay, monthNumber) => handleChangeWeekWithClick(weekDay, monthNumber)}
+            changeMonth={(monthNumber) => handleChangeMonthWithClick(monthNumber)}
+          />
         </div>
 
         <RenderBodyOfCalendar optionSelect={selectDayOfWeek} date={date} onShowModal={(dateSelected) => handleShowModal(dateSelected)} />

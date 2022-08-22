@@ -28,7 +28,7 @@ export default function ConfigModal({ children }: ModalConfigProp) {
             <GrClose />
           </button>
 
-          {!lockTime ? <ConfigOptions onClickButton={() => handlerLockTime()} /> : <LockTime />}
+          {!lockTime ? <ConfigOptions onClickButton={() => handlerLockTime()} /> : <LockTime onClickButton={() => handlerLockTime()} />}
         </div>
       </div>
     </>
