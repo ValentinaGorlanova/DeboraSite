@@ -82,7 +82,11 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
             <span className={styles.numberDay}>{day.dayNumber}</span>
 
             {schedule && schedule[day.dayNumber] && filterByFirstNotChecked(schedule[day.dayNumber]) && (
-              <div className={styles.dailyCard} onClick={(e) => handleShowSmallModal(e, day.dayNumber)}>
+              <div
+                className={styles.dailyCard}
+                onClick={(e) => handleShowSmallModal(e, day.dayNumber)}
+                onMouseEnter={(e) => handleShowSmallModal(e, day.dayNumber)}
+              >
                 <p>{filterByFirstNotChecked(schedule[day.dayNumber])?.name}</p>
                 <p className={styles.hidden}>
                   {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}

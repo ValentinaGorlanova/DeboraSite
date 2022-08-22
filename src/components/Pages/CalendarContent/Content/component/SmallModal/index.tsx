@@ -48,7 +48,7 @@ export default function SmallModal({ onClose }: SmallModalProp) {
 
   return (
     <div className={styles.bgModal} ref={modalRef}>
-      <div className={styles.modal}>
+      <div className={styles.modal} onMouseLeave={onClose}>
         <button className={styles.closeButton} onClick={handleCloseModal}>
           <GrFormClose />
         </button>
