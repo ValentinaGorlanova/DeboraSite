@@ -11,6 +11,7 @@ import { UploadImage } from "../Images/UploadImage";
 import CheckButton from "../CheckButton";
 
 import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
+import PdfIcon from "../Icons/pdfIcon";
 
 const IconButton = styled("button", {
   all: "unset",
@@ -327,6 +328,9 @@ const FileUploadedInfo = styled("div", {
   borderBottom: "3px solid #273A57",
   display: "flex",
   alignItems: "center",
+
+  gap: "10px",
+  padding: "10px",
 
   h3: {
     fontFamily: "Barlow",
@@ -746,6 +750,7 @@ export default function AnnotationModal({ children }: DialogProps) {
                 {file && (
                   <>
                     <FileUploadedInfo>
+                      <PdfIcon />
                       <h3>
                         {file.name} ({file.size})
                       </h3>
