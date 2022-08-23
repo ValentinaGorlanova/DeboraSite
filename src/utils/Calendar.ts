@@ -137,3 +137,15 @@ export function calcTimeSection(hourInit: string, interval: string): string {
   const date = new Date(0, 0, 0, hour, minutes).toLocaleTimeString("pt-BR").split(":");
   return `${date[0]}:${date[1]}`;
 }
+
+export function convertDate(date: string | undefined): string {
+  if (!date) return "";
+
+  const splitDate = date.split("/");
+  const newDate = new Date(Number(splitDate[2]), Number(splitDate[1]) - 1, Number(splitDate[0]));
+
+  const nameWeekDay = newDate.toLocaleDateString("pt-BR", { weekday: "long" });
+  const monthName = newDate.toLocaleDateString("pt-BR", { month: "long" });
+
+  return `${nameWeekDay}, ${splitDate[0]} ${monthName} ${splitDate[2]}`;
+}

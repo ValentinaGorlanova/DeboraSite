@@ -1,6 +1,7 @@
 import { HiClock } from "react-icons/hi";
 import styles from "./styles.module.scss";
 
+import SelectStatus from "./SelectStatus";
 import { PencilIcon } from "@/components/Icons/PencilIcon";
 import { NoteIcon } from "@/components/Icons/NoteIcon";
 import EditAppointmentModal from "@/components/EditAppointmentModal";
@@ -37,7 +38,7 @@ export default function SectionCard({ showStatus }: SectionCardProps) {
 
       <div className={`${styles.statusContainer} ${showStatus ? "" : styles.hiddenStatus}`}>
         <p>Status</p>
-        <span className={styles.status}></span>
+        <SelectStatus />
       </div>
 
       <div className={styles.gridArea4}>

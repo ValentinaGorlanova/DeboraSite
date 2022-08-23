@@ -34,7 +34,7 @@ const StyledContent = styled(DialogPrimitive.Content, {
   maxWidth: "900px",
   zIndex: 201,
   overflowY: "auto",
-  maxHeight: "75vh",
+  maxHeight: "90vh",
 
   "&::-webkit-scrollbar": {
     width: "10px",

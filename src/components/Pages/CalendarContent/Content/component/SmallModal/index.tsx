@@ -5,15 +5,19 @@ import { MdAccessTime } from "react-icons/md";
 import { HiLocationMarker } from "react-icons/hi";
 import { FaPen } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+import { DayCard } from "../../mocks";
 import styles from "./styles.module.scss";
+
+import { convertDate } from "@/utils/Calendar";
 
 import { useWindowDimension } from "@/hooks/useWindow";
 
 interface SmallModalProp {
   onClose: () => void;
+  patient: DayCard | undefined;
 }
 
-export default function SmallModal({ onClose }: SmallModalProp) {
+export default function SmallModal({ onClose, patient }: SmallModalProp) {
   const modalRef = useRef<HTMLDivElement>(null);
   const windowDimenssion = useWindowDimension();
 
@@ -24,6 +28,8 @@ export default function SmallModal({ onClose }: SmallModalProp) {
     const x = divParent.offsetLeft + divParent.clientWidth + 240;
 
     modalRef.current.style.left = x > window.innerWidth ? "-235px" : `${divParent.clientWidth}px`;
+    modalRef.current.style.transformOrigin = x > window.innerWidth ? "right" : "left";
+    modalRef.current.classList.add(styles.fadeIn);
   }, []);
 
   useEffect(() => {
@@ -39,6 +45,8 @@ export default function SmallModal({ onClose }: SmallModalProp) {
 
     const x = divParent.offsetLeft + divParent.clientWidth + 240;
     modalRef.current.style.left = x > window.innerWidth ? "-235px" : `${divParent.clientWidth}px`;
+    modalRef.current.style.transformOrigin = x > window.innerWidth ? "right" : "left";
+    modalRef.current.classList.add(styles.fadeIn);
   }, [windowDimenssion.width]);
 
   function handleCloseModal(e: MouseEvent<HTMLButtonElement>) {
@@ -54,10 +62,10 @@ export default function SmallModal({ onClose }: SmallModalProp) {
         </button>
 
         <div className={styles.headerModal}>
-          <h2>Gabriel Silva</h2>
+          <h2>{patient?.name}</h2>
           <p>
             <span className={styles.status}></span>
-            Confirmado
+            {patient?.status}
           </p>
         </div>
 
@@ -66,16 +74,18 @@ export default function SmallModal({ onClose }: SmallModalProp) {
             <div>
               <BsCalendarFill />
             </div>
-            <p>Quarta, 01 Maio 2022</p>
+            <p>{convertDate(patient?.date)}</p>
           </div>
 
           <div className={`${styles.field} ${styles.align}`}>
             <div>
               <MdAccessTime />
             </div>
-            <p>09h00 - 09h40</p>
+            <p>
+              {patient?.hour} - {patient?.hourEnd}
+            </p>
             <div className={styles.orange}>
-              <p>40 min</p>
+              <p>50 min</p>
             </div>
           </div>
 
@@ -83,14 +93,14 @@ export default function SmallModal({ onClose }: SmallModalProp) {
             <div>
               <BsCalendarFill />
             </div>
-            <p>Terceira consulta</p>
+            <p>{patient?.query}</p>
           </div>
 
           <div className={styles.field}>
             <div>
               <HiLocationMarker />
             </div>
-            <p>Online</p>
+            <p>{patient?.mode}</p>
           </div>
 
           <div className={styles.field}>

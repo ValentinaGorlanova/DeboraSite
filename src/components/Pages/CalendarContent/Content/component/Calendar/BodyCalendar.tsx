@@ -87,11 +87,13 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
                 onClick={(e) => handleShowSmallModal(e, day.dayNumber)}
                 onMouseEnter={(e) => handleShowSmallModal(e, day.dayNumber)}
               >
-                <p>{filterByFirstNotChecked(schedule[day.dayNumber])?.name}</p>
+                <p>{`${filterByFirstNotChecked(schedule[day.dayNumber])?.name.slice(0, 11)}.`}</p>
                 <p className={styles.hidden}>
                   {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
                 </p>
-                {showSmallModall === day.dayNumber && <SmallModal onClose={() => setShowSmallModall(-1)} />}
+                {showSmallModall === day.dayNumber && (
+                  <SmallModal patient={filterByFirstNotChecked(schedule[day.dayNumber])} onClose={() => setShowSmallModall(-1)} />
+                )}
               </div>
             )}
           </div>
