@@ -6,6 +6,8 @@ import styles from "./styles.module.scss";
 import { getDaysOfMonth, getHourOfDay } from "@/utils/Calendar";
 import { useConfigContext } from "@/lib/configContext";
 
+import { sliceName } from "@/utils/SliceName";
+
 interface BodyCalenderProps {
   optionSelect: string;
   date: Date;
@@ -87,7 +89,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
                 onClick={(e) => handleShowSmallModal(e, day.dayNumber)}
                 onMouseEnter={(e) => handleShowSmallModal(e, day.dayNumber)}
               >
-                <p>{`${filterByFirstNotChecked(schedule[day.dayNumber])?.name.slice(0, 11)}.`}</p>
+                <p>{sliceName(filterByFirstNotChecked(schedule[day.dayNumber])?.name)}</p>
                 <p className={styles.hidden}>
                   {filterByFirstNotChecked(schedule[day.dayNumber])?.hour} - {filterByFirstNotChecked(schedule[day.dayNumber])?.hourEnd}
                 </p>

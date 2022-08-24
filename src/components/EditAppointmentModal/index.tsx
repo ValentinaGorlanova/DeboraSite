@@ -6,6 +6,7 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 
 import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
+import SelectStatus from "../SelectStatus";
 
 const IconButton = styled("button", {
   all: "unset",
@@ -248,30 +249,17 @@ const StatusLabel = styled("span", {
   fontSize: "20px",
   lineHeight: "26px",
   color: "#1E1E1E",
-  marginTop: "20px",
   display: "flex",
   alignItems: "center",
-
-  "&::after": {
-    content: "''",
-    display: "block",
-    background: "#E7975D",
-    borderRadius: "12px",
-    width: "30px",
-    marginLeft: "16px",
-    height: "24px",
-  },
+  gap: "10px",
 });
 
 const RadioContainer = styled("div", {
   width: "100%",
-
-  "@media (max-width: 520px)": {
-    display: "flex",
-    flexDirection: "column",
-    fontSize: "16px",
-    gap: "10px",
-  },
+  display: "flex",
+  flexDirection: "column",
+  fontSize: "16px",
+  gap: "10px",
 });
 
 function EditAppointmentModal({ children }: DialogProps) {
@@ -337,8 +325,11 @@ function EditAppointmentModal({ children }: DialogProps) {
               </RadioLabel>
             </RadioContainer>
 
-            <div>
-              <StatusLabel>Status de consulta:</StatusLabel>
+            <div style={{ marginTop: "20px" }}>
+              <StatusLabel>
+                Status de consulta:
+                <SelectStatus toTop />
+              </StatusLabel>
             </div>
           </div>
         </Flex>

@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import styles from "./styles.module.scss";
 
+import InputSearchPatient from "./components/SearchPatient";
+
 interface ModalProp {
   onShowNewPacient: () => void;
   date: Date;
@@ -36,7 +38,8 @@ export default function NewQueryModal({ onShowNewPacient, date }: ModalProp) {
         <p className={styles.title}>Quem e o cliente dessa sessão?</p>
 
         <div className={styles.fieldsContainer}>
-          <input type="text" placeholder="Digite um paciente" />
+          {/* <input type="text" placeholder="Digite um paciente" /> */}
+          <InputSearchPatient />
 
           <div>
             <button className={styles.newButton} onClick={onShowNewPacient}>

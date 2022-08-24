@@ -144,7 +144,7 @@ export function Content() {
               <span>Sessões do dia {currentDate.toLocaleDateString("pt-BR")}</span>
             </div>
 
-            {scheduleDay ? scheduleDay.map((query) => <SectionCard showStatus={showQueryStatus} key={query.name} />) : <CardImage />}
+            {scheduleDay ? scheduleDay.map((query) => <SectionCard query={query} showStatus={showQueryStatus} key={query.name} />) : <CardImage />}
           </div>
           {/* <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /> */}
         </div>

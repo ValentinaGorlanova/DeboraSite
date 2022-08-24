@@ -14,6 +14,21 @@ export interface ObjectType {
   [index: number]: { [index: number]: Array<DayCard> };
 }
 
+export const patients = [
+  "Gabriela Silva",
+  "João Silva",
+  "Marcos Moura",
+  "Alexandre Silva",
+  "Jose Maria",
+  "Dolores",
+  "Alisson Gomes",
+  "Juana Ferreira",
+  "Leandro Pastel",
+  "Adele",
+  "Chorão",
+  "Renato Russo",
+];
+
 export const object: ObjectType = {
   0: {},
   1: {},

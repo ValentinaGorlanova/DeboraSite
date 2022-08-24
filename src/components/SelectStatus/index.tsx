@@ -4,7 +4,11 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import styles from "./styles.module.scss";
 
-export default function SelectStatus() {
+interface SelectStatusProp {
+  toTop?: boolean;
+}
+
+export default function SelectStatus({ toTop }: SelectStatusProp) {
   const values = [
     { icon: <BsFillCheckCircleFill />, text: "Presente", color: "#05cc30" },
     { icon: <AiFillCloseCircle />, text: "Ausente", color: "#cc8d05" },
@@ -35,7 +39,7 @@ export default function SelectStatus() {
       </div>
 
       {showOptions && (
-        <ul className={styles.itemsContainer}>
+        <ul className={`${styles.itemsContainer} ${toTop ? styles.top : ""}`}>
           {values.map((value, i) => (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <li key={value.text} onClick={() => handleSelect(i)}>
