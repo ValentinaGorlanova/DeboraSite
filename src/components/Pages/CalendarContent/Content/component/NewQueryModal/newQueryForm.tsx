@@ -38,7 +38,6 @@ export default function NewQueryModal({ onShowNewPacient, date }: ModalProp) {
         <p className={styles.title}>Quem e o cliente dessa sessão?</p>
 
         <div className={styles.fieldsContainer}>
-          {/* <input type="text" placeholder="Digite um paciente" /> */}
           <InputSearchPatient />
 
           <div>

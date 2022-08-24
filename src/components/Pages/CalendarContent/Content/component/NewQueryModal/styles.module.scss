@@ -27,7 +27,7 @@
 .bgModal {
   position: fixed;
 
-  z-index: 190;
+  z-index: 200;
   display: none;
 
   top: 0;
@@ -162,6 +162,7 @@
     font-family: "Barlow";
     font-style: normal;
     font-weight: 700;
+    cursor: pointer;
 
     color: #273a51;
     text-decoration: underline;

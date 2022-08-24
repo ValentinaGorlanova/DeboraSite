@@ -7,10 +7,10 @@
   grid-template-rows: 100%;
 }
 
-
 .contentArea {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .header {
@@ -42,7 +42,6 @@
   background: none;
 }
 
-
 @media (min-width: 426px) {
   .header {
     height: auto;
@@ -59,7 +58,6 @@
   }
 }
 
-
 @media (min-width: 769px) {
   .backButtom {
     display: none;
@@ -74,7 +72,6 @@
   }
 }
 
-
 @media (min-width: 1024px) {
   .dashboard {
     grid-template-columns: 83px auto;
@@ -82,7 +79,7 @@
 }
 
 @media (max-width: 425px) {
-  .dashboard { 
+  .dashboard {
     padding-bottom: 84px;
   }
 }

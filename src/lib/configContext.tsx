@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+
+import { writeValues, getValues } from "@/utils/LocalStorage";
 
 interface TimeType {
   start: string;
@@ -100,6 +102,23 @@ export function ConfigContextProvider({ children }: PropsType) {
     setTimeInterval,
     setSectionTime,
   };
+
+  useEffect(() => {
+    const config = getValues();
+    if (!config) return;
+
+    setShowQueryStatus(config.showQueryStatus);
+    setTime(config.time);
+  }, []);
+
+  useEffect(() => {
+    const config = {
+      showQueryStatus,
+      time,
+    };
+
+    writeValues(config);
+  }, [showQueryStatus, time]);
 
   return <ConfigContext.Provider value={providerContext}>{children}</ConfigContext.Provider>;
 }

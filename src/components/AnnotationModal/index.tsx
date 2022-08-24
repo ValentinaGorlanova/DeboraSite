@@ -459,6 +459,43 @@ const SubTitliUpload = styled("p", {
   color: "#b5b5b5",
 });
 
+const ConfirmMessage = styled("p", {
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+  fontWeight: "400",
+  fontSize: "16px",
+  lineHeight: "24px",
+  color: "#0A0A0A",
+});
+
+const ConfirmButton = styled("button", {
+  width: "50px",
+  height: "30px",
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+  fontWeight: "600",
+  fontSize: "14px",
+  border: "none",
+  color: "#f7f7f7",
+  background: "#273a51",
+  borderRadius: "5px",
+  cursor: "pointer",
+
+  variants: {
+    variant: {
+      orange: {
+        background: "#e7975d",
+      },
+    },
+  },
+});
+
+const DeleteFileMessage = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  gap: "15px",
+});
+
 interface FileUploadType {
   name: string;
   size: number;
@@ -470,8 +507,11 @@ export default function AnnotationModal({ children }: DialogProps) {
   const [isAddingContent, setIsAddingContent] = useState(1);
   const [file, setFile] = useState<FileUploadType | null>(null);
   const [typeFileSelected, setTypeFileSelected] = useState<string>("");
+  const [showConfirmMessage, setShowConfirmMessage] = useState(false);
 
   const onDrop = useCallback((acceptFiles) => {
+    setShowConfirmMessage(false);
+
     setFile({
       name: acceptFiles[0].name,
       size: acceptFiles[0].size,
@@ -479,7 +519,13 @@ export default function AnnotationModal({ children }: DialogProps) {
     });
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: {
+      "image/png": [".png", ".jpg"],
+      "text/pdf": [".pdf", ".docx"],
+    },
+    onDrop,
+  });
 
   function handleDeleteFile() {
     setFile(null);
@@ -746,19 +792,29 @@ export default function AnnotationModal({ children }: DialogProps) {
 
               <div></div>
 
-              <div>
-                {file && (
-                  <>
-                    <FileUploadedInfo>
-                      <PdfIcon />
-                      <h3>
-                        {file.name} ({file.size})
-                      </h3>
-                    </FileUploadedInfo>
-                    <ButtonDeleteFile onClick={() => handleDeleteFile()}>Excluir arquivo</ButtonDeleteFile>
-                  </>
-                )}
-              </div>
+              {file && (
+                <div>
+                  {!showConfirmMessage ? (
+                    <>
+                      <FileUploadedInfo>
+                        <PdfIcon />
+                        <h3>
+                          {file.name} ({file.size})
+                        </h3>
+                      </FileUploadedInfo>
+                      <ButtonDeleteFile onClick={() => setShowConfirmMessage(true)}>Excluir arquivo</ButtonDeleteFile>
+                    </>
+                  ) : (
+                    <DeleteFileMessage>
+                      <ConfirmMessage>Deseja excluir o arquivo?</ConfirmMessage>
+                      <ConfirmButton variant="orange" onClick={() => handleDeleteFile()}>
+                        Sim
+                      </ConfirmButton>
+                      <ConfirmButton onClick={() => setShowConfirmMessage(false)}>Não</ConfirmButton>
+                    </DeleteFileMessage>
+                  )}
+                </div>
+              )}
             </Main>
 
             <DialogClose asChild>
