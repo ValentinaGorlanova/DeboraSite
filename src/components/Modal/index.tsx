@@ -1,5 +1,4 @@
 import { styled, keyframes } from "@stitches/react";
-import { blackA } from "@radix-ui/colors";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 const overlayShow = keyframes({
@@ -13,7 +12,7 @@ const contentShow = keyframes({
 });
 
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
-  backgroundColor: blackA.blackA9,
+  backgroundColor: "rgba(166, 166, 166, 0.5)",
   position: "fixed",
   zIndex: 200,
   inset: 0,

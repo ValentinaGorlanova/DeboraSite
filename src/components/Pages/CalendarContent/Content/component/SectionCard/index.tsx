@@ -53,7 +53,7 @@ export default function SectionCard({ showStatus, query }: SectionCardProps) {
               <NoteIcon />
             </div>
           </AnnotationModal>
-          <EditAppointmentModal>
+          <EditAppointmentModal dataQuery={query}>
             <div>
               <PencilIcon />
             </div>

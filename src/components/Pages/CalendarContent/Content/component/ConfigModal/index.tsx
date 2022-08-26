@@ -18,13 +18,18 @@ export default function ConfigModal({ children }: ModalConfigProp) {
     setLockTime(!lockTime);
   }
 
+  function handleCloseModal() {
+    setLockTime(false);
+    setShowModal(false);
+  }
+
   return (
     <>
       <div onClick={() => setShowModal(!showModal)}>{children}</div>
 
       <div className={`${styles.bgModal} ${showModal ? styles.show : ""}`}>
         <div className={styles.modal}>
-          <button className={styles.closeButton} onClick={() => setShowModal(!showModal)}>
+          <button className={styles.closeButton} onClick={handleCloseModal}>
             <GrClose />
           </button>
 

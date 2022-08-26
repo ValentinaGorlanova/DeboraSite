@@ -19,10 +19,15 @@ export default function NewQueryModal({ show, date, onClose }: ModalProp) {
     setShowNewPatient(!showNewPatient);
   }
 
+  function handleCloseModal() {
+    setShowNewPatient(false);
+    onClose();
+  }
+
   return (
     <div className={`${styles.bgModal} ${show ? styles.show : ""}`}>
       <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={() => onClose()}>
+        <button className={styles.closeButton} onClick={handleCloseModal}>
           <Cross2Icon />
         </button>
 

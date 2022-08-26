@@ -1,0 +1,81 @@
+.smallCalendar {
+  max-width: 329px;
+  width: 100%;
+  padding: 24px;
+
+  border-radius: 11px;
+
+  background: #f7f7f7;
+  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+
+  .headerCalendar {
+    max-width: 231px;
+    width: 100%;
+    display: flex;
+
+    margin: auto;
+
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+
+      color: #1e1e1e;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .daysContainer {
+    display: grid;
+    grid-template-rows: repeat(6, 32px);
+    grid-template-columns: repeat(7, 33px);
+
+    width: min-content;
+    margin: auto;
+
+    padding-top: 12px;
+
+    p {
+      font-size: 10px;
+      line-height: 16px;
+      text-align: center;
+
+      font-weight: 700;
+    }
+
+    .dayCalendar {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 32px;
+      font-style: normal;
+
+      text-align: center;
+      cursor: pointer;
+
+      &.activeDay {
+        border-radius: 50%;
+        background: #a76029;
+        color: #f7f7f7;
+      }
+    }
+
+    .grayColor {
+      opacity: 0.6;
+    }
+  }
+}

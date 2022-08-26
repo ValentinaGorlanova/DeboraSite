@@ -31,10 +31,6 @@ const IconButton = styled("button", {
   "&:focus": { boxShadow: `0 0 0 2px ${violet.violet7}` },
 });
 
-interface DialogProps {
-  children: ReactNode;
-}
-
 const ButtonsContainer = styled("div", {
   display: "flex",
   alignItems: "center",
@@ -500,6 +496,10 @@ interface FileUploadType {
   name: string;
   size: number;
   type: string;
+}
+
+interface DialogProps {
+  children: ReactNode;
 }
 
 export default function AnnotationModal({ children }: DialogProps) {

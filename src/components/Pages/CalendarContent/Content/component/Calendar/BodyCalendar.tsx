@@ -29,6 +29,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
   const currentMonth = new Date().getMonth();
 
   function handleShowModal(dayNumber: number) {
+    setShowSmallModall(-1);
     onShowModal(new Date(date.getFullYear(), date.getMonth(), dayNumber));
   }
 
