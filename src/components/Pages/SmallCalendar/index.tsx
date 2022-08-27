@@ -1,20 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
 import { ArrowRightIcon } from "@/components/Icons/ArrowRightIcon";
 import { ArrowLeftIcon } from "@/components/Icons/ArrowLeftIcon";
 
-import { getDaysOfMonth } from "@/utils/Calendar";
+import { getDaysOfMonth, getWeek } from "@/utils/Calendar";
+
+import { useWindowDimension } from "@/hooks/useWindow";
 
 export default function SmallCalendar() {
   const currentDate = new Date();
   const [amountDate, setAmountDate] = useState(currentDate);
 
-  const daysMonth = getDaysOfMonth(amountDate);
+  const windowDimension = useWindowDimension();
+
+  const [daysMonth, setDaysMonth] = useState(getDaysOfMonth(amountDate));
+
+  useEffect(() => {
+    if (windowDimension.width > 660 && windowDimension.width < 1024) setDaysMonth(getWeek(amountDate));
+    else setDaysMonth(getDaysOfMonth(amountDate));
+  }, [windowDimension, amountDate]);
 
   function handleChangeMonth(value: number) {
-    const newMonth = new Date(amountDate.getFullYear(), amountDate.getMonth() + value, amountDate.getDate());
-    setAmountDate(newMonth);
+    if (windowDimension.width > 660 && windowDimension.width < 1024) {
+      const newMonth = new Date(amountDate.getFullYear(), amountDate.getMonth(), amountDate.getDate() + value);
+      setAmountDate(newMonth);
+    } else {
+      const newMonth = new Date(amountDate.getFullYear(), amountDate.getMonth() + value, amountDate.getDate());
+      setAmountDate(newMonth);
+    }
   }
 
   function handleChangeDay(day: number) {
@@ -36,7 +50,7 @@ export default function SmallCalendar() {
         </button>
       </div>
 
-      <div className={styles.daysContainer}>
+      <div className={`${styles.daysContainer} ${windowDimension.width > 660 && windowDimension.width < 1024 ? styles.twoLines : ""}`}>
         <p>DOM</p>
         <p>SEG</p>
         <p>TER</p>

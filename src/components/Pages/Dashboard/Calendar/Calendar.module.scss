@@ -115,8 +115,9 @@
     border: none;
     background: none;
   }
-  .showCalendar {
-    margin-top: 0;
+  .showCalendar,
+  .hidden {
+    display: none;
   }
 
   .calendarSection {

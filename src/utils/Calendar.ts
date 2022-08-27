@@ -5,7 +5,8 @@ interface DayType {
 }
 
 export interface WeekDayType {
-  number: number;
+  key: number;
+  dayNumber: number;
   grayColor: boolean;
   nextMonth: boolean;
   oldMonth: boolean;
@@ -74,7 +75,8 @@ export function getWeek(date: Date) {
     const tempDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() + i);
 
     result.push({
-      number: tempDate.getDate(),
+      key: i,
+      dayNumber: tempDate.getDate(),
       grayColor: tempDate.getMonth() < date.getMonth() || tempDate.getMonth() > date.getMonth(),
       nextMonth: tempDate.getMonth() > date.getMonth(),
       oldMonth: tempDate.getMonth() < date.getMonth(),

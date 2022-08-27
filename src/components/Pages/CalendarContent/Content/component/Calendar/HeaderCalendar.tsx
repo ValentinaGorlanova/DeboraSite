@@ -27,7 +27,7 @@ export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, 
       else if (weekDay.oldMonth) monthNumber -= 1;
     }
 
-    changeWeek(weekDay.number, monthNumber);
+    changeWeek(weekDay.dayNumber, monthNumber);
   }
 
   if (selectOption === "week")
@@ -36,12 +36,12 @@ export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, 
         {numberWeek.map((weekDay, i) => (
           <div
             className={`${styles.calendarSmallContainerDayOfWeek} ${weekDay.grayColor ? styles.weekGrayColor : ""} ${
-              date.getDate() === weekDay.number ? styles.calendarDayActive : null
+              date.getDate() === weekDay.dayNumber ? styles.calendarDayActive : null
             }`}
-            key={weekDay.number}
+            key={weekDay.dayNumber}
             onClick={() => handleChangeWeek(weekDay)}
           >
-            <p>{weekDayNames[i]}</p> <span>{weekDay.number}</span>
+            <p>{weekDayNames[i]}</p> <span>{weekDay.dayNumber}</span>
           </div>
         ))}
       </>

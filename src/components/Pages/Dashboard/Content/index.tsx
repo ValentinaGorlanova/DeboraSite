@@ -2,6 +2,7 @@ import { AiOutlineSearch, AiFillClockCircle } from "react-icons/ai";
 import { RiUser3Fill, RiPhoneFill } from "react-icons/ri";
 import { IconConsultationDashboard, IconFinancesDashboard, IconPromptuaryDashboard } from "../SidebarMenu/IconsMenuSvg";
 
+import CalendarWithQuery from "../../CalendarWithQuery";
 import styles from "./styles.module.scss";
 import NewRequestModal from "@/components/NewRequestModal";
 
@@ -63,12 +64,24 @@ export function Content() {
 
       {/* Banner  */}
       <div className={styles.bannerDashboard}>
-        <div>
-          <h1>Olá, Dra. Débora Barros</h1>
-          <p>Saiba quais são os seu principais compromissos do dia.</p>
-        </div>
+        <h1 className={styles.firstTitle}>Olá, Dra. Débora Barros</h1>
 
-        <img src="/peoples.png" alt="" />
+        <div className={styles.containerSub}>
+          <div>
+            <h1 className={styles.secondTitle}>Olá, Dra. Débora Barros</h1>
+            <p>Saiba quais são os seu principais compromissos do dia.</p>
+          </div>
+
+          <img src="/peoples.png" alt="" />
+        </div>
+      </div>
+
+      <div className={styles.showCalendar}>
+        <h1>Veja seu calendário</h1> <a href="/admin/calendar">Ir para agenda</a>
+      </div>
+
+      <div className={styles.calendarQuerySection}>
+        <CalendarWithQuery />
       </div>
 
       {/* Section Cards */}

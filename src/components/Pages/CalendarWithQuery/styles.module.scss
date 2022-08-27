@@ -160,9 +160,43 @@
 }
 
 @media (max-width: 1023px) {
-  .calendarContainer,
-  .containerNextConsultations,
-  .nextConsultations {
-    display: none;
+  .containerNextConsultations {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    margin-top: 0;
+
+    h1 {
+      display: none;
+    }
+
+    .nextConsultations {
+      min-width: 327px;
+      scroll-snap-align: center;
+    }
+  }
+}
+
+@media (max-width: 665px) {
+  .containerNextConsultations {
+    flex-direction: column;
+    gap: 0;
+
+    width: 100%;
+
+    h1 {
+      display: block;
+      width: 100%;
+    }
+
+    .nextConsultations {
+      width: 100%;
+      min-width: 0;
+    }
   }
 }

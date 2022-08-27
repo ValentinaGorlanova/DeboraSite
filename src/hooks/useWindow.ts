@@ -15,6 +15,7 @@ export function useWindowDimension() {
       setWindowDimension(getDimensionWindow());
     }
 
+    setWindowDimension(getDimensionWindow());
     window.addEventListener("resize", handlerWindowResize);
 
     return () => window.removeEventListener("resize", handlerWindowResize);

@@ -54,7 +54,9 @@ export function CalendarSection() {
         <h1>Veja seu calendário</h1> <a href="/admin/calendar">Ir para agenda</a>
       </div>
 
-      <CalendarWithQuery />
+      <div className={styles.hidden}>
+        <CalendarWithQuery />
+      </div>
 
       {/* Menu Tablet */}
       <button className={styles.buttonMenu} onClick={handleClick}>
