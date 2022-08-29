@@ -99,8 +99,10 @@ export default function LockTime({ onClickButton }: LockTimeProps) {
             lockList.map((lock, i) => <LockedItem key={lock} onDelete={() => handleDeleteLock(i)} />)
           ) : (
             <div className={styles.message}>
-              <h3>Nenhum bloqueio disponível</h3>
-              <p>Adione bloqueios no botão acima.</p>
+              <div>
+                <h3>Nenhum bloqueio disponível</h3>
+                <p>Adione bloqueios no botão acima.</p>
+              </div>
             </div>
           )}
         </div>

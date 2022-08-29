@@ -8,6 +8,7 @@ import { RiPencilFill } from "react-icons/ri";
 
 import styles from "./styles.module.scss";
 import { EditUserDataModal } from "@/components/EditUserDataModal";
+import DropFile from "@/components/DropFile";
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
 
@@ -58,33 +59,33 @@ export function Content() {
             </div>
             <div className={styles.userData}>
               <div>
-                <p>Nome completo</p>
+                <p className={styles.p}>Nome completo</p>
                 <span>Debora Barros</span>
               </div>
               <div>
-                <p>CRP</p>
+                <p className={styles.p}>CRP</p>
                 <span>000 000 0</span>
               </div>
               <div>
-                <p>CPF</p>
+                <p className={styles.p}>CPF</p>
                 <span>000.000.000 - 00</span>
               </div>
               <div>
-                <p>Endereco</p>
+                <p className={styles.p}>Endereco</p>
                 <span>R. Aureliano Guimarães, 172/150 - Conjunto 819 - 8 andar - Vila Andrade São Paulo - SP</span>
               </div>
             </div>
             <div className={styles.userData}>
               <div>
-                <p>Data de nascimento</p>
+                <p className={styles.p}>Data de nascimento</p>
                 <span>00/00/00</span>
               </div>
               <div>
-                <p>Email</p>
+                <p className={styles.p}>Email</p>
                 <span>nome-contato@email.com</span>
               </div>
               <div>
-                <p>Telefone</p>
+                <p className={styles.p}>Telefone</p>
                 <span>+55 (11) 99999 999</span>
               </div>
             </div>
@@ -94,15 +95,15 @@ export function Content() {
           <>
             <div className={styles.userData}>
               <div>
-                <p>Cargo</p>
+                <p className={styles.p}>Cargo</p>
                 <span>Psicologo</span>
               </div>
               <div>
-                <p>Email</p>
+                <p className={styles.p}>Email</p>
                 <span>nome-contato@email.com</span>
               </div>
               <div>
-                <p>Abordagens utilizadas</p>
+                <p className={styles.p}>Abordagens utilizadas</p>
                 <div>
                   <input type="checkbox" name="teste" id="" />
                   <span> Terapia Cognitiva Comportamental</span>
@@ -117,16 +118,13 @@ export function Content() {
                 </div>
               </div>
               <div>
-                <p>Adicionar curriculo</p>
-                <div className={styles.uploadContainer}>
-                  <button>Upload</button>
-                  <span>Arraste e solte arquivos aqui</span>
-                </div>
+                <p className={styles.p}>Adicionar curriculo</p>
+                <DropFile onDropFile={(file) => file} />
               </div>
             </div>
             <div className={styles.userData}>
               <div>
-                <p>Convenios</p>
+                <p className={styles.p}>Convênios</p>
                 <div>
                   <input type="checkbox" name="teste" id="" />
                   <span>Nome de convênio</span>
@@ -141,12 +139,12 @@ export function Content() {
                 </div>
               </div>
               <div>
-                <p>Dados bancarios</p>
+                <p className={styles.p}>Dados bancários</p>
                 <div>
-                  <p>Codigo Pix</p>
+                  <p className={styles.p}>Código Pix</p>
                 </div>
                 <div>
-                  <p>Conta bancaria</p>
+                  <p className={styles.p}>Conta bancária</p>
                 </div>
               </div>
             </div>
@@ -155,17 +153,17 @@ export function Content() {
         {secondTab === 3 && (
           <>
             <div className={styles.userData}>
-              <p>Permitir acesso padrao ao sistema</p>
-              <p>Permitir acesso padrao ao sistema</p>
-              <p>Permitir acesso padrao ao sistema</p>
+              <p className={styles.p}>Permitir acesso padrão ao sistema</p>
+              <p className={styles.p}>Permitir acesso padrão ao sistema</p>
+              <p className={styles.p}>Permitir acesso padrão ao sistema</p>
               <div>
-                <p>Ativa desde de </p>
+                <p className={styles.p}>Ativa desde de </p>
                 <span>00/00/00</span>
               </div>
             </div>
             <div className={styles.userData}>
               <div>
-                <p>Inativa desde de</p>
+                <p className={styles.p}>Inativa desde de</p>
                 <span>00/00/00</span>
               </div>
             </div>
@@ -174,7 +172,7 @@ export function Content() {
         {secondTab === 4 && (
           <div className={styles.userList}>
             <div className={styles.userListData}>
-              <p>Nome do paciente</p>
+              <p className={styles.p}>Nome do paciente</p>
               <div className={styles.userContent}>
                 <span>Inciado em: 00/00/00</span>
                 <span>Consultas realizadas: 04</span>

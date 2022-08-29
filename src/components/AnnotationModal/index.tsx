@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
-import { ChangeEvent, ReactNode, useState, useCallback } from "react";
+import { ChangeEvent, ReactNode, useState } from "react";
 import { styled } from "@stitches/react";
 import { violet } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { BsFillTrashFill, BsArrowLeft } from "react-icons/bs";
 import { CgSoftwareDownload } from "react-icons/cg";
-import { useDropzone } from "react-dropzone";
 import { UploadImage } from "../Images/UploadImage";
 
 import CheckButton from "../CheckButton";
 
 import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
-import PdfIcon from "../Icons/pdfIcon";
+import DropFile from "../DropFile";
 
 const IconButton = styled("button", {
   all: "unset",
@@ -230,19 +229,6 @@ const AsideContent = styled("div", {
 
   variants: {
     variant: {
-      dashed: {
-        border: "1px dashed #273A51",
-        width: "100%",
-        // minHeight: "164px",
-        maxHeight: "120px",
-        minHeight: "200px",
-        overflowY: "hidden",
-        padding: "16px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "16px",
-      },
       noBorder: {
         border: "none",
         maxWidth: "278px",
@@ -318,25 +304,6 @@ const MissingContent = styled("div", {
   },
 });
 
-const FileUploadedInfo = styled("div", {
-  height: "57px",
-  background: "#F0F0F0",
-  borderBottom: "3px solid #273A57",
-  display: "flex",
-  alignItems: "center",
-
-  gap: "10px",
-  padding: "10px",
-
-  h3: {
-    fontFamily: "Barlow",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "14px",
-    color: "#000",
-  },
-});
-
 const AsideInputs = styled("div", {
   display: "flex",
   flexDirection: "column",
@@ -381,20 +348,6 @@ const BackButton = styled("button", {
   color: "rgb(231, 151, 93)",
 });
 
-const ButtonDeleteFile = styled("button", {
-  width: "120px",
-  height: "30px",
-  float: "right",
-  textDecoration: "underline",
-  color: "#D10438",
-  fontWeight: "600",
-  fontSize: "14px",
-  marginTop: "16px",
-  border: "none",
-  background: "none",
-  cursor: "pointer",
-});
-
 const LineForm = styled("div", {
   display: "flex",
   alignItems: "center",
@@ -432,72 +385,6 @@ const TitleSection = styled("p", {
   },
 });
 
-const Upload = styled("div", {
-  width: "76px",
-  height: "33px",
-  border: "2px solid #e7975d",
-  fontSize: "14px",
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  fontWeight: 600,
-  borderRadius: "8px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  color: "#e7975d",
-});
-
-const SubTitliUpload = styled("p", {
-  fontSize: "14px",
-  fontWeight: 600,
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  color: "#b5b5b5",
-});
-
-const ConfirmMessage = styled("p", {
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  fontWeight: "400",
-  fontSize: "16px",
-  lineHeight: "24px",
-  color: "#0A0A0A",
-});
-
-const ConfirmButton = styled("button", {
-  width: "50px",
-  height: "30px",
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  fontWeight: "600",
-  fontSize: "14px",
-  border: "none",
-  color: "#f7f7f7",
-  background: "#273a51",
-  borderRadius: "5px",
-  cursor: "pointer",
-
-  variants: {
-    variant: {
-      orange: {
-        background: "#e7975d",
-      },
-    },
-  },
-});
-
-const DeleteFileMessage = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  gap: "15px",
-});
-
-interface FileUploadType {
-  name: string;
-  size: number;
-  type: string;
-}
-
 interface DialogProps {
   children: ReactNode;
 }
@@ -505,31 +392,10 @@ interface DialogProps {
 export default function AnnotationModal({ children }: DialogProps) {
   const [step, setStep] = useState(1);
   const [isAddingContent, setIsAddingContent] = useState(1);
-  const [file, setFile] = useState<FileUploadType | null>(null);
+
   const [typeFileSelected, setTypeFileSelected] = useState<string>("");
-  const [showConfirmMessage, setShowConfirmMessage] = useState(false);
 
-  const onDrop = useCallback((acceptFiles) => {
-    setShowConfirmMessage(false);
-
-    setFile({
-      name: acceptFiles[0].name,
-      size: acceptFiles[0].size,
-      type: acceptFiles[0].type,
-    });
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: {
-      "image/png": [".png", ".jpg"],
-      "text/pdf": [".pdf", ".docx"],
-    },
-    onDrop,
-  });
-
-  function handleDeleteFile() {
-    setFile(null);
-  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
   function handleSelect(select: ChangeEvent) {
     const element = select.target as HTMLSelectElement;
@@ -784,37 +650,7 @@ export default function AnnotationModal({ children }: DialogProps) {
                 </AsideInputs>
               </AsideContent>
 
-              <AsideContent variant="dashed" {...getRootProps()}>
-                <input {...getInputProps()} />
-                <Upload>Upload</Upload>
-                <SubTitliUpload>{isDragActive ? "Solte o arquivo para fazer o upload" : "Arraste e solte o arquivo aqui"}</SubTitliUpload>
-              </AsideContent>
-
-              <div></div>
-
-              {file && (
-                <div>
-                  {!showConfirmMessage ? (
-                    <>
-                      <FileUploadedInfo>
-                        <PdfIcon />
-                        <h3>
-                          {file.name} ({file.size})
-                        </h3>
-                      </FileUploadedInfo>
-                      <ButtonDeleteFile onClick={() => setShowConfirmMessage(true)}>Excluir arquivo</ButtonDeleteFile>
-                    </>
-                  ) : (
-                    <DeleteFileMessage>
-                      <ConfirmMessage>Deseja excluir o arquivo?</ConfirmMessage>
-                      <ConfirmButton variant="orange" onClick={() => handleDeleteFile()}>
-                        Sim
-                      </ConfirmButton>
-                      <ConfirmButton onClick={() => setShowConfirmMessage(false)}>Não</ConfirmButton>
-                    </DeleteFileMessage>
-                  )}
-                </div>
-              )}
+              <DropFile onDropFile={(fileDrop) => fileDrop} />
             </Main>
 
             <DialogClose asChild>
