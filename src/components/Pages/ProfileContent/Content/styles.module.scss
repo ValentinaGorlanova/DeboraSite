@@ -1,291 +1,126 @@
 .container {
-  grid-area: content;
-  // border: 1px solid red;
-  padding: 24px 24px;
+  font-family: "Barlow";
+  font-style: normal;
+}
 
+.buttonsSection {
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
-  // height: 100vh;
-
-  // width: 929px;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 96px;
+  margin-bottom: 49px;
 }
 
-.Title {
-  font-family: "Barlow";
-  margin-top: 49px;
-  font-style: normal;
+@mixin button-style($bg) {
+  padding: 12px;
+  gap: 8px;
+
+  background: $bg;
+  border: 1px solid $bg;
+
+  border-radius: 12px;
+
   font-weight: 500;
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 28px;
+
   display: flex;
   align-items: center;
-  text-align: center;
-  color: #1e1e1e;
+  justify-content: center;
+
+  max-width: 300px;
+  width: 100%;
+  color: #f7f7f7;
+
+  &.outline {
+    background: none;
+    color: $bg;
+  }
 }
 
-.tabsContainer {
-  display: flex;
-  width: fit-content;
-  flex-direction: row;
-  border-bottom: 1px solid #d4d4d4;
-  margin-top: 40px;
-  cursor: pointer;
-  color: #1e1e1e63;
-  gap: 30px;
-  span {
-    font-family: "Barlow";
-    font-style: normal;
+.buttonBlue {
+  @include button-style(#273a51);
+}
+
+.buttonOrange {
+  @include button-style(#e7975d);
+}
+
+.informationHeader {
+  width: 100%;
+  padding: 0 10px;
+
+  h2 {
+    font-size: 20px;
     font-weight: 500;
-    font-size: 32px;
     line-height: 40px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-  }
-  .active {
-    color: #273a51;
-    border-bottom: 2px solid #273a51;
+    color: #1e1e1e;
   }
 }
 
-.tabContent {
+.centerButton {
+  justify-content: center !important;
+}
+
+.buttonsContainer {
+  max-width: 800px;
+  width: 100%;
+
   display: flex;
-  flex-direction: row;
-  gap: 50px;
-  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 56px;
+}
+
+.buttonTop {
+  font-size: 18px;
+  font-weight: 500;
+
+  color: rgba(30, 30, 30, 0.5);
+
+  background: none;
+  border: none;
+
+  &.active {
+    color: #273a51;
+    border-bottom: 1px solid #273a51;
+  }
+}
+
+.information {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.informationData {
+  display: flex;
+  flex-direction: column;
+
   padding: 32px 24px;
-  background: #f7f7f7;
   margin-top: 24px;
+
+  background: #f7f7f7;
   box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
 }
 
-.userImage {
-  width: 184px;
-  height: 184px;
-  background: #d4d4d4;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.buttonAddImage {
-  width: 52px;
-  height: 52px;
-  position: absolute;
-  background: #9fb2ce;
-  border-radius: 32px;
-  bottom: 0;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.userData {
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  p.p {
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    color: #1e1e1e;
-    margin-bottom: 10px;
-  }
-
-  span {
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    color: #1e1e1e;
-  }
-
-  input {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
+@media (min-width: 400px) {
+  .buttonsSection {
+    flex-direction: row;
   }
 }
 
-.uploadContainer {
-  width: 343px;
-  min-height: 121px;
-  border: 1px dashed #273a51;
-  padding: 16px 22px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 16px;
-    gap: 10px;
-    width: 70px;
-    height: 33px;
-    border: 2px solid #e7975d;
-    border-radius: 8px;
-    background: transparent;
-    cursor: pointer;
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    display: flex;
-    align-items: center;
-    color: #e7975d;
-  }
-
-  span {
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    color: #b5b5b5;
+@media (min-width: 630px) {
+  .buttonsSection {
+    justify-content: flex-start;
   }
 }
 
-.userList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 44px;
-}
-
-.userListData {
-  p {
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    color: #1e1e1e;
+@media (min-width: 768px) {
+  .informationData {
+    gap: 30px;
+    flex-direction: row;
   }
-
-  span {
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    color: #000000;
-  }
-}
-
-.userContent {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  button {
-    width: 52px;
-    height: 52px;
-    border: 1px solid #d4d4d4;
-    border-radius: 12px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-}
-
-@media (max-width: 1024px) {
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 500px) {
-  .container {
-    width: 100%;
-    order: 1;
-  }
-}
-
-@media (max-width: 370px) {
-}
-@media (max-width: 327px) {
-}
-
-.SubmenuButtons {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 105px;
-
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    padding: 12px 14px;
-    font-family: "Barlow";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 28px;
-    border-radius: 12px;
-  }
-
-  .filled {
-    background: #273a51;
-    border: 1px solid #273a51;
-    color: #f7f7f7;
-  }
-
-  .outline {
-    border: 2px solid #273a51;
-    color: #273a51;
-  }
-
-  select {
-    width: 248px;
-    height: 44px;
-    padding: 8px 12px;
-    background: #f7f7f7;
-    border: 1px solid #273a51;
-    border-radius: 12px;
-  }
-}
-.MobileSelects {
-  width: 100%;
-  display: none;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 88px;
-  margin-bottom: 40px;
-  select {
-    width: 248px;
-    height: 44px;
-    padding: 8px 12px;
-    background: #f7f7f7;
-    border: 1px solid #273a51;
-    border-radius: 12px;
-  }
-}
-.buttons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.Content {
-  display: flex;
-  width: 100%;
-  gap: 30px;
-  align-items: initial;
-  justify-content: space-between;
-}
-
-@media (max-width: 500px) {
 }

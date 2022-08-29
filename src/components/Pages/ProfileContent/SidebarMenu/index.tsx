@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useCallback, useRef, useState } from "react";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { GrFormClose } from "react-icons/gr";
 import { Calendar, Close, Configs, Finances, Historic, Home, MenuMobile, Messages, Profile, User } from "./IconsMenuSvg";
 import styles from "./SidebarMenu.module.scss";
 
@@ -36,7 +38,7 @@ export const menu = [
 ];
 
 export function SidebarMenu() {
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [menuClicked, setMenuClicked] = useState(false);
   const [openMenuDropDown, setOpenMenuDropDown] = useState(false);
@@ -120,10 +122,44 @@ export function SidebarMenu() {
           ))}
         </ul>
       </div>
-
       {/* Menu Mobile */}
+      <div className={styles.sidebarmenuMobile}>
+        <ul>
+          {menuMobile.map((item, index) => (
+            <a key={item.name} href="#" onClick={() => setActiveIndex(index)}>
+              <li className={activeIndex === index ? styles.active : ""} onClick={() => showtest(index)}>
+                <span>{item.icon}</span>
+                {item.name}
+              </li>
+            </a>
+          ))}
+        </ul>
+      </div>
 
-      {openMenuDropDown && <div className={styles.overlaySubmenuMobile} onClick={() => setOpenMenuDropDown(false)}></div>}
+      <button className={styles.buttonMenu} onClick={() => setOpenMenuDropDown(true)}>
+        <HiOutlineMenuAlt2 />
+      </button>
+
+      <div className={`${styles.subMenuDropDown} ${openMenuDropDown ? styles.show : ""}`}>
+        <div className={styles.headerMenu}>
+          <div>
+            <img ref={logo} className={styles.logo} src="/logoMobile.png" alt="logo" />
+          </div>
+
+          <button className={styles.closeButton} onClick={() => setOpenMenuDropDown(false)}>
+            <GrFormClose />
+          </button>
+        </div>
+
+        {menu.map((t, index) => (
+          <a href={t.link} key={t.name}>
+            <li onClick={() => showtest(index)}>
+              <span>{t.icon}</span>
+              {t.name}
+            </li>
+          </a>
+        ))}
+      </div>
     </>
   );
 }
