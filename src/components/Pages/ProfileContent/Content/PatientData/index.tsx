@@ -2,6 +2,8 @@ import { FaPen } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
 import styles from "./styles.module.scss";
 
+import { EditUserDataModal } from "@/components/EditUserDataModal";
+
 export default function PatientData() {
   return (
     <div style={{ width: "100%" }}>
@@ -10,14 +12,16 @@ export default function PatientData() {
 
         <div className={styles.row}>
           <p>Iniciado: 00/00/00</p>
-          <p>Realizadas: 04</p>
-          <p>Faltas: 01</p>
-          <p>Previstas: 10</p>
+          <p>Consutas realizadas: 04</p>
+          <p>Número de faltas: 01</p>
+          <p>Consultas previstas: 10</p>
 
           <div>
-            <button className={styles.button}>
-              <FaPen />
-            </button>
+            <EditUserDataModal initialTab={3}>
+              <button className={styles.button}>
+                <FaPen />
+              </button>
+            </EditUserDataModal>
             <button className={styles.button}>
               <IoMdCloseCircle />
             </button>
@@ -29,14 +33,16 @@ export default function PatientData() {
 
         <div className={styles.row}>
           <p>Iniciado: 00/00/00</p>
-          <p>Realizadas: 04</p>
-          <p>Faltas: 01</p>
-          <p>Previstas: 10</p>
+          <p>Consutas realizadas: 04</p>
+          <p>Número de faltas: 01</p>
+          <p>Consultas previstas: 10</p>
 
           <div>
-            <button className={styles.button}>
-              <FaPen />
-            </button>
+            <EditUserDataModal initialTab={3}>
+              <button className={styles.button}>
+                <FaPen />
+              </button>
+            </EditUserDataModal>
             <button className={styles.button}>
               <IoMdCloseCircle />
             </button>
@@ -48,14 +54,16 @@ export default function PatientData() {
 
         <div className={styles.row}>
           <p>Iniciado: 00/00/00</p>
-          <p>Realizadas: 04</p>
-          <p>Faltas: 01</p>
-          <p>Previstas: 10</p>
+          <p>Consutas realizadas: 04</p>
+          <p>Número de faltas: 01</p>
+          <p>Consultas previstas: 10</p>
 
           <div>
-            <button className={styles.button}>
-              <FaPen />
-            </button>
+            <EditUserDataModal initialTab={3}>
+              <button className={styles.button}>
+                <FaPen />
+              </button>
+            </EditUserDataModal>
             <button className={styles.button}>
               <IoMdCloseCircle />
             </button>

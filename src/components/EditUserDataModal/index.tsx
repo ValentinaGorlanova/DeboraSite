@@ -7,6 +7,7 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import DropFile from "../DropFile";
 
 import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
+import CheckButton from "../CheckButton";
 
 // Your app...
 const Flex = styled("div", { display: "flex" });
@@ -82,9 +83,8 @@ const Label = styled("label", {
 
 const Input = styled("input", {
   all: "unset",
-  width: "100%",
+  width: "90%",
   maxWidth: "291px",
-  flex: "1",
   padding: "12px",
   gap: "5px",
   background: "#F7F7F7",
@@ -101,10 +101,15 @@ const Input = styled("input", {
   "&::placeholder": {
     opacity: "0.7",
   },
+
+  "@media (max-width: 620px)": {
+    maxWidth: "455px",
+  },
 });
 
 interface ModalDataProps {
   children: ReactNode;
+  initialTab: number;
 }
 
 const InputWrapper = styled("div", {
@@ -113,28 +118,37 @@ const InputWrapper = styled("div", {
   justifyContent: "space-between",
   margin: "15px 0",
   width: "100%",
+
+  "@media (max-width: 620px)": {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
 });
 
 const TabsContainer = styled("div", {
   width: "100%",
   display: "flex",
+  justifyContent: "space-between",
   marginTop: "24px",
   marginBottom: "42px",
   borderBottom: "1px solid #D4D4D4",
+
+  overflowX: "auto",
 });
 
 const SelectTabButton = styled("button", {
   display: "flex",
   alignItems: "center",
+  justifyContent: "center",
   textAlign: "center",
   fontFamily: "Barlow",
-  marginRight: "10px",
   fontStyle: "normal",
   fontWeight: "500",
   fontSize: "24px",
   lineHeight: "28px",
   background: "transparent",
   border: "none",
+  minWidth: "120px",
 
   cursor: "pointer",
   paddingBottom: "5px",
@@ -150,6 +164,10 @@ const SelectTabButton = styled("button", {
         opacity: "0.5",
       },
     },
+  },
+
+  "@media (max-width: 768px)": {
+    fontSize: "16px",
   },
 });
 
@@ -210,68 +228,95 @@ const AccountDetailsWrapper = styled("div", {
     color: "#000000",
   },
 });
-
-const UploadsContainer = styled("div", {
-  width: "343px",
-  minHeight: "121px",
-  border: "1px dashed #273a51",
-  padding: "16px 22px",
+const RowForm = styled("div", {
   display: "flex",
-  flexDirection: "row",
+  alignItems: "center",
   justifyContent: "space-between",
-  button: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "8px 16px",
-    gap: "10px",
-    width: "70px",
-    height: "33px",
-    border: "2px solid #e7975d",
-    borderRadius: "8px",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: '"Barlow"',
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "14px",
-    lineHeight: "17px",
-    color: "#e7975d",
+  margin: "10px 0",
+
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+
+  div: {
+    width: "50%",
   },
 
-  span: {
-    fontFamily: '"Barlow"',
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "14px",
-    lineHeight: "17px",
-    color: "#b5b5b5",
+  p: {
+    fontWeight: "400",
+    fontSize: "18px",
+  },
+
+  h3: {
+    fontSize: "16px",
+    marginBottom: "10px",
+  },
+
+  input: {
+    fontSize: "16px",
+    outline: "none",
+
+    background: "#f7f7f7",
+    padding: "12px",
+
+    border: "1px solid #273a51",
+    borderRadius: "12px",
+  },
+
+  "input[type='number']": {
+    width: "80px",
+  },
+
+  "@media (max-width: 425px)": {
+    flexDirection: "column",
+    alignItems: "flex-start",
+
+    div: {
+      width: "100%",
+    },
+
+    p: {
+      fontSize: "12px",
+    },
+
+    h3: {
+      fontSize: "14px",
+    },
+  },
+
+  "@media (min-width: 425px) and (max-width: 768px)": {
+    p: {
+      fontSize: "16px",
+    },
+
+    h3: {
+      fontSize: "16px",
+    },
   },
 });
 
-export function EditUserDataModal({ children }: ModalDataProps) {
-  const [activeTab, setActiveTab] = useState(2);
+export function EditUserDataModal({ children, initialTab }: ModalDataProps) {
+  const [activeTab, setActiveTab] = useState(initialTab);
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogTitle>Editar dados</DialogTitle>
         <TabsContainer>
-          <SelectTabButton variant={activeTab === 1 ? "active" : "ghost"} onClick={() => setActiveTab(1)}>
+          <SelectTabButton variant={activeTab === 0 ? "active" : "ghost"} onClick={() => setActiveTab(0)}>
             Dados principais
           </SelectTabButton>
-          <SelectTabButton variant={activeTab === 2 ? "active" : "ghost"} onClick={() => setActiveTab(2)}>
+          <SelectTabButton variant={activeTab === 1 ? "active" : "ghost"} onClick={() => setActiveTab(1)}>
             Serviços
           </SelectTabButton>
-          <SelectTabButton variant={activeTab === 3 ? "active" : "ghost"} onClick={() => setActiveTab(3)}>
+          <SelectTabButton variant={activeTab === 2 ? "active" : "ghost"} onClick={() => setActiveTab(2)}>
             Sistema
           </SelectTabButton>
-          <SelectTabButton variant={activeTab === 4 ? "active" : "ghost"} onClick={() => setActiveTab(4)}>
+          <SelectTabButton variant={activeTab === 3 ? "active" : "ghost"} onClick={() => setActiveTab(3)}>
             Pacientes
           </SelectTabButton>
         </TabsContainer>
 
-        {activeTab === 1 && (
+        {activeTab === 0 && (
           <>
             <InputWrapper>
               <Label htmlFor="name">Nome completo</Label>
@@ -300,7 +345,7 @@ export function EditUserDataModal({ children }: ModalDataProps) {
           </>
         )}
 
-        {activeTab === 2 && (
+        {activeTab === 1 && (
           <>
             <InputWrapper>
               <Label htmlFor="role">Cargo</Label>
@@ -330,6 +375,91 @@ export function EditUserDataModal({ children }: ModalDataProps) {
               <p>Codigo Pix</p>
               <p>Conta bancaria</p>
             </AccountDetailsWrapper>
+          </>
+        )}
+
+        {activeTab === 2 && (
+          <>
+            <RowForm>
+              <p>Permitir acesso padrão ao sistema</p>
+              <CheckButton checked={false} onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Permitir acesso apenas ao calendário de agendamentos</p>
+              <CheckButton checked onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Permitir acesso apenas ao calendário de agendamentos</p>
+              <CheckButton checked={false} onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Permitir acesso apenas ao calendário de agendamentos</p>
+              <CheckButton checked onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Desativar conta</p>
+              <CheckButton checked={false} onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Ativa desde de</h3>
+                <p>00/00/00</p>
+              </div>
+
+              <div>
+                <h3>Inativa desde de</h3>
+                <p>00/00/00</p>
+              </div>
+            </RowForm>
+          </>
+        )}
+
+        {activeTab === 3 && (
+          <>
+            <RowForm>
+              <div>
+                <h3>Iniciado em:</h3>
+              </div>
+
+              <div>
+                <input type="date" placeholder="00/00/00" />
+              </div>
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Consultas realizadas:</h3>
+              </div>
+
+              <div>
+                <input type="number" placeholder="00" />
+              </div>
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Faltas:</h3>
+              </div>
+
+              <div>
+                <input type="number" placeholder="00" />
+              </div>
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Consultas previstas</h3>
+              </div>
+
+              <div>
+                <input type="number" placeholder="00" />
+              </div>
+            </RowForm>
           </>
         )}
 
