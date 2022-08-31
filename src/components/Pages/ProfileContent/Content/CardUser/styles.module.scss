@@ -1,0 +1,121 @@
+.profissinalCard {
+  width: 100%;
+  padding: 10px;
+
+  background: #f7f7f7;
+  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+
+  font-family: "Barlow";
+  font-style: normal;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .showCurriculun {
+    color: #273a51;
+    border: none;
+    font-weight: 500;
+    border-bottom: 1px solid #273a51;
+    background: none;
+  }
+}
+
+.userContainer {
+  grid-area: user;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  font-size: 58px;
+
+  color: #7588a2;
+  background: #d4d4d4;
+
+  .logoCamera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 32px;
+    height: 32px;
+
+    font-size: 22px;
+
+    background: #9fb2ce;
+    border-radius: 50%;
+
+    color: #f7f7f7;
+  }
+}
+
+.info1 {
+  grid-area: rightinfo1;
+}
+.info2 {
+  grid-area: rightinfo2;
+}
+
+.rowButtons {
+  button {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+
+    font-size: 20px;
+    margin-right: 5px;
+
+    color: #273a51;
+  }
+}
+
+@media (min-width: 485px) {
+  .profissinalCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "user rightinfo1 rightinfo1"
+      "user rightinfo2 rightinfo2";
+  }
+}
+
+@media (min-width: 768px) {
+  .profissinalCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 485px) {
+  .userContainer {
+    margin: inherit;
+  }
+}

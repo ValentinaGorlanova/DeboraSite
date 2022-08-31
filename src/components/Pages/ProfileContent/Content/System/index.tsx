@@ -1,12 +1,30 @@
 import styles from "./styles.module.scss";
 
-export default function System() {
+import CheckBox from "@/components/CheckButton";
+
+interface SystemProp {
+  showOptions?: boolean;
+}
+
+export default function System({ showOptions }: SystemProp) {
   return (
     <div style={{ width: "100%" }}>
-      <p className={styles.description}>Permitir acesso padrão ao sistema</p>
-      <p className={styles.description}>Permitir acesso apenas ao calendário de agendamentos</p>
-      <p className={styles.description}>Permitir acesso apenas ao calendário de agendamentos</p>
-      <p className={styles.description}>Permitir acesso apenas ao calendário de agendamentos</p>
+      <p className={styles.description}>
+        Permitir acesso padrão ao sistema
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </p>
+      <p className={styles.description}>
+        Permitir acesso apenas ao calendário de agendamentos
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </p>
+      <p className={styles.description}>
+        Permitir acesso apenas ao calendário de agendamentos
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </p>
+      <p className={styles.description}>
+        Permitir acesso apenas ao calendário de agendamentos
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </p>
 
       <div className={styles.row}>
         <div>
