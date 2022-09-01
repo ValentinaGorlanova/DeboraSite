@@ -2,6 +2,10 @@
   width: 100%;
   padding: 0 10px;
 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
   h2 {
     font-size: 20px;
     font-weight: 500;
@@ -53,11 +57,41 @@
   padding-bottom: 50px;
 }
 
+.rowButtons {
+  button {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+
+    font-size: 20px;
+    margin-right: 5px;
+
+    color: #273a51;
+  }
+}
+
 @media (max-width: 375px) {
   .buttonsContainer {
     overflow-x: auto;
     gap: 20px;
     padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 550px) {
+  .informationHeader {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .rowButtons {
+    min-width: 150px;
+
+    button {
+      margin-top: 56px;
+    }
   }
 }
 

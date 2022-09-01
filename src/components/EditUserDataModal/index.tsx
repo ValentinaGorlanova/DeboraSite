@@ -76,7 +76,7 @@ const Label = styled("label", {
   fontFamily: "Barlow",
   fontStyle: "normal",
   fontWeight: "500",
-  fontSize: "20px",
+  fontSize: "18px",
   lineHeight: "28px",
   color: "#1E1E1E",
 });
@@ -94,7 +94,7 @@ const Input = styled("input", {
   fontFamily: "Barlow",
   fontStyle: "normal",
   fontWeight: "600",
-  fontSize: "20px",
+  fontSize: "18px",
   lineHeight: "26px",
   color: "#B5B5B5",
 
@@ -148,7 +148,7 @@ const SelectTabButton = styled("button", {
   lineHeight: "28px",
   background: "transparent",
   border: "none",
-  minWidth: "120px",
+  minWidth: "150px",
 
   cursor: "pointer",
   paddingBottom: "5px",
@@ -167,7 +167,7 @@ const SelectTabButton = styled("button", {
   },
 
   "@media (max-width: 768px)": {
-    fontSize: "16px",
+    fontSize: "18px",
   },
 });
 
@@ -189,7 +189,6 @@ const CheckboxLabel = styled("span", {
   lineHeight: "28px",
   display: "flex",
   alignItems: "center",
-  textAlign: "center",
 
   color: "#000000",
 });
@@ -228,26 +227,44 @@ const AccountDetailsWrapper = styled("div", {
     color: "#000000",
   },
 });
+
 const RowForm = styled("div", {
   display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
+  flexDirection: "column",
+  alignItems: "flex-start",
   margin: "10px 0",
 
   fontFamily: "Barlow",
   fontStyle: "normal",
 
+  variants: {
+    variant: {
+      row: {
+        "@media (min-width: 425px)": {
+          flexDirection: "row",
+          justifyContent: "space-between",
+        },
+      },
+    },
+  },
+
+  "@media (min-width: 600px)": {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
   div: {
-    width: "50%",
+    width: "100%",
   },
 
   p: {
     fontWeight: "400",
     fontSize: "18px",
+    marginBottom: "10px",
   },
 
   h3: {
-    fontSize: "16px",
+    fontSize: "18px",
     marginBottom: "10px",
   },
 
@@ -264,33 +281,6 @@ const RowForm = styled("div", {
 
   "input[type='number']": {
     width: "80px",
-  },
-
-  "@media (max-width: 425px)": {
-    flexDirection: "column",
-    alignItems: "flex-start",
-
-    div: {
-      width: "100%",
-    },
-
-    p: {
-      fontSize: "12px",
-    },
-
-    h3: {
-      fontSize: "14px",
-    },
-  },
-
-  "@media (min-width: 425px) and (max-width: 768px)": {
-    p: {
-      fontSize: "16px",
-    },
-
-    h3: {
-      fontSize: "16px",
-    },
   },
 });
 
@@ -405,7 +395,7 @@ export function EditUserDataModal({ children, initialTab }: ModalDataProps) {
               <CheckButton checked={false} onChange={() => ({})} />
             </RowForm>
 
-            <RowForm>
+            <RowForm variant="row">
               <div>
                 <h3>Ativa desde de</h3>
                 <p>00/00/00</p>

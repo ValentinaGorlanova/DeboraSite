@@ -1,8 +1,17 @@
+import { useState } from "react";
+
+import { FaPen } from "react-icons/fa";
+import { RiRotateLockFill } from "react-icons/ri";
+import { IoMdCloseCircle } from "react-icons/io";
+
 import PrincipalData from "../PricipalData";
 import ServiceData from "../ServiceData";
 import SystemData from "../System";
 import PatientData from "../PatientData";
+import ClinicalRecord from "../ClinicalRecord";
+
 import styles from "./styles.module.scss";
+import { ProfileActive } from "@/components/ProfileActive";
 
 interface RenderTabProp {
   tab: number;
@@ -22,6 +31,9 @@ function RenderTab({ tab, showOptions }: RenderTabProp) {
     case 3:
       return <PatientData />;
 
+    case 4:
+      return <ClinicalRecord />;
+
     default:
       return <p>Tab not found</p>;
   }
@@ -34,7 +46,20 @@ interface UserInfoProp {
 }
 
 export default function UserInfo({ tab, hiddenTitle, setTab }: UserInfoProp) {
-  const buttons = ["Principal", "Serviços", "Sistema", "Pacientes"];
+  const [secondTab, setSecondTab] = useState(false);
+
+  const buttonsFirst = [
+    { text: "Principal", tab: 0 },
+    { text: "Serviços", tab: 1 },
+    { text: "Sistema", tab: 2 },
+    { text: "Pacientes", tab: 3 },
+  ];
+
+  const buttonsSecond = [
+    { text: "Principal", tab: 4 },
+    { text: "Histórico pessoal", tab: 5 },
+    { text: "Informações revantes", tab: 6 },
+  ];
 
   return (
     <>
@@ -42,16 +67,53 @@ export default function UserInfo({ tab, hiddenTitle, setTab }: UserInfoProp) {
         {!hiddenTitle && <h2>Pessoa fisica</h2>}
 
         <div className={styles.buttonsContainer}>
-          {buttons.map((textButton, i) => (
-            <button key={textButton} className={`${styles.buttonTop} ${tab === i ? styles.active : ""}`} onClick={() => setTab(i)}>
-              {textButton}
-            </button>
-          ))}
+          {!secondTab &&
+            buttonsFirst.map((button, i) => (
+              <button key={button.text} className={`${styles.buttonTop} ${tab === i ? styles.active : ""}`} onClick={() => setTab(button.tab)}>
+                {button.text}
+              </button>
+            ))}
+
+          {secondTab &&
+            buttonsSecond.map((button, i) => (
+              <button key={button.text} className={`${styles.buttonTop} ${tab === i ? styles.active : ""}`} onClick={() => setTab(button.tab)}>
+                {button.text}
+              </button>
+            ))}
         </div>
+
+        {hiddenTitle && (
+          <div className={styles.rowButtons}>
+            <button>
+              <FaPen />
+            </button>
+
+            <ProfileActive>
+              <button>
+                <RiRotateLockFill />
+              </button>
+            </ProfileActive>
+
+            <button
+              onClick={() => {
+                setTab(4);
+                setSecondTab(true);
+              }}
+            >
+              <IoMdCloseCircle />
+            </button>
+          </div>
+        )}
       </div>
 
       <div className={styles.information}>
-        <div className={styles.informationData}>
+        <div
+          className={styles.informationData}
+          style={{
+            background: `${hiddenTitle ? "none" : "#f7f7f7"}`,
+            boxShadow: `${hiddenTitle ? "none" : "box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5)"}`,
+          }}
+        >
           <RenderTab tab={tab} showOptions={hiddenTitle} />
         </div>
       </div>

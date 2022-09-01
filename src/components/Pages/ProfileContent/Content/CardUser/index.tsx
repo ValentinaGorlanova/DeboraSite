@@ -5,13 +5,15 @@ import { IoMdCloseCircle } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 
+import { ProfileActive } from "@/components/ProfileActive";
+
 interface CardUserProp {
   handleSelect: () => void;
 }
 
 export default function CardUser({ handleSelect }: CardUserProp) {
   return (
-    <div className={styles.profissinalCard} onClick={handleSelect}>
+    <div className={styles.profissinalCard}>
       <div className={styles.userContainer}>
         <FaUser />
 
@@ -20,7 +22,7 @@ export default function CardUser({ handleSelect }: CardUserProp) {
         </div>
       </div>
 
-      <div className={styles.info1}>
+      <div className={styles.info1} onClick={handleSelect}>
         <h3>Nome completo</h3>
         <p>Debora Barros</p>
       </div>
@@ -43,9 +45,12 @@ export default function CardUser({ handleSelect }: CardUserProp) {
         <button>
           <FaPen />
         </button>
-        <button>
-          <RiRotateLockFill />
-        </button>
+
+        <ProfileActive>
+          <button>
+            <RiRotateLockFill />
+          </button>
+        </ProfileActive>
         <button>
           <IoMdCloseCircle />
         </button>

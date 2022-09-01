@@ -9,24 +9,27 @@ interface SystemProp {
 export default function System({ showOptions }: SystemProp) {
   return (
     <div style={{ width: "100%" }}>
-      <p className={styles.description}>
-        Permitir acesso padrão ao sistema
+      <div className={`${styles.row} ${styles.wraper}`}>
+        <p className={styles.description}>Permitir acesso padrão ao sistema</p>
         {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
-      </p>
-      <p className={styles.description}>
-        Permitir acesso apenas ao calendário de agendamentos
-        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
-      </p>
-      <p className={styles.description}>
-        Permitir acesso apenas ao calendário de agendamentos
-        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
-      </p>
-      <p className={styles.description}>
-        Permitir acesso apenas ao calendário de agendamentos
-        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
-      </p>
+      </div>
 
-      <div className={styles.row}>
+      <div className={`${styles.row} ${styles.wraper}`}>
+        <p className={styles.description}>Permitir acesso apenas ao calendário de agendamentos</p>
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </div>
+
+      <div className={`${styles.row} ${styles.wraper}`}>
+        <p className={styles.description}>Permitir acesso apenas ao calendário de agendamentos</p>
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </div>
+
+      <div className={`${styles.row} ${styles.wraper}`}>
+        <p className={styles.description}>Permitir acesso apenas ao calendário de agendamentos</p>
+        {showOptions && <CheckBox checked={false} onChange={() => ({})} />}
+      </div>
+
+      <div className={`${styles.row} ${styles.wraper}`}>
         <div>
           <h3 className={styles.title}>Ativa desde de</h3>
           <p className={styles.description}>00/00/00</p>
