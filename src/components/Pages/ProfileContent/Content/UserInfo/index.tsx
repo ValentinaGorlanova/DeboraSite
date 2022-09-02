@@ -9,6 +9,7 @@ import ServiceData from "../ServiceData";
 import SystemData from "../System";
 import PatientData from "../PatientData";
 import ClinicalRecord from "../ClinicalRecord";
+import History from "../History";
 
 import styles from "./styles.module.scss";
 import { ProfileActive } from "@/components/ProfileActive";
@@ -33,6 +34,9 @@ function RenderTab({ tab, showOptions }: RenderTabProp) {
 
     case 4:
       return <ClinicalRecord />;
+
+    case 5:
+      return <History />;
 
     default:
       return <p>Tab not found</p>;
@@ -63,20 +67,28 @@ export default function UserInfo({ tab, hiddenTitle, setTab }: UserInfoProp) {
 
   return (
     <>
-      <div className={styles.informationHeader}>
+      <div className={`${styles.informationHeader} ${hiddenTitle ? styles.informationHeaderWithButton : ""}`}>
         {!hiddenTitle && <h2>Pessoa fisica</h2>}
 
         <div className={styles.buttonsContainer}>
           {!secondTab &&
-            buttonsFirst.map((button, i) => (
-              <button key={button.text} className={`${styles.buttonTop} ${tab === i ? styles.active : ""}`} onClick={() => setTab(button.tab)}>
+            buttonsFirst.map((button) => (
+              <button
+                key={button.text}
+                className={`${styles.buttonTop} ${tab === button.tab ? styles.active : ""}`}
+                onClick={() => setTab(button.tab)}
+              >
                 {button.text}
               </button>
             ))}
 
           {secondTab &&
-            buttonsSecond.map((button, i) => (
-              <button key={button.text} className={`${styles.buttonTop} ${tab === i ? styles.active : ""}`} onClick={() => setTab(button.tab)}>
+            buttonsSecond.map((button) => (
+              <button
+                key={button.text}
+                className={`${styles.buttonTop} ${tab === button.tab ? styles.active : ""}`}
+                onClick={() => setTab(button.tab)}
+              >
                 {button.text}
               </button>
             ))}
