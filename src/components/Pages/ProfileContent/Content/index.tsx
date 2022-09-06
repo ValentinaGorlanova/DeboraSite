@@ -86,7 +86,7 @@ export function Content() {
             </div>
 
             <NewProfissinal>
-              <button className={`${styles.buttonOrange} ${styles.buttonNew}`}>Cadastrar profissinal</button>
+              <button className={`${styles.buttonOrange} ${styles.buttonNew}`}>Cadastrar profissional</button>
             </NewProfissinal>
           </div>
 
