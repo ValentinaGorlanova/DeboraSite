@@ -7,11 +7,11 @@ import { FiChevronDown } from "react-icons/fi";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 // import "react-widgets/styles.css";
 import { menu } from "../SidebarMenu";
-import { DropdownNotifications } from "../../DropdownMenu";
+import { DropdownNotifications } from "../../../Pages/DropdownMenu";
 import styles from "./Calendar.module.scss";
 // import "react-calendar/dist/Calendar.css";
 
-export function CalendarSection() {
+export default function CalendarSection() {
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState(new Date());
 
