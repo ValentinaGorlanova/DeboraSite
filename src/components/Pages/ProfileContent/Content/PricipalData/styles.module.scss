@@ -1,0 +1,69 @@
+.userContainer {
+  width: 184px;
+  height: 184px;
+  border-radius: 50%;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  font-size: 78px;
+
+  color: #7588a2;
+  background: #d4d4d4;
+
+  .logoCamera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 52px;
+    height: 52px;
+
+    font-size: 28px;
+
+    background: #9fb2ce;
+    border-radius: 50%;
+
+    color: #f7f7f7;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 20px;
+  width: 50%;
+
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+
+    margin: 12px 0;
+
+    color: #1e1e1e;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+
+    color: #1e1e1e;
+  }
+}
+
+@media (max-width: 767px) {
+  .column {
+    width: 100%;
+  }
+}

@@ -5,7 +5,9 @@ import { violet } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 
+import { DayCard } from "../Pages/CalendarContent/Content/mocks";
 import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
+import SelectStatus from "../SelectStatus";
 
 const IconButton = styled("button", {
   all: "unset",
@@ -24,10 +26,6 @@ const IconButton = styled("button", {
   "&:hover": { backgroundColor: violet.violet4 },
   "&:focus": { boxShadow: `0 0 0 2px ${violet.violet7}` },
 });
-
-interface DialogProps {
-  children: ReactNode;
-}
 
 const LabelData = styled("span", {
   fontFamily: "Barlow",
@@ -77,7 +75,6 @@ const DataWrapper = styled("div", {
       column: {
         display: "flex",
         flexDirection: "column",
-        gap: "20px",
       },
     },
   },
@@ -96,6 +93,13 @@ const DataWrapper = styled("div", {
     fontSize: "20px",
     color: "#273a51",
   },
+
+  "@media (max-width: 425px)": {
+    select: {
+      fontWeight: "400",
+      fontSize: "14px",
+    },
+  },
 });
 
 const SubTitle = styled("p", {
@@ -108,15 +112,16 @@ const SubTitle = styled("p", {
   marginBottom: "16px",
 
   "@media (max-width: 425px)": {
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: "400",
   },
 });
 
 const Flex = styled("div", {
   display: "flex",
-  alignItems: "center",
+  flexDirection: "column",
   justifyContent: "space-between",
+  gap: "20px",
 
   variants: {
     position: {
@@ -170,20 +175,26 @@ const ButtonsModal = styled("button", {
 const InputsWrapper = styled("div", {
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
   width: "100%",
   flexWrap: "wrap",
   gap: "20px",
 
   div: {
     display: "flex",
-    gap: "20px",
+    gap: "15px",
     alignItems: "center",
     div: {
       width: "14px",
       height: "3px",
       borderRadius: "5px",
       background: "#273A51",
+    },
+  },
+
+  "@media (max-width: 425px)": {
+    input: {
+      fontWeight: "600",
+      fontSize: "14px",
     },
   },
 });
@@ -221,15 +232,6 @@ const DateInput = styled("input", {
   borderRadius: "12px",
 });
 
-const Subtitle = styled("span", {
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  fontWeight: "600",
-  fontSize: "20px",
-  lineHeight: "26px",
-  color: "#1E1E1E",
-});
-
 const RadioLabel = styled("span", {
   fontFamily: "Barlow",
   fontStyle: "normal",
@@ -239,6 +241,11 @@ const RadioLabel = styled("span", {
   color: "#1E1E1E",
   marginLeft: "8px",
   marginRight: "20px",
+
+  "@media (max-width: 425px)": {
+    fontWeight: "400",
+    fontSize: "14px",
+  },
 });
 
 const StatusLabel = styled("span", {
@@ -248,34 +255,36 @@ const StatusLabel = styled("span", {
   fontSize: "20px",
   lineHeight: "26px",
   color: "#1E1E1E",
-  marginTop: "20px",
   display: "flex",
   alignItems: "center",
+  gap: "10px",
 
-  "&::after": {
-    content: "''",
-    display: "block",
-    background: "#E7975D",
-    borderRadius: "12px",
-    width: "30px",
-    marginLeft: "16px",
-    height: "24px",
+  "@media (max-width: 425px)": {
+    fontSize: "16px",
+    fontWeight: "400",
   },
 });
 
 const RadioContainer = styled("div", {
   width: "100%",
-
-  "@media (max-width: 520px)": {
-    display: "flex",
-    flexDirection: "column",
-    fontSize: "16px",
-    gap: "10px",
-  },
+  display: "flex",
+  flexDirection: "column",
+  fontSize: "16px",
+  gap: "10px",
 });
 
-function EditAppointmentModal({ children }: DialogProps) {
+interface DialogProps {
+  children: ReactNode;
+  dataQuery: DayCard;
+}
+
+function EditAppointmentModal({ children, dataQuery }: DialogProps) {
   const [step, setStep] = useState(1);
+
+  const splitDate = dataQuery.date.split("/");
+  const startHour = dataQuery.hour.replace("h", ":");
+  const endHour = dataQuery.hourEnd.replace("h", ":");
+
   return (
     <Dialog>
       <DialogTrigger asChild style={{ cursor: "pointer" }}>
@@ -288,11 +297,14 @@ function EditAppointmentModal({ children }: DialogProps) {
           <div>
             <SubTitle>Quem e o cliente dessa sessão?</SubTitle>
             <DataWrapper>
-              <LabelData>Gabriel Silva</LabelData>
+              <LabelData>{dataQuery.name}</LabelData>
               <AiOutlineWhatsApp size={24} color="#3A4D65" />
             </DataWrapper>
+          </div>
+
+          <div>
             <DataWrapper>
-              <LabelData>Quem e o profissional?</LabelData>
+              <SubTitle>Quem e o profissional?</SubTitle>
             </DataWrapper>
             <DataWrapper>
               <select name="options" id="options">
@@ -304,42 +316,48 @@ function EditAppointmentModal({ children }: DialogProps) {
                 <option value="audi">Debora Barros</option>
               </select>
             </DataWrapper>
-            <DataWrapper direction="column">
-              <LabelData>Data e Horario</LabelData>
-              <InputsWrapper>
-                <DateInput type="date" id="start" name="date" />
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
-                  <HourInput type="time" id="start" name="start" />
-                  <div />
-                  <HourInput type="time" id="end" name="end" />
-                </div>
-              </InputsWrapper>
-            </DataWrapper>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "15px", marginBottom: "10px" }}>
-              <Subtitle>Essa consulta será:</Subtitle>
-              <form>
-                <input type="radio" id="Presencial" name="Presencial" value="Presencial" />
-                <RadioLabel>Presencial</RadioLabel>
-                <input type="radio" id="Online" name="Online" value="Online" />
-                <RadioLabel>Online</RadioLabel>
-              </form>
+          </div>
+
+          <DataWrapper direction="column">
+            <SubTitle>Data e Horario</SubTitle>
+            <InputsWrapper>
+              <DateInput type="date" id="start" name="date" value={`${splitDate[2]}-${splitDate[1]}-${splitDate[0]}`} />
+
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <HourInput type="time" id="start" name="start" value={startHour} />
+                <div />
+                <HourInput type="time" id="end" name="end" value={endHour} />
+              </div>
+            </InputsWrapper>
+          </DataWrapper>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "15px", marginBottom: "10px" }}>
+            <SubTitle>Essa consulta será:</SubTitle>
+            <form>
+              <input type="radio" id="Presencial" name="Presencial" value="Presencial" />
+              <RadioLabel>Presencial</RadioLabel>
+              <input type="radio" id="Online" name="Online" value="Online" />
+              <RadioLabel>Online</RadioLabel>
+            </form>
+          </div>
+
+          <RadioContainer>
+            <div>
+              <input type="radio" id="Online" name="Online" value="Online" />
+              <RadioLabel>Atualizar somente essa consulta</RadioLabel>
             </div>
-
-            <RadioContainer>
-              <RadioLabel>
-                <input type="radio" id="Online" name="Online" value="Online" />
-                Atualizar somente essa consulta
-              </RadioLabel>
-
-              <RadioLabel>
-                <input type="radio" id="Online" name="Online" value="Online" />
-                Atualizar todas as recorrencias
-              </RadioLabel>
-            </RadioContainer>
 
             <div>
-              <StatusLabel>Status de consulta:</StatusLabel>
+              <input type="radio" id="Online" name="Online" value="Online" />
+              <RadioLabel>Atualizar todas as recorrencias</RadioLabel>
             </div>
+          </RadioContainer>
+
+          <div style={{ marginTop: "20px" }}>
+            <StatusLabel>
+              Status de consulta:
+              <SelectStatus toTop />
+            </StatusLabel>
           </div>
         </Flex>
         <DialogClose asChild>
@@ -350,7 +368,7 @@ function EditAppointmentModal({ children }: DialogProps) {
         <DialogClose asChild>
           <ButtonsContainer>
             <ButtonsModal type="button" variant="filled" onClick={() => setStep(2)}>
-              Salvar alteracoes
+              Salvar alteracões
             </ButtonsModal>
           </ButtonsContainer>
         </DialogClose>

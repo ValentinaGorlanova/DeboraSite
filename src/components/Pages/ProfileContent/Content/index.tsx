@@ -1,200 +1,102 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+// import { AiFillCloseCircle } from "react-icons/ai";
 import { useState } from "react";
-import { AiFillCloseCircle } from "react-icons/ai";
-import { BsFillCameraFill } from "react-icons/bs";
-import { FaUser } from "react-icons/fa";
-import { RiPencilFill } from "react-icons/ri";
+import { BsCalendarCheckFill } from "react-icons/bs";
+import { FaUserFriends } from "react-icons/fa";
+
+// import { FaUser } from "react-icons/fa";
+// import { RiPencilFill } from "react-icons/ri";
 // must go before plugins
 
 import styles from "./styles.module.scss";
+import UserInfo from "./UserInfo";
+import CardUser from "./CardUser";
 import { EditUserDataModal } from "@/components/EditUserDataModal";
+import EditPassword from "@/components/EditPassword";
+import { NewProfissinal } from "@/components/NewProfissinal";
+// import DropFile from "@/components/DropFile";
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
 
 export function Content() {
-  const [currentTab, setCurrentTab] = useState(1);
-  const [secondTab, setSecondTab] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [currentTab, setCurrentTab] = useState(0);
+
+  const [showOneCard, setShowOneCard] = useState(false);
 
   return (
     <div className={styles.container}>
-      {/* Input Seach */}
-
-      <div className={`${styles.SubmenuButtons} ${styles.buttonsDesktop}`}>
-        <div className={styles.buttons}>
-          <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
-            Perfil principal
-          </button>
-          <button className={currentTab === 1 ? styles.outline : styles.filled} onClick={() => setCurrentTab(2)}>
-            Perfil de profissionais
-          </button>
-        </div>
+      <div className={styles.buttonsSection}>
+        <button className={`${styles.buttonBlue} ${currentPage !== 0 ? styles.outline : ""}`} onClick={() => setCurrentPage(0)}>
+          <BsCalendarCheckFill />
+          Perfil principal
+        </button>
+        <button className={`${styles.buttonBlue} ${currentPage !== 1 ? styles.outline : ""}`} onClick={() => setCurrentPage(1)}>
+          <FaUserFriends />
+          Perfil de profissinal
+        </button>
       </div>
 
-      <p className={styles.Title}>Pessoa Fisica</p>
+      {currentPage === 0 && (
+        <>
+          <UserInfo tab={currentTab} setTab={(tabIndex) => setCurrentTab(tabIndex)} />
 
-      <div className={styles.tabsContainer}>
-        <div className={secondTab === 1 ? styles.active : ""} onClick={() => setSecondTab(1)}>
-          <span>Dados principais</span>
-        </div>
-        <div className={secondTab === 2 ? styles.active : ""} onClick={() => setSecondTab(2)}>
-          <span>Serviços</span>
-        </div>
-        <div className={secondTab === 3 ? styles.active : ""} onClick={() => setSecondTab(3)}>
-          <span>Sistema</span>
-        </div>
-        <div className={secondTab === 4 ? styles.active : ""} onClick={() => setSecondTab(4)}>
-          <span>Pacientes</span>
-        </div>
-      </div>
+          {currentTab !== 3 && (
+            <div className={`${styles.buttonsSection} ${styles.centerButton}`}>
+              <EditUserDataModal initialTab={currentTab}>
+                <button className={`${styles.buttonOrange}`}>Editar dados</button>
+              </EditUserDataModal>
 
-      <div className={styles.tabContent}>
-        {secondTab === 1 && (
-          <>
-            <div className={styles.userImage}>
-              <FaUser size={78} color="#7588A2" />
-              <div className={styles.buttonAddImage}>
-                <BsFillCameraFill size={32} color="#F7F7F7" />
-              </div>
+              <EditPassword>
+                <button className={`${styles.buttonOrange} ${styles.outline}`}>Alterar senha</button>
+              </EditPassword>
             </div>
-            <div className={styles.userData}>
-              <div>
-                <p>Nome completo</p>
-                <span>Debora Barros</span>
-              </div>
-              <div>
-                <p>CRP</p>
-                <span>000 000 0</span>
-              </div>
-              <div>
-                <p>CPF</p>
-                <span>000.000.000 - 00</span>
-              </div>
-              <div>
-                <p>Endereco</p>
-                <span>R. Aureliano Guimarães, 172/150 - Conjunto 819 - 8 andar - Vila Andrade São Paulo - SP</span>
-              </div>
+          )}
+        </>
+      )}
+
+      {currentPage === 1 && (
+        <>
+          <div className={`${styles.informationHeader} ${styles.grid}`}>
+            <h2>Profissionais Cadastrados</h2>
+
+            <div className={styles.selectsContainer}>
+              <select className={styles.select}>
+                <option value="Cargos" selected>
+                  Cargo
+                </option>
+                <option value="Psicologo">Psicologo</option>
+                <option value="Psiquiatra">Psiquiatra</option>
+                <option value="Nutricionista">Nutricionista</option>
+                <option value="Atendente">Atendente</option>
+              </select>
+
+              <select className={styles.select}>
+                <option value="Ativos" selected>
+                  Perfis ativos
+                </option>
+                <option value="Inativos">Perfis inativos</option>
+              </select>
             </div>
-            <div className={styles.userData}>
-              <div>
-                <p>Data de nascimento</p>
-                <span>00/00/00</span>
-              </div>
-              <div>
-                <p>Email</p>
-                <span>nome-contato@email.com</span>
-              </div>
-              <div>
-                <p>Telefone</p>
-                <span>+55 (11) 99999 999</span>
-              </div>
-            </div>
-          </>
-        )}
-        {secondTab === 2 && (
-          <>
-            <div className={styles.userData}>
-              <div>
-                <p>Cargo</p>
-                <span>Psicologo</span>
-              </div>
-              <div>
-                <p>Email</p>
-                <span>nome-contato@email.com</span>
-              </div>
-              <div>
-                <p>Abordagens utilizadas</p>
-                <div>
-                  <input type="checkbox" name="teste" id="" />
-                  <span> Terapia Cognitiva Comportamental</span>
-                </div>
-                <div>
-                  <input type="checkbox" name="teste" id="" />
-                  <span> Terapia Cognitiva Comportamental</span>
-                </div>
-                <div>
-                  <input type="checkbox" name="teste" id="" />
-                  <span> Terapia Cognitiva Comportamental</span>
-                </div>
-              </div>
-              <div>
-                <p>Adicionar curriculo</p>
-                <div className={styles.uploadContainer}>
-                  <button>Upload</button>
-                  <span>Arraste e solte arquivos aqui</span>
-                </div>
-              </div>
-            </div>
-            <div className={styles.userData}>
-              <div>
-                <p>Convenios</p>
-                <div>
-                  <input type="checkbox" name="teste" id="" />
-                  <span>Nome de convênio</span>
-                </div>
-                <div>
-                  <input type="checkbox" name="teste" id="" />
-                  <span>Nome de convênio</span>
-                </div>
-                <div>
-                  <input type="checkbox" name="teste" id="" />
-                  <span>Nome de convênio</span>
-                </div>
-              </div>
-              <div>
-                <p>Dados bancarios</p>
-                <div>
-                  <p>Codigo Pix</p>
-                </div>
-                <div>
-                  <p>Conta bancaria</p>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-        {secondTab === 3 && (
-          <>
-            <div className={styles.userData}>
-              <p>Permitir acesso padrao ao sistema</p>
-              <p>Permitir acesso padrao ao sistema</p>
-              <p>Permitir acesso padrao ao sistema</p>
-              <div>
-                <p>Ativa desde de </p>
-                <span>00/00/00</span>
-              </div>
-            </div>
-            <div className={styles.userData}>
-              <div>
-                <p>Inativa desde de</p>
-                <span>00/00/00</span>
-              </div>
-            </div>
-          </>
-        )}
-        {secondTab === 4 && (
-          <div className={styles.userList}>
-            <div className={styles.userListData}>
-              <p>Nome do paciente</p>
-              <div className={styles.userContent}>
-                <span>Inciado em: 00/00/00</span>
-                <span>Consultas realizadas: 04</span>
-                <span>Faltas: 01</span>
-                <span>Consultas previstas: 10</span>
-                <div>
-                  <EditUserDataModal>
-                    <button>
-                      <RiPencilFill size={32} color="#273A51" />
-                    </button>
-                  </EditUserDataModal>
-                  <button>
-                    <AiFillCloseCircle size={32} color="#273A51" />
-                  </button>
-                </div>
-              </div>
-            </div>
+
+            <NewProfissinal>
+              <button className={`${styles.buttonOrange} ${styles.buttonNew}`}>Cadastrar profissinal</button>
+            </NewProfissinal>
           </div>
-        )}
-      </div>
+
+          <div className={styles.profinalContainer}>
+            {!showOneCard ? (
+              <>
+                <CardUser handleSelect={() => setShowOneCard(true)} />
+                <CardUser handleSelect={() => setShowOneCard(true)} />
+                <CardUser handleSelect={() => setShowOneCard(true)} />
+              </>
+            ) : (
+              <UserInfo tab={currentTab} setTab={(tabIndex) => setCurrentTab(tabIndex)} hiddenTitle />
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }

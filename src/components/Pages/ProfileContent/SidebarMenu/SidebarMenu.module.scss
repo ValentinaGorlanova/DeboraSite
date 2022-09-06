@@ -1,6 +1,5 @@
 .sidebarmenu {
   border: 1px solid transparent;
-  grid-area: sidebar;
   padding: 25px;
 
   display: flex;
@@ -8,6 +7,7 @@
   align-items: center;
 
   overflow: hidden;
+  z-index: 200;
 
   width: 80px;
   transition: 1s;
@@ -131,7 +131,23 @@
   display: none;
 }
 
-@media (max-width: 500px) {
+.headerMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .closeButton {
+    width: 35px;
+    height: 35px;
+
+    font-size: 30px;
+
+    background: none;
+    border: none;
+  }
+}
+
+@media (max-width: 425px) {
   .sidebarmenu {
     // border: 1px solid red;
     width: 100%;
@@ -149,8 +165,10 @@
 
   .sidebarmenuMobile {
     display: block;
-    grid-area: sidebar;
     // border: 1px solid red;
+    z-index: 190;
+    bottom: 0;
+
     width: 100%;
     height: 84px;
     padding: 16px 32px;
@@ -160,7 +178,7 @@
     // display: flex;
     // align-items: center;
 
-    position: relative;
+    position: fixed;
 
     ul {
       height: 100%;
@@ -221,58 +239,93 @@
           }
         }
       }
+    }
+  }
+}
 
-      .subMenuDropDown {
-        position: absolute;
-        z-index: 1;
-        top: -340px;
-        left: 1px;
-        width: 221px;
-        min-height: 310px;
-        background: #f7f7f7;
-        box-shadow: -2px -2px 4px rgba(113, 173, 173, 0.11), -4px -4px 32px rgba(198, 216, 216, 0.5);
-        border-radius: 12px 12px 0px 0px;
-        padding: 26px;
-        gap: 16px;
+.buttonMenu {
+  display: none;
 
-        font-family: "Barlow", sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 28px;
-        color: #1e1e1e;
+  position: absolute;
+  z-index: 10;
+  top: 40px;
+  left: 20px;
 
-        a {
-          li {
-            display: flex;
-            flex-direction: row;
-            gap: 8px;
-          }
+  width: 35px;
+  height: 35px;
+  background: none;
+  border: none;
 
-          cursor: pointer;
+  font-size: 30px;
+}
 
-          &:first-child {
-            display: none;
-          }
+.subMenuDropDown {
+  position: absolute;
+  z-index: 15;
+  top: -100%;
+  left: 1px;
+  width: 221px;
+  min-height: 383px;
+  background: #f7f7f7;
+  box-shadow: -2px -2px 4px rgba(113, 173, 173, 0.11), -4px -4px 32px rgba(198, 216, 216, 0.5);
+  border-radius: 12px 12px 0px 0px;
+  padding: 26px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
 
-          &:hover {
-            background: red;
-          }
+  transition: 400ms;
+  opacity: 0.5;
 
-          span {
-            svg {
-              width: 20px;
-              height: 20px;
-            }
-          }
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1e1e1e;
+
+  &.show {
+    top: 0;
+    opacity: 1;
+  }
+
+  a {
+    li {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+
+    cursor: pointer;
+
+    &:first-child {
+      display: none;
+    }
+
+    &:hover {
+      background: red;
+    }
+
+    span {
+      svg {
+        width: 20px;
+        height: 20px;
+
+        path {
+          fill: #e7975d;
+          opacity: 0.5;
         }
       }
     }
   }
 }
 
-@media (min-width: 501px) and (max-width: 1023px) {
+@media (min-width: 426px) and (max-width: 1023px) {
   .sidebarmenu {
     display: none;
+  }
+
+  .buttonMenu {
+    display: block;
   }
 }

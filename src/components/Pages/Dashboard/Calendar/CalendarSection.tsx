@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { useState } from "react";
 // import Calendar from "react-calendar";
-import { AiFillClockCircle } from "react-icons/ai";
+
 import { FaBell } from "react-icons/fa";
-import { FiChevronDown, FiChevronRight } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 import { RiCloseFill } from "react-icons/ri";
 import { DropdownNotifications } from "../../DropdownMenu";
+
+import CalendarWithQuery from "../../CalendarWithQuery";
 
 // import { Calendar } from "react-widgets/cjs";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
@@ -51,45 +53,11 @@ export function CalendarSection() {
       <div className={styles.showCalendar}>
         <h1>Veja seu calendário</h1> <a href="/admin/calendar">Ir para agenda</a>
       </div>
-      <div className={styles.calendarContainer}>{/* <Calendar className={styles.calendar} value={date} onChange={setDate} /> */}</div>
-      {/* Next consultations */}
-      <div className={styles.containerNextConsultations}>
-        <h1>Próximas consultas</h1>
 
-        <div className={styles.nextConsultations}>
-          <div className={styles.left}>
-            <p className={styles.day}>dia</p>
-            <div className={styles.number}>1</div>
-          </div>
-          <div className={styles.rigth}>
-            <p className={styles.title}>Consulta</p>
-            <p className={styles.name}>Felipe Araújo</p>
-            <p className={styles.icon}>
-              <AiFillClockCircle /> 13h15
-            </p>
-            <p className={styles.total}>
-              1 de 5 <FiChevronRight />
-            </p>
-          </div>
-        </div>
-
-        <div className={styles.nextConsultations}>
-          <div className={styles.left}>
-            <p className={styles.day}>dia</p>
-            <div className={styles.number}>1</div>
-          </div>
-          <div className={styles.rigth}>
-            <p className={styles.title}>Consulta</p>
-            <p className={styles.name}>Felipe Araújo</p>
-            <p className={styles.icon}>
-              <AiFillClockCircle /> 13h15
-            </p>
-            <p className={styles.total}>
-              1 de 5 <FiChevronRight />
-            </p>
-          </div>
-        </div>
+      <div className={styles.hidden}>
+        <CalendarWithQuery />
       </div>
+
       {/* Menu Tablet */}
       <button className={styles.buttonMenu} onClick={handleClick}>
         <img src="/toggle.svg" alt="aa" />

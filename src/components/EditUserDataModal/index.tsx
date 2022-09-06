@@ -1,75 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { ReactNode, useState } from "react";
-import { styled, keyframes } from "@stitches/react";
-import { violet, blackA } from "@radix-ui/colors";
+import { styled } from "@stitches/react";
+import { violet } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
 
-const overlayShow = keyframes({
-  "0%": { opacity: 0 },
-  "100%": { opacity: 1 },
-});
+import DropFile from "../DropFile";
 
-const contentShow = keyframes({
-  "0%": { opacity: 0, transform: "translate(-50%, -48%) scale(.96)" },
-  "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
-});
-
-const StyledOverlay = styled(DialogPrimitive.Overlay, {
-  backgroundColor: blackA.blackA9,
-  position: "fixed",
-  inset: 0,
-  "@media (prefers-reduced-motion: no-preference)": {
-    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
-  },
-});
-
-const StyledContent = styled(DialogPrimitive.Content, {
-  backgroundColor: "white",
-  borderRadius: "12px",
-  boxShadow: "hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px",
-  position: "fixed",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "100%",
-  maxWidth: "640px",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: 25,
-  "@media (prefers-reduced-motion: no-preference)": {
-    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
-  },
-  "&:focus": { outline: "none" },
-});
-
-function Content({ children, ...props }: any) {
-  return (
-    <DialogPrimitive.Portal>
-      <StyledOverlay />
-      <StyledContent {...props}>{children}</StyledContent>
-    </DialogPrimitive.Portal>
-  );
-}
-
-const StyledTitle = styled(DialogPrimitive.Title, {
-  margin: 0,
-  fontFamily: "Barlow",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "32px",
-  lineHeight: "40px",
-  color: "#1E1E1E",
-});
-
-// Exports
-export const Dialog = DialogPrimitive.Root;
-export const DialogTrigger = DialogPrimitive.Trigger;
-export const DialogContent = Content;
-export const DialogTitle = StyledTitle;
-
-export const DialogClose = DialogPrimitive.Close;
+import { Dialog, DialogTitle, DialogTrigger, DialogClose, DialogContent } from "../Modal";
+import CheckButton from "../CheckButton";
 
 // Your app...
 const Flex = styled("div", { display: "flex" });
@@ -138,16 +76,15 @@ const Label = styled("label", {
   fontFamily: "Barlow",
   fontStyle: "normal",
   fontWeight: "500",
-  fontSize: "20px",
+  fontSize: "18px",
   lineHeight: "28px",
   color: "#1E1E1E",
 });
 
 const Input = styled("input", {
   all: "unset",
-  width: "100%",
+  width: "90%",
   maxWidth: "291px",
-  flex: "1",
   padding: "12px",
   gap: "5px",
   background: "#F7F7F7",
@@ -157,17 +94,22 @@ const Input = styled("input", {
   fontFamily: "Barlow",
   fontStyle: "normal",
   fontWeight: "600",
-  fontSize: "20px",
+  fontSize: "18px",
   lineHeight: "26px",
   color: "#B5B5B5",
 
   "&::placeholder": {
     opacity: "0.7",
   },
+
+  "@media (max-width: 620px)": {
+    maxWidth: "455px",
+  },
 });
 
 interface ModalDataProps {
   children: ReactNode;
+  initialTab: number;
 }
 
 const InputWrapper = styled("div", {
@@ -176,28 +118,37 @@ const InputWrapper = styled("div", {
   justifyContent: "space-between",
   margin: "15px 0",
   width: "100%",
+
+  "@media (max-width: 620px)": {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
 });
 
 const TabsContainer = styled("div", {
   width: "100%",
   display: "flex",
+  justifyContent: "space-between",
   marginTop: "24px",
   marginBottom: "42px",
   borderBottom: "1px solid #D4D4D4",
+
+  overflowX: "auto",
 });
 
 const SelectTabButton = styled("button", {
   display: "flex",
   alignItems: "center",
+  justifyContent: "center",
   textAlign: "center",
   fontFamily: "Barlow",
-  marginRight: "10px",
   fontStyle: "normal",
   fontWeight: "500",
   fontSize: "24px",
   lineHeight: "28px",
   background: "transparent",
   border: "none",
+  minWidth: "150px",
 
   cursor: "pointer",
   paddingBottom: "5px",
@@ -213,6 +164,10 @@ const SelectTabButton = styled("button", {
         opacity: "0.5",
       },
     },
+  },
+
+  "@media (max-width: 768px)": {
+    fontSize: "18px",
   },
 });
 
@@ -234,7 +189,6 @@ const CheckboxLabel = styled("span", {
   lineHeight: "28px",
   display: "flex",
   alignItems: "center",
-  textAlign: "center",
 
   color: "#000000",
 });
@@ -274,67 +228,85 @@ const AccountDetailsWrapper = styled("div", {
   },
 });
 
-const UploadsContainer = styled("div", {
-  width: "343px",
-  minHeight: "121px",
-  border: "1px dashed #273a51",
-  padding: "16px 22px",
+const RowForm = styled("div", {
   display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  button: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "8px 16px",
-    gap: "10px",
-    width: "70px",
-    height: "33px",
-    border: "2px solid #e7975d",
-    borderRadius: "8px",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: '"Barlow"',
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "14px",
-    lineHeight: "17px",
-    color: "#e7975d",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  margin: "10px 0",
+
+  fontFamily: "Barlow",
+  fontStyle: "normal",
+
+  variants: {
+    variant: {
+      row: {
+        "@media (min-width: 425px)": {
+          flexDirection: "row",
+          justifyContent: "space-between",
+        },
+      },
+    },
   },
 
-  span: {
-    fontFamily: '"Barlow"',
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "14px",
-    lineHeight: "17px",
-    color: "#b5b5b5",
+  "@media (min-width: 600px)": {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  div: {
+    width: "100%",
+  },
+
+  p: {
+    fontWeight: "400",
+    fontSize: "18px",
+    marginBottom: "10px",
+  },
+
+  h3: {
+    fontSize: "18px",
+    marginBottom: "10px",
+  },
+
+  input: {
+    fontSize: "16px",
+    outline: "none",
+
+    background: "#f7f7f7",
+    padding: "12px",
+
+    border: "1px solid #273a51",
+    borderRadius: "12px",
+  },
+
+  "input[type='number']": {
+    width: "80px",
   },
 });
 
-export function EditUserDataModal({ children }: ModalDataProps) {
-  const [activeTab, setActiveTab] = useState(2);
+export function EditUserDataModal({ children, initialTab }: ModalDataProps) {
+  const [activeTab, setActiveTab] = useState(initialTab);
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogTitle>Editar dados</DialogTitle>
         <TabsContainer>
-          <SelectTabButton variant={activeTab === 1 ? "active" : "ghost"} onClick={() => setActiveTab(1)}>
+          <SelectTabButton variant={activeTab === 0 ? "active" : "ghost"} onClick={() => setActiveTab(0)}>
             Dados principais
           </SelectTabButton>
-          <SelectTabButton variant={activeTab === 2 ? "active" : "ghost"} onClick={() => setActiveTab(2)}>
+          <SelectTabButton variant={activeTab === 1 ? "active" : "ghost"} onClick={() => setActiveTab(1)}>
             Serviços
           </SelectTabButton>
-          <SelectTabButton variant={activeTab === 3 ? "active" : "ghost"} onClick={() => setActiveTab(3)}>
+          <SelectTabButton variant={activeTab === 2 ? "active" : "ghost"} onClick={() => setActiveTab(2)}>
             Sistema
           </SelectTabButton>
-          <SelectTabButton variant={activeTab === 4 ? "active" : "ghost"} onClick={() => setActiveTab(4)}>
+          <SelectTabButton variant={activeTab === 3 ? "active" : "ghost"} onClick={() => setActiveTab(3)}>
             Pacientes
           </SelectTabButton>
         </TabsContainer>
 
-        {activeTab === 1 && (
+        {activeTab === 0 && (
           <>
             <InputWrapper>
               <Label htmlFor="name">Nome completo</Label>
@@ -363,7 +335,7 @@ export function EditUserDataModal({ children }: ModalDataProps) {
           </>
         )}
 
-        {activeTab === 2 && (
+        {activeTab === 1 && (
           <>
             <InputWrapper>
               <Label htmlFor="role">Cargo</Label>
@@ -386,16 +358,98 @@ export function EditUserDataModal({ children }: ModalDataProps) {
             </LabelAndCheckboxContainer>
             <UploadContainerWrapper>
               <Label htmlFor="checkbox">Adicionar curriculo</Label>
-              <UploadsContainer>
-                <button>Upload</button>
-                <span>Arraste e solte arquivos aqui</span>
-              </UploadsContainer>
+              <DropFile onDropFile={(file) => file} />
             </UploadContainerWrapper>
             <AccountDetailsWrapper>
               <Label htmlFor="checkbox">Dados bancarios</Label>
               <p>Codigo Pix</p>
               <p>Conta bancaria</p>
             </AccountDetailsWrapper>
+          </>
+        )}
+
+        {activeTab === 2 && (
+          <>
+            <RowForm>
+              <p>Permitir acesso padrão ao sistema</p>
+              <CheckButton checked={false} onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Permitir acesso apenas ao calendário de agendamentos</p>
+              <CheckButton checked onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Permitir acesso apenas ao calendário de agendamentos</p>
+              <CheckButton checked={false} onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Permitir acesso apenas ao calendário de agendamentos</p>
+              <CheckButton checked onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm>
+              <p>Desativar conta</p>
+              <CheckButton checked={false} onChange={() => ({})} />
+            </RowForm>
+
+            <RowForm variant="row">
+              <div>
+                <h3>Ativa desde de</h3>
+                <p>00/00/00</p>
+              </div>
+
+              <div>
+                <h3>Inativa desde de</h3>
+                <p>00/00/00</p>
+              </div>
+            </RowForm>
+          </>
+        )}
+
+        {activeTab === 3 && (
+          <>
+            <RowForm>
+              <div>
+                <h3>Iniciado em:</h3>
+              </div>
+
+              <div>
+                <input type="date" placeholder="00/00/00" />
+              </div>
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Consultas realizadas:</h3>
+              </div>
+
+              <div>
+                <input type="number" placeholder="00" />
+              </div>
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Faltas:</h3>
+              </div>
+
+              <div>
+                <input type="number" placeholder="00" />
+              </div>
+            </RowForm>
+
+            <RowForm>
+              <div>
+                <h3>Consultas previstas</h3>
+              </div>
+
+              <div>
+                <input type="number" placeholder="00" />
+              </div>
+            </RowForm>
           </>
         )}
 

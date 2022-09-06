@@ -1,9 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+
+import { writeValues, getValues } from "@/utils/LocalStorage";
 
 interface TimeType {
   start: string;
   end: string;
   interval: string;
+  sectionTime: string;
 }
 
 interface ConfigContextType {
@@ -14,6 +17,7 @@ interface ConfigContextType {
   setTimeStart: (value: string) => void;
   setTimeEnd: (value: string) => void;
   setTimeInterval: (value: string) => void;
+  setSectionTime: (value: string) => void;
 }
 
 const defaultConfigContent: ConfigContextType = {
@@ -22,6 +26,7 @@ const defaultConfigContent: ConfigContextType = {
     start: "00:00",
     end: "00:00",
     interval: "30",
+    sectionTime: "50",
   },
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -32,6 +37,8 @@ const defaultConfigContent: ConfigContextType = {
   setTimeEnd: (value: string) => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setTimeInterval: (value: string) => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setSectionTime: (value: string) => {},
 };
 
 const ConfigContext = createContext<ConfigContextType>(defaultConfigContent);
@@ -50,6 +57,7 @@ export function ConfigContextProvider({ children }: PropsType) {
     start: "07:00",
     end: "17:00",
     interval: "60",
+    sectionTime: "50",
   });
 
   function setShowQueryStatusContext(value: boolean) {
@@ -77,6 +85,13 @@ export function ConfigContextProvider({ children }: PropsType) {
     });
   }
 
+  function setSectionTime(value: string) {
+    setTime({
+      ...time,
+      sectionTime: value,
+    });
+  }
+
   // eslint-disable-next-line react/jsx-no-constructed-context-values
   const providerContext = {
     showQueryStatus,
@@ -85,7 +100,25 @@ export function ConfigContextProvider({ children }: PropsType) {
     setTimeStart,
     setTimeEnd,
     setTimeInterval,
+    setSectionTime,
   };
+
+  useEffect(() => {
+    const config = getValues();
+    if (!config) return;
+
+    setShowQueryStatus(config.showQueryStatus);
+    setTime(config.time);
+  }, []);
+
+  useEffect(() => {
+    const config = {
+      showQueryStatus,
+      time,
+    };
+
+    writeValues(config);
+  }, [showQueryStatus, time]);
 
   return <ConfigContext.Provider value={providerContext}>{children}</ConfigContext.Provider>;
 }

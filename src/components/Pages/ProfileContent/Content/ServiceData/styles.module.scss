@@ -1,0 +1,44 @@
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 20px;
+
+  .row50 {
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+
+  margin: 12px 0;
+
+  color: #1e1e1e;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 10px 0;
+
+  color: #1e1e1e;
+
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+}
+
+@media (min-width: 560px) {
+  .row {
+    flex-direction: row;
+
+    .row50 {
+      width: 50%;
+    }
+  }
+}

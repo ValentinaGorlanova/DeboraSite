@@ -2,7 +2,7 @@
   position: fixed;
 
   display: none;
-  z-index: 210;
+  z-index: 200;
 
   top: 0;
   left: 0;
@@ -290,6 +290,38 @@
   .align {
     max-width: 150px;
   }
+}
+
+.message {
+  width: 100%;
+  padding: 10px;
+  color: #1e1e1e;
+
+  h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}
+
+.backButton {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  font-size: 20px;
+
+  cursor: pointer;
+  color: rgb(231, 151, 93);
 }
 
 @media (max-width: 490px) {

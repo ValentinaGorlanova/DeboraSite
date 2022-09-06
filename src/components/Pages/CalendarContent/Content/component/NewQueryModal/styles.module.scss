@@ -27,7 +27,7 @@
 .bgModal {
   position: fixed;
 
-  z-index: 210;
+  z-index: 200;
   display: none;
 
   top: 0;
@@ -162,6 +162,7 @@
     font-family: "Barlow";
     font-style: normal;
     font-weight: 700;
+    cursor: pointer;
 
     color: #273a51;
     text-decoration: underline;
@@ -172,15 +173,30 @@
 
 .row {
   display: flex;
+}
 
-  .label {
-    font-size: 14px;
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 16px;
     color: #1e1e1e;
-    margin-right: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.label {
+  font-size: 16px;
+  color: #1e1e1e;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .select {

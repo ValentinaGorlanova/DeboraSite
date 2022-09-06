@@ -15,6 +15,7 @@ export function ConsultationForm() {
       name: yup.string().required("Nome completo é obrigatório!"),
       phone: yup.string().required("Telefone é obrigatório!"),
       date: yup.string().required("A data não pode ser nula!"),
+      message: yup.string().required("Escreva uma messagem"),
     })
     .required();
 
@@ -88,28 +89,27 @@ export function ConsultationForm() {
       outros: userData.outros ? "Outros. " : "",
     };
     const dateObj = new Date();
-    const month = dateObj.getUTCMonth() + 1; // months from 1-12
-    const day = dateObj.getUTCDate();
-    const year = dateObj.getUTCFullYear();
+    const userDateSplit = userData.date.split("-");
+    const userDateObj = new Date(Number(userDateSplit[0]), Number(userDateSplit[1]) - 1, Number(userDateSplit[2]));
 
-    // eslint-disable-next-line no-useless-concat
-    const newdate = `${year}-` + `0${month}-${day}`;
-
-    if (userData.date === "" || userData.date < newdate) {
-      toast.error("Ops 🙁 você não pode agendar uma data anterior a data atual", {
+    if (userData.date === "" || userDateObj < dateObj) {
+      toast.error("Ops! você não pode agendar uma data anterior a data atual", {
         id: notificationToast,
       });
 
       return;
     }
+
     try {
-      await emailjs.send("service_urdc93a", "template_5508rde", emailValues, "Mt2AxHRWUcrBKijst");
+      const response = await emailjs.send("service_urdc93a", "template_5508rde", emailValues, "Mt2AxHRWUcrBKijst");
+
+      console.log(response);
       toast.success("Email enviado com sucesso", {
         id: notificationToast,
       });
     } catch (e) {
       console.log(e);
-      toast.error("Ops 🙁 por algum motivo não conseguimos enviar sua mensagem, por favor tente novamente mais tarde", {
+      toast.error("Ops! por algum motivo não conseguimos enviar sua mensagem, por favor tente novamente mais tarde", {
         id: notificationToast,
       });
     }
@@ -167,7 +167,7 @@ export function ConsultationForm() {
 
           <label className={styles.message}>
             Mensagem:
-            <textarea placeholder="Ex: Sua mensagem aqui..." {...register("message")} />
+            <textarea placeholder="Ex: Sua mensagem aqui..." {...register("message", { required: true })} />
           </label>
 
           <div className={styles.consult}>

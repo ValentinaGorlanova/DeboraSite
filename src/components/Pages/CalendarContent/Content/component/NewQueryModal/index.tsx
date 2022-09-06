@@ -8,25 +8,35 @@ import styles from "./styles.module.scss";
 
 interface ModalProp {
   show: boolean;
+  date: Date;
   onClose: () => void;
 }
 
-export default function NewQueryModal({ show, onClose }: ModalProp) {
+export default function NewQueryModal({ show, date, onClose }: ModalProp) {
   const [showNewPatient, setShowNewPatient] = useState(false);
 
   function handleChangeForm() {
     setShowNewPatient(!showNewPatient);
   }
 
+  function handleCloseModal() {
+    setShowNewPatient(false);
+    onClose();
+  }
+
   return (
     <div className={`${styles.bgModal} ${show ? styles.show : ""}`}>
       <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={() => onClose()}>
+        <button className={styles.closeButton} onClick={handleCloseModal}>
           <Cross2Icon />
         </button>
 
         <form action="#" className={styles.form}>
-          {showNewPatient ? <NewPatientForm onBack={() => handleChangeForm()} /> : <NewQueryForm onShowNewPacient={() => handleChangeForm()} />}
+          {showNewPatient ? (
+            <NewPatientForm onBack={() => handleChangeForm()} />
+          ) : (
+            <NewQueryForm date={date} onShowNewPacient={() => handleChangeForm()} />
+          )}
         </form>
       </div>
     </div>

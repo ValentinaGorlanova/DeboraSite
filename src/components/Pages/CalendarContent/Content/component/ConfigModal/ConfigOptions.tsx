@@ -9,7 +9,7 @@ interface ConfigProps {
 }
 
 export default function ConfigOptions({ onClickButton }: ConfigProps) {
-  const { showQueryStatus, setShowQueryStatus, time, setTimeStart, setTimeEnd, setTimeInterval } = useConfigContext();
+  const { showQueryStatus, setShowQueryStatus, time, setTimeStart, setTimeEnd, setTimeInterval, setSectionTime } = useConfigContext();
   const [checkBoxPayment, setCheckBoxPayment] = useState(false);
 
   function handleCheckBoxStatus() {
@@ -33,6 +33,11 @@ export default function ConfigOptions({ onClickButton }: ConfigProps) {
   function handleSelectInterval(element: ChangeEvent<HTMLSelectElement>) {
     const inputElement = element.target as HTMLSelectElement;
     setTimeInterval(inputElement.value);
+  }
+
+  function handleChangeSectionTime(element: ChangeEvent<HTMLSelectElement>) {
+    const selectElement = element.target as HTMLSelectElement;
+    setSectionTime(selectElement.value);
   }
 
   return (
@@ -85,8 +90,12 @@ export default function ConfigOptions({ onClickButton }: ConfigProps) {
         </div>
 
         <div className={styles.align}>
-          <select name="time-section">
-            <option value="50">50 min</option>
+          <select name="time-section" onChange={handleChangeSectionTime}>
+            <option value="30">30 min</option>
+            <option value="50" selected>
+              50 min
+            </option>
+            <option value="60">60 min</option>
           </select>
         </div>
       </div>

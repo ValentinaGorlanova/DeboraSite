@@ -4,6 +4,14 @@ interface DayType {
   grayColor: boolean;
 }
 
+export interface WeekDayType {
+  key: number;
+  dayNumber: number;
+  grayColor: boolean;
+  nextMonth: boolean;
+  oldMonth: boolean;
+}
+
 const numberMaxDayOfMonth = [
   31, // JANEIRO
   29, // FEVEREIRO
@@ -57,7 +65,7 @@ export function getDaysOfMonth(date: Date): Array<DayType> {
   return result;
 }
 
-export function getWeek(date: Date): Array<number> {
+export function getWeek(date: Date) {
   const week = date.toLocaleDateString("pt-BR", { weekday: "long" });
   const indexWeek = nameDayWeek.findIndex((find) => find === week);
 
@@ -65,7 +73,14 @@ export function getWeek(date: Date): Array<number> {
 
   for (let i = 0 - indexWeek; i < 7 - indexWeek; i += 1) {
     const tempDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() + i);
-    result.push(tempDate.getDate());
+
+    result.push({
+      key: i,
+      dayNumber: tempDate.getDate(),
+      grayColor: tempDate.getMonth() < date.getMonth() || tempDate.getMonth() > date.getMonth(),
+      nextMonth: tempDate.getMonth() > date.getMonth(),
+      oldMonth: tempDate.getMonth() < date.getMonth(),
+    });
   }
 
   return result;
@@ -73,18 +88,18 @@ export function getWeek(date: Date): Array<number> {
 
 export function getMonthList(date: Date) {
   const nameMonth = [
-    { name: "jan.", activate: false },
-    { name: "fev.", activate: false },
-    { name: "mar.", activate: false },
-    { name: "abr.", activate: false },
-    { name: "mai.", activate: false },
-    { name: "jun.", activate: false },
-    { name: "jul.", activate: false },
-    { name: "ago.", activate: false },
-    { name: "set.", activate: false },
-    { name: "out.", activate: false },
-    { name: "nov.", activate: false },
-    { name: "dez.", activate: false },
+    { name: "jan.", activate: false, number: 0 },
+    { name: "fev.", activate: false, number: 1 },
+    { name: "mar.", activate: false, number: 2 },
+    { name: "abr.", activate: false, number: 3 },
+    { name: "mai.", activate: false, number: 4 },
+    { name: "jun.", activate: false, number: 5 },
+    { name: "jul.", activate: false, number: 6 },
+    { name: "ago.", activate: false, number: 7 },
+    { name: "set.", activate: false, number: 8 },
+    { name: "out.", activate: false, number: 9 },
+    { name: "nov.", activate: false, number: 10 },
+    { name: "dez.", activate: false, number: 11 },
   ];
 
   const month = date.toLocaleDateString("pt-BR", { month: "short" });
@@ -113,4 +128,26 @@ export function getHourOfDay(start: string, end: string, interval: string) {
   }
 
   return result;
+}
+
+export function calcTimeSection(hourInit: string, interval: string): string {
+  const splitHour = hourInit.split(":");
+
+  const hour = Number(splitHour[0]);
+  const minutes = Number(splitHour[1]) + Number(interval);
+
+  const date = new Date(0, 0, 0, hour, minutes).toLocaleTimeString("pt-BR").split(":");
+  return `${date[0]}:${date[1]}`;
+}
+
+export function convertDate(date: string | undefined): string {
+  if (!date) return "";
+
+  const splitDate = date.split("/");
+  const newDate = new Date(Number(splitDate[2]), Number(splitDate[1]) - 1, Number(splitDate[0]));
+
+  const nameWeekDay = newDate.toLocaleDateString("pt-BR", { weekday: "long" });
+  const monthName = newDate.toLocaleDateString("pt-BR", { month: "long" });
+
+  return `${nameWeekDay}, ${splitDate[0]} ${monthName} ${splitDate[2]}`;
 }
