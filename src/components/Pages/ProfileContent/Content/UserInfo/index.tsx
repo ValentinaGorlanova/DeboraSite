@@ -62,13 +62,13 @@ export default function UserInfo({ tab, hiddenTitle, setTab }: UserInfoProp) {
   const buttonsSecond = [
     { text: "Principal", tab: 4 },
     { text: "Histórico pessoal", tab: 5 },
-    { text: "Informações revantes", tab: 6 },
+    { text: "Informações relevantes", tab: 6 },
   ];
 
   return (
     <>
       <div className={`${styles.informationHeader} ${hiddenTitle ? styles.informationHeaderWithButton : ""}`}>
-        {!hiddenTitle && <h2>Pessoa fisica</h2>}
+        {!hiddenTitle && <h2>Pessoa física</h2>}
 
         <div className={styles.buttonsContainer}>
           {!secondTab &&

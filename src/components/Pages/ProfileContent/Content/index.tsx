@@ -24,16 +24,22 @@ export function Content() {
 
   const [showOneCard, setShowOneCard] = useState(false);
 
+  function handleChangeTab(page: number) {
+    setCurrentPage(page);
+    setCurrentTab(0);
+    setShowOneCard(false);
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.buttonsSection}>
-        <button className={`${styles.buttonBlue} ${currentPage !== 0 ? styles.outline : ""}`} onClick={() => setCurrentPage(0)}>
+        <button className={`${styles.buttonBlue} ${currentPage !== 0 ? styles.outline : ""}`} onClick={() => handleChangeTab(0)}>
           <BsCalendarCheckFill />
           Perfil principal
         </button>
-        <button className={`${styles.buttonBlue} ${currentPage !== 1 ? styles.outline : ""}`} onClick={() => setCurrentPage(1)}>
+        <button className={`${styles.buttonBlue} ${currentPage !== 1 ? styles.outline : ""}`} onClick={() => handleChangeTab(1)}>
           <FaUserFriends />
-          Perfil de profissinal
+          Perfil de profissional
         </button>
       </div>
 
@@ -80,7 +86,7 @@ export function Content() {
             </div>
 
             <NewProfissinal>
-              <button className={`${styles.buttonOrange} ${styles.buttonNew}`}>Cadastrar profissinal</button>
+              <button className={`${styles.buttonOrange} ${styles.buttonNew}`}>Cadastrar profissional</button>
             </NewProfissinal>
           </div>
 

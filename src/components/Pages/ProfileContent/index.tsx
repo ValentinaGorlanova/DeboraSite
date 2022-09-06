@@ -1,17 +1,10 @@
-import { SidebarMenu } from "./SidebarMenu";
-import { CalendarSection } from "./Calendar/CalendarSection";
 import { Content } from "./Content";
-import styles from "./styles.module.scss";
+import Layout from "@/components/Layout";
 
 export function ProfileContent() {
   return (
-    <div className={styles.dashboard}>
-      <SidebarMenu />
-
-      <div className={styles.rightContainer}>
-        <Content />
-        <CalendarSection />
-      </div>
-    </div>
+    <Layout>
+      <Content />
+    </Layout>
   );
 }
