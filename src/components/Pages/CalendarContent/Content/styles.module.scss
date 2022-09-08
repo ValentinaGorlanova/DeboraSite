@@ -52,7 +52,7 @@
     border: none;
     cursor: pointer;
     padding: 12px 14px;
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -61,23 +61,24 @@
   }
 
   .filled {
-    background: #273a51;
-    border: 1px solid #273a51;
-    color: #f7f7f7;
+    background: $blue-color;
+    border: 1px solid $blue-color;
+    color: $white-color;
     gap: 5px;
 
     svg path {
-      fill: #f7f7f7;
+      fill: $white-color;
     }
   }
 
   .outline {
-    border: 2px solid #273a51;
-    color: #273a51;
     gap: 5px;
 
+    color: $blue-color;
+    border: 2px solid $blue-color;
+
     svg path {
-      fill: #273a51;
+      fill: $blue-color;
     }
   }
 
@@ -85,9 +86,10 @@
     width: 248px;
     height: 44px;
     padding: 8px 12px;
-    background: #f7f7f7;
-    border: 1px solid #273a51;
     border-radius: 12px;
+
+    background: $white-color;
+    border: 1px solid $blue-color;
   }
 }
 .MobileSelects {
@@ -97,13 +99,15 @@
   justify-content: flex-end;
   margin-top: 88px;
   margin-bottom: 40px;
+
   select {
     width: 248px;
     height: 44px;
     padding: 8px 12px;
-    background: #f7f7f7;
-    border: 1px solid #273a51;
     border-radius: 12px;
+
+    background: $white-color;
+    border: 1px solid $blue-color;
   }
 }
 .buttons {
@@ -137,15 +141,16 @@
     padding: 12px;
     max-width: 250px;
     min-height: 52px;
-    background: #273a51;
-    border: 1px solid #273a51;
     border-radius: 12px;
     cursor: pointer;
 
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-size: 15px;
-    color: #f7f7f7;
+
+    color: $white-color;
+    background: $blue-color;
+    border: 1px solid $blue-color;
   }
 }
 
@@ -156,16 +161,14 @@
   display: flex;
   flex-direction: column;
 
-  background: #ffffff;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  background: $white;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
 }
 
 .DaySectionsTitle {
   padding: 8px;
   gap: 8px;
-  background: #f2f2f2;
-  border-bottom: 1px solid #d4d4d4;
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -173,7 +176,10 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #1e1e1e;
+
+  color: text-black-color;
+  background: $white-primary-color;
+  border-bottom: 1px solid $white-second-color;
 }
 
 .MissingSections {
@@ -182,25 +188,25 @@
   align-items: center;
   padding: 24px 32px;
   p {
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 28px;
     display: flex;
     align-items: center;
-    color: #1e1e1e;
+    color: text-black-color;
   }
 
   p:nth-child(2) {
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 26px;
     display: flex;
     align-items: center;
-    color: #1e1e1e;
+    color: text-black-color;
   }
 }
 
@@ -224,17 +230,11 @@
 
 .SectionDate {
   height: 52px;
-
-  background: #f2f2f2;
   /* Neutras/cinza */
-
-  border-bottom: 1px solid #d4d4d4;
 
   padding: 8px;
   gap: 8px;
-  background: #f2f2f2;
-  border-bottom: 1px solid #d4d4d4;
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -242,8 +242,11 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #1e1e1e;
   margin-bottom: 12px;
+
+  color: $text-black-color;
+  background: $white-primary-color;
+  border-bottom: 1px solid $white-second-color;
 }
 
 .asideSelects {
@@ -327,28 +330,31 @@
 
 .ProfissionalSelect {
   margin-top: 40px;
+
   p {
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
+
     line-height: 28px;
-    color: #1e1e1e;
+    color: text-black-color;
   }
+
   select {
     width: 248px;
     height: 44px;
     padding: 8px 12px;
-    background: #f7f7f7;
-    border: 1px solid #273a51;
+    background: $white-color;
+    border: 1px solid $blue-color;
     border-radius: 12px;
 
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 26px;
-    color: #273a51;
+    color: $blue-color;
 
     margin-top: 30px;
   }

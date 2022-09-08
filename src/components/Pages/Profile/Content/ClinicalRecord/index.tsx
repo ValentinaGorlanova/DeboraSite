@@ -6,7 +6,7 @@ export default function ClinicalRecord() {
       <div className={styles.row}>
         <div>
           <h3 className={styles.title}>Nome completo</h3>
-          <p className={styles.description}>Debora Barros</p>
+          <p className={styles.description}>Débora Barros</p>
         </div>
 
         <div>
@@ -42,7 +42,7 @@ export default function ClinicalRecord() {
 
         <div>
           <h3 className={styles.title}>Principal motivo da consulta</h3>
-          <p className={styles.description}>Debora Barros</p>
+          <p className={styles.description}>Débora Barros</p>
         </div>
 
         <div>

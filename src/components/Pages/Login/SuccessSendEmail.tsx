@@ -11,7 +11,7 @@ export function SuccessSendEmail() {
 
       <div className={styles.content}>
         <h1>Email enviado</h1>
-        <p>Nosso email com as informacoes para redefinir senha foi enviado, cheque sua caixa de entrada!</p>
+        <p>Nosso email com as informacões para redefinir senha foi enviado, cheque sua caixa de entrada!</p>
         <img src="/imgSendEmail.png" alt="Figura de um envelope azul" />
       </div>
     </div>

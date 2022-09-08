@@ -7,7 +7,7 @@ import { FiChevronDown } from "react-icons/fi";
 // import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 // import "react-widgets/styles.css";
 import { menu } from "../SidebarMenu";
-import { DropdownNotifications } from "../../../Pages/DropdownMenu";
+import { DropdownNotifications } from "../../../DropdownMenu";
 import styles from "./Calendar.module.scss";
 // import "react-calendar/dist/Calendar.css";
 
