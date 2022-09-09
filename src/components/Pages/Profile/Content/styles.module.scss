@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
 
-  max-width: 300px;
+  max-width: 310px;
   width: 100%;
   color: #f7f7f7;
 
@@ -128,7 +128,7 @@
 @media (min-width: 769px) {
   .grid {
     grid-template-rows: 56px;
-    grid-template-columns: auto 280px 180px;
+    grid-template-columns: auto 280px 190px;
     grid-template-areas: "title selects buttom";
     gap: 10px;
   }
