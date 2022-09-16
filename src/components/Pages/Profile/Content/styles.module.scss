@@ -1,5 +1,5 @@
 .container {
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
 }
 
@@ -33,7 +33,7 @@
 
   max-width: 310px;
   width: 100%;
-  color: #f7f7f7;
+  color: $white-color;
 
   &.outline {
     background: none;
@@ -42,11 +42,11 @@
 }
 
 .buttonBlue {
-  @include button-style(#273a51);
+  @include button-style($blue-color);
 }
 
 .buttonOrange {
-  @include button-style(#e7975d);
+  @include button-style($orange-color);
 }
 
 .buttonNew {
@@ -60,9 +60,9 @@
   padding: 8px 12px;
 
   border-radius: 12px;
-  border: 1px solid #273a51;
+  border: 1px solid $blue-color;
   font-weight: 500;
-  color: #273a51;
+  color: $blue-color;
 
   margin: 10px 0;
 }
@@ -75,7 +75,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 40px;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 }
 

@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   height: 100vh;
-  background: #ffddc4;
+  background: $light-orange-color;
 
   display: flex;
   justify-content: center;
@@ -34,8 +34,8 @@
 .content {
   max-width: 592px;
   width: 100%;
-  background: #f7f7f7;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  background: $white-color;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
   border-radius: 24px;
   z-index: 1;
   padding: 50px 104px;
@@ -44,24 +44,24 @@
   align-items: center;
 
   h1 {
-    font-family: "Playfair Display", sans-serif;
+    font-family: $font-family-four;
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 40px;
-    color: #1e1e1e;
+    color: $text-black-color;
     text-align: center;
   }
 
   p {
     margin-top: 16px;
-    font-family: "Barlow", sans-serif;
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 28px;
     text-align: center;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 
   img {

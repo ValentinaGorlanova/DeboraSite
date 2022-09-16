@@ -2,10 +2,10 @@
   width: 100%;
   padding: 10px;
 
-  background: #f7f7f7;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  background: $white-color;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
 
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
 
   display: flex;
@@ -24,10 +24,10 @@
   }
 
   .showCurriculun {
-    color: #273a51;
+    color: $blue-color;
     border: none;
     font-weight: 500;
-    border-bottom: 1px solid #273a51;
+    border-bottom: 1px solid $blue-color;
     background: none;
   }
 }
@@ -48,8 +48,8 @@
   position: relative;
   font-size: 58px;
 
-  color: #7588a2;
-  background: #d4d4d4;
+  color: $light-blue-color2;
+  background: $white-second-color;
 
   .logoCamera {
     display: flex;
@@ -65,10 +65,10 @@
 
     font-size: 22px;
 
-    background: #9fb2ce;
+    background: $light-blue-color5;
     border-radius: 50%;
 
-    color: #f7f7f7;
+    color: $white-color;
   }
 }
 
@@ -84,13 +84,13 @@
     padding: 5px;
     width: 40px;
     height: 40px;
-    border: 1px solid #d4d4d4;
+    border: 1px solid $white-second-color;
     border-radius: 12px;
 
     font-size: 20px;
     margin-right: 5px;
 
-    color: #273a51;
+    color: $blue-color;
   }
 }
 

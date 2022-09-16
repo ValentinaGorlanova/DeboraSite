@@ -5,10 +5,10 @@
 
   border-radius: 11px;
 
-  background: #f7f7f7;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  background: $white-color;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
 
-  font-family: "IBM Plex Sans";
+  font-family: $font-family-second;
   font-style: normal;
 
   .headerCalendar {
@@ -32,7 +32,7 @@
       font-size: 16px;
       line-height: 24px;
 
-      color: #1e1e1e;
+      color: $text-black-color;
 
       &::first-letter {
         text-transform: uppercase;
@@ -69,8 +69,8 @@
 
       &.activeDay {
         border-radius: 50%;
-        background: #a76029;
-        color: #f7f7f7;
+        background: $orange-color2;
+        color: $white-color;
       }
     }
 

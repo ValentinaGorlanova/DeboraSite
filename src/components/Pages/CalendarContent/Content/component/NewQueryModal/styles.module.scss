@@ -7,7 +7,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #5746af;
+  color: $puper-color;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -17,10 +17,10 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #c3bce7;
+    background-color: $light-blue-color3;
   }
   &:focus {
-    box-shadow: 0 0 0 2px #5746af;
+    box-shadow: 0 0 0 2px $puper-color;
   }
 }
 
@@ -37,7 +37,7 @@
 
   overflow-y: auto;
 
-  background: rgba(166, 166, 166, 0.5);
+  background: $opacity-gray-color;
 }
 
 .show {
@@ -57,7 +57,7 @@
 .modal {
   max-width: 858px;
   width: 90%;
-  background: #f7f7f7;
+  background: $white-color;
 
   max-height: 90vh;
   overflow-y: auto;
@@ -67,7 +67,7 @@
   padding: 40px;
   border-radius: 12px;
 
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
 
   &::-webkit-scrollbar {
@@ -75,13 +75,13 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #d8d8d8;
+    background: $white-five-color;
     border-radius: 10px;
 
     transition: background 400ms;
 
     &:hover {
-      background: #e7975d;
+      background: $orange-color;
     }
   }
 
@@ -91,14 +91,14 @@
     font-weight: 500;
 
     line-height: 40px;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 
   .title {
     font-size: 18px;
     font-weight: 500;
     line-height: 26px;
-    color: #1e1e1e;
+    color: $text-black-color;
     opacity: 0.7;
 
     margin-bottom: 12px;
@@ -116,10 +116,10 @@
     width: 100%;
     height: 42px;
 
-    background: #f7f7f7;
+    background: $white-color;
     padding: 12px;
     border-radius: 12px;
-    border: 1px solid #273a51;
+    border: 1px solid $blue-color;
 
     &[type="time"] {
       padding: 4px 8px;
@@ -128,14 +128,14 @@
 
       width: 114px;
       height: 38px;
-      font-family: "Barlow";
+      font-family: $font-family-primary;
       font-style: normal;
       font-weight: 600;
       font-size: 14px;
       line-height: 26px;
-      color: #273a51;
-      background: #f7f7f7;
-      border: 1px solid #273a51;
+      color: $blue-color;
+      background: $white-color;
+      border: 1px solid $blue-color;
       border-radius: 12px;
     }
   }
@@ -146,25 +146,25 @@
 
     width: 190px;
     height: 38px;
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 26px;
-    color: #273a51;
-    background: #f7f7f7;
-    border: 1px solid #273a51;
+    color: $blue-color;
+    background: $white-color;
+    border: 1px solid $blue-color;
     border-radius: 12px;
   }
 
   button {
     font-size: 16px;
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 700;
     cursor: pointer;
 
-    color: #273a51;
+    color: $blue-color;
     text-decoration: underline;
     border: none;
     background: none;
@@ -182,7 +182,7 @@
 
   h3 {
     font-size: 16px;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 }
 
@@ -192,7 +192,7 @@
 
 .label {
   font-size: 16px;
-  color: #1e1e1e;
+  color: $text-black-color;
   margin-right: 16px;
   display: flex;
   align-items: center;
@@ -204,15 +204,15 @@
   width: 100%;
   height: 44px;
   padding: 8px 12px;
-  background: #f7f7f7;
-  border: 1px solid #273a51;
+  background: $white-color;
+  border: 1px solid $blue-color;
   border-radius: 12px;
 
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  color: #273a51;
+  color: $blue-color;
 }
 
 .buttonContainer {
@@ -224,14 +224,14 @@
     width: 128px;
     height: 33px;
 
-    background: #e7975d;
+    background: $orange-color;
     border-radius: 8px;
     font-size: 14px;
     line-height: 17px;
 
     border: none;
 
-    color: #f7f7f7;
+    color: $white-color;
   }
 }
 
@@ -265,7 +265,7 @@
   top: 10px;
   left: 10px;
 
-  color: #e7975d;
+  color: $orange-color;
 
   background: none;
   border: none;

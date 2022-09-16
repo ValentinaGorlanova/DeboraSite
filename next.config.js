@@ -13,7 +13,7 @@ const nextConfig = {
 
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
-    prependData: '@import "variables.scss";',
+    prependData: '@import "variables.scss"; @import "macros.scss";',
   },
 };
 

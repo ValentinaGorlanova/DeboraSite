@@ -4,10 +4,10 @@
   justify-content: center;
   flex-direction: column;
   padding: 24px 16px;
-  background: #f7f7f7;
+  background: $white-color;
   // max-width: 640px;
   width: 100%;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
   border-radius: 11px;
   margin-top: 32px;
 }
@@ -19,7 +19,7 @@
   justify-content: space-between;
 
   span {
-    font-family: "IBM Plex Sans";
+    font-family: $font-family-second;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -28,7 +28,7 @@
     align-items: center;
     text-align: center;
     letter-spacing: 0.12px;
-    color: #1e1e1e;
+    color: $text-black-color;
 
     text-transform: uppercase;
   }
@@ -60,12 +60,12 @@
   margin-top: 24px;
   width: 100%;
   display: flex;
-  border-top: 1px solid #d4d4d4;
+  border-top: 1px solid $white-second-color;
 }
 
 .Day {
   min-height: 67px;
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -74,7 +74,7 @@
   gap: 10px;
   position: relative;
   text-align: center;
-  color: #7588a2;
+  color: $light-blue-color2;
 }
 
 .dailyWrapper {
@@ -83,7 +83,7 @@
 
   width: 100%;
   padding: 2px 10px;
-  border-top: 2px solid #cde0fd;
+  border-top: 2px solid $light-blue-color;
   top: 20px;
   left: 55px;
   flex-wrap: wrap;
@@ -91,15 +91,15 @@
 }
 
 .weekGrayColor {
-  background: #d4d4d4;
+  background: $white-second-color;
 }
 
 .dailyCard {
   max-width: 143px;
   height: min-content;
   max-height: 67px;
-  background: #cde0fd;
-  border-left: 3px solid #5ed104;
+  background: $light-blue-color;
+  border-left: 3px solid $green-color;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@
 
   pointer-events: all;
 
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 700;
   line-height: 14px;
@@ -125,7 +125,7 @@
 
   /* Secundaria/900 */
 
-  color: #273a51;
+  color: $blue-color;
 }
 
 .monthContainer {
@@ -142,7 +142,7 @@
 .emptyLine {
   height: 55px;
   width: 100%;
-  background: #000;
+  background: $black-color;
 }
 
 .monthDay {
@@ -154,12 +154,12 @@
 
   border-width: 1px 1px 1px 0;
   border-style: solid;
-  border-color: #e8e8e8;
+  border-color: $white-quart-color;
 }
 
 .grayColor {
   font-weight: 600;
-  color: #d4d4d4;
+  color: $white-second-color;
 }
 
 .numberDay {
@@ -167,7 +167,7 @@
   width: 100%;
   margin-bottom: 10px;
   font-size: 14px;
-  font-family: "Barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 500;
   text-align: left;
@@ -187,41 +187,41 @@
   cursor: pointer;
 
   &:hover {
-    background: #cde0fd;
+    background: $light-blue-color;
   }
 
   p {
-    font-family: "IBM Plex Sans";
+    font-family: $font-family-second;
     font-style: normal;
     font-weight: 700;
     font-size: 10px;
     line-height: 16px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #1e1e1e;
+    color: $text-black-color;
     pointer-events: none;
   }
 
   span {
-    font-family: "IBM Plex Sans";
+    font-family: $font-family-second;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 16px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 }
 
 .calendarDayActive {
-  background: #bf743c !important;
+  background: $orange-color !important;
   span {
-    color: #f7f7f7;
+    color: $white-color;
   }
 
   p {
-    color: #f7f7f7;
+    color: $white-color;
   }
 }
 
@@ -234,12 +234,12 @@
   width: 100%;
   max-width: 608px;
   height: 56px;
-  background: #bf743c;
+  background: $orange-color;
   border-radius: 8px;
   margin: 12px auto;
 
   p {
-    font-family: "IBM Plex Sans";
+    font-family: $font-family-second;
     font-style: normal;
     font-weight: 700;
     font-size: 10px;
@@ -249,12 +249,11 @@
     text-align: center;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #f7f7f7;
-    text-transform: uppercase;
+    color: $white-color;
   }
 
   span {
-    font-family: "IBM Plex Sans";
+    font-family: $font-family-second;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -264,16 +263,16 @@
     text-align: center;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #f7f7f7;
+    color: $white-color;
   }
 }
 
 .currentCalendarDay {
-  background: #cde0fd;
-  border: 1px solid #7788a2;
+  background: $light-blue-color;
+  border: 1px solid $light-blue-color2;
 
   .dailyCard {
-    background: #f7f7f7;
+    background: $white-color;
   }
 }
 
@@ -289,7 +288,7 @@
     gap: 10px;
 
     &.grayColor .numberDay {
-      background: #d4d4d4;
+      background: $white-second-color;
     }
   }
 
@@ -303,8 +302,8 @@
     border-radius: 8px;
     margin-bottom: 0;
 
-    color: #f7f7f7;
-    background: #bf743c;
+    color: $white-color;
+    background: $orange-color;
   }
 }
 

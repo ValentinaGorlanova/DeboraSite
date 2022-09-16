@@ -12,8 +12,8 @@
   position: relative;
   font-size: 78px;
 
-  color: #7588a2;
-  background: #d4d4d4;
+  color: $light-blue-color2;
+  background: $white-second-color;
 
   .logoCamera {
     display: flex;
@@ -29,10 +29,10 @@
 
     font-size: 28px;
 
-    background: #9fb2ce;
+    background: $light-blue-color5;
     border-radius: 50%;
 
-    color: #f7f7f7;
+    color: $white-color;
   }
 }
 
@@ -50,7 +50,7 @@
 
     margin: 12px 0;
 
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 
   p {
@@ -58,7 +58,7 @@
     font-weight: 400;
     line-height: 24px;
 
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 }
 

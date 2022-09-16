@@ -1,10 +1,10 @@
 @mixin style_font_h1 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: $font-family-four;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 40px;
-  color: #000000;
+  color: $black-color;
 
   @media (max-width: 500px) {
     font-size: 20px;
@@ -13,12 +13,12 @@
 }
 
 @mixin style_font_h2 {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
-  color: #000000;
+  color: $black-color;
 
   @media (max-width: 500px) {
     font-size: 20px;
@@ -33,12 +33,12 @@
 }
 
 @mixin style_font_checkbox {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  color: #000000;
+  color: $black-color;
 
   @media (max-width: 500px) {
     font-size: 14px;
@@ -59,21 +59,21 @@
 }
 
 @mixin style_font_p {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  color: #000000;
+  color: $black-color;
 }
 
 @mixin style_font_input {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #000000;
+  color: $black-color;
 }
 
 @mixin style_button {
@@ -82,17 +82,17 @@
   align-items: center;
   width: 176px;
   height: 43px;
-  background: #e7975d;
+  background: $orange-color;
   border-radius: 8px;
   border: none;
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
   display: flex;
   align-items: center;
-  color: #f7f7f7;
+  color: $white-color;
   cursor: pointer;
   transition: 0.4s;
 
@@ -144,7 +144,7 @@
 
     .spanError {
       color: red;
-      font-family: "Barlow", sans-serif;
+      font-family: $font-family-primary;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -199,8 +199,8 @@
     max-width: 280px;
     width: 100%;
     height: 49px;
-    background: #ffffff;
-    border: 1px solid rgba(90, 90, 90, 0.2);
+    background: $white;
+    border: 1px solid $box-shadow-color3;
     padding: 0 10px;
     margin-top: 8px;
     @include style_font_input;
@@ -208,8 +208,8 @@
 
   textarea {
     height: 120px;
-    background: #ffffff;
-    border: 1px solid rgba(90, 90, 90, 0.2);
+    background: $white;
+    border: 1px solid $box-shadow-color3;
     padding: 0 14px;
     resize: none;
     margin-top: 12px;
@@ -236,7 +236,7 @@
           position: absolute;
           width: 18px;
           height: 18px;
-          border: 1px solid #000;
+          border: 1px solid $black-color;
           border-radius: 50%;
           display: flex;
           top: 5px;
@@ -252,7 +252,7 @@
           left: 0;
           width: 18px;
           height: 18px;
-          border: 1px solid #000;
+          border: 1px solid $black-color;
           border-radius: 50%;
         }
       }
@@ -262,12 +262,12 @@
 
         &:checked + label:before {
           content: "";
-          border: 1px solid #d78950;
+          border: 1px solid $orange-color;
         }
 
         &:checked + label:after {
           content: "";
-          background: #d78950;
+          background: $orange-color;
           position: absolute;
           width: 14px;
           height: 14px;
@@ -332,7 +332,7 @@
           position: absolute;
           width: 18px;
           height: 18px;
-          border: 1px solid #000;
+          border: 1px solid $black-color;
           border-radius: 4px;
           display: flex;
           top: 5px;
@@ -348,7 +348,7 @@
           left: 0;
           width: 18px;
           height: 18px;
-          border: 1px solid #000;
+          border: 1px solid $black-color;
         }
       }
 
@@ -359,7 +359,7 @@
           content: "";
           background-image: url("/iconChecked.svg");
           background-repeat: no-repeat;
-          border: 1px solid #d78950;
+          border: 1px solid $orange-color;
           background-size: 15px 11px;
           background-position: 2px 2px;
           border-radius: 4px;
@@ -396,7 +396,7 @@
           content: "";
           position: absolute;
           width: 224px;
-          border-bottom: 1px solid #000;
+          border-bottom: 1px solid $black-color;
           left: 18%;
           bottom: 0;
         }
