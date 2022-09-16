@@ -52,7 +52,7 @@ export function Content() {
         <div className={styles.ProfissionalSelect}>
           <p>Escolha um profissional</p>
           <select name="options" id="options">
-            <option value="">Debora Barros</option>
+            <option value="">Débora Barros</option>
           </select>
         </div>
 
@@ -69,7 +69,7 @@ export function Content() {
           <div className={styles.ProfissionalSelect}>
             <p>Escolha um profissional</p>
             <select name="options" id="options">
-              <option value="">Debora Barros</option>
+              <option value="">Débora Barros</option>
             </select>
           </div>
 

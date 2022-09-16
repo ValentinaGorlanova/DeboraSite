@@ -8,8 +8,8 @@ export default function History() {
       </div>
 
       <div>
-        <h3 className={styles.title}>Histórico pessoal(Gestão, infãncia, adolescência)</h3>
-        <p className={styles.description}>Debora Barros</p>
+        <h3 className={styles.title}>Histórico pessoal (Gestão, infãncia, adolescência)</h3>
+        <p className={styles.description}>Débora Barros</p>
       </div>
 
       <div>
@@ -19,12 +19,12 @@ export default function History() {
 
       <div>
         <h2 className={styles.title}>Alimentação, sono e atividade física</h2>
-        <p className={styles.description}>Debora Barros</p>
+        <p className={styles.description}>Débora Barros</p>
       </div>
 
       <div>
         <h2 className={styles.title}>Hobbies, interesses e habilidades</h2>
-        <p className={styles.description}>Debora Barros</p>
+        <p className={styles.description}>Débora Barros</p>
       </div>
     </div>
   );

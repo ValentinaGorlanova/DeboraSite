@@ -25,9 +25,10 @@
   height: 48px;
   left: 396px;
   top: 32px;
-  background: #f0f0f0;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
   border-radius: 48px;
+
+  background: $white-third-color;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
 
   .buttonSearch {
     width: 50px;
@@ -47,23 +48,23 @@
     border: none;
     outline: none;
     background: transparent;
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: $font-family-second;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
     letter-spacing: 0.22px;
-    color: #b5b5b5;
+    color: $gray-color;
     height: 100%;
 
     &:focus {
-      background: #f7f7f7;
+      background: $white-color;
       border-top-right-radius: 48px;
       border-bottom-right-radius: 48px;
     }
 
     &:focus + .buttonSearch {
-      background: #f7f7f7;
+      background: $white-color;
       border-top-left-radius: 48px;
       border-bottom-left-radius: 48px;
     }
@@ -79,12 +80,12 @@
   display: flex;
 
   h1 {
-    font-family: "Barlow", sans-serif;
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 28px;
-    color: #000000;
+    color: $black-color;
   }
 
   a {
@@ -98,22 +99,23 @@
     gap: 10px;
     width: 120px;
     height: 33px;
-    border: 2px solid #e7975d;
     border-radius: 8px;
-    font-family: "Barlow", sans-serif;
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
-    color: #e7975d;
+
+    color: $orange-color;
+    border: 2px solid $orange-color;
   }
 }
 
 .bannerDashboard {
   width: 100%;
-  background: #cde0fd;
+  background: $light-blue-color;
   border-radius: 8px;
-  font-family: "barlow";
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 600;
   padding-top: 31px;
@@ -135,7 +137,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    color: #1e1e1e;
+    color: $text-black-color;
     opacity: 0.7;
   }
 
@@ -264,20 +266,20 @@
     // gap: 22px;
     width: 299px;
     height: 204px;
-    background: #f7f7f7;
-    box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+    background: $white-color;
+    box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
     border-radius: 8px;
 
     .title {
       margin: 0 auto;
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-family-third;
       font-style: normal;
       font-weight: 500;
       font-size: 24px;
       line-height: 28px;
       text-align: center;
       letter-spacing: 0.4px;
-      color: #1e1e1e;
+      color: $text-black-color;
     }
 
     .description {
@@ -286,13 +288,13 @@
       justify-content: space-between;
 
       span {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-family-third;
         font-style: normal;
         font-weight: 500;
         font-size: 80px;
         line-height: 98px;
         letter-spacing: 0.4px;
-        color: #1e1e1e;
+        color: $text-black-color;
       }
     }
   }
@@ -303,24 +305,24 @@
   margin-top: 48px;
 
   .title {
-    font-family: "Montserrat", sans-serif;
+    font-family: $font-family-third;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 16px;
     letter-spacing: 0.4px;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 
   .description {
     margin-top: 8px;
-    font-family: "Montserrat", sans-serif;
+    font-family: $font-family-third;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.4px;
-    color: #1e1e1e;
+    color: $text-black-color;
     opacity: 0.7;
   }
 
@@ -333,12 +335,12 @@
       display: grid;
       grid-template-columns: 3fr 3fr 3fr 1fr;
       p {
-        font-family: "Barlow", sans-serif;
+        font-family: $font-family-primary;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        color: #1e1e1e;
+        color: $text-black-color;
         opacity: 0.8;
 
         // & + p {
@@ -351,8 +353,8 @@
       margin-top: 20px;
       min-height: 90px;
       padding: 32px 24px;
-      background: #f7f7f7;
-      box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+      background: $white-color;
+      box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
       border-radius: 12px;
 
       ul {
@@ -370,7 +372,7 @@
 
           svg {
             font-size: 24px;
-            color: #3a4d65;
+            color: $blue-color;
           }
 
           .name {
@@ -382,12 +384,12 @@
           }
 
           span {
-            font-family: "Barlow", sans-serif;
+            font-family: $font-family-primary;
             font-style: normal;
             font-weight: 600;
             font-size: 18px;
             line-height: 26px;
-            color: #1e1e1e;
+            color: $text-black-color;
             opacity: 0.7;
           }
 

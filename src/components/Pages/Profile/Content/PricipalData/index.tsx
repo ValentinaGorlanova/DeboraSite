@@ -18,7 +18,7 @@ export default function PrincipalData() {
       <div className={styles.column}>
         <div>
           <h3>Nome Completo</h3>
-          <p>Debora Barros</p>
+          <p>Débora Barros</p>
         </div>
 
         <div>

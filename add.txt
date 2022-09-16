@@ -1,2 +1,0 @@
-﻿Adicionar tempo customizado no modal de configuração.
-Arrumar logo no dashboard.

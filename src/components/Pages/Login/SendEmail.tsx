@@ -45,7 +45,7 @@ export function SendEmail() {
       <div className={styles.modalLogin}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Redefinir sua senha</h1>
-          <span className={styles.messageSendEmail}>Para redefinir sua senha precisamos que voce digite seu email abaixo</span>
+          <span className={styles.messageSendEmail}>Para redefinir sua senha precisamos que você digite seu email abaixo</span>
           <label>
             Digite seu email
             <input type="text" className={errors.email ? `${styles.inputError}` : ""} placeholder="Digite seu email" {...register("email")} />

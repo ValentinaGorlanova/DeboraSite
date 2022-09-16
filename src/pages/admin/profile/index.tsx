@@ -1,4 +1,4 @@
-import { ProfileContent, SEO } from "../../../components";
+import { ProfileContent, SEO } from "@/components";
 
 export default function Profile() {
   return (

@@ -24,7 +24,7 @@ export default function CardUser({ handleSelect }: CardUserProp) {
 
       <div className={styles.info1} onClick={handleSelect}>
         <h3>Nome completo</h3>
-        <p>Debora Barros</p>
+        <p>Débora Barros</p>
       </div>
 
       <div className={styles.info2}>

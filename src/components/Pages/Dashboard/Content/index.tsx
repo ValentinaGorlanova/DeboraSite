@@ -3,8 +3,8 @@ import NextLink from "next/link";
 import { AiFillClockCircle } from "react-icons/ai";
 import { RiUser3Fill, RiPhoneFill } from "react-icons/ri";
 
-import CalendarWithQuery from "../../CalendarWithQuery";
 import styles from "./styles.module.scss";
+import CalendarWithQuery from "@/components/CalendarWithQuery";
 
 import IconConsultationDashboard from "@/components/Icons/IconConsultationDashboard";
 import IconFinancesDashboard from "@/components/Icons/IconFinancesDashboard";
