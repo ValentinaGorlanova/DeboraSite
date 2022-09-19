@@ -31,7 +31,6 @@ export function Instagram() {
 
     const data = response.data.data.filter((postResponse) => !postResponse.media_url.includes(".mp4"));
     setPost(data);
-    alert(process.env.ACCESS_TOKEN);
   };
 
   // Time token expires and refresh

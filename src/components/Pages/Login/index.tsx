@@ -4,7 +4,12 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineExclamationCircle } from "react
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
+
+import { tryLoginUser } from "@/services/auth";
+import { saveCookie } from "@/lib/cookies";
 
 interface FormProps {
   email: string;
@@ -15,6 +20,8 @@ export function Login() {
   const [showPass, setShowPass] = useState(false);
   const [textPassword, setTextPassword] = useState("");
   const [textEmail, setTextEmail] = useState("");
+
+  const router = useRouter();
 
   const schema = yup
     .object({
@@ -41,8 +48,26 @@ export function Login() {
     }
   }, [textPassword, showPass]);
 
-  function onSubmit(data: FormProps) {
-    console.log("User: ", data);
+  async function onSubmit(data: FormProps) {
+    const notification = toast.loading("Fazendo login...", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+    try {
+      const response = await tryLoginUser(data);
+      saveCookie(response.access_token);
+      router.push("/admin/dashboard");
+      toast.success("Login feito com sucesso!", {
+        id: notification,
+      });
+    } catch (err) {
+      toast.error("Ops! Email ou senha incorretos! Tente novamente!", {
+        id: notification,
+      });
+    }
   }
 
   return (
