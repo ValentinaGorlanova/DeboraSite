@@ -10,6 +10,7 @@ import styles from "./styles.module.scss";
 
 import { tryLoginUser } from "@/services/auth";
 import { saveCookie } from "@/lib/cookies";
+import googleLoginAccount from "@/services/googleAuth";
 
 interface FormProps {
   email: string;
@@ -70,6 +71,10 @@ export function Login() {
     }
   }
 
+  async function handleLoginWithGoogle() {
+    await googleLoginAccount();
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.imagesLeft}>
@@ -125,7 +130,7 @@ export function Login() {
           <p>Ou entre com</p>
 
           <div className={styles.loginAlternative}>
-            <a href="#">
+            <a href="#" onClick={handleLoginWithGoogle}>
               <img src="/google.svg" alt="ícone do Google" /> Google
             </a>
             <a href="#">
