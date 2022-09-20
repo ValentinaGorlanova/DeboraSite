@@ -9,6 +9,7 @@ const UNAUTHORIZATION_STATUS = 401;
 const BAD_REQUEST_STATUS = 400;
 const OK_STATUS = 200;
 
+// localhost:3000/api/auth
 export default function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method === "GET") return response.status(OK_STATUS).json({ msg: "okk" });
 
@@ -18,11 +19,8 @@ export default function handler(request: NextApiRequest, response: NextApiRespon
 
   try {
     const result = jsonWebToken.verify(accessToken, SECRET_KEY);
-    console.log(result);
-    console.log("ok");
     return response.status(OK_STATUS).json({ msg: "ACCESS_TOKEN é valido" });
   } catch (err) {
-    console.log("err");
     return response.status(UNAUTHORIZATION_STATUS).json({ msg: "ACCESS_TOKEN é inválido" });
   }
 }

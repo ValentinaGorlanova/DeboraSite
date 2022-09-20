@@ -13,15 +13,14 @@ import { object, ObjectType } from "./mocks";
 import { CalendarIcon } from "@/components/Icons/CalendarIcon";
 
 import { useConfigContext } from "@/lib/configContext";
-
+import { useCalendarContext } from "@/lib/CalendarContext";
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");
 
 export function Content() {
   const [currentTab, setCurrentTab] = useState(1);
-  const [selectDayOfWeek, setSelectDayOfWeek] = useState("week");
 
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const { currentDate, handleSelectDayOfWeek } = useCalendarContext();
   const { showQueryStatus } = useConfigContext();
 
   const schedule = object[currentDate.getMonth() as keyof ObjectType];
@@ -111,7 +110,7 @@ export function Content() {
               <option value="audi">Teste</option>
             </select>
 
-            <select name="options" id="options" onChange={(e) => setSelectDayOfWeek(e.target.value)}>
+            <select name="options" id="options" onChange={(e) => handleSelectDayOfWeek(e.target.value)}>
               <option value="week" selected>
                 Semana
               </option>
@@ -124,7 +123,7 @@ export function Content() {
 
       {currentTab === 1 ? (
         <div className={styles.Content}>
-          <CalendarComponent selectDayOfWeek="day" date={currentDate} setDate={setCurrentDate} />
+          <CalendarComponent dayDefault />
           <div className={`${styles.SubmenuButtons} ${styles.buttonsMobile}`}>
             <div className={styles.buttons}>
               <button className={currentTab === 1 ? styles.filled : styles.outline} onClick={() => setCurrentTab(1)}>
@@ -150,7 +149,7 @@ export function Content() {
         </div>
       ) : (
         <div className={styles.Content}>
-          <CalendarComponent selectDayOfWeek={selectDayOfWeek} date={currentDate} setDate={setCurrentDate} />
+          <CalendarComponent />
         </div>
       )}
 

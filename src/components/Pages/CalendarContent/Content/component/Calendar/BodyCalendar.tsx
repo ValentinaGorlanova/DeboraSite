@@ -7,21 +7,22 @@ import { getDaysOfMonth, getHourOfDay } from "@/utils/Calendar";
 import { useConfigContext } from "@/lib/configContext";
 
 import { sliceName } from "@/utils/SliceName";
+import { useCalendarContext } from "@/lib/CalendarContext";
 
 interface BodyCalenderProps {
   optionSelect: string;
-  date: Date;
   onShowModal: (date: Date) => void;
 }
 
-export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }: BodyCalenderProps) {
-  const daysOfMonth = getDaysOfMonth(date);
-  const schedule = object[date.getMonth() as keyof ObjectType];
+export default function RenderBodyOfCalendar({ optionSelect, onShowModal }: BodyCalenderProps) {
+  const { currentDate } = useCalendarContext();
+  const daysOfMonth = getDaysOfMonth(currentDate);
+  const schedule = object[currentDate.getMonth() as keyof ObjectType];
 
   const { time } = useConfigContext();
 
   const hourCalendarWeek = getHourOfDay(time.start, time.end, time.interval);
-  const scheduleDay = schedule[date.getDate()];
+  const scheduleDay = schedule[currentDate.getDate()];
 
   const [showSmallModall, setShowSmallModall] = useState(-1);
 
@@ -30,7 +31,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
 
   function handleShowModal(dayNumber: number) {
     setShowSmallModall(-1);
-    onShowModal(new Date(date.getFullYear(), date.getMonth(), dayNumber));
+    onShowModal(new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNumber));
   }
 
   function handleShowSmallModal(e: MouseEvent<HTMLDivElement>, index: number) {
@@ -48,7 +49,7 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
         {hourCalendarWeek &&
           hourCalendarWeek.map((hour) => {
             return (
-              <div className={styles.Day} key={hour} onClick={() => handleShowModal(date.getDate())}>
+              <div className={styles.Day} key={hour} onClick={() => handleShowModal(currentDate.getDate())}>
                 <span>{hour}</span>
 
                 <div className={styles.dailyWrapper}>
@@ -76,9 +77,9 @@ export default function RenderBodyOfCalendar({ optionSelect, date, onShowModal }
       {daysOfMonth.map((day) => {
         return (
           <div
-            className={`${styles.monthDay} ${day.dayNumber === currentDay && date.getMonth() === currentMonth ? styles.currentCalendarDay : ""} ${
-              day.grayColor ? styles.grayColor : ""
-            }`}
+            className={`${styles.monthDay} ${
+              day.dayNumber === currentDay && currentDate.getMonth() === currentMonth ? styles.currentCalendarDay : ""
+            } ${day.grayColor ? styles.grayColor : ""}`}
             key={day.key}
             onClick={() => handleShowModal(day.dayNumber)}
           >

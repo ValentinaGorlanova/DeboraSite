@@ -21,7 +21,7 @@ export default function handler(request: NextApiRequest, response: NextApiRespon
   if (email !== EMAIL_LOGIN || password !== PASSWORD_LOGIN)
     return response.status(UNAUTHORIZATION_STATUS).json({ msg: "Email ou senha incorretos!" });
 
-  const jwt = jsonWebToken.sign({ email }, SECRET_KEY, { expiresIn: 60 * 3 });
+  const jwt = jsonWebToken.sign({ email }, SECRET_KEY, { expiresIn: 60 * 60 * 24 });
 
   return response.status(OK_STATUS).json({
     user: {

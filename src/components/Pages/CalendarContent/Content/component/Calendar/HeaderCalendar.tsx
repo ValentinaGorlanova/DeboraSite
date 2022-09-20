@@ -1,33 +1,29 @@
 import styles from "./styles.module.scss";
 
 import { getWeek, getMonthList, WeekDayType } from "@/utils/Calendar";
+import { useCalendarContext } from "@/lib/CalendarContext";
 
 interface WeekMonthProp {
   selectOption: string;
-  date: Date;
-  changeMonth: (monthNumber: number) => void;
-  changeWeek: (weekDay: number, monthNumber: number) => void;
 }
 
-export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, changeWeek }: WeekMonthProp) {
-  const numberWeek = getWeek(date);
+export default function RenderDayWeekOrMonth({ selectOption }: WeekMonthProp) {
+  const { currentDate, handleChangeMonthWithClick, handleChangeWeekWithClick } = useCalendarContext();
+
+  const numberWeek = getWeek(currentDate);
   const weekDayNames = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
 
-  const month = getMonthList(date);
-
-  function handleChangeMonth(monthNumber: number) {
-    changeMonth(monthNumber);
-  }
+  const month = getMonthList(currentDate);
 
   function handleChangeWeek(weekDay: WeekDayType) {
-    let monthNumber = date.getMonth();
+    let monthNumber = currentDate.getMonth();
 
     if (weekDay.grayColor) {
       if (weekDay.nextMonth) monthNumber += 1;
       else if (weekDay.oldMonth) monthNumber -= 1;
     }
 
-    changeWeek(weekDay.dayNumber, monthNumber);
+    handleChangeWeekWithClick(weekDay.dayNumber, monthNumber);
   }
 
   if (selectOption === "week")
@@ -36,7 +32,7 @@ export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, 
         {numberWeek.map((weekDay, i) => (
           <div
             className={`${styles.calendarSmallContainerDayOfWeek} ${weekDay.grayColor ? styles.weekGrayColor : ""} ${
-              date.getDate() === weekDay.dayNumber ? styles.calendarDayActive : null
+              currentDate.getDate() === weekDay.dayNumber ? styles.calendarDayActive : null
             }`}
             key={weekDay.dayNumber}
             onClick={() => handleChangeWeek(weekDay)}
@@ -50,7 +46,7 @@ export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, 
   if (selectOption === "day")
     return (
       <div className={styles.calendarContainerDayOfWeek}>
-        <p>{date.toLocaleDateString("pt-BR", { weekday: "short" })}</p> <span>{date.getDate()}</span>
+        <p>{currentDate.toLocaleDateString("pt-BR", { weekday: "short" })}</p> <span>{currentDate.getDate()}</span>
       </div>
     );
 
@@ -60,7 +56,7 @@ export default function RenderDayWeekOrMonth({ selectOption, date, changeMonth, 
         <div
           className={`${styles.calendarSmallContainerDayOfWeek} ${monthName.activate ? styles.calendarDayActive : null}`}
           key={monthName.name}
-          onClick={() => handleChangeMonth(monthName.number)}
+          onClick={() => handleChangeMonthWithClick(monthName.number)}
         >
           <p>{monthName.name}</p>
         </div>
