@@ -9,7 +9,9 @@ export const SSRWithAuth = (callback: any) => {
   return async (context: GetServerSidePropsContext) => {
     const accessToken = getContextCookie(context);
 
+    console.log("SSRWithAuth:Token,", accessToken);
     const response = await authUserToken(accessToken);
+    console.log("SSRWithAuth:Response,", response);
 
     if (!accessToken || !response)
       return {
