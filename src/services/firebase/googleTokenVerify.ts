@@ -4,7 +4,11 @@ const headers = {
 
 export async function googleTokenVerify(accessToken: string) {
   try {
-    const response = await fetch("http://localhost:3000/api/authToken", { method: "POST", headers, body: JSON.stringify({ accessToken }) });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/authToken`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ accessToken }),
+    });
 
     if (response.status !== 200) return false;
 
