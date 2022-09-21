@@ -9,8 +9,7 @@ import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
 
 import { tryLoginUser } from "@/services/auth";
-import { saveCookie } from "@/lib/cookies";
-import googleLoginAccount from "@/services/googleAuth";
+import googleLoginAccount from "@/services/firebase/googleAuth";
 
 interface FormProps {
   email: string;
@@ -58,9 +57,9 @@ export function Login() {
       },
     });
     try {
-      const response = await tryLoginUser(data);
-      saveCookie(response.access_token);
+      await tryLoginUser(data);
       router.push("/admin/dashboard");
+
       toast.success("Login feito com sucesso!", {
         id: notification,
       });
@@ -72,7 +71,26 @@ export function Login() {
   }
 
   async function handleLoginWithGoogle() {
-    await googleLoginAccount();
+    const notification = toast.loading("Fazendo login...", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+
+    try {
+      await googleLoginAccount();
+      router.push("/admin/dashboard");
+
+      toast.success("Login feito com sucesso!", {
+        id: notification,
+      });
+    } catch (err) {
+      toast.error("Ops! Erro ao fazer login com conta do Google! Tente novamente!", {
+        id: notification,
+      });
+    }
   }
 
   return (

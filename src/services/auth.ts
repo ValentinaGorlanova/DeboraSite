@@ -1,3 +1,5 @@
+import { saveCookie, COOKIE_NAME_API } from "@/lib/cookies";
+
 const headers = {
   "Content-Type": "application/json",
 };
@@ -15,14 +17,16 @@ interface APIResponseType {
   };
 }
 
-export async function tryLoginUser(data: LoginUserType): Promise<APIResponseType> {
+export async function tryLoginUser(data: LoginUserType): Promise<any> {
   try {
     const response = await fetch("api/session", { method: "POST", headers, body: JSON.stringify(data) });
 
     if (response.status !== 200) throw new Error("Erro ao criar sessão");
 
     const result = await response.json();
-    return result;
+    saveCookie(result.access_token, COOKIE_NAME_API);
+
+    return null;
   } catch (err) {
     throw new Error("Erro ao criar sessão");
   }

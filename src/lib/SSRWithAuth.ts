@@ -1,25 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { GetServerSidePropsContext } from "next";
-import { getContextCookie } from "@/lib/cookies";
+import { getContextCookie, COOKIE_NAME_API, COOKIE_NAME_GOOGLE } from "@/lib/cookies";
 
 import { authUserToken } from "@/services/auth";
+import { googleTokenVerify } from "@/services/firebase/googleTokenVerify";
 
 export const SSRWithAuth = (callback: any) => {
   return async (context: GetServerSidePropsContext) => {
-    const accessToken = getContextCookie(context);
-    const response = await authUserToken(accessToken);
+    const accessTokenAPI = getContextCookie(context, COOKIE_NAME_API);
+    const accessTokenGoogle = getContextCookie(context, COOKIE_NAME_GOOGLE);
 
-    if (!accessToken || !response)
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/login",
-        },
-      };
+    const isValidTokenAPI = await authUserToken(accessTokenAPI);
+    const isValidTokenGoogle = await googleTokenVerify(accessTokenGoogle);
 
-    return callback({
-      props: {},
-    });
+    if ((accessTokenAPI && isValidTokenAPI) || (accessTokenGoogle && isValidTokenGoogle))
+      return callback({
+        props: {},
+      });
+
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+    };
   };
 };
