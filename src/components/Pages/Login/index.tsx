@@ -10,6 +10,7 @@ import styles from "./styles.module.scss";
 
 import { tryLoginUser } from "@/services/auth";
 import googleLoginAccount from "@/services/firebase/googleAuth";
+import facebookLoginAccount from "@/services/firebase/facebookAuth";
 
 interface FormProps {
   email: string;
@@ -93,6 +94,29 @@ export function Login() {
     }
   }
 
+  async function handleLoginWithFacebook() {
+    const notification = toast.loading("Fazendo login...", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+
+    try {
+      await facebookLoginAccount();
+      router.push("/admin/dashboard");
+
+      toast.success("Login feito com sucesso!", {
+        id: notification,
+      });
+    } catch (err) {
+      toast.error("Ops! Erro ao fazer login com conta do Google! Tente novamente!", {
+        id: notification,
+      });
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.imagesLeft}>
@@ -151,7 +175,7 @@ export function Login() {
             <a href="#" onClick={handleLoginWithGoogle}>
               <img src="/google.svg" alt="ícone do Google" /> Google
             </a>
-            <a href="#">
+            <a href="#" onClick={handleLoginWithFacebook}>
               <img src="/facebook.svg" alt="ícone do Facebook" /> Facebook
             </a>
           </div>

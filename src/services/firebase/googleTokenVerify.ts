@@ -10,7 +10,6 @@ export async function googleTokenVerify(accessToken: string) {
       body: JSON.stringify({ accessToken }),
     });
 
-    globalThis.console.log(response);
     if (response.status !== 200) return false;
 
     return true;

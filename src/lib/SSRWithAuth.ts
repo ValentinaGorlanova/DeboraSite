@@ -14,7 +14,6 @@ export const SSRWithAuth = (callback: any) => {
     const isValidTokenAPI = await authUserToken(accessTokenAPI);
     const isValidTokenGoogle = await googleTokenVerify(accessTokenGoogle);
 
-    globalThis.console.log(`accessTokenGoogle: ${accessTokenGoogle}\naccessTokenGoogle: ${isValidTokenGoogle}`);
     if ((accessTokenAPI && isValidTokenAPI) || (accessTokenGoogle && isValidTokenGoogle))
       return callback({
         props: {},

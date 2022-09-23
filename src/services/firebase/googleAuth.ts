@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, Auth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
 import { firebaseConfig } from "./firebaseConfig";
@@ -17,11 +17,10 @@ interface UserType {
   uid: string;
 }
 
-export default async function loginWithGoogleAccount() {
+export async function tryLoginGoogle(auth: Auth) {
   const provider = new GoogleAuthProvider();
   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
 
-  const auth = getAuth(firabaseApp);
   try {
     const userCredential = await signInWithPopup(auth, provider);
     const userData = userCredential.user as UserType;
@@ -30,4 +29,9 @@ export default async function loginWithGoogleAccount() {
   } catch (err) {
     throw new Error("Erro ao fazer login");
   }
+}
+
+export default async function loginWithGoogleAccount() {
+  const auth = getAuth(firabaseApp);
+  await tryLoginGoogle(auth);
 }
