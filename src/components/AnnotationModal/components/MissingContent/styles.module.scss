@@ -1,0 +1,19 @@
+.MissingContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    @include font-style($font-family-primary, normal, 500, 20px, 28px);
+
+    display: flex;
+    align-items: center;
+    color: $text-black-color;
+    max-width: 290px;
+  }
+
+  p:nth-child(2) {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+  }
+}

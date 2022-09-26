@@ -16,12 +16,21 @@ interface PostProps {
   media_url: string;
 }
 
+interface RequestResponseData {
+  paging: string;
+  data: Array<PostProps>;
+}
+
 export function Instagram() {
   const [post, setPost] = useState<PostProps[]>();
 
   const getPosts = async () => {
-    const response = await api.get(`/media?access_token=${process.env.ACCESS_TOKEN}&fields=media_url,media_type,caption,permalink`);
-    setPost(response.data.data);
+    const response = await api.get<RequestResponseData>(
+      `/media?access_token=${process.env.ACCESS_TOKEN}&fields=media_url,media_type,caption,permalink`
+    );
+
+    const data = response.data.data.filter((postResponse) => !postResponse.media_url.includes(".mp4"));
+    setPost(data);
   };
 
   // Time token expires and refresh

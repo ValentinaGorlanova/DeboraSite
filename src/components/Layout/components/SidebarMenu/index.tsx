@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useCallback, useRef, useState } from "react";
 import NextLink from "next/link";
@@ -8,6 +9,7 @@ import { GrFormClose } from "react-icons/gr";
 import { RiMenuUnfoldLine, RiMenuFoldLine } from "react-icons/ri";
 
 import styles from "./SidebarMenu.module.scss";
+
 import Calendar from "@/components/Icons/Calendar";
 import Close from "@/components/Icons/Close";
 import Configs from "@/components/Icons/Configs";
@@ -53,7 +55,7 @@ export const menu = [
   {
     icon: <Close />,
     name: "Sair",
-    link: "#",
+    link: "/logout",
   },
 ];
 
@@ -87,11 +89,7 @@ export function SidebarMenu() {
     },
   ];
 
-  const sidebarRef = useRef<HTMLDivElement | null>(null);
-  const logoExpand = useRef<any>(null);
   const logo = useRef<any>(null);
-
-  // console.log("aaaa: ", sidebarRef.current?.style.width);
 
   const showtest = useCallback(
     (index) => {
@@ -162,7 +160,7 @@ export function SidebarMenu() {
 
         {menu.map((t, index) => (
           <NextLink href={t.link || "#"} key={t.name}>
-            <a href={t.link}>
+            <a>
               <li onClick={() => showtest(index)}>
                 <span>{t.icon}</span>
                 {t.name}

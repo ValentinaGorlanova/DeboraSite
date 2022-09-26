@@ -4,7 +4,13 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineExclamationCircle } from "react
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
+
+import { tryLoginUser } from "@/services/auth";
+import googleLoginAccount from "@/services/firebase/googleAuth";
+import facebookLoginAccount from "@/services/firebase/facebookAuth";
 
 interface FormProps {
   email: string;
@@ -15,6 +21,8 @@ export function Login() {
   const [showPass, setShowPass] = useState(false);
   const [textPassword, setTextPassword] = useState("");
   const [textEmail, setTextEmail] = useState("");
+
+  const router = useRouter();
 
   const schema = yup
     .object({
@@ -41,8 +49,72 @@ export function Login() {
     }
   }, [textPassword, showPass]);
 
-  function onSubmit(data: FormProps) {
-    console.log("User: ", data);
+  async function onSubmit(data: FormProps) {
+    const notification = toast.loading("Fazendo login...", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+    try {
+      await tryLoginUser(data);
+      router.push("/admin/dashboard");
+
+      toast.success("Login feito com sucesso!", {
+        id: notification,
+      });
+    } catch (err) {
+      toast.error("Ops! Email ou senha incorretos! Tente novamente!", {
+        id: notification,
+      });
+    }
+  }
+
+  async function handleLoginWithGoogle() {
+    const notification = toast.loading("Fazendo login...", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+
+    try {
+      await googleLoginAccount();
+      router.push("/admin/dashboard");
+
+      toast.success("Login feito com sucesso!", {
+        id: notification,
+      });
+    } catch (err) {
+      toast.error("Ops! Erro ao fazer login com conta do Google! Tente novamente!", {
+        id: notification,
+      });
+    }
+  }
+
+  async function handleLoginWithFacebook() {
+    const notification = toast.loading("Fazendo login...", {
+      style: {
+        height: "50px",
+        fontSize: "15px",
+        fontFamily: "Barlow",
+      },
+    });
+
+    try {
+      await facebookLoginAccount();
+      router.push("/admin/dashboard");
+
+      toast.success("Login feito com sucesso!", {
+        id: notification,
+      });
+    } catch (err) {
+      toast.error("Ops! Erro ao fazer login com conta do Google! Tente novamente!", {
+        id: notification,
+      });
+    }
   }
 
   return (
@@ -100,10 +172,10 @@ export function Login() {
           <p>Ou entre com</p>
 
           <div className={styles.loginAlternative}>
-            <a href="#">
+            <a href="#" onClick={handleLoginWithGoogle}>
               <img src="/google.svg" alt="ícone do Google" /> Google
             </a>
-            <a href="#">
+            <a href="#" onClick={handleLoginWithFacebook}>
               <img src="/facebook.svg" alt="ícone do Facebook" /> Facebook
             </a>
           </div>

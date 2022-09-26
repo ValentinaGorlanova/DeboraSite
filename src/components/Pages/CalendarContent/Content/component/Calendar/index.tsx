@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import NewQueryModal from "../NewQueryModal";
 import styles from "./styles.module.scss";
 
@@ -7,39 +7,21 @@ import RenderBodyOfCalendar from "./BodyCalendar";
 import { ArrowLeftIcon } from "@/components/Icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "@/components/Icons/ArrowRightIcon";
 
+import { useCalendarContext } from "@/lib/CalendarContext";
+
 interface CalendarProp {
-  selectDayOfWeek: string;
-  date: Date;
-  setDate: Dispatch<SetStateAction<Date>>;
+  dayDefault?: boolean;
 }
 
-export default function Calendar({ selectDayOfWeek, date, setDate }: CalendarProp) {
+export default function Calendar({ dayDefault }: CalendarProp) {
   const [showModal, setShowModal] = useState(false);
   const [dateSelect, setDateSelect] = useState(new Date(0, 0, 0));
 
-  function handleChangeDay(value: number) {
-    const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-
-    if (selectDayOfWeek === "day") newDate.setDate(date.getDate() + value);
-    if (selectDayOfWeek === "month") newDate.setMonth(date.getMonth() + value);
-    if (selectDayOfWeek === "week") newDate.setDate(date.getDate() + value);
-
-    setDate(newDate);
-  }
+  const { currentDate, selectDayOfWeek, handleChangeDay } = useCalendarContext();
 
   function handleShowModal(dateSelected: Date) {
     setShowModal(!showModal);
     setDateSelect(dateSelected);
-  }
-
-  function handleChangeMonthWithClick(monthNumber: number) {
-    const newDate = new Date(date.getFullYear(), monthNumber, date.getDate());
-    setDate(newDate);
-  }
-
-  function handleChangeWeekWithClick(weekDayNumber: number, monthNumber: number) {
-    const newDate = new Date(date.getFullYear(), monthNumber, weekDayNumber);
-    setDate(newDate);
   }
 
   return (
@@ -50,7 +32,7 @@ export default function Calendar({ selectDayOfWeek, date, setDate }: CalendarPro
           <button onClick={() => handleChangeDay(-1)}>
             <ArrowLeftIcon />
           </button>
-          <span>{`${date.toLocaleDateString("pt-BR", { month: "long" })} ${date.getFullYear()}`}</span>
+          <span>{`${currentDate.toLocaleDateString("pt-BR", { month: "long" })} ${currentDate.getFullYear()}`}</span>
 
           <button onClick={() => handleChangeDay(1)}>
             <ArrowRightIcon />
@@ -58,15 +40,10 @@ export default function Calendar({ selectDayOfWeek, date, setDate }: CalendarPro
         </div>
 
         <div className={`${styles.DayOfWeeksContainer} ${selectDayOfWeek === "month" ? styles.bold : ""}`}>
-          <RenderHeaderCalendar
-            selectOption={selectDayOfWeek}
-            date={date}
-            changeWeek={(weekDay, monthNumber) => handleChangeWeekWithClick(weekDay, monthNumber)}
-            changeMonth={(monthNumber) => handleChangeMonthWithClick(monthNumber)}
-          />
+          <RenderHeaderCalendar selectOption={dayDefault ? "day" : selectDayOfWeek} />
         </div>
 
-        <RenderBodyOfCalendar optionSelect={selectDayOfWeek} date={date} onShowModal={(dateSelected) => handleShowModal(dateSelected)} />
+        <RenderBodyOfCalendar optionSelect={selectDayOfWeek} onShowModal={(dateSelected) => handleShowModal(dateSelected)} />
       </div>
     </>
   );

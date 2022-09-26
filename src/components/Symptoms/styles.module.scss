@@ -1,24 +1,24 @@
 @mixin style_font_h1 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: $font-family-four;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 40px;
-  color: #ffffff;
+  color: $white-color;
 
-  @media screen and (max-width:500px) {
+  @media screen and (max-width: 500px) {
     font-size: 2.4rem;
     line-height: 2.8rem;
   }
 }
 
 @mixin style_font_h2 {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
-  color: #ffffff;
+  color: $white-color;
 
   span {
     font-size: 1.6rem;
@@ -28,14 +28,14 @@
 }
 
 @mixin style_font_p {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: $white-color;
 
-  @media screen and (max-width:500px) {
+  @media screen and (max-width: 500px) {
     font-size: 1.6rem;
     line-height: 2.4rem;
   }

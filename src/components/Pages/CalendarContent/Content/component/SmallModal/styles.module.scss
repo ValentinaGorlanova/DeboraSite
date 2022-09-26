@@ -14,7 +14,7 @@
   opacity: 1;
 
   overflow-y: auto;
-  background: rgba(166, 166, 166, 0.5);
+  background: $opacity-gray-color;
 
   &.fadeIn {
     animation: fade-enter 400ms 100ms forwards;
@@ -41,14 +41,14 @@
     border-radius: 8px;
 
     font-weight: 600;
-    color: #f7f7f7;
+    color: $white-color;
     cursor: pointer;
 
     border: none;
-    background: #273a51;
+    background: $blue-color;
 
     &.orange {
-      background: #e7975d;
+      background: $orange-color;
     }
   }
 }
@@ -74,9 +74,9 @@
   border-radius: 8px;
   position: relative;
 
-  font-family: "Barlow";
+  font-family: $font-family-primary;
 
-  background: #f7f7f7;
+  background: $white-color;
 }
 
 .closeButton {
@@ -105,7 +105,7 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    background: #5ed104;
+    background: $green-color;
     border-radius: 3px;
   }
 
@@ -118,7 +118,7 @@
   p {
     font-size: 12px;
     line-height: 14px;
-    color: #1e1e1e;
+    color: $text-black-color;
     font-weight: 400;
     gap: 10px;
     display: flex;
@@ -134,7 +134,7 @@
   flex-direction: column;
   gap: 10px;
   padding: 15px 0;
-  font-family: "Barlow";
+  font-family: $font-family-primary;
 
   p {
     margin-left: 5px;
@@ -152,8 +152,8 @@
 .orange {
   padding: 4px 8px;
   border-radius: 8px;
-  color: #fff;
-  background: #bf743c;
+  color: $text-black-color;
+  background: $orange-color;
 }
 
 .field {
@@ -169,7 +169,7 @@
   display: flex;
   align-items: center;
 
-  border-top: 1px solid #d4d4d4;
+  border-top: 1px solid $white-second-color;
 
   button {
     border: none;
@@ -181,11 +181,11 @@
 }
 
 .penButton {
-  color: #cde0fd;
+  color: $light-blue-color;
 }
 
 .trashButton {
-  color: #d10438;
+  color: $red-color;
 }
 
 @media (min-width: 501px) {
@@ -197,6 +197,6 @@
 
     opacity: 0;
     border-radius: 8px;
-    box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+    box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
   }
 }

@@ -5,14 +5,14 @@
   width: 100%;
   padding: 20px;
   margin-top: 12px;
-  background: #f7f7f7;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  background: $white-color;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
   border-radius: 12px;
   max-width: 640px;
   height: 120px;
 
   p {
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 700;
     font-size: clamp(12px, 1.1vw, 18px);
@@ -21,11 +21,11 @@
     align-items: center;
     text-align: center;
 
-    color: #000000;
+    color: $black-color;
   }
 
   span {
-    font-family: "Barlow";
+    font-family: $font-family-primary;
     font-style: normal;
     font-weight: 400;
     font-size: clamp(12px, 1.1vw, 18px);
@@ -34,14 +34,14 @@
     align-items: center;
     text-align: center;
 
-    color: #000000;
+    color: $black-color;
   }
 }
 
 .iconClock {
   font-size: 18px;
   transform: rotateZ(90deg);
-  color: #273a51;
+  color: $blue-color;
   margin-right: 8px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .cor {
-  color: #cc8d05;
+  color: $yellow-color;
 }
 
 .row {

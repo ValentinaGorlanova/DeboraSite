@@ -10,7 +10,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 40px;
-    color: #1e1e1e;
+    color: $text-black-color;
   }
 }
 
@@ -28,15 +28,15 @@
   font-size: 18px;
   font-weight: 500;
 
-  color: rgba(30, 30, 30, 0.5);
+  color: $opacity-gray-text-color;
   cursor: pointer;
 
   background: none;
   border: none;
 
   &.active {
-    color: #273a51;
-    border-bottom: 1px solid #273a51;
+    color: $blue-color;
+    border-bottom: 1px solid $blue-color;
   }
 }
 
@@ -47,8 +47,8 @@
   padding: 32px 24px;
   margin-top: 24px;
 
-  background: #f7f7f7;
-  box-shadow: 2px 2px 4px rgba(113, 173, 173, 0.11), 4px 4px 32px rgba(198, 216, 216, 0.5);
+  background: $white-color;
+  box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color1;
 }
 
 .information {
@@ -62,13 +62,13 @@
     padding: 5px;
     width: 40px;
     height: 40px;
-    border: 1px solid #d4d4d4;
+    border: 1px solid $white-second-color;
     border-radius: 12px;
 
     font-size: 20px;
     margin-right: 5px;
 
-    color: #273a51;
+    color: $blue-color;
   }
 }
 

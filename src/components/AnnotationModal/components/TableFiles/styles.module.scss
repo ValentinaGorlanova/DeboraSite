@@ -1,0 +1,38 @@
+@mixin font-style($family, $style, $weight, $size, $height) {
+  font-family: $family;
+  font-style: $style;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+}
+
+.table {
+  width: 100%;
+
+  th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+
+    @include font-style($font-family-primary, normal, 700, 18px, 26px);
+    color: $text-black-color;
+  }
+
+  td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+    border-top: 1px solid $white-seven-color;
+
+    @include font-style($font-family-primary, normal, 400, 16px, 24px);
+    color: $text-black-color;
+  }
+
+  button {
+    cursor: pointer;
+    font-size: 0;
+    border: none;
+    background-color: transparent;
+    margin-right: 10px;
+  }
+}

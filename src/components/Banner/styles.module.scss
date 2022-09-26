@@ -5,32 +5,32 @@
 }
 
 @mixin style_font_title {
-  font-family: "Playfair Display", sans-serif;
+  font-family: $font-family-four;
   font-style: normal;
   font-weight: 500;
   font-size: 4rem;
   line-height: 4.4rem;
-  color: #d78950;
+  color: $orange-color;
 }
 
 @mixin style_font_span {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  color: #a61a3e;
+  color: $pink-color;
 }
 
 @mixin style_button {
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
   display: flex;
   align-items: center;
-  color: #f7f7f7;
+  color: $white-color;
   height: 62px;
   transition: filter 0.4s;
 

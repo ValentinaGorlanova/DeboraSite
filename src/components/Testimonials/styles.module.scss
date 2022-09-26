@@ -1,11 +1,11 @@
 @mixin style_font_h1 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: $font-family-four;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 40px;
   text-align: center;
-  color: #1e1e1e;
+  color: $text-black-color;
   text-align: center;
 
   @media (max-width: 500px) {
@@ -18,9 +18,9 @@
   margin: 50px auto;
   width: 223px;
   height: 46px;
-  background: #e7975d;
+  background: $orange-color;
   border-radius: 8px;
-  font-family: "Barlow", sans-serif;
+  font-family: $font-family-primary;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f7f7f7;
+  color: $white-color;
   border: none;
   cursor: pointer;
 
