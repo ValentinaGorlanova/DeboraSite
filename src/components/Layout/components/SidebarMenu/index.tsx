@@ -40,7 +40,7 @@ export const menu = [
   {
     icon: <Finances />,
     name: "Financeiro",
-    link: "#",
+    link: "/admin/finance",
   },
   {
     icon: <Messages />,
@@ -59,7 +59,7 @@ export const menu = [
   },
 ];
 
-export function SidebarMenu() {
+  export function SidebarMenu() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [menuClicked, setMenuClicked] = useState(false);
@@ -87,6 +87,11 @@ export function SidebarMenu() {
       name: "Perfil",
       link: "/admin/profile",
     },
+    {
+      icon: <Finances />,
+      name: "Financeiro",
+      link: "/admin/finance",
+    }
   ];
 
   const logo = useRef<any>(null);

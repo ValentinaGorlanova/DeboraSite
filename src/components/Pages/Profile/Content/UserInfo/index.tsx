@@ -18,6 +18,7 @@ interface RenderTabProp {
   tab: number;
   showOptions?: boolean;
 }
+
 function RenderTab({ tab, showOptions }: RenderTabProp) {
   switch (tab) {
     case 0:

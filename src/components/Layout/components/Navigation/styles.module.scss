@@ -1,0 +1,37 @@
+.navigation {
+    display: block;
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: $white-second-color;
+    margin: 85px 12px;
+  
+    span {
+      padding: 0 16px;
+    }
+  
+    svg path{
+      fill: $white-second-color;
+    }
+  
+    .home:hover span, .home:hover svg path {
+      fill: $light-blue-color2;
+      color: $light-blue-color2;
+    }
+  }
+
+  .current_link {
+    display: inline;
+    color: $light-blue-color2;
+    padding: 0 16px;
+
+    svg {
+        margin: 0 16px;
+    }
+
+    svg path {
+        fill: $light-blue-color2;
+    }
+  }

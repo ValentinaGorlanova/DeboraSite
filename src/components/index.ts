@@ -28,3 +28,6 @@ export * from "./Pages/CalendarContent";
 
 // Pages Profile
 export * from "./Pages/Profile";
+
+// Pages Finance
+export * from "./Pages/Finance";
