@@ -1,29 +1,30 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { GetServerSidePropsContext } from "next";
-import { getContextCookie, COOKIE_NAME_API, COOKIE_NAME_GOOGLE } from "@/lib/cookies";
+// import { GetServerSidePropsContext } from "next";
+// import { getContextCookie, COOKIE_NAME_API, COOKIE_NAME_GOOGLE } from "@/lib/cookies";
 
-import { authUserToken } from "@/services/auth";
-import { googleTokenVerify } from "@/services/firebase/googleTokenVerify";
+// import { authUserToken } from "@/services/auth";
+// import { googleTokenVerify } from "@/services/firebase/googleTokenVerify";
 
-export const SSRWithAuth = (callback: any) => {
-  return async (context: GetServerSidePropsContext) => {
-    const accessTokenAPI = getContextCookie(context, COOKIE_NAME_API);
-    const accessTokenGoogle = getContextCookie(context, COOKIE_NAME_GOOGLE);
+// export const SSRWithAuth = (callback: any) => {
+//   return async (context: GetServerSidePropsContext) => {
+//     const accessTokenAPI = getContextCookie(context, COOKIE_NAME_API);
+//     const accessTokenGoogle = getContextCookie(context, COOKIE_NAME_GOOGLE);
 
-    const isValidTokenAPI = await authUserToken(accessTokenAPI);
-    const isValidTokenGoogle = await googleTokenVerify(accessTokenGoogle);
+//     const isValidTokenAPI = await authUserToken(accessTokenAPI);
+//     const isValidTokenGoogle = await googleTokenVerify(accessTokenGoogle);
 
-    if ((accessTokenAPI && isValidTokenAPI) || (accessTokenGoogle && isValidTokenGoogle))
-      return callback({
-        props: {},
-      });
+//     if ((accessTokenAPI && isValidTokenAPI) || (accessTokenGoogle && isValidTokenGoogle))
+//       return callback({
+//         props: {},
+//       });
 
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/login",
-      },
-    };
-  };
-};
+//     return {
+      
+//       redirect: {
+//         permanent: false,
+//         destination: "/login",
+//       },
+//     };
+//   };
+// };

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SEO, Dashboard } from "../../../components";
 
-import { SSRWithAuth } from "@/lib/SSRWithAuth";
+// import { SSRWithAuth } from "@/lib/SSRWithAuth";
 
 export default function Home() {
   return (
@@ -12,6 +12,6 @@ export default function Home() {
   );
 }
 
-export const getServerSideProps = SSRWithAuth((props: any) => {
-  return props;
-});
+// export const getServerSideProps = SSRWithAuth((props: any) => {
+//   return props;
+// });

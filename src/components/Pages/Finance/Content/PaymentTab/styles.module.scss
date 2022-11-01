@@ -1,0 +1,54 @@
+.pacientes {
+max-width: 1251px;
+margin: 188px 0;
+
+    h5 {
+        color: $gray-color;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .flex_block {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        button {
+            display: flex;
+            align-items: center;
+            width: 361px;
+            height: 76px;
+            background-color: $white-second-color;
+            border-radius: 10px;
+            margin: 35px 0 0 0;
+            cursor: pointer;
+            border: none;
+
+            &:hover {
+                background-color: $orange-color3;
+            }
+
+            div {
+                text-align: center;
+                width: 63px;
+                height: 63px;
+                background-color: $white;
+                color: $light-gray-color;
+                border-radius: 50%;
+                font-size: 40px;
+                padding: 10px 0;
+                margin: 7px 15px 7px 12px;
+            }
+
+            p {
+                color: $text-black-color;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
+  

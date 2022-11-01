@@ -29,12 +29,12 @@ export default function Calendar({ dayDefault }: CalendarProp) {
       <NewQueryModal show={showModal} date={dateSelect} onClose={() => setShowModal(!showModal)} />
       <div className={styles.calendarContainer}>
         <div className={styles.calendarContainerHeader}>
-          <button onClick={() => handleChangeDay(-1)}>
+          <button onClick={() => handleChangeDay(-1, dayDefault ? "day" : selectDayOfWeek)}>
             <ArrowLeftIcon />
           </button>
           <span>{`${currentDate.toLocaleDateString("pt-BR", { month: "long" })} ${currentDate.getFullYear()}`}</span>
 
-          <button onClick={() => handleChangeDay(1)}>
+          <button onClick={() => handleChangeDay(1, dayDefault ? "day" : selectDayOfWeek)}>
             <ArrowRightIcon />
           </button>
         </div>
@@ -43,7 +43,7 @@ export default function Calendar({ dayDefault }: CalendarProp) {
           <RenderHeaderCalendar selectOption={dayDefault ? "day" : selectDayOfWeek} />
         </div>
 
-        <RenderBodyOfCalendar optionSelect={selectDayOfWeek} onShowModal={(dateSelected) => handleShowModal(dateSelected)} />
+        <RenderBodyOfCalendar optionSelect={dayDefault ? "day" : selectDayOfWeek} onShowModal={(dateSelected) => handleShowModal(dateSelected)} />
       </div>
     </>
   );

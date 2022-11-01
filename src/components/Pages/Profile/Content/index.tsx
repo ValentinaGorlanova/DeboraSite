@@ -11,9 +11,9 @@ import { FaUserFriends } from "react-icons/fa";
 import styles from "./styles.module.scss";
 import UserInfo from "./UserInfo";
 import CardUser from "./CardUser";
-import { EditUserDataModal } from "@/components/EditUserDataModal";
-import EditPassword from "@/components/EditPassword";
-import { NewProfissinal } from "@/components/NewProfissinal";
+import { EditUserDataModal } from "@/components/Modals/EditUserDataModal";
+import EditPassword from "@/components/Modals/EditPassword";
+import { NewProfissinal } from "@/components/Modals/NewProfissinal";
 // import DropFile from "@/components/DropFile";
 // The import order DOES MATTER here. If you change it, you'll get an error!
 // const EventCalendar = require("react-event-calendar");

@@ -5,8 +5,8 @@ import styles from "./styles.module.scss";
 
 import { PencilIcon } from "@/components/Icons/PencilIcon";
 import { NoteIcon } from "@/components/Icons/NoteIcon";
-import EditAppointmentModal from "@/components/EditAppointmentModal";
-import AnnotationModal from "@/components/AnnotationModal";
+import EditAppointmentModal from "@/components/Modals/EditAppointmentModal";
+import AnnotationModal from "@/components/Modals/AnnotationModal";
 
 import { sliceName } from "@/utils/SliceName";
 

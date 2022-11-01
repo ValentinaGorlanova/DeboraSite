@@ -16,10 +16,10 @@ export default function Navigation() {
             <span>Tela inicial</span>
             </a>
         </Link>
-        {menu.map(item => {
+        {menu.map((item, i) => {
             if(router.pathname === item.link) {
                 return(
-                    <div className={styles.current_link}>
+                    <div className={styles.current_link} key={i}>
                         /{item.icon}
                         { item.name }
                     </div>

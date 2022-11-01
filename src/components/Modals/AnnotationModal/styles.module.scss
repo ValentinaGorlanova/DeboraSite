@@ -1,0 +1,239 @@
+.IconButton {
+  all: unset;
+  font-display: inherit;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $violet;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  cursor: pointer;
+  &:hover {
+    background-color: $violet-hover;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $violet-focus;
+  }
+}
+
+.ButtonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.Main {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+
+  &.defaultColumn {
+    width: 90%;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+
+  &.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.AsideContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  min-height: 466px;
+  overflow-y: auto;
+
+  border: 1px solid $white-second-color;
+
+  &.noBorder {
+    border: none;
+    max-width: 278px;
+    max-height: 120px;
+    min-height: 200px;
+    overflow-y: hidden;
+    gap: 10px;
+  }
+
+  span {
+    @include font-style($font-family-primary, normal, 400, 16px, 24px);
+    color: $black-color;
+  }
+
+  input {
+    padding: 14px 0px 14px 16px;
+    width: 100%;
+    height: 52px;
+    border: 1px solid $brown-color;
+    border-radius: 8px;
+  }
+}
+
+.AsideInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 278px;
+  width: 100%;
+
+  .ApplyMarginTop {
+    margin-top: 10px;
+  }
+}
+
+.filled {
+  width: 181px;
+  height: 43px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $orange-color;
+  color: $white-color;
+}
+
+.SelectsWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  select {
+    padding: 8px 12px;
+    background: $white-color;
+    border: 1px solid $blue-color;
+    border-radius: 12px;
+
+    @include font-style($font-family-primary, normal, 500, 16px, 28px);
+    color: $blue-color;
+  }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
+}
+
+.BackButton {
+  width: 30px;
+  height: 30px;
+
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  font-size: 20px;
+
+  color: $orange-color;
+  background: none;
+  border: none;
+}
+
+.LineForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+
+  p {
+    @include font-style($font-family-primary, normal, 400, 24px, 24px);
+  }
+}
+
+.TitleSection {
+  @include font-style($font-family-primary, normal, 500, 24px, 24px);
+}
+
+@media (max-width: 425px) {
+  .LineForm p {
+    font-size: 14px;
+  }
+
+  .TitleSection {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 510px) {
+  .MissingContent {
+    p {
+      font-size: 14px;
+    }
+
+    p:nth-child(2) {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .noBorder {
+    flex-direction: column;
+    min-height: 200px;
+    justify-content: flex-start;
+  }
+
+  .AsideInputs {
+    width: 100%;
+    max-width: none;
+
+    input: {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .Main.column {
+    flex-direction: column;
+  }
+
+  .SelectsWrapper select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .noBorder {
+    flex-direction: row;
+    max-width: none;
+    min-height: 100px;
+    justify-content: space-between;
+  }
+
+  .TitleSection,
+  .LineForm p {
+    font-size: 20px;
+  }
+
+  .ApplyMarginTop {
+    margin-top: 0;
+  }
+
+  .Main.grid {
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr auto;
+  }
+}

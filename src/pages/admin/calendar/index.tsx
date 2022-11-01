@@ -1,6 +1,6 @@
 import { SEO, CalendarContent } from "../../../components";
 
-import { SSRWithAuth } from "@/lib/SSRWithAuth";
+// import { SSRWithAuth } from "@/lib/SSRWithAuth";
 
 export default function Calendar() {
   return (
@@ -11,6 +11,6 @@ export default function Calendar() {
   );
 }
 
-export const getServerSideProps = SSRWithAuth((props: any) => {
-  return props;
-});
+// export const getServerSideProps = SSRWithAuth((props: any) => {
+//   return props;
+// });

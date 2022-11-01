@@ -1,0 +1,88 @@
+.container {
+    position: relative;
+    
+        h5 {
+            color: $gray-color;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    
+        .side_btns_container {
+            position: absolute;
+            top: -80px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+    
+            div {
+                .side_btn {
+                    display: block;
+                    width: 47px;
+                    height: 51px;
+                    border: 1px solid $white-second-color;
+                    border-radius: 12px;
+                    transition: .3s;
+                    cursor: pointer;
+    
+                    &:hover {
+                        border: 1px solid $blue-color;
+                    }
+    
+                    &:hover ~ p {
+                        display: block;
+                    }
+                }
+    
+                p {
+                    display: none;
+                    font-size: 12px;
+                    color: $blue-color;
+                    text-align: center;
+                    transition: 0.3s;
+                }
+            }
+        }
+    
+
+        .item {
+            font-size: 24px;
+            margin-top: 33px;
+    
+            h3 {
+                font-weight: 700;
+                line-height: 28px;
+                color: $dark-gray;
+                margin: 0 0 5px 0;
+            }
+    
+            .flex_block {
+                display: flex;
+                justify-content: space-between;
+                gap: 50px;  
+                background-color: $white-color;
+                box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
+                border-radius: 10px;
+                padding: 20px;
+    
+                div p {
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 28px;
+                    color: $dark-gray;
+
+                    &.status {
+                        margin-bottom: 12px;
+                    }
+    
+                    span {
+                        color: $gray-color;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+    
+      

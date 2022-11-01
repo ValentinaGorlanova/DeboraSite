@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { GrFormClose } from "react-icons/gr";
-import { RiMenuUnfoldLine, RiMenuFoldLine } from "react-icons/ri";
+import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io";
 
 import styles from "./SidebarMenu.module.scss";
 
@@ -35,7 +35,7 @@ export const menu = [
   {
     icon: <Historic />,
     name: "Histórico",
-    link: "#",
+    link: "/admin/history",
   },
   {
     icon: <Finances />,
@@ -45,7 +45,7 @@ export const menu = [
   {
     icon: <Messages />,
     name: "Mensagens",
-    link: "#",
+    link: "/admin/mensagem",
   },
   {
     icon: <Configs />,
@@ -59,7 +59,7 @@ export const menu = [
   },
 ];
 
-  export function SidebarMenu() {
+export function SidebarMenu() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [menuClicked, setMenuClicked] = useState(false);
@@ -87,11 +87,6 @@ export const menu = [
       name: "Perfil",
       link: "/admin/profile",
     },
-    {
-      icon: <Finances />,
-      name: "Financeiro",
-      link: "/admin/finance",
-    }
   ];
 
   const logo = useRef<any>(null);
@@ -110,28 +105,84 @@ export const menu = [
   return (
     <>
       <div className={`${styles.sidebarmenu} ${open ? styles.open : ""}`}>
-        <button className={styles.menuExpandButton} data-tooltip={!open ? "Expandir" : "Retrair"} onClick={() => setOpen(!open)}>
-          {!open ? <RiMenuUnfoldLine /> : <RiMenuFoldLine />}
-        </button>
-
         <img className={`${styles.logo} ${open ? styles.hidden : ""}`} src="/logoMobile.png" alt="logo" onClick={() => setOpen(!open)} />
         <img className={`${styles.logoExpand} ${!open ? styles.hidden : ""}`} src="/logoDashboard.png" alt="logo" onClick={() => setOpen(!open)} />
 
         {/* <button onClick={handleClick}>{open ? "Abrir" : "Fechar"}</button> */}
 
         <ul onClick={() => setMenuClicked((state) => !state)}>
-          {menu.map((item) => (
-            <li key={item.name} className={router.pathname === item.link ? styles.active : ""}>
-              <NextLink href={item.link}>
-                <a data-tooltip={item.name}>
-                  {item.icon}
-                  <span>{item.name}</span>
-                </a>
-              </NextLink>
-            </li>
-          ))}
+          <li className={router.pathname === "/admin/dashboard" ? styles.active : ""}>
+            <NextLink href="/admin/dashboard">
+              <a data-tooltip="Inicio">
+                <Home />
+                <span>Inicio</span>
+              </a>
+            </NextLink>
+          </li>
+
+          <li className={router.pathname === "/admin/profile" ? styles.active : ""}>
+            <NextLink href="/admin/profile">
+              <a data-tooltip="Cadastro">
+                <User />
+                <span>Cadastro</span>
+              </a>
+            </NextLink>
+          </li>
+
+          <li className={router.pathname === "/admin/history" ? styles.active : ""}>
+            <NextLink href="/admin/history">
+              <a data-tooltip="Histórico">
+                <Historic />
+                <span>Histórico</span>
+              </a>
+            </NextLink>
+          </li>
+
+          <li className={router.pathname === "/admin/finance" ? styles.active : ""}>
+            <NextLink href="/admin/finance">
+              <a data-tooltip="Financeiro">
+                <Finances />
+                <span>Financeiro</span>
+              </a>
+            </NextLink>
+          </li>
+
+          <li className={router.pathname === "/admin/mensagem" ? styles.active : ""}>
+            <NextLink href="/admin/mensagem">
+              <a data-tooltip="Mensagens">
+                <div className={styles.messageContainer}>
+                  <Messages />
+                  <span className={styles.circle}></span>
+                </div>
+                <span>Mensagens</span>
+              </a>
+            </NextLink>
+          </li>
+
+          <li className={router.pathname === "#" ? styles.active : ""}>
+            <NextLink href="#">
+              <a data-tooltip="Configurações">
+                <Configs />
+                <span>Configurações</span>
+              </a>
+            </NextLink>
+          </li>
+
+          <li className={router.pathname === "/logout" ? styles.active : ""}>
+            <NextLink href="/logout">
+              <a data-tooltip="Sair">
+                <Close />
+                <span>Sair</span>
+              </a>
+            </NextLink>
+          </li>
         </ul>
       </div>
+
+      <div className={`${styles.openOrCloseMenu} ${open ? styles.open : ""}`} onClick={() => setOpen(!open)}>
+        {open ? <IoMdArrowDropleft /> : <IoMdArrowDropright />}
+      </div>
+
       {/* Menu Mobile */}
       <div className={styles.sidebarmenuMobile}>
         <ul>

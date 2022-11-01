@@ -9,8 +9,10 @@ import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
 
 import { tryLoginUser } from "@/services/auth";
-import googleLoginAccount from "@/services/firebase/googleAuth";
-import facebookLoginAccount from "@/services/firebase/facebookAuth";
+// import googleLoginAccount from "@/services/firebase/googleAuth";
+// import facebookLoginAccount from "@/services/firebase/facebookAuth";
+
+import { useUserContext } from "@/lib/UserContext";
 
 interface FormProps {
   email: string;
@@ -23,6 +25,7 @@ export function Login() {
   const [textEmail, setTextEmail] = useState("");
 
   const router = useRouter();
+  const { setUserData } = useUserContext();
 
   const schema = yup
     .object({
@@ -69,6 +72,7 @@ export function Login() {
         id: notification,
       });
     }
+    // router.push("/admin/dashboard");
   }
 
   async function handleLoginWithGoogle() {
@@ -81,9 +85,15 @@ export function Login() {
     });
 
     try {
-      await googleLoginAccount();
-      router.push("/admin/dashboard");
+      const userData = await googleLoginAccount();
 
+      setUserData({
+        displayName: userData.displayName,
+        photoURL: userData.photoURL,
+        uid: userData.uid,
+      });
+
+      router.push("/admin/dashboard");
       toast.success("Login feito com sucesso!", {
         id: notification,
       });
@@ -104,9 +114,14 @@ export function Login() {
     });
 
     try {
-      await facebookLoginAccount();
-      router.push("/admin/dashboard");
+      const userData = await facebookLoginAccount();
+      setUserData({
+        displayName: userData.displayName,
+        photoURL: userData.photoURL,
+        uid: userData.uid,
+      });
 
+      router.push("/admin/dashboard");
       toast.success("Login feito com sucesso!", {
         id: notification,
       });
@@ -129,6 +144,7 @@ export function Login() {
 
       <div className={styles.modalLogin}>
         <form onSubmit={handleSubmit(onSubmit)}>
+        {/* <form onSubmit={onSubmit}> */}
           <h1>Faça seu login</h1>
 
           <label>
@@ -164,11 +180,11 @@ export function Login() {
           <Link href="/login/send-email">
             <a className={styles.linkRecover}>Esqueceu sua senha?</a>
           </Link>
-
-          <button type="submit" className={styles.buttonLogin} onClick={() => onSubmit}>
-            Entrar
-          </button>
-
+          {/* <Link href="/admin/dashboard"> */}
+            <button type="submit" className={styles.buttonLogin} onClick={() => onSubmit}>
+              Entrar
+            </button>
+          {/* </Link> */}
           <p>Ou entre com</p>
 
           <div className={styles.loginAlternative}>

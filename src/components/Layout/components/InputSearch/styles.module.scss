@@ -17,6 +17,17 @@
   box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
   border-radius: 48px;
 
+  &.empty {
+    border: 1px solid $red-color;
+
+    > input {
+      &::placeholder {
+        color: $red-color;
+      }
+    }
+
+  }
+
   .buttonSearch {
     width: 50px;
     height: 100%;

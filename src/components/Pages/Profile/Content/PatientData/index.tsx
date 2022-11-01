@@ -2,7 +2,7 @@ import { FaPen } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
 import styles from "./styles.module.scss";
 
-import { EditUserDataModal } from "@/components/EditUserDataModal";
+import { EditUserDataModal } from "@/components/Modals/EditUserDataModal";
 
 export default function PatientData() {
   return (

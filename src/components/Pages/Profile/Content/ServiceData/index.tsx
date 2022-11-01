@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-import DropFile from "@/components/DropFile";
+import DropFile from "@/components/Modals/DropFile";
 
 export default function ServiceData() {
   return (

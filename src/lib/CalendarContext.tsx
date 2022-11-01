@@ -3,7 +3,7 @@ import { createContext, useContext, ReactElement, useState } from "react";
 interface CalendarContextType {
   currentDate: Date;
   selectDayOfWeek: string;
-  handleChangeDay: (value: number) => void;
+  handleChangeDay: (value: number, option: string) => void;
   handleChangeMonthWithClick: (monthNumber: number) => void;
   handleChangeWeekWithClick: (weekDayNumber: number, monthNumber: number) => void;
   handleSelectDayOfWeek: (selectedValue: string) => void;
@@ -14,7 +14,7 @@ const defaultCalendarContext: CalendarContextType = {
   selectDayOfWeek: "week",
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  handleChangeDay: (value: number) => {},
+  handleChangeDay: (value: number, option: string) => {},
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   handleChangeMonthWithClick: (monthNumber: number) => {},
@@ -44,12 +44,12 @@ export function CalendarContextProvider({ children }: CalendarContextProviderTyp
     setSelectDayOfWeek(selectedValue);
   }
 
-  function handleChangeDay(value: number) {
+  function handleChangeDay(value: number, option: string) {
     const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
 
-    if (selectDayOfWeek === "day") newDate.setDate(currentDate.getDate() + value);
-    if (selectDayOfWeek === "month") newDate.setMonth(currentDate.getMonth() + value);
-    if (selectDayOfWeek === "week") newDate.setDate(currentDate.getDate() + value);
+    if (option === "day") newDate.setDate(currentDate.getDate() + value);
+    if (option === "month") newDate.setMonth(currentDate.getMonth() + value);
+    if (option === "week") newDate.setDate(currentDate.getDate() + value);
 
     setCurrentDate(newDate);
   }

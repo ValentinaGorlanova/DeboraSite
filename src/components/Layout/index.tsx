@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
+
 import { BsArrowLeftShort } from "react-icons/bs";
 import styles from "./styles.module.scss";
 
@@ -15,8 +15,7 @@ interface PropsLayout {
 
 export default function Layout({ children }: PropsLayout) {
   const router = useRouter();
-  
-//modified
+
   return (
     <div className={styles.dashboard}>
       <SidebarMenu />
@@ -27,6 +26,7 @@ export default function Layout({ children }: PropsLayout) {
             <button className={styles.backButtom}>
               <BsArrowLeftShort />
             </button>
+
             {router.pathname == '/admin/dashboard' ? <InputSearch /> :  <Navigation/>}
           </div>
 

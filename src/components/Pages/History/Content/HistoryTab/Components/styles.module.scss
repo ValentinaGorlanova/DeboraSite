@@ -1,0 +1,235 @@
+.title {
+    position: relative;
+    @include font-style($font-family-primary, normal, 500, 32px, 40px);
+    color: $dark-gray;
+    width: fit-content;
+    margin-bottom: 65px;
+
+    button {
+        background-color: inherit;
+        cursor: pointer;
+        border: none;
+
+        &.edit {
+            position: absolute;
+            top: 0;
+            right: -40px;
+            padding: 5px;
+        }
+
+        &.save {
+            position: absolute;
+            top: 5px;
+            right: -75px;
+            
+            @include font-style($font-family-primary, normal, 500, 14px, 18px);
+            border: 2px solid $orange-color;
+            border-radius: 8px;
+            color: $orange-color;
+            padding: 5px 10px;
+
+            &:hover {
+                background-color: $orange-color3;
+                border-color: $orange-color3;
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.tabContent {
+    position: relative;
+    background-color: $white-nine-color;
+    border-radius: 48px;
+    box-shadow: 8px 7px 36px rgba(0, 0, 0, 0.25);
+    font-size: 50px;
+    padding: 61px 71px;
+    max-height: 697px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+
+    &::before {
+        position: absolute;
+        width: 100%;
+        height: 61px;
+        left: 0;
+        top: 0;
+        content: "";
+        background-color: #f4f7f7;
+        z-index: 100;
+        border-radius: 48px 48px 0 0;
+    }
+
+    .flex_block {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 62px 30px;
+
+        &:first-child {
+            margin-bottom: 150px;
+        }
+    }
+
+    .Label {
+        @include font-style($font-family-primary, normal, 500, 24px, 29px);
+        color: $dark-gray;
+        min-width: 187px;
+    }
+    
+    .InputWrapper {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 15px 0;
+        width: 300px;
+    }
+
+    .TextWrapper {
+        margin-bottom: 65px;
+
+        p {
+            &.Label {
+                margin-bottom: 32px;
+            }
+        }
+    }
+    
+    .Input, .Input:-internal-autofill-selected, .Textarea {
+        all: unset;
+        width: 90%;
+        max-width: 291px;
+        padding: 12px;
+        gap: 22px;
+        background-color: $white-color !important;
+        border: 1px solid $dark-gray;
+        border-radius: 12px;
+        
+        @include font-style($font-family-primary, normal, 600, 18px, 26px);
+        color: $dark-gray;
+
+        &::placeholder {
+            color: $dark-gray;
+            opacity: 1;
+        }
+
+        &:disabled {
+            border: 1px solid $light-gray-color;
+            color: $light-gray-color;
+
+            &::placeholder {
+                color: $light-gray-color;
+            }
+        }
+    }
+
+    .Textarea {
+        max-width: none;
+        width: 100%;
+        height: 330px;
+        overflow-y: scroll;
+        padding: 16px 29px;
+        box-sizing: border-box;
+
+        
+        @include font-style($font-family-primary, normal, 500, 20px, 28px);
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+    }
+
+    .items_block {
+        height: auto;
+    }
+
+    .radio_btns {
+        display: flex;
+        justify-content: flex-start;
+        gap: 140px;
+
+        @include font-style($font-family-primary, normal, 400, 12px, 14px);
+
+        .radio {
+            margin: 0.5rem;
+            position: relative;
+
+            .radio_label {
+                padding-bottom: 5px;
+            }
+            
+            input[type="radio"] {
+              position: absolute;
+              opacity: 0;
+              + .radio_label {
+                &:before {
+                  content: '';
+                  background: inherit;
+                  border-radius: 100%;
+                  border: 1px solid $light-gray-color;
+                  display: inline-block;
+                  width: 18px;
+                  height: 18px;
+                  margin-right: 10px; 
+                  cursor: pointer;
+                  vertical-align: middle;
+                  transition: all 250ms ease;
+                }
+              }
+              &:checked {
+                + .radio_label {
+                  &::before {
+                    border-color: $orange-color;
+                  }
+
+                  &::after {
+                    content: "";
+                    background: $orange-color;
+                    border-radius: 100%;
+                    display: block;
+                    width: 12px;
+                    height: 12px;
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    cursor: pointer;
+                  }
+                }
+              }
+              &:focus {
+                + .radio_label {
+                  &:before {
+                    outline: none;
+                    border-color: $orange-color;
+                  }
+                }
+              }
+              &:disabled {
+                + .radio_label {
+                  &:before {
+                    border-color: $light-gray-color;
+                    cursor: default;
+                  }
+
+                  &::after {
+                    content: "";
+                    background: $light-gray-color;
+                    cursor: default;
+                  }
+                }
+              }
+              + .radio_label {
+                &:empty {
+                  &:before {
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
+          }
+    }
+}

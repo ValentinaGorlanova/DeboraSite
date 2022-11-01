@@ -1,8 +1,6 @@
 import { FinanceContent, SEO } from "@/components";
 
-import { SSRWithAuth } from "@/lib/SSRWithAuth";
-
-export default function Profile() {
+export default function Finance() {
   return (
     <>
       <SEO title="Finance" />
@@ -10,7 +8,3 @@ export default function Profile() {
     </>
   );
 }
-
-export const getServerSideProps = SSRWithAuth((props: any) => {
-  return props;
-});

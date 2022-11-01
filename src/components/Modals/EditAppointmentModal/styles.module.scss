@@ -1,0 +1,187 @@
+.IconButton {
+  all: unset;
+  font-family: inherit;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $violet;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  &:hover {
+    background-color: $violet-hover;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $violet-focus;
+  }
+}
+
+.LabelData {
+  @include font-style($font-family-primary, normal, 400, 18px, 26px);
+  color: $text-black-color;
+}
+
+.DataWrapper {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+  gap: 5px;
+
+  &.column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  select {
+    // width: "248px";
+    height: 44px;
+    padding: 8px 12px;
+    background: $white-color;
+    border: 1px solid $blue-color;
+    border-radius: 12px;
+
+    @include font-style($font-family-primary, normal, 400, 20px, 24px);
+    color: $blue-color;
+  }
+}
+
+.SubTitle {
+  @include font-style($font-family-primary, normal, 600, 20px, 26px);
+  color: $text-black-color;
+  margin-bottom: 16px;
+}
+
+.ButtonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.ButtonsModal {
+  width: 181px;
+  height: 43px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  @include font-style($font-family-primary, normal, 600, 16px, 19px);
+
+  background: $orange-color;
+  color: $white-color;
+}
+
+.InputsWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    div {
+      width: 14px;
+      height: 3px;
+      border-radius: 5px;
+      background: $blue-color;
+    }
+  }
+}
+
+.HourInput {
+  padding: 4px 8px;
+  gap: 4px;
+
+  width: 114px;
+  height: 38px;
+
+  @include font-style($font-family-primary, normal, 600, 20px, 26px);
+  color: $blue-color;
+  background: $white-color;
+  border: 1px solid $blue-color;
+  border-radius: 12px;
+}
+
+.DateInput {
+  padding: 4px 8px;
+  gap: 4px;
+
+  width: 159px;
+  height: 50px;
+
+  @include font-style($font-family-primary, normal, 600, 19px, 26px);
+  color: $blue-color;
+  background: $white-color;
+  border: 1px solid $blue-color;
+  border-radius: 12px;
+}
+
+.RadioLabel {
+  @include font-style($font-family-primary, normal, 400, 20px, 26px);
+  color: $text-black-color;
+  margin-left: 8px;
+  margin-right: 20px;
+}
+
+.StatusLabel {
+  @include font-style($font-family-primary, normal, 600, 20px, 26px);
+  color: $text-black-color;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.RadioContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.Flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 425px) {
+  .SubTitle {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .DataWrapper select {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .InputsWrapper input {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .RadioLabel {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .StatusLabel {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

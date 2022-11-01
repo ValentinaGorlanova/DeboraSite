@@ -10,9 +10,13 @@ import IconConsultationDashboard from "@/components/Icons/IconConsultationDashbo
 import IconFinancesDashboard from "@/components/Icons/IconFinancesDashboard";
 import IconPromptuaryDashboard from "@/components/Icons/IconPromptuaryDashboard";
 
-import NewRequestModal from "@/components/NewRequestModal";
+import NewRequestModal from "@/components/Modals/NewRequestModal";
+
+import { useUserContext } from "@/lib/UserContext";
 
 export default function Content() {
+  const { userData } = useUserContext();
+
   const CardData = [
     {
       id: 1,
@@ -62,11 +66,11 @@ export default function Content() {
     <div className={styles.container}>
       {/* Banner  */}
       <div className={styles.bannerDashboard}>
-        <h1 className={styles.firstTitle}>Olá, Dra. Débora Barros</h1>
+        <h1 className={styles.firstTitle}>Olá, Dra. {userData.displayName}</h1>
 
         <div className={styles.containerSub}>
           <div>
-            <h1 className={styles.secondTitle}>Olá, Dra. Débora Barros</h1>
+            <h1 className={styles.secondTitle}>Olá, Dra. {userData.displayName}</h1>
             <p>Saiba quais são os seu principais compromissos do dia.</p>
           </div>
 

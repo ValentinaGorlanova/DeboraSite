@@ -1,0 +1,70 @@
+.container {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 188px;
+
+        .side_btns_container {
+            position: absolute;
+            top: -80px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+    
+            div {
+                .side_btn {
+                    display: block;
+                    width: 47px;
+                    height: 51px;
+                    border: 1px solid $white-second-color;
+                    border-radius: 12px;
+                    transition: .3s;
+                    cursor: pointer;
+    
+                    &:hover {
+                        border: 1px solid $blue-color;
+                    }
+    
+                    &:hover ~ p {
+                        display: block;
+                    }
+                }
+    
+                p {
+                    display: none;
+                    font-size: 12px;
+                    color: $blue-color;
+                    text-align: center;
+                    transition: 0.3s;
+                }
+            }
+        }
+
+        .tabsSection {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 49px;
+
+            button {
+                width: 105px;
+                height: 40px;
+                background-color: $white-second-color;
+                color: $dark-gray;
+
+                @include font-style($font-family-primary, normal, 700, 12px, 13px);
+
+                border-radius: 12px 12px 0 0;
+                box-shadow: 2px 2px 4px $box-shadow-color1, 4px 4px 32px $box-shadow-color2;
+                border: none;
+
+                padding: 11px 0;
+
+
+                &.active {
+                    background-color: $white-nine-color;
+                    z-index: 100;
+                }
+            }
+        }
+    }

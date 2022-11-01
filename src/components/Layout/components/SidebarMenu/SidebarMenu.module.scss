@@ -46,7 +46,7 @@
 
   .logoExpand {
     display: block;
-    width: 196px;
+    width: 156px;
     height: 54px;
     cursor: pointer;
 
@@ -110,7 +110,7 @@
       font-weight: 300;
       font-size: 18px;
       line-height: 26px;
-      color: #3a4d65;
+      color: $blue-color;
       cursor: pointer;
       transition: 0.1s;
       //   position: relative;
@@ -179,37 +179,35 @@
   }
 }
 
-.menuExpandButton {
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
+.openOrCloseMenu {
+  display: none;
+  position: absolute;
 
-  background: none;
-  border: none;
   cursor: pointer;
 
-  &:hover {
-    color: $orange-color;
+  align-items: center;
+  justify-content: center;
 
-    &::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      display: block;
+  font-size: 30px;
+  z-index: 50;
 
-      padding: 0 10px;
-      height: 30px;
-      min-width: 50px;
-      line-height: 30px;
+  height: 60px;
+  width: 30px;
 
-      text-align: center;
+  top: 20px;
+  left: 80px;
 
-      font-size: 15px;
-      background: $white-color;
-      color: $orange-color;
-      border-radius: 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 
-      box-shadow: 0px 4px 4px rgba(185, 217, 217, 0.52), 0px 4px 8px 4px rgba(224, 228, 228, 0.18);
-    }
+  color: $orange-color;
+  background: $white-color;
+  box-shadow: 0px 4px 4px rgba(185, 217, 217, 0.52), 0px 4px 8px 4px rgba(224, 228, 228, 0.18);
+
+  transition: 1s;
+
+  &.open {
+    left: 200px;
   }
 }
 
@@ -253,7 +251,6 @@
     display: block;
     // border: 1px solid red;
     z-index: 190;
-    bottom: 0;
 
     width: 100%;
     height: 84px;
@@ -264,6 +261,7 @@
     // display: flex;
     // align-items: center;
 
+    bottom: 0;
     position: fixed;
 
     ul {
@@ -375,6 +373,17 @@
     opacity: 1;
   }
 
+  @media (max-width: 425px) {
+    position: fixed;
+    top: inherit;
+    bottom: -100%;
+
+    &.show {
+      top: inherit;
+      bottom: 80px;
+    }
+  }
+
   a {
     li {
       display: flex;
@@ -388,9 +397,9 @@
       display: none;
     }
 
-    &:hover {
-      background: red;
-    }
+    // &:hover {
+    //   background: red;
+    // }
 
     span {
       svg {
@@ -406,6 +415,25 @@
   }
 }
 
+.messageContainer {
+  position: relative;
+
+  .circle {
+    content: "";
+    display: block;
+
+    width: 10px;
+    height: 10px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    border-radius: 5px;
+    background: $red-color;
+  }
+}
+
 @media (min-width: 426px) and (max-width: 1023px) {
   .sidebarmenu {
     display: none;
@@ -413,5 +441,11 @@
 
   .buttonMenu {
     display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .openOrCloseMenu {
+    display: flex;
   }
 }

@@ -1,9 +1,5 @@
 @mixin style_font_h1 {
-  font-family: $font-family-four;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 43px;
+  @include font-style($font-family-four, normal, 400, 32px, 43px);
   color: $black-color;
 
   @media (max-width: 500px) {
@@ -13,11 +9,7 @@
 }
 
 @mixin style_font_span {
-  font-family: $font-family-primary;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
+  @include font-style($font-family-primary, normal, 500, 16px, 26px);
   text-decoration-line: underline;
   color: $orange-color;
   opacity: 0.7;
@@ -29,11 +21,7 @@
 }
 
 @mixin style_font_span_local {
-  font-family: $font-family-primary;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  @include font-style($font-family-primary, normal, 400, 16px, 26px);
   color: $black-color;
   opacity: 0.7;
 

@@ -1,6 +1,6 @@
 import { ProfileContent, SEO } from "@/components";
 
-import { SSRWithAuth } from "@/lib/SSRWithAuth";
+// import { SSRWithAuth } from "@/lib/SSRWithAuth";
 
 export default function Profile() {
   return (
@@ -11,6 +11,6 @@ export default function Profile() {
   );
 }
 
-export const getServerSideProps = SSRWithAuth((props: any) => {
-  return props;
-});
+// export const getServerSideProps = SSRWithAuth((props: any) => {
+//   return props;
+// });

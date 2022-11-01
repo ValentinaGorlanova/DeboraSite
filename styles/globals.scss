@@ -23,6 +23,17 @@ a {
   text-decoration: none;
 }
 
+.jc_start {
+  justify-content: flex-start !important;
+}
+
+.require {
+  border: 1px solid $red-color !important;
+
+  &::placeholder {
+    color: $red-color;
+  }
+}
 // input[type="checkbox"] {
 //   display: none;
 

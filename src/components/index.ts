@@ -29,5 +29,11 @@ export * from "./Pages/CalendarContent";
 // Pages Profile
 export * from "./Pages/Profile";
 
+// Pages Mensagem
+export * from "./Pages/Mensagem";
+
 // Pages Finance
 export * from "./Pages/Finance";
+
+// Pages History
+export * from "./Pages/History";

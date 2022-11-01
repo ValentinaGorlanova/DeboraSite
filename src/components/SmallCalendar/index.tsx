@@ -57,7 +57,7 @@ export default function SmallCalendar() {
         <p>QUA</p>
         <p>QUI</p>
         <p>SEX</p>
-        <p>DOM</p>
+        <p>SAB</p>
 
         {daysMonth.map((day) => (
           <div
